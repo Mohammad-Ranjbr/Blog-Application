@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "users")
 @NoArgsConstructor
 public class User {
@@ -21,14 +23,4 @@ public class User {
     private String about;
     private String password;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", about='" + about + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

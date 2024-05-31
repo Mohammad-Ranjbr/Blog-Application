@@ -53,6 +53,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUserById(Long user_id) {
         User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
+        //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
+        // This class is a container that may contain a value (which is present) or no value (which is empty).
+        //Optional is a powerful tool for handling null values and makes code safer and more readable.
+        //Correct use of Optional can help prevent NullPointerException and improve code readability and maintainability.
+        //With Optional, you can easily check if a value exists and take the appropriate action.
         Optional<User> optionalUser = userRepository.findById(user_id);
         Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
         optionalUser.ifPresent(printUserDetails);
