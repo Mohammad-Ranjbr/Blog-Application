@@ -3,6 +3,7 @@ package com.blog_application.controller;
 import com.blog_application.dto.UserDto;
 import com.blog_application.service.UserService;
 import com.blog_application.util.ApiResponse;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class UserController {
 
     //POST Mapping-Create User
     @PostMapping("/")
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
         logger.info("Received request to create user: {}", userDto.getEmail());
         UserDto createdUser = this.userService.createUser(userDto);
         logger.info("Returning response for user creation: {}", createdUser.getEmail());
@@ -44,7 +45,7 @@ public class UserController {
 
     //PUT Mapping-Update User
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@PathVariable("id") Long user_id){
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto,@PathVariable("id") Long user_id){
         logger.info("Received request to update user with ID : {}",user_id);
         UserDto updatedUser = userService.updateUser(userDto,user_id);
         logger.info("Returning response for updated user with ID : {}",user_id);

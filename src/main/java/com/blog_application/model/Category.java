@@ -7,19 +7,17 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Getter
 @Setter
+@Getter
 @ToString
-@Table(name = "users")
 @NoArgsConstructor
-public class User {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String about;
-    private String password;
+    private String title;
+    private String description;
 
 }
