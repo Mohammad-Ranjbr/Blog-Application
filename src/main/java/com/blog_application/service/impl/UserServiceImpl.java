@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +41,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(Long user_id) {
+        //Lambda Expression : Passing a function as an argument to another function
+        //orElseThrow is a method that takes a Supplier as an argument. Supplier is a functional interface that accepts no parameters and returns a result. Here, the expected result is an exception.
+        //Consumer is a functional interface in Java that takes an input and returns no result. Consumer is typically used for operations that take a parameter and return nothing (such as a print operation).
+        //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
+        //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
         userRepository.delete(user);
     }
@@ -46,6 +53,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUserById(Long user_id) {
         User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
+        Optional<User> optionalUser = userRepository.findById(user_id);
+        Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
+        optionalUser.ifPresent(printUserDetails);
         return this.userToUserDto(user);
     }
 
