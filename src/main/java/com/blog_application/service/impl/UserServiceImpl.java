@@ -1,6 +1,7 @@
 package com.blog_application.service.impl;
 
 import com.blog_application.dto.UserDto;
+import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.User;
 import com.blog_application.repository.UserRepository;
 import com.blog_application.service.UserService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -24,7 +26,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> getAllUsers() {
-        return null;
+        List<User> users = userRepository.findAll();
+        return users.stream().map(this::userToUserDto).collect(Collectors.toList());
     }
 
     @Override
@@ -36,17 +39,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(Long user_id) {
-
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
+        userRepository.delete(user);
     }
 
     @Override
     public UserDto getUserById(Long user_id) {
-        return null;
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
+        return this.userToUserDto(user);
     }
 
     @Override
-    public UserDto updateUser(UserDto user, Long user_id) {
-        return null;
+    public UserDto updateUser(UserDto userDto, Long user_id) {
+        User user = this.userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        user.setAbout(userDto.getAbout());
+        user.setPassword(userDto.getPassword());
+        return this.userToUserDto(userRepository.save(user));
     }
 
     @Override
