@@ -13,6 +13,8 @@ public class ErrorResponse {
 
     private int status;
     private String message;
+    private String action;
+    private boolean success;
     private long timestamp;
 
 }

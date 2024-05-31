@@ -47,7 +47,7 @@ public class UserController {
     public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@PathVariable("id") Long user_id){
         logger.info("Received request to update user with ID : {}",user_id);
         UserDto updatedUser = userService.updateUser(userDto,user_id);
-        logger.info("Returning response for updated user with ID : {}",user_id);git 
+        logger.info("Returning response for updated user with ID : {}",user_id);
         return new ResponseEntity<>(updatedUser,HttpStatus.OK);
     }
 

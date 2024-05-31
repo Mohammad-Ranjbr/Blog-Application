@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
         //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",user_id);
-        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Delete User not performed"));
         userRepository.delete(user);
         logger.info("User with ID {} deleted successfully",user.getId());
     }
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUserById(Long user_id) {
         logger.info("Fetching user with ID : {}",user_id);
-        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id)));
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User not performed"));
         //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
         // This class is a container that may contain a value (which is present) or no value (which is empty).
         //Optional is a powerful tool for handling null values and makes code safer and more readable.
@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
             return savedUser;
         }).orElseThrow(() -> {
             logger.warn("User with ID {} not found, update not performed", user_id);
-            return new ResourceNotFoundException("User","ID",String.valueOf(user_id));
+            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Update User not performed");
         });
         return this.userToUserDto(userRepository.save(updatedUser));
     }
