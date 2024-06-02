@@ -39,8 +39,10 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
     }
 
+    //This error is due to the fact that the value you put in the fields exceeds the length specified in the database.
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ApiResponse> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException dataIntegrityViolationException){
+        System.out.println("DataIntegrityViolationException message : " + dataIntegrityViolationException.getMessage());
         return new ResponseEntity<>(new ApiResponse("Input value is too long for the field",false),HttpStatus.BAD_REQUEST);
     }
 
