@@ -55,7 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
             category.setTitle(categoryDto.getTitle());
             category.setDescription(categoryDto.getDescription());
             Category savedCategory = categoryRepository.save(category);
-            logger.info("Category with ID {} updated successfully",categoryDto);
+            logger.info("Category with ID {} updated successfully",category_id);
             return savedCategory;
         }).orElseThrow(() -> {
             logger.warn("Category with ID {} not found, update not performed",category_id);
