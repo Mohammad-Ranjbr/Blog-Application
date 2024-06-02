@@ -6,6 +6,8 @@ import com.blog_application.model.Category;
 import com.blog_application.repository.CategoryRepository;
 import com.blog_application.service.CategoryService;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,52 +19,64 @@ import java.util.stream.Collectors;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
+    private final CategoryRepository categoryRepository;
+    private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     @Autowired
     public CategoryServiceImpl(CategoryRepository categoryRepository,ModelMapper modelMapper){
-        this.categoryRepository = categoryRepository;
         this.modelMapper = modelMapper;
+        this.categoryRepository = categoryRepository;
     }
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
+        logger.info("Creating user : {}",categoryDto.getId());
         Category category = this.categoryDtoToCategory(categoryDto);
         Category savedCategory = categoryRepository.save(category);
+        logger.info("User created successfully : {}",savedCategory.getId());
         return this.categoryToCategoryDto(savedCategory);
     }
 
     @Override
     public CategoryDto getCategoryById(Long category_id) {
+        logger.info("Fetching user with ID : {}",category_id);
         Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category not performed"));
         Optional<Category> optionalCategory = categoryRepository.findById(category_id);
         Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
         optionalCategory.ifPresent(printCategoryDetails);
+        logger.info("User found with ID : {}",category_id);
         return this.categoryToCategoryDto(category);
     }
 
     @Override
     public CategoryDto updateCategory(CategoryDto categoryDto, Long category_id) {
+        logger.info("Updating user with ID : {}",category_id);
         Category updatedCategory = categoryRepository.findById(category_id).map(category -> {
             category.setTitle(categoryDto.getTitle());
             category.setDescription(categoryDto.getDescription());
             Category savedCategory = categoryRepository.save(category);
+            logger.info("User with ID {} updated successfully",categoryDto);
             return savedCategory;
         }).orElseThrow(() -> {
-                return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Update Category not performed");
+            logger.warn("User with ID {} not found, update not performed",category_id);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Update Category not performed");
         });
         return this.categoryToCategoryDto(updatedCategory);
     }
 
     @Override
     public List<CategoryDto> getAllCategories() {
+        logger.info("Fetching all users");
         List<Category> categories = categoryRepository.findAll();
+        logger.info("Total users found : {}",categories.size());
         return categories.stream().map(this::categoryToCategoryDto).collect(Collectors.toList());
     }
 
     @Override
     public void deleteCategory(Long category_id) {
+        logger.info("Deleting category with ID : {}",category_id);
         Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Delete Category not performed"));
+        logger.info("User with ID {} deleted successfully",category_id);
         categoryRepository.delete(category);
     }
 

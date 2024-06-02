@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         logger.info("Creating user : {}",userDto.getEmail());
         User user = this.userDtoToUser(userDto);
         User savedUser = userRepository.save(user);
-        logger.info("User created successfully : {}",user.getEmail());
+        logger.info("User created successfully : {}",savedUser.getEmail());
         return this.userToUserDto(savedUser);
     }
 
