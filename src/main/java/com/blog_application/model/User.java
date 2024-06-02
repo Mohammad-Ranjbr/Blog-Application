@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -19,7 +21,10 @@ public class User {
     private Long id;
     private String name;
     private String email;
+    @Column(nullable = false , length = 1000)
     private String about;
     private String password;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Post> posts;
 
 }

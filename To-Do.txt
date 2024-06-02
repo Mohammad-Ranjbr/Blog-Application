@@ -1,0 +1,2 @@
+validation for all model`s
+DataIntegrityViolationException -> get specific feild`s
