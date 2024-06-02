@@ -19,6 +19,7 @@ public class User {
     private Long id;
     private String name;
     private String email;
+    @Column(nullable = false , length = 1000)
     private String about;
     private String password;
 

@@ -1,5 +1,7 @@
 package com.blog_application.exception;
 
+import com.blog_application.util.ApiResponse;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -35,6 +37,11 @@ public class GlobalExceptionHandler {
             errors.put(fieldName,message);
         });
         return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ApiResponse> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException dataIntegrityViolationException){
+        return new ResponseEntity<>(new ApiResponse("Input value is too long for the field",false),HttpStatus.BAD_REQUEST);
     }
 
 }
