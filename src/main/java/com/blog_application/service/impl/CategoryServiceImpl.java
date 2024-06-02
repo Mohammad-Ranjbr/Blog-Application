@@ -40,7 +40,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto getCategoryById(Long category_id) {
         logger.info("Fetching category with ID : {}",category_id);
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category not performed"));
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, get category not performed",category_id);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category not performed");
+        });
         Optional<Category> optionalCategory = categoryRepository.findById(category_id);
         Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
         optionalCategory.ifPresent(printCategoryDetails);
@@ -58,7 +61,7 @@ public class CategoryServiceImpl implements CategoryService {
             logger.info("Category with ID {} updated successfully",category_id);
             return savedCategory;
         }).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, update not performed",category_id);
+            logger.warn("Category with ID {} not found, update category not performed",category_id);
             return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Update Category not performed");
         });
         return this.categoryToCategoryDto(updatedCategory);
@@ -75,7 +78,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteCategory(Long category_id) {
         logger.info("Deleting category with ID : {}",category_id);
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Delete Category not performed"));
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, delete category not performed",category_id);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Delete Category not performed");
+        });
         logger.info("Category with ID {} deleted successfully",category_id);
         categoryRepository.delete(category);
     }

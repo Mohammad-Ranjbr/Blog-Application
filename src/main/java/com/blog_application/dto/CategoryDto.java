@@ -13,7 +13,7 @@ public class CategoryDto {
 
     private Long id;
     @NotBlank
-    @Size(min = 4)
+    @Size(min = 2)
     private String title;
     @NotBlank
     @Size(min = 10)
