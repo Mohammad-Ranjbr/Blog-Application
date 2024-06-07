@@ -41,4 +41,18 @@ public class PostController {
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
+    //GET Mapping-Get All Posts
+    @GetMapping("/")
+    public ResponseEntity<List<PostDto>> getAllPosts(){
+        List<PostDto> posts = postService.getAllPosts();
+        return new ResponseEntity<>(posts,HttpStatus.OK);
+    }
+
+    //GET Mapping-Get Post By ID
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDto> git (@PathVariable("id") Long post_id){
+        PostDto postDto = postService.getPostById(post_id);
+        return new ResponseEntity<>(postDto,HttpStatus.OK);
+    }
+
 }
