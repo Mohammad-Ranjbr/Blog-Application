@@ -57,24 +57,26 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> getAllPosts() {
-        return null;
+        List<Post> posts = postRepository.findAll();
+        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
     public PostDto getPostById(Long post_id) {
-        return null;
+        Post post = postRepository.findById(post_id).orElseThrow(() -> new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed"));
+        return postMapper.toDto(post);
     }
 
     @Override
     public List<PostDto> getPostsByUser(Long user_id) {
-        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User not performed"));
-       List<Post> posts = postRepository.findAllByUser(user);
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User not performed"));
+        List<Post> posts = postRepository.findAllByUser(user);
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
     public List<PostDto> getPostsByCategory(Long category_id) {
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category not performed"));
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category not performed"));
         List<Post> posts = postRepository.findAllByCategory(category);
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
