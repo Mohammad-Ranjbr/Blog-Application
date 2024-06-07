@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -30,6 +31,8 @@ public class Post {
     //LocalDateTime is newer than Date , and hase newer and powerful api than Date
     //not save information about zone
     private LocalDateTime creationDate;
+    @UpdateTimestamp
+    private LocalDateTime updatedDate;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
