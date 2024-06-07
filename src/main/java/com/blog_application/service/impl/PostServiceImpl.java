@@ -10,6 +10,7 @@ import com.blog_application.repository.CategoryRepository;
 import com.blog_application.repository.PostRepository;
 import com.blog_application.repository.UserRepository;
 import com.blog_application.service.PostService;
+import com.blog_application.util.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -59,11 +60,19 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getAllPosts(int pageNumber,int pageSize) {
+    public PostResponse getAllPosts(int pageNumber, int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber,pageSize);
-        Page<Post> postPages = postRepository.findAll(pageable);
-        List<Post> posts = postPages.getContent();
-        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
+        Page<Post> postPage = postRepository.findAll(pageable);
+        List<Post> posts = postPage.getContent();
+        List<PostDto> postDtoList = posts.stream().map(postMapper::toDto).toList();
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(postDtoList);
+        postResponse.setPageNumber(postPage.getNumber());
+        postResponse.setPageSize(postPage.getSize());
+        postResponse.setTotalPages(postPage.getTotalPages());
+        postResponse.setTotalElements(postPage.getTotalElements());
+        postResponse.setLastPage(postResponse.isLastPage());
+        return postResponse;
     }
 
     @Override
