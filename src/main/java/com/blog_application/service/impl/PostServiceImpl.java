@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -24,7 +25,7 @@ public class PostServiceImpl implements PostService {
     private final CategoryRepository categoryRepository;
 
     @Autowired
-    public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserRepository userRepository,CategoryRepository categoryRepository){
+    public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserRepository userRepository, CategoryRepository categoryRepository){
         this.postMapper =  postMapper;
         this.postRepository = postRepository;
         this.userRepository = userRepository;
@@ -66,12 +67,16 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> getPostsByUser(Long user_id) {
-        return null;
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User not performed"));
+       List<Post> posts = postRepository.findAllByUser(user);
+        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
     public List<PostDto> getPostsByCategory(Long category_id) {
-        return null;
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category not performed"));
+        List<Post> posts = postRepository.findAllByCategory(category);
+        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
