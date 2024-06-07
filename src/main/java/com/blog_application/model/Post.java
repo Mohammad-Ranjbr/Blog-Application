@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +20,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long post;
+    private Long id;
     @Column(nullable = false,length = 100)
     private String title;
     @Column(length = 1000)
@@ -30,6 +31,8 @@ public class Post {
     //LocalDateTime is newer than Date , and hase newer and powerful api than Date
     //not save information about zone
     private LocalDateTime creationDate;
+    @UpdateTimestamp
+    private LocalDateTime updatedDate;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;

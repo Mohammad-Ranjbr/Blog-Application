@@ -1,0 +1,29 @@
+package com.blog_application.config;
+
+import com.blog_application.dto.PostDto;
+import com.blog_application.model.Post;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class PostMapper {
+
+    private final ModelMapper modelMapper;
+
+    @Autowired
+    public PostMapper(ModelMapper modelMapper){
+        this.modelMapper = modelMapper;
+        modelMapper.createTypeMap(Post.class, PostDto.class)
+                .addMapping(Post::getCategory,PostDto::setCategoryDto)
+                .addMapping(Post::getUser,PostDto::setUserDto);
+    }
+    public PostDto toDto(Post post){
+        return modelMapper.map(post,PostDto.class);
+    }
+
+    public Post toEntity(PostDto postDto){
+        return modelMapper.map(postDto,Post.class);
+    }
+
+}
