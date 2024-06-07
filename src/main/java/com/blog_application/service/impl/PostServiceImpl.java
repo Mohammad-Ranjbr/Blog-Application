@@ -1,7 +1,16 @@
 package com.blog_application.service.impl;
 
+import com.blog_application.dto.PostDto;
+import com.blog_application.exception.ResourceNotFoundException;
+import com.blog_application.model.Category;
 import com.blog_application.model.Post;
+import com.blog_application.model.User;
+import com.blog_application.repository.CategoryRepository;
+import com.blog_application.repository.PostRepository;
+import com.blog_application.repository.UserRepository;
 import com.blog_application.service.PostService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,13 +18,34 @@ import java.util.List;
 @Service
 public class PostServiceImpl implements PostService {
 
+    private final ModelMapper modelMapper;
+    private final PostRepository postRepository;
+    private final UserRepository userRepository;
+    private final CategoryRepository categoryRepository;
+
+    @Autowired
+    public PostServiceImpl(ModelMapper modelMapper,PostRepository postRepository,UserRepository userRepository,CategoryRepository categoryRepository){
+        this.modelMapper = modelMapper;
+        this.postRepository = postRepository;
+        this.userRepository = userRepository;
+        this.categoryRepository = categoryRepository;
+    }
+
+
     @Override
-    public Post createPost(Post post) {
-        return null;
+    public PostDto createPost(PostDto postDto,Long user_id,Long category_id) {
+        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User not performed"));
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category not performed"));
+        Post post = this.postDtoToPost(postDto);
+        post.setUser(user);
+        post.setCategory(category);
+        post.setImageName("default.png");
+        Post savedPost = postRepository.save(post);
+        return this.postToPostDto(savedPost);
     }
 
     @Override
-    public Post updatePost(Post post, Long post_id) {
+    public PostDto updatePost(PostDto post, Long post_id) {
         return null;
     }
 
@@ -25,28 +55,38 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getAllPosts() {
+    public List<PostDto> getAllPosts() {
         return null;
     }
 
     @Override
-    public Post getPostById(Long post_id) {
+    public PostDto getPostById(Long post_id) {
         return null;
     }
 
     @Override
-    public List<Post> getPostsByUser(Long user_id) {
+    public List<PostDto> getPostsByUser(Long user_id) {
         return null;
     }
 
     @Override
-    public List<Post> getPostsByCategory(Long category_id) {
+    public List<PostDto> getPostsByCategory(Long category_id) {
         return null;
     }
 
     @Override
-    public List<Post> searchPosts(String keyword) {
+    public List<PostDto> searchPosts(String keyword) {
         return null;
     }
-    
+
+    @Override
+    public Post postDtoToPost(PostDto postDto) {
+        return modelMapper.map(postDto,Post.class);
+    }
+
+    @Override
+    public PostDto postToPostDto(Post post) {
+        return modelMapper.map(post,PostDto.class);
+    }
+
 }
