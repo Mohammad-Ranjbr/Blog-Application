@@ -1,7 +1,6 @@
 package com.blog_application.service;
 
 import com.blog_application.dto.PostDto;
-import com.blog_application.model.Post;
 
 import java.util.List;
 
@@ -15,7 +14,5 @@ public interface PostService {
     List<PostDto> getPostsByUser(Long user_id);
     List<PostDto> getPostsByCategory(Long category_id);
     List<PostDto> searchPosts(String keyword);
-    Post postDtoToPost(PostDto postDto);
-    PostDto postToPostDto(Post post);
 
 }

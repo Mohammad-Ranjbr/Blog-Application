@@ -1,7 +1,5 @@
 package com.blog_application.dto;
 
-import com.blog_application.model.Category;
-import com.blog_application.model.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +17,7 @@ public class PostDto {
     private String imageName;
     private LocalDateTime creationDate;
     private LocalDateTime updatedDate;
-    private Category category;
-    private User user;
+    private CategoryDto categoryDto;
+    private UserDto userDto;
 
 }
