@@ -9,37 +9,25 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @ToString
+@Table(name = "comments")
 @NoArgsConstructor
-@Table(name = "posts")
-public class Post {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false,length = 100)
-    private String title;
-    @Column(length = 1000)
     private String content;
-    private String imageName;
     @CreationTimestamp
     @Column(updatable = false)
-    //LocalDateTime is newer than Date , and hase newer and powerful api than Date
-    //not save information about zone
     private LocalDateTime creationDate;
     @UpdateTimestamp
     private LocalDateTime updatedDate;
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
-    @ManyToOne
-    private User user;
-    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<Comment> comments;
+    private Post post;
 
 }
