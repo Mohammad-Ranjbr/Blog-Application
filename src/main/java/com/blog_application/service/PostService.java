@@ -14,6 +14,7 @@ public interface PostService {
     PostDto getPostById(Long post_id);
     List<PostDto> getPostsByUser(Long user_id);
     List<PostDto> getPostsByCategory(Long category_id);
+    List<PostDto> searchPostsWithQueryMethod(String keyword);
     List<PostDto> searchPosts(String keyword);
 
 }

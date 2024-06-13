@@ -81,4 +81,11 @@ public class PostController {
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
+    //GET Mapping-Search Post
+    @GetMapping("/search2/{keyword}")
+    public ResponseEntity<List<PostDto>> searchPostByTitleWithQueryMethod(@PathVariable("keyword") String title){
+        List<PostDto> posts = postService.searchPostsWithQueryMethod(title);
+        return new ResponseEntity<>(posts,HttpStatus.OK);
+    }
+
 }
