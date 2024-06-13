@@ -13,5 +13,8 @@ public interface PostRepository extends JpaRepository<Post,Long> {
 
     List<Post> findAllByUser(User user);
     List<Post> findAllByCategory(Category category);
+    //Query Methods
+    //Indicates that we want to find records whose title contains the input value.
+    List<Post> findByTitleContaining(String title);
 
 }
