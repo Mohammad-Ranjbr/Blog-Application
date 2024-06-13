@@ -17,7 +17,8 @@ public class PostMapper {
         this.modelMapper = modelMapper;
         modelMapper.createTypeMap(Post.class, PostDto.class)
                 .addMapping(Post::getCategory,PostDto::setCategoryDto)
-                .addMapping(Post::getUser,PostDto::setUserDto);
+                .addMapping(Post::getUser,PostDto::setUserDto)
+                .addMapping(Post::getComments,PostDto::setCommentDtos);
     }
     public PostDto toDto(Post post){
         return modelMapper.map(post,PostDto.class);

@@ -7,3 +7,4 @@
 7- Get null posts
 8- Application Constants
 9- Add user to comment entity
+10- implement custom ModelMapper for all entities
