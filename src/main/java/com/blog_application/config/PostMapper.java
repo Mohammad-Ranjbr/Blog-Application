@@ -11,6 +11,7 @@ public class PostMapper {
 
     private final ModelMapper modelMapper;
 
+    //By default, ModelMapper map object with attribute`s name
     @Autowired
     public PostMapper(ModelMapper modelMapper){
         this.modelMapper = modelMapper;

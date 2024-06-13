@@ -2,6 +2,7 @@ package com.blog_application.controller;
 
 import com.blog_application.dto.PostDto;
 import com.blog_application.service.PostService;
+import com.blog_application.util.ApiResponse;
 import com.blog_application.util.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,6 +58,34 @@ public class PostController {
     public ResponseEntity<PostDto> git (@PathVariable("id") Long post_id){
         PostDto postDto = postService.getPostById(post_id);
         return new ResponseEntity<>(postDto,HttpStatus.OK);
+    }
+
+    //DELETE Mapping-Delete Post
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long post_id){
+        postService.deletePost(post_id);
+        return new ResponseEntity<>(new ApiResponse("Post Deleted Successfully",true),HttpStatus.OK);
+    }
+
+    //PUT Mapping-Update Post
+    @PutMapping("/{id}")
+    public ResponseEntity<PostDto> updatePost(@RequestBody PostDto postDto,@PathVariable("id") Long post_id){
+        PostDto updatedPost = postService.updatePost(postDto,post_id);
+        return new ResponseEntity<>(updatedPost,HttpStatus.OK);
+    }
+
+    //GET Mapping-Search Post
+    @GetMapping("/search/{keyword}")
+    public ResponseEntity<List<PostDto>> searchPostByTitle(@PathVariable("keyword") String title){
+        List<PostDto> posts = postService.searchPosts(title);
+        return new ResponseEntity<>(posts,HttpStatus.OK);
+    }
+
+    //GET Mapping-Search Post
+    @GetMapping("/search2/{keyword}")
+    public ResponseEntity<List<PostDto>> searchPostByTitleWithQueryMethod(@PathVariable("keyword") String title){
+        List<PostDto> posts = postService.searchPostsWithQueryMethod(title);
+        return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
 }
