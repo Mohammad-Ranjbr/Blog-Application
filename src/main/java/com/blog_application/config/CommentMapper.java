@@ -1,6 +1,5 @@
 package com.blog_application.config;
 
-import com.blog_application.controller.CommentController;
 import com.blog_application.dto.CommentDto;
 import com.blog_application.model.Comment;
 import org.modelmapper.ModelMapper;

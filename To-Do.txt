@@ -8,3 +8,10 @@
 8- Application Constants
 9- Add user to comment entity
 10- implement custom ModelMapper for all entities
+11- Unit and Integration test
+12- Logging for PostServiceImpl
+13- Logging for PostController 
+14- Logging for CommentServiceImpl 
+15- Logging for CommentController
+
+✅	❌

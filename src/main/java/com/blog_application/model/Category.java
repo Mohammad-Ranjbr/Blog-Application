@@ -4,14 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.List;
 
 @Entity
 @Setter
 @Getter
-@ToString
 @NoArgsConstructor
 @Table(name = "categories")
 public class Category {
@@ -24,5 +22,14 @@ public class Category {
     private String description;
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Post> posts;
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 
 }
