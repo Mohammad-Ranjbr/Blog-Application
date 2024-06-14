@@ -4,14 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name = "users")
 @NoArgsConstructor
 public class User {
@@ -33,5 +30,18 @@ public class User {
     //performance as it prevents unnecessary data from being loaded.
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Post> posts;
+
+    //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
+    //to print it with the toString method, which becomes a loop and causes stack overflow.
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", about='" + about + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
 }
