@@ -6,7 +6,7 @@
 6- Update post image
 7- Get null posts
 8- Application Constants
-9- Add user to comment entity
+9- Add user to comment entity ✅
 10- implement custom ModelMapper for all entities
 11- Unit and Integration test
 12- Logging for PostServiceImpl

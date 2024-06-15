@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -13,7 +12,6 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name = "comments")
 @NoArgsConstructor
 public class Comment {
@@ -29,5 +27,17 @@ public class Comment {
     private LocalDateTime updatedDate;
     @ManyToOne
     private Post post;
+    @ManyToOne
+    private User user;
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", creationDate=" + creationDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 
 }

@@ -6,15 +6,18 @@ import com.blog_application.dto.CommentDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Comment;
 import com.blog_application.model.Post;
+import com.blog_application.model.User;
 import com.blog_application.repository.CommentRepository;
 import com.blog_application.service.CommentService;
 import com.blog_application.service.PostService;
+import com.blog_application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CommentServiceImpl implements CommentService {
 
+    private final UserService userService;
     private final CommentMapper commentMapper;
     private final PostService postService;
     private final PostMapper postMapper;
@@ -22,7 +25,8 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     public CommentServiceImpl(CommentMapper commentMapper,PostService postService,
-                              CommentRepository commentRepository,PostMapper postMapper){
+                              CommentRepository commentRepository,PostMapper postMapper,UserService userService){
+        this.userService = userService;
         this.commentMapper = commentMapper;
         this.postMapper = postMapper;
         this.postService = postService;
@@ -30,10 +34,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public CommentDto createComment(CommentDto commentDto, Long post_id) {
+    public CommentDto createComment(CommentDto commentDto, Long post_id,Long user_id) {
         Post post = postMapper.toEntity(postService.getPostById(post_id));
+        User user = userService.userDtoToUser(userService.getUserById(user_id));
         Comment comment = commentMapper.toEntity(commentDto);
         comment.setPost(post);
+        comment.setUser(user);
         Comment savedComment = commentRepository.save(comment);
         return commentMapper.toDto(savedComment);
     }

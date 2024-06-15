@@ -14,6 +14,8 @@ public class CommentMapper {
     @Autowired
     public CommentMapper(ModelMapper modelMapper){
         this.modelMapper = modelMapper;
+        modelMapper.createTypeMap(Comment.class,CommentDto.class)
+                .addMapping(Comment::getUser,CommentDto::setUserDto);
     }
 
     public Comment toEntity(CommentDto commentDto){

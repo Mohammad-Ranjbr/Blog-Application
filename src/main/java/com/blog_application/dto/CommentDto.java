@@ -15,5 +15,6 @@ public class CommentDto {
     private String content;
     private LocalDateTime creationDate;
     private LocalDateTime updatedDate;
+    private UserDto userDto;
 
 }
