@@ -11,6 +11,8 @@ import com.blog_application.repository.PostRepository;
 import com.blog_application.repository.UserRepository;
 import com.blog_application.service.PostService;
 import com.blog_application.util.PostResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,6 +30,7 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
+    private final static Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
 
     @Autowired
     public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserRepository userRepository, CategoryRepository categoryRepository){
@@ -40,36 +43,55 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto createPost(PostDto postDto,Long user_id,Long category_id) {
-        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User not performed"));
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category not performed"));
+        logger.info("Creating post : {}",postDto.getTitle());
+        User user = userRepository.findById(user_id).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, delete user not performed", user_id);
+            return new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User not performed");
+        });
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, get category not performed",category_id);
+            return new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category not performed");
+        });
         Post post = postMapper.toEntity(postDto);
         post.setUser(user);
         post.setCategory(category);
         post.setImageName("default.png");
         Post savedPost = postRepository.save(post);
+        logger.info("Post created successfully : {}",postDto.getTitle());
         return postMapper.toDto(savedPost);
     }
 
     @Override
     public PostDto updatePost(PostDto postDto, Long post_id) {
+        logger.info("Updating post with ID : {}",post_id);
         Post updatedPost = postRepository.findById(post_id).map(post -> {
             post.setTitle(postDto.getTitle());
             post.setContent(postDto.getContent());
             post.setImageName(postDto.getImageName());
             Post savedPost = postRepository.save(post);
+            logger.info("Post with ID {} updated successfully",post_id);
             return savedPost;
-        }).orElseThrow(() -> new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed"));
+        }).orElseThrow(() -> {
+            logger.warn("Post with ID {} not found, get post not performed",post_id);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed");
+        });
         return postMapper.toDto(updatedPost);
     }
 
     @Override
     public void deletePost(Long post_id) {
-        Post post = postRepository.findById(post_id).orElseThrow(() -> new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed"));
+        logger.info("Deleting post with ID : {}",post_id);
+        Post post = postRepository.findById(post_id).orElseThrow(() -> {
+            logger.warn("Post with ID {} not found, get post not performed",post_id);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed");
+        });
         postRepository.delete(post);
+        logger.info("Post with ID {} deleted successfully",post_id);
     }
 
     @Override
     public PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir) {
+        logger.info("Fetching all posts");
         Sort sort = (sortDir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending());
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
         Page<Post> postPage = postRepository.findAll(pageable);
@@ -82,12 +104,18 @@ public class PostServiceImpl implements PostService {
         postResponse.setTotalPages(postPage.getTotalPages());
         postResponse.setTotalElements(postPage.getTotalElements());
         postResponse.setLastPage(postResponse.isLastPage());
+        logger.info("Total posts found : {}",postPage.getTotalElements());
         return postResponse;
     }
 
     @Override
     public PostDto getPostById(Long post_id) {
-        Post post = postRepository.findById(post_id).orElseThrow(() -> new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed"));
+        logger.info("Fetching post with ID : {}",post_id);
+        Post post = postRepository.findById(post_id).orElseThrow(() -> {
+            logger.warn("Post with ID {} not found, get post not performed",post_id);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed");
+        });
+        logger.info("Post found with ID : {}",post_id);
         return postMapper.toDto(post);
     }
 
