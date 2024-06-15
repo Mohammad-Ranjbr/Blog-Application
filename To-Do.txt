@@ -12,7 +12,7 @@
 12- Logging for PostServiceImpl
 13- Logging for PostController 
 14- Logging for CommentServiceImpl ✅
-15- Logging for CommentController
+15- Logging for CommentController ✅
 16- Rate limiter for all Api`s
 
 ✅	❌
