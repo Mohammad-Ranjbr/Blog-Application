@@ -35,15 +35,17 @@ public class UserServiceImpl implements UserService {
         List<User> users = userRepository.findAll();
         logger.info("Total users found : {}",users.size());
         //Method Reference
-        return users.stream().map(userMapper::toDto).collect(Collectors.toList());
+        return users.stream()
+                .map(userMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override
     public UserDto createUser(UserDto userDto) {
-        logger.info("Creating user : {}",userDto.getEmail());
+        logger.info("Creating user with email : {}",userDto.getEmail());
         User user = userMapper.toEntity(userDto);
         User savedUser = userRepository.save(user);
-        logger.info("User created successfully : {}",savedUser.getEmail());
+        logger.info("User created successfully with email : {}",savedUser.getEmail());
         return userMapper.toDto(savedUser);
     }
 
@@ -56,8 +58,8 @@ public class UserServiceImpl implements UserService {
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",user_id);
         User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, delete user not performed", user_id);
-            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Delete User not performed");
+            logger.warn("User with ID {} not found, Delete user operation not performed", user_id);
+            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Delete User operation not performed");
         });
         userRepository.delete(user);
         logger.info("User with ID {} deleted successfully",user.getId());
@@ -67,7 +69,7 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserById(Long user_id) {
         logger.info("Fetching user with ID : {}",user_id);
         User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, get user not performed", user_id);
+            logger.warn("User with ID {} not found, Get user operation not performed", user_id);
             return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User not performed");
         });
         //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
@@ -94,7 +96,7 @@ public class UserServiceImpl implements UserService {
             logger.info("User with ID {} updated successfully",user_id);
             return savedUser;
         }).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, update user not performed", user_id);
+            logger.warn("User with ID {} not found, Updated user operation not performed", user_id);
             return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Update User not performed");
         });
         return userMapper.toDto(userRepository.save(updatedUser));
