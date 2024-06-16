@@ -46,7 +46,7 @@ public class CommentController {
     public ResponseEntity<CommentDto> getCommentById(@PathVariable("id") Long commentId){
         logger.info("Received request to get comment with ID : {}",commentId);
         CommentDto commentDto = commentService.getCommentById(commentId);
-        logger.info("Returning response for get comment with ID : {}",commentDto);
+        logger.info("Returning response for get comment with ID : {}",commentId);
         return new ResponseEntity<>(commentDto,HttpStatus.OK);
     }
 
