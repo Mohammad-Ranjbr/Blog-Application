@@ -23,21 +23,21 @@ public class CommentController {
     }
 
     //POST Mapping-Create Comment
-    @PostMapping("/post/{postId}/user/{userId}")
-    public ResponseEntity<CommentDto> createComment(@RequestBody CommentDto commentDto, @PathVariable("postId") Long post_id,
-                                                    @PathVariable("userId") Long user_id){
+    @PostMapping("/post/{post_id}/user/{user_id}")
+    public ResponseEntity<CommentDto> createComment(@RequestBody CommentDto commentDto, @PathVariable("post_id") Long postId,
+                                                    @PathVariable("user_id") Long userId){
         logger.info("Received request to create comment with content: {}",commentDto.getContent());
-        CommentDto createdComment = commentService.createComment(commentDto,post_id,user_id);
+        CommentDto createdComment = commentService.createComment(commentDto,postId,userId);
         logger.info("Returning response for comment creation with content : {}",commentDto.getContent());
         return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
     }
 
     //DELETE Mapping-Delete Comment
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse> deleteComment(@PathVariable("id") Long comment_id){
-        logger.info("Received request to delete comment with ID : {}",comment_id);
-        commentService.deleteComment(comment_id);
-        logger.info("Returning response for delete comment with ID : {}",comment_id);
+    public ResponseEntity<ApiResponse> deleteComment(@PathVariable("id") Long commentId){
+        logger.info("Received request to delete comment with ID : {}",commentId);
+        commentService.deleteComment(commentId);
+        logger.info("Returning response for delete comment with ID : {}",commentId);
         return new ResponseEntity<>(new ApiResponse("Comment Deleted Successfully",true),HttpStatus.OK);
     }
 

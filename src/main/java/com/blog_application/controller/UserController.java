@@ -36,28 +36,28 @@ public class UserController {
 
     //GET Mapping-Get User By ID
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long user_id){
-        logger.info("Received request to get user with ID : {}",user_id);
-        UserDto userDto = userService.getUserById(user_id);
-        logger.info("Returning response for user with ID : {}",userDto.getId());
+    public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long userId){
+        logger.info("Received request to get user with ID : {}",userId);
+        UserDto userDto = userService.getUserById(userId);
+        logger.info("Returning response for get user with ID : {}",userDto.getId());
         return new ResponseEntity<>(userDto,HttpStatus.OK);
     }
 
     //PUT Mapping-Update User
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto,@PathVariable("id") Long user_id){
-        logger.info("Received request to update user with ID : {}",user_id);
-        UserDto updatedUser = userService.updateUser(userDto,user_id);
-        logger.info("Returning response for updated user with ID : {}",user_id);
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto,@PathVariable("id") Long userId){
+        logger.info("Received request to update user with ID : {}",userId);
+        UserDto updatedUser = userService.updateUser(userDto,userId);
+        logger.info("Returning response for updated user with ID : {}",userId);
         return new ResponseEntity<>(updatedUser,HttpStatus.OK);
     }
 
     //DELETE Mapping-Delete User
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("id") Long user_id){
-        logger.info("Received request to delete user with ID : {}",user_id);
-        userService.deleteUserById(user_id);
-        logger.info("Returning response for delete user with ID : {}",user_id);
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("id") Long userId){
+        logger.info("Received request to delete user with ID : {}",userId);
+        userService.deleteUserById(userId);
+        logger.info("Returning response for delete user with ID : {}",userId);
         return new ResponseEntity<>(new ApiResponse("User Deleted Successfully",true),HttpStatus.OK);
     }
 

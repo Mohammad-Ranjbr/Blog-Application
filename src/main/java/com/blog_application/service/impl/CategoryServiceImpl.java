@@ -38,31 +38,31 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto getCategoryById(Long category_id) {
-        logger.info("Fetching category with ID : {}",category_id);
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, Get category operation not performed",category_id);
-            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category not performed");
+    public CategoryDto getCategoryById(Long categoryId) {
+        logger.info("Fetching category with ID : {}",categoryId);
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, Get category operation not performed",categoryId);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category not performed");
         });
-        Optional<Category> optionalCategory = categoryRepository.findById(category_id);
+        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
         Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
         optionalCategory.ifPresent(printCategoryDetails);
-        logger.info("Category found with ID : {}",category_id);
+        logger.info("Category found with ID : {}",categoryId);
         return categoryMapper.toDto(category);
     }
 
     @Override
-    public CategoryDto updateCategory(CategoryDto categoryDto, Long category_id) {
-        logger.info("Updating category with ID : {}",category_id);
-        Category updatedCategory = categoryRepository.findById(category_id).map(category -> {
+    public CategoryDto updateCategory(CategoryDto categoryDto, Long categoryId) {
+        logger.info("Updating category with ID : {}",categoryId);
+        Category updatedCategory = categoryRepository.findById(categoryId).map(category -> {
             category.setTitle(categoryDto.getTitle());
             category.setDescription(categoryDto.getDescription());
             Category savedCategory = categoryRepository.save(category);
-            logger.info("Category with ID {} updated successfully",category_id);
+            logger.info("Category with ID {} updated successfully",categoryId);
             return savedCategory;
         }).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, Update category operation not performed",category_id);
-            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Update Category not performed");
+            logger.warn("Category with ID {} not found, Update category operation not performed",categoryId);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Update Category not performed");
         });
         return categoryMapper.toDto(updatedCategory);
     }
@@ -76,13 +76,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteCategory(Long category_id) {
-        logger.info("Deleting category with ID : {}",category_id);
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, Delete category operation not performed",category_id);
-            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Delete Category not performed");
+    public void deleteCategory(Long categoryId) {
+        logger.info("Deleting category with ID : {}",categoryId);
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, Delete category operation not performed",categoryId);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Delete Category not performed");
         });
-        logger.info("Category with ID {} deleted successfully",category_id);
+        logger.info("Category with ID {} deleted successfully",categoryId);
         categoryRepository.delete(category);
     }
 

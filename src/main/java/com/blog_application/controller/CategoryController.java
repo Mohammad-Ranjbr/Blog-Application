@@ -36,28 +36,28 @@ public class CategoryController {
 
     //GET Mapping-Get Category By ID
     @GetMapping("/{id}")
-    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable("id") Long category_id){
-        logger.info("Received request to get category with ID : {}",category_id);
-        CategoryDto categoryDto = categoryService.getCategoryById(category_id);
-        logger.info("Returning response for category with ID : {}",category_id);
+    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable("id") Long categoryId){
+        logger.info("Received request to get category with ID : {}",categoryId);
+        CategoryDto categoryDto = categoryService.getCategoryById(categoryId);
+        logger.info("Returning response for get category with ID : {}",categoryId);
         return new ResponseEntity<>(categoryDto,HttpStatus.OK);
     }
 
     //PUT Mapping-Update Category
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,@PathVariable("id") Long category_id){
-        logger.info("Received request to update category with ID : {}",category_id);
-        CategoryDto updatedCategory = categoryService.updateCategory(categoryDto,category_id);
-        logger.info("Returning response for update category with ID : {}",category_id);
+    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,@PathVariable("id") Long categoryId){
+        logger.info("Received request to update category with ID : {}",categoryId);
+        CategoryDto updatedCategory = categoryService.updateCategory(categoryDto,categoryId);
+        logger.info("Returning response for update category with ID : {}",categoryId);
         return new ResponseEntity<>(updatedCategory,HttpStatus.OK);
     }
 
     //DELETE Mapping-Delete Category
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse> deleteCategory(@PathVariable("id") Long category_id){
-        logger.info("Received request to delete category with ID : {}",category_id);
-        categoryService.deleteCategory(category_id);
-        logger.info("Returning response for delete category with ID : {}",category_id);
+    public ResponseEntity<ApiResponse> deleteCategory(@PathVariable("id") Long categoryId){
+        logger.info("Received request to delete category with ID : {}",categoryId);
+        categoryService.deleteCategory(categoryId);
+        logger.info("Returning response for delete category with ID : {}",categoryId);
         return new ResponseEntity<>(new ApiResponse("Category deleted successfully",true),HttpStatus.OK);
     }
 

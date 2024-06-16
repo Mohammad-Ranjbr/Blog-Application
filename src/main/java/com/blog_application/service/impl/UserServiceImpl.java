@@ -50,34 +50,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUserById(Long user_id) {
+    public void deleteUserById(Long userId) {
         //Lambda Expression : Passing a function as an argument to another function
         //orElseThrow is a method that takes a Supplier as an argument. Supplier is a functional interface that accepts no parameters and returns a result. Here, the expected result is an exception.
         //Consumer is a functional interface in Java that takes an input and returns no result. Consumer is typically used for operations that take a parameter and return nothing (such as a print operation).
         //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
-        logger.info("Deleting user with ID : {}",user_id);
-        User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Delete user operation not performed", user_id);
-            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Delete User operation not performed");
+        logger.info("Deleting user with ID : {}",userId);
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Delete user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Delete User operation not performed");
         });
         userRepository.delete(user);
         logger.info("User with ID {} deleted successfully",user.getId());
     }
 
     @Override
-    public UserDto getUserById(Long user_id) {
-        logger.info("Fetching user with ID : {}",user_id);
-        User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", user_id);
-            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User not performed");
+    public UserDto getUserById(Long userId) {
+        logger.info("Fetching user with ID : {}",userId);
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User not performed");
         });
         //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
         //This class is a container that may contain a value (which is present) or no value (which is empty).
         //Optional is a powerful tool for handling null values and makes code safer and more readable.
         //Correct use of Optional can help prevent NullPointerException and improve code readability and maintainability.
         //With Optional, you can easily check if a value exists and take the appropriate action.
-        Optional<User> optionalUser = userRepository.findById(user_id);
+        Optional<User> optionalUser = userRepository.findById(userId);
         Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
         optionalUser.ifPresent(printUserDetails);
         logger.info("User found with ID : {}",user.getId());
@@ -85,19 +85,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto updateUser(UserDto userDto, Long user_id) {
-        logger.info("Updating user with ID : {}",user_id);
-        User updatedUser = userRepository.findById(user_id).map(user -> {
+    public UserDto updateUser(UserDto userDto, Long userId) {
+        logger.info("Updating user with ID : {}",userId);
+        User updatedUser = userRepository.findById(userId).map(user -> {
             user.setName(userDto.getName());
             user.setEmail(userDto.getEmail());
             user.setAbout(userDto.getAbout());
             user.setPassword(userDto.getPassword());
             User savedUser = userRepository.save(user);
-            logger.info("User with ID {} updated successfully",user_id);
+            logger.info("User with ID {} updated successfully",userId);
             return savedUser;
         }).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Updated user operation not performed", user_id);
-            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Update User not performed");
+            logger.warn("User with ID {} not found, Updated user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User not performed");
         });
         return userMapper.toDto(userRepository.save(updatedUser));
     }

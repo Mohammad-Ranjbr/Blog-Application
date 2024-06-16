@@ -42,15 +42,15 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public PostDto createPost(PostDto postDto,Long user_id,Long category_id) {
+    public PostDto createPost(PostDto postDto,Long userId,Long categoryId) {
         logger.info("Creating post with title : {}",postDto.getTitle());
-        User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", user_id);
-            return new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User operation not performed");
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","id",String.valueOf(userId),"Get User operation not performed");
         });
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, Get category operation not performed",category_id);
-            return new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category operation not performed");
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, Get category operation not performed",categoryId);
+            return new ResourceNotFoundException("Category","id",String.valueOf(categoryId),"Get Category operation not performed");
         });
         Post post = postMapper.toEntity(postDto);
         post.setUser(user);
@@ -62,31 +62,31 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto updatePost(PostDto postDto, Long post_id) {
-        logger.info("Updating post with ID : {}",post_id);
-        Post updatedPost = postRepository.findById(post_id).map(post -> {
+    public PostDto updatePost(PostDto postDto, Long postId) {
+        logger.info("Updating post with ID : {}",postId);
+        Post updatedPost = postRepository.findById(postId).map(post -> {
             post.setTitle(postDto.getTitle());
             post.setContent(postDto.getContent());
             post.setImageName(postDto.getImageName());
             Post savedPost = postRepository.save(post);
-            logger.info("Post with ID {} updated successfully",post_id);
+            logger.info("Post with ID {} updated successfully",postId);
             return savedPost;
         }).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, Update post operation not performed",post_id);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Update Post operation not performed");
+            logger.warn("Post with ID {} not found, Update post operation not performed",postId);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Update Post operation not performed");
         });
         return postMapper.toDto(updatedPost);
     }
 
     @Override
-    public void deletePost(Long post_id) {
-        logger.info("Deleting post with ID : {}",post_id);
-        Post post = postRepository.findById(post_id).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, Delete post operation not performed",post_id);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Delete Post operation not performed");
+    public void deletePost(Long postId) {
+        logger.info("Deleting post with ID : {}",postId);
+        Post post = postRepository.findById(postId).orElseThrow(() -> {
+            logger.warn("Post with ID {} not found, Delete post operation not performed",postId);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Delete Post operation not performed");
         });
         postRepository.delete(post);
-        logger.info("Post with ID {} deleted successfully",post_id);
+        logger.info("Post with ID {} deleted successfully",postId);
     }
 
     @Override
@@ -109,37 +109,37 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto getPostById(Long post_id) {
-        logger.info("Fetching post with ID : {}",post_id);
-        Post post = postRepository.findById(post_id).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, Get post operation not performed",post_id);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post operation not performed");
+    public PostDto getPostById(Long postId) {
+        logger.info("Fetching post with ID : {}",postId);
+        Post post = postRepository.findById(postId).orElseThrow(() -> {
+            logger.warn("Post with ID {} not found, Get post operation not performed",postId);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
-        logger.info("Post found with ID : {}",post_id);
+        logger.info("Post found with ID : {}",postId);
         return postMapper.toDto(post);
     }
 
     @Override
-    public List<PostDto> getPostsByUser(Long user_id) {
-        logger.info("Fetching posts for User with ID : {}",user_id);
-        User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, delete user operation not performed", user_id);
-            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User operation not performed");
+    public List<PostDto> getPostsByUser(Long userId) {
+        logger.info("Fetching posts for User with ID : {}",userId);
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, delete user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
         });
         List<Post> posts = postRepository.findAllByUser(user);
-        logger.info("Total posts found for user ID {}: {}",user_id,posts.size());
+        logger.info("Total posts found for user ID {}: {}",userId,posts.size());
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
-    public List<PostDto> getPostsByCategory(Long category_id) {
-        logger.info("Fetching posts for Category with ID : {}",category_id);
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, get category operation not performed",category_id);
-            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category operation not performed");
+    public List<PostDto> getPostsByCategory(Long categoryId) {
+        logger.info("Fetching posts for Category with ID : {}",categoryId);
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, get category operation not performed",categoryId);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category operation not performed");
         });
         List<Post> posts = postRepository.findAllByCategory(category);
-        logger.info("Total posts found for category ID {}: {}",category_id,posts.size());
+        logger.info("Total posts found for category ID {}: {}",categoryId,posts.size());
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
