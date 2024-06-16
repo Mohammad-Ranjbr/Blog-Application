@@ -1,15 +1,17 @@
 package com.blog_application.service.impl;
 
+import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.config.mapper.PostMapper;
+import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.PostDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
 import com.blog_application.model.Post;
 import com.blog_application.model.User;
-import com.blog_application.repository.CategoryRepository;
 import com.blog_application.repository.PostRepository;
-import com.blog_application.repository.UserRepository;
+import com.blog_application.service.CategoryService;
 import com.blog_application.service.PostService;
+import com.blog_application.service.UserService;
 import com.blog_application.util.PostResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,32 +28,31 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
+    private final UserMapper userMapper;
     private final PostMapper postMapper;
+    private final UserService userService;
+    private final CategoryMapper categoryMapper;
     private final PostRepository postRepository;
-    private final UserRepository userRepository;
-    private final CategoryRepository categoryRepository;
+    private final CategoryService categoryService;
     private final static Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
 
     @Autowired
-    public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserRepository userRepository, CategoryRepository categoryRepository){
+    public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService,
+                           CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper){
+        this.userMapper = userMapper;
         this.postMapper =  postMapper;
+        this.userService = userService;
+        this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
-        this.userRepository = userRepository;
-        this.categoryRepository = categoryRepository;
+        this.categoryService = categoryService;
     }
 
 
     @Override
     public PostDto createPost(PostDto postDto,Long userId,Long categoryId) {
         logger.info("Creating post with title : {}",postDto.getTitle());
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","id",String.valueOf(userId),"Get User operation not performed");
-        });
-        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, Get category operation not performed",categoryId);
-            return new ResourceNotFoundException("Category","id",String.valueOf(categoryId),"Get Category operation not performed");
-        });
+        User user = userMapper.toEntity(userService.getUserById(userId));
+        Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
         Post post = postMapper.toEntity(postDto);
         post.setUser(user);
         post.setCategory(category);
@@ -122,10 +123,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDto> getPostsByUser(Long userId) {
         logger.info("Fetching posts for User with ID : {}",userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, delete user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
-        });
+        User user = userMapper.toEntity(userService.getUserById(userId));
         List<Post> posts = postRepository.findAllByUser(user);
         logger.info("Total posts found for user ID {}: {}",userId,posts.size());
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
@@ -134,12 +132,9 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDto> getPostsByCategory(Long categoryId) {
         logger.info("Fetching posts for Category with ID : {}",categoryId);
-        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, get category operation not performed",categoryId);
-            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category operation not performed");
-        });
+        Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
         List<Post> posts = postRepository.findAllByCategory(category);
-        logger.info("Total posts found for category ID {}: {}",categoryId,posts.size());
+        logger.info("Total posts found for category ID {} : {}",categoryId,posts.size());
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 

@@ -28,7 +28,7 @@ public class PostController {
     //POST Mapping-Create Post
     @PostMapping("/user/{userId}/category/{categoryId}")
     public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto, @PathVariable("userId") Long userId, @PathVariable("categoryId") Long categoryId){
-        logger.info("Received request to create post for user ID: {} and category ID: {}", userId, categoryId);
+        logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
         PostDto createdPost = postService.createPost(postDto,userId,categoryId);
         logger.info("Returning response for post creation with title: {}", createdPost.getTitle());
         return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
@@ -37,9 +37,9 @@ public class PostController {
     //GET Mapping-Get All Posts By User
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<PostDto>> getPostsByUser(@PathVariable("userId") Long userId){
-        logger.info("Received request to get posts for user with ID: {}", userId);
+        logger.info("Received request to get posts for user with ID : {}", userId);
         List<PostDto> posts = postService.getPostsByUser(userId);
-        logger.info("Returning response for get posts for user with ID: {}", userId);
+        logger.info("Returning response for get posts for user with ID : {}", userId);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
