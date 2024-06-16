@@ -41,4 +41,22 @@ public class CommentController {
         return new ResponseEntity<>(new ApiResponse("Comment Deleted Successfully",true),HttpStatus.OK);
     }
 
+    //GET Mapping-Get comment by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<CommentDto> getCommentById(@PathVariable("id") Long commentId){
+        logger.info("Received request to get comment with ID : {}",commentId);
+        CommentDto commentDto = commentService.getCommentById(commentId);
+        logger.info("Returning response for get comment with ID : {}",commentDto);
+        return new ResponseEntity<>(commentDto,HttpStatus.OK);
+    }
+
+    //PUT Mapping-Update comment
+    @PutMapping("/{id}")
+    public ResponseEntity<CommentDto> updateComment(@RequestBody CommentDto commentDto,@PathVariable("id") Long commentId){
+        logger.info("Received request to update comment with ID : {}",commentId);
+        CommentDto updatedComment = commentService.updateComment(commentDto,commentId);
+        logger.info("Returning response for update comment with ID : {}",commentId);
+        return new ResponseEntity<>(updatedComment,HttpStatus.OK);
+    }
+
 }
