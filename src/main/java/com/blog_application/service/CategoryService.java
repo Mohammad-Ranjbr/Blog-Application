@@ -1,6 +1,6 @@
 package com.blog_application.service;
 
-import com.blog_application.dto.CategoryDto;
+import com.blog_application.dto.category.CategoryDto;
 
 import java.util.List;
 

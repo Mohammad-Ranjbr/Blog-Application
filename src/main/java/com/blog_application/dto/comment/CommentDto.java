@@ -1,13 +1,14 @@
-package com.blog_application.dto;
+package com.blog_application.dto.comment;
 
+import com.blog_application.dto.user.UserDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 public class CommentDto {
 

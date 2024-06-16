@@ -1,6 +1,6 @@
 package com.blog_application.config.mapper;
 
-import com.blog_application.dto.CommentDto;
+import com.blog_application.dto.comment.CommentDto;
 import com.blog_application.model.Comment;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class CommentMapper {
     @Autowired
     public CommentMapper(ModelMapper modelMapper){
         this.modelMapper = modelMapper;
-        modelMapper.createTypeMap(Comment.class,CommentDto.class)
+        modelMapper.createTypeMap(Comment.class, CommentDto.class)
                 .addMapping(Comment::getUser,CommentDto::setUserDto);
     }
 

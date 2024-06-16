@@ -1,6 +1,6 @@
 package com.blog_application.util;
 
-import com.blog_application.dto.PostDto;
+import com.blog_application.dto.post.PostDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.blog_application.config.mapper;
 
-import com.blog_application.dto.PostDto;
+import com.blog_application.dto.post.PostDto;
 import com.blog_application.model.Post;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.blog_application.controller;
 
-import com.blog_application.dto.CommentDto;
+import com.blog_application.dto.comment.CommentDto;
 import com.blog_application.service.CommentService;
 import com.blog_application.util.ApiResponse;
 import org.slf4j.Logger;

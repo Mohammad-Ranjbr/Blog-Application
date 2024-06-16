@@ -1,6 +1,6 @@
 package com.blog_application.service;
 
-import com.blog_application.dto.CommentDto;
+import com.blog_application.dto.comment.CommentDto;
 
 public interface CommentService {
 

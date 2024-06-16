@@ -1,7 +1,6 @@
 package com.blog_application.service;
 
-import com.blog_application.dto.UserDto;
-import com.blog_application.model.User;
+import com.blog_application.dto.user.UserDto;
 
 import java.util.List;
 

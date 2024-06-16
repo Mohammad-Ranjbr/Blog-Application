@@ -1,7 +1,7 @@
 package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.CategoryMapper;
-import com.blog_application.dto.CategoryDto;
+import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
 import com.blog_application.repository.CategoryRepository;

@@ -1,6 +1,6 @@
 package com.blog_application.config.mapper;
 
-import com.blog_application.dto.CategoryDto;
+import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.model.Category;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

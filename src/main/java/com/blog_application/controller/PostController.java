@@ -1,6 +1,6 @@
 package com.blog_application.controller;
 
-import com.blog_application.dto.PostDto;
+import com.blog_application.dto.post.PostDto;
 import com.blog_application.service.PostService;
 import com.blog_application.util.ApiResponse;
 import com.blog_application.util.PostResponse;

@@ -1,6 +1,6 @@
 package com.blog_application.config.mapper;
 
-import com.blog_application.dto.UserDto;
+import com.blog_application.dto.user.UserDto;
 import com.blog_application.model.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

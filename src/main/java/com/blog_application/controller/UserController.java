@@ -1,6 +1,6 @@
 package com.blog_application.controller;
 
-import com.blog_application.dto.UserDto;
+import com.blog_application.dto.user.UserDto;
 import com.blog_application.service.UserService;
 import com.blog_application.util.ApiResponse;
 import jakarta.validation.Valid;

@@ -1,5 +1,9 @@
-package com.blog_application.dto;
+package com.blog_application.dto.post;
 
+
+import com.blog_application.dto.comment.CommentDto;
+import com.blog_application.dto.user.UserDto;
+import com.blog_application.dto.category.CategoryDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

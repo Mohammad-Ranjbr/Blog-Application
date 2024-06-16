@@ -1,6 +1,6 @@
 package com.blog_application.service;
 
-import com.blog_application.dto.PostDto;
+import com.blog_application.dto.post.PostDto;
 import com.blog_application.util.PostResponse;
 
 import java.util.List;
