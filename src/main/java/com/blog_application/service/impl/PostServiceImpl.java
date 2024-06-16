@@ -43,21 +43,21 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto createPost(PostDto postDto,Long user_id,Long category_id) {
-        logger.info("Creating post : {}",postDto.getTitle());
+        logger.info("Creating post with title : {}",postDto.getTitle());
         User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, delete user not performed", user_id);
-            return new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User not performed");
+            logger.warn("User with ID {} not found, Get user operation not performed", user_id);
+            return new ResourceNotFoundException("User","id",String.valueOf(user_id),"Get User operation not performed");
         });
         Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, get category not performed",category_id);
-            return new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category not performed");
+            logger.warn("Category with ID {} not found, Get category operation not performed",category_id);
+            return new ResourceNotFoundException("Category","id",String.valueOf(category_id),"Get Category operation not performed");
         });
         Post post = postMapper.toEntity(postDto);
         post.setUser(user);
         post.setCategory(category);
         post.setImageName("default.png");
         Post savedPost = postRepository.save(post);
-        logger.info("Post created successfully : {}",postDto.getTitle());
+        logger.info("Post created successfully with title : {}",postDto.getTitle());
         return postMapper.toDto(savedPost);
     }
 
@@ -72,8 +72,8 @@ public class PostServiceImpl implements PostService {
             logger.info("Post with ID {} updated successfully",post_id);
             return savedPost;
         }).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, get post not performed",post_id);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed");
+            logger.warn("Post with ID {} not found, Update post operation not performed",post_id);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Update Post operation not performed");
         });
         return postMapper.toDto(updatedPost);
     }
@@ -82,8 +82,8 @@ public class PostServiceImpl implements PostService {
     public void deletePost(Long post_id) {
         logger.info("Deleting post with ID : {}",post_id);
         Post post = postRepository.findById(post_id).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, get post not performed",post_id);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed");
+            logger.warn("Post with ID {} not found, Delete post operation not performed",post_id);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Delete Post operation not performed");
         });
         postRepository.delete(post);
         logger.info("Post with ID {} deleted successfully",post_id);
@@ -91,7 +91,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir) {
-        logger.info("Fetching all posts");
+        logger.info("Fetching all posts with pageNumber: {}, pageSize: {}, sortBy: {}, sortDir: {}", pageNumber, pageSize, sortBy, sortDir);
         Sort sort = (sortDir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending());
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
         Page<Post> postPage = postRepository.findAll(pageable);
@@ -112,8 +112,8 @@ public class PostServiceImpl implements PostService {
     public PostDto getPostById(Long post_id) {
         logger.info("Fetching post with ID : {}",post_id);
         Post post = postRepository.findById(post_id).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, get post not performed",post_id);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post not performed");
+            logger.warn("Post with ID {} not found, Get post operation not performed",post_id);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(post_id),"Get Post operation not performed");
         });
         logger.info("Post found with ID : {}",post_id);
         return postMapper.toDto(post);
@@ -123,8 +123,8 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> getPostsByUser(Long user_id) {
         logger.info("Fetching posts for User with ID : {}",user_id);
         User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, delete user not performed", user_id);
-            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User not performed");
+            logger.warn("User with ID {} not found, delete user operation not performed", user_id);
+            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User operation not performed");
         });
         List<Post> posts = postRepository.findAllByUser(user);
         logger.info("Total posts found for user ID {}: {}",user_id,posts.size());
@@ -135,7 +135,7 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> getPostsByCategory(Long category_id) {
         logger.info("Fetching posts for Category with ID : {}",category_id);
         Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, get category not performed",category_id);
+            logger.warn("Category with ID {} not found, get category operation not performed",category_id);
             return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category operation not performed");
         });
         List<Post> posts = postRepository.findAllByCategory(category);
