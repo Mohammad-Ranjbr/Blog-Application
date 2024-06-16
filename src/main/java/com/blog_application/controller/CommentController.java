@@ -26,9 +26,9 @@ public class CommentController {
     @PostMapping("/post/{postId}/user/{userId}")
     public ResponseEntity<CommentDto> createComment(@RequestBody CommentDto commentDto, @PathVariable("postId") Long post_id,
                                                     @PathVariable("userId") Long user_id){
-        logger.info("Received request to create comment : {}",commentDto.getContent());
+        logger.info("Received request to create comment with content: {}",commentDto.getContent());
         CommentDto createdComment = commentService.createComment(commentDto,post_id,user_id);
-        logger.info("Returning response for comment creation : {}",commentDto.getContent());
+        logger.info("Returning response for comment creation with content : {}",commentDto.getContent());
         return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
     }
 
