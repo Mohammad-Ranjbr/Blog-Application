@@ -1,6 +1,6 @@
 package com.blog_application.service.impl;
 
-import com.blog_application.config.PostMapper;
+import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.dto.PostDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;

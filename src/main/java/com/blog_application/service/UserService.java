@@ -12,7 +12,5 @@ public interface UserService {
     void deleteUserById(Long user_id);
     UserDto getUserById(Long user_id);
     UserDto updateUser(UserDto userDto,Long user_id);
-    User userDtoToUser(UserDto userDto);
-    UserDto userToUserDto(User user);
 
 }

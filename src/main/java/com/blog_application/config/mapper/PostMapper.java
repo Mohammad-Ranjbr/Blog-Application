@@ -1,4 +1,4 @@
-package com.blog_application.config;
+package com.blog_application.config.mapper;
 
 import com.blog_application.dto.PostDto;
 import com.blog_application.model.Post;

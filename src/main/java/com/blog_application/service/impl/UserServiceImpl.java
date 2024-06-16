@@ -1,11 +1,11 @@
 package com.blog_application.service.impl;
 
+import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.UserDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.User;
 import com.blog_application.repository.UserRepository;
 import com.blog_application.service.UserService;
-import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final ModelMapper modelMapper;
+    private final UserMapper userMapper;
     private final UserRepository userRepository;
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository,ModelMapper modelMapper){
-        this.modelMapper = modelMapper;
+    public UserServiceImpl(UserRepository userRepository,UserMapper userMapper){
+        this.userMapper = userMapper;
         this.userRepository = userRepository;
     }
 
@@ -35,16 +35,16 @@ public class UserServiceImpl implements UserService {
         List<User> users = userRepository.findAll();
         logger.info("Total users found : {}",users.size());
         //Method Reference
-        return users.stream().map(this::userToUserDto).collect(Collectors.toList());
+        return users.stream().map(userMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
     public UserDto createUser(UserDto userDto) {
         logger.info("Creating user : {}",userDto.getEmail());
-        User user = this.userDtoToUser(userDto);
+        User user = userMapper.toEntity(userDto);
         User savedUser = userRepository.save(user);
         logger.info("User created successfully : {}",savedUser.getEmail());
-        return this.userToUserDto(savedUser);
+        return userMapper.toDto(savedUser);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
         Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
         optionalUser.ifPresent(printUserDetails);
         logger.info("User found with ID : {}",user.getId());
-        return this.userToUserDto(user);
+        return userMapper.toDto(user);
     }
 
     @Override
@@ -97,17 +97,7 @@ public class UserServiceImpl implements UserService {
             logger.warn("User with ID {} not found, update user not performed", user_id);
             return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Update User not performed");
         });
-        return this.userToUserDto(userRepository.save(updatedUser));
-    }
-
-    @Override
-    public User userDtoToUser(UserDto userDto) {
-        return modelMapper.map(userDto,User.class);
-    }
-
-    @Override
-    public UserDto userToUserDto(User user) {
-        return modelMapper.map(user,UserDto.class);
+        return userMapper.toDto(userRepository.save(updatedUser));
     }
 
 }
