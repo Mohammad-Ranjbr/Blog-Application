@@ -17,6 +17,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.function.Consumer;
+
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -61,6 +64,35 @@ public class CommentServiceImpl implements CommentService {
         });
         commentRepository.delete(comment);
         logger.info("Comment with ID : {} deleted successfully",commentId);
+    }
+
+    @Override
+    public CommentDto getCommentById(Long commentId) {
+        logger.info("Fetching comment with ID : {}",commentId);
+        Comment comment = commentRepository.findById(commentId).orElseThrow(() -> {
+            logger.warn("Comment with ID {} not found, Get comment operation not performed",commentId);
+            return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Get Comment operation not performed");
+        });
+        Optional<Comment> optionalComment = commentRepository.findById(commentId);
+        Consumer<Comment> printCommentDetails = foundComment -> System.out.println("Comment Found : "+comment);
+        optionalComment.ifPresent(printCommentDetails);
+        logger.info("Comment found with ID : {}",commentId);
+        return commentMapper.toDto(comment);
+    }
+
+    @Override
+    public CommentDto updateComment(CommentDto commentDto, Long commentId) {
+        logger.info("Updating comment with ID : {}",commentId);
+        Comment updatedComment = commentRepository.findById(commentId).map(comment -> {
+            comment.setContent(commentDto.getContent());
+            Comment savedComment = commentRepository.save(comment);
+            logger.info("Comment with ID {} updated successfully",commentId);
+            return savedComment;
+        }).orElseThrow(() -> {
+            logger.warn("Comment with ID {} not found, Delete comment operation not performed",commentId);
+            return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Delete Comment operation not performed");
+        });
+        return commentMapper.toDto(updatedComment);
     }
 
 }

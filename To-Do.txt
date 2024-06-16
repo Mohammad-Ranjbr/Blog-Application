@@ -18,6 +18,6 @@
 18- Complete comment api`s
 19- Refactor all logging message ✅
 20- Add DTO for cruud operation (create,update,get) for all entities
-
+21- Use resources percentage
 
 ✅	❌

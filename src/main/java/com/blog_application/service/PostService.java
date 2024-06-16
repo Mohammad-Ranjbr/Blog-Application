@@ -7,14 +7,14 @@ import java.util.List;
 
 public interface PostService {
 
-    PostDto createPost(PostDto postDto,Long user_id,Long category_id);
-    PostDto updatePost(PostDto postDto,Long post_id);
     void deletePost(Long post_id);
-    PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir);
-    PostDto getPostById(Long post_id);
-    List<PostDto> getPostsByUser(Long user_id);
-    List<PostDto> getPostsByCategory(Long category_id);
-    List<PostDto> searchPostsWithQueryMethod(String keyword);
+    PostDto getPostById(Long postId);
+    List<PostDto> getPostsByUser(Long userId);
     List<PostDto> searchPosts(String keyword);
+    PostDto updatePost(PostDto postDto,Long postId);
+    List<PostDto> getPostsByCategory(Long categoryId);
+    List<PostDto> searchPostsWithQueryMethod(String keyword);
+    PostDto createPost(PostDto postDto,Long userId,Long categoryId);
+    PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir);
 
 }
