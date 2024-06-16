@@ -30,10 +30,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
-        logger.info("Creating category : {}",categoryDto.getTitle());
+        logger.info("Creating category with title : {}",categoryDto.getTitle());
         Category category = categoryMapper.toEntity(categoryDto);
         Category savedCategory = categoryRepository.save(category);
-        logger.info("Category created successfully : {}",savedCategory.getTitle());
+        logger.info("Category created successfully with title : {}",savedCategory.getTitle());
         return categoryMapper.toDto(savedCategory);
     }
 
@@ -41,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryDto getCategoryById(Long category_id) {
         logger.info("Fetching category with ID : {}",category_id);
         Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, get category not performed",category_id);
+            logger.warn("Category with ID {} not found, Get category operation not performed",category_id);
             return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category not performed");
         });
         Optional<Category> optionalCategory = categoryRepository.findById(category_id);
@@ -61,7 +61,7 @@ public class CategoryServiceImpl implements CategoryService {
             logger.info("Category with ID {} updated successfully",category_id);
             return savedCategory;
         }).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, update category not performed",category_id);
+            logger.warn("Category with ID {} not found, Update category operation not performed",category_id);
             return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Update Category not performed");
         });
         return categoryMapper.toDto(updatedCategory);
@@ -79,7 +79,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void deleteCategory(Long category_id) {
         logger.info("Deleting category with ID : {}",category_id);
         Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, delete category not performed",category_id);
+            logger.warn("Category with ID {} not found, Delete category operation not performed",category_id);
             return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Delete Category not performed");
         });
         logger.info("Category with ID {} deleted successfully",category_id);
