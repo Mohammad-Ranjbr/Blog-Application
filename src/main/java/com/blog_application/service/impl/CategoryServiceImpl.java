@@ -1,11 +1,11 @@
 package com.blog_application.service.impl;
 
+import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.dto.CategoryDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
 import com.blog_application.repository.CategoryRepository;
 import com.blog_application.service.CategoryService;
-import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +19,22 @@ import java.util.stream.Collectors;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private final ModelMapper modelMapper;
+    private final CategoryMapper categoryMapper;
     private final CategoryRepository categoryRepository;
     private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     @Autowired
-    public CategoryServiceImpl(CategoryRepository categoryRepository,ModelMapper modelMapper){
-        this.modelMapper = modelMapper;
+    public CategoryServiceImpl(CategoryRepository categoryRepository,CategoryMapper categoryMapper){
+        this.categoryMapper = categoryMapper;
         this.categoryRepository = categoryRepository;
     }
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
         logger.info("Creating category : {}",categoryDto.getTitle());
-        Category category = this.categoryDtoToCategory(categoryDto);
+        Category category = categoryMapper.toEntity(categoryDto);
         Category savedCategory = categoryRepository.save(category);
         logger.info("Category created successfully : {}",savedCategory.getTitle());
-        return this.categoryToCategoryDto(savedCategory);
+        return categoryMapper.toDto(savedCategory);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CategoryServiceImpl implements CategoryService {
         Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
         optionalCategory.ifPresent(printCategoryDetails);
         logger.info("Category found with ID : {}",category_id);
-        return this.categoryToCategoryDto(category);
+        return categoryMapper.toDto(category);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class CategoryServiceImpl implements CategoryService {
             logger.warn("Category with ID {} not found, update category not performed",category_id);
             return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Update Category not performed");
         });
-        return this.categoryToCategoryDto(updatedCategory);
+        return categoryMapper.toDto(updatedCategory);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class CategoryServiceImpl implements CategoryService {
         logger.info("Fetching all categories");
         List<Category> categories = categoryRepository.findAll();
         logger.info("Total categories found : {}",categories.size());
-        return categories.stream().map(this::categoryToCategoryDto).collect(Collectors.toList());
+        return categories.stream().map(categoryMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
@@ -84,16 +84,6 @@ public class CategoryServiceImpl implements CategoryService {
         });
         logger.info("Category with ID {} deleted successfully",category_id);
         categoryRepository.delete(category);
-    }
-
-    @Override
-    public Category categoryDtoToCategory(CategoryDto categoryDto) {
-        return modelMapper.map(categoryDto,Category.class);
-    }
-
-    @Override
-    public CategoryDto categoryToCategoryDto(Category category) {
-        return modelMapper.map(category,CategoryDto.class);
     }
 
 }

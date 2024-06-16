@@ -1,7 +1,8 @@
 package com.blog_application.service.impl;
 
-import com.blog_application.config.CommentMapper;
-import com.blog_application.config.PostMapper;
+import com.blog_application.config.mapper.CommentMapper;
+import com.blog_application.config.mapper.PostMapper;
+import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.CommentDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Comment;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommentServiceImpl implements CommentService {
 
+    private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
     private final PostService postService;
@@ -27,8 +29,9 @@ public class CommentServiceImpl implements CommentService {
     private final static Logger logger = LoggerFactory.getLogger(CommentServiceImpl.class);
 
     @Autowired
-    public CommentServiceImpl(CommentMapper commentMapper,PostService postService,
+    public CommentServiceImpl(CommentMapper commentMapper,PostService postService,UserMapper userMapper,
                               CommentRepository commentRepository,PostMapper postMapper,UserService userService){
+        this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.userService = userService;
         this.postService = postService;
@@ -40,7 +43,7 @@ public class CommentServiceImpl implements CommentService {
     public CommentDto createComment(CommentDto commentDto, Long post_id,Long user_id) {
         logger.info("Creating comment : {}",commentDto.getContent());
         Post post = postMapper.toEntity(postService.getPostById(post_id));
-        User user = userService.userDtoToUser(userService.getUserById(user_id));
+        User user = userMapper.toEntity(userService.getUserById(user_id));
         Comment comment = commentMapper.toEntity(commentDto);
         comment.setPost(post);
         comment.setUser(user);

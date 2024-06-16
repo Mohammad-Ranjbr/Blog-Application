@@ -1,6 +1,6 @@
 package com.blog_application.service.impl;
 
-import com.blog_application.config.PostMapper;
+import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.dto.PostDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
@@ -121,28 +121,48 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> getPostsByUser(Long user_id) {
-        User user = userRepository.findById(user_id).orElseThrow(() -> new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User not performed"));
+        logger.info("Fetching posts for User with ID : {}",user_id);
+        User user = userRepository.findById(user_id).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, delete user not performed", user_id);
+            return new ResourceNotFoundException("User","ID",String.valueOf(user_id),"Get User not performed");
+        });
         List<Post> posts = postRepository.findAllByUser(user);
+        logger.info("Total posts found for user ID {}: {}",user_id,posts.size());
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
     public List<PostDto> getPostsByCategory(Long category_id) {
-        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category not performed"));
+        logger.info("Fetching posts for Category with ID : {}",category_id);
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, get category not performed",category_id);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(category_id),"Get Category operation not performed");
+        });
         List<Post> posts = postRepository.findAllByCategory(category);
+        logger.info("Total posts found for category ID {}: {}",category_id,posts.size());
         return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
     public List<PostDto> searchPostsWithQueryMethod(String keyword) {
+        logger.info("Fetching posts with keyword: {}", keyword);
         List<Post> posts = postRepository.findByTitleContaining(keyword);
-        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
+        List<PostDto> postDtos = posts.stream()
+                .map(postMapper::toDto)
+                .collect(Collectors.toList());
+        logger.info("Fetched {} posts for keyword: {}", postDtos.size(), keyword);
+        return postDtos;
     }
 
     @Override
     public List<PostDto> searchPosts(String keyword) {
+        logger.info("Fetching posts with keyword: {}", keyword);
         List<Post> posts = postRepository.searchByTitle("%" + keyword + "%");
-        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
+        List<PostDto> postDtos = posts.stream()
+                .map(postMapper::toDto)
+                .collect(Collectors.toList());
+        logger.info("Fetched {} posts for keyword: {}", postDtos.size(), keyword);
+        return postDtos;
     }
 
 }
