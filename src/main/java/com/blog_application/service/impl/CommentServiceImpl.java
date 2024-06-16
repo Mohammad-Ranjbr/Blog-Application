@@ -41,14 +41,14 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public CommentDto createComment(CommentDto commentDto, Long post_id,Long user_id) {
-        logger.info("Creating comment : {}",commentDto.getContent());
+        logger.info("Creating comment with content : {}",commentDto.getContent());
         Post post = postMapper.toEntity(postService.getPostById(post_id));
         User user = userMapper.toEntity(userService.getUserById(user_id));
         Comment comment = commentMapper.toEntity(commentDto);
         comment.setPost(post);
         comment.setUser(user);
         Comment savedComment = commentRepository.save(comment);
-        logger.info("Comment created successfully : {}",commentDto.getContent());
+        logger.info("Comment created successfully with content : {}",commentDto.getContent());
         return commentMapper.toDto(savedComment);
     }
 
@@ -56,8 +56,8 @@ public class CommentServiceImpl implements CommentService {
     public void deleteComment(Long comment_id) {
         logger.info("Deleting comment with ID : {}",comment_id);
         Comment comment = commentRepository.findById(comment_id).orElseThrow(() -> {
-            logger.warn("Comment with ID {} not found, get comment not performed",comment_id);
-            return new ResourceNotFoundException("Comment","ID",String.valueOf(comment_id),"Get Comment not performed");
+            logger.warn("Comment with ID {} not found, Delete comment operation not performed",comment_id);
+            return new ResourceNotFoundException("Comment","ID",String.valueOf(comment_id),"Delete Comment operation not performed");
         });
         commentRepository.delete(comment);
         logger.info("Comment with ID : {} deleted successfully",comment_id);
