@@ -4,6 +4,7 @@ import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
+import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
 import com.blog_application.repository.CategoryRepository;
@@ -54,11 +55,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto updateCategory(CategoryDto categoryDto, Long categoryId) {
+    public CategoryGetDto updateCategory(CategoryUpdateDto categoryUpdateDto, Long categoryId) {
         logger.info("Updating category with ID : {}",categoryId);
         Category updatedCategory = categoryRepository.findById(categoryId).map(category -> {
-            category.setTitle(categoryDto.getTitle());
-            category.setDescription(categoryDto.getDescription());
+            category.setTitle(categoryUpdateDto.getTitle());
+            category.setDescription(categoryUpdateDto.getDescription());
             Category savedCategory = categoryRepository.save(category);
             logger.info("Category with ID {} updated successfully",categoryId);
             return savedCategory;
@@ -66,7 +67,7 @@ public class CategoryServiceImpl implements CategoryService {
             logger.warn("Category with ID {} not found, Update category operation not performed",categoryId);
             return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Update Category not performed");
         });
-        return categoryMapper.toDto(updatedCategory);
+        return categoryMapper.toCategoryGetDto(updatedCategory);
     }
 
     @Override

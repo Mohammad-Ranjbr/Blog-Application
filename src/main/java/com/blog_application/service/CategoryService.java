@@ -3,6 +3,7 @@ package com.blog_application.service;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
+import com.blog_application.dto.category.CategoryUpdateDto;
 
 import java.util.List;
 
@@ -12,6 +13,6 @@ public interface CategoryService {
     void deleteCategory(Long categoryId);
     CategoryDto getCategoryById(Long categoryId);
     CategoryGetDto createCategory(CategoryCreateDto categoryDto);
-    CategoryDto updateCategory(CategoryDto categoryDto,Long categoryId);
+    CategoryGetDto updateCategory(CategoryUpdateDto categoryUpdateDto, Long categoryId);
 
 }

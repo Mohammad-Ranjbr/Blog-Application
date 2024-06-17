@@ -3,6 +3,7 @@ package com.blog_application.controller;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
+import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.service.CategoryService;
 import com.blog_application.util.ApiResponse;
 import jakarta.validation.Valid;
@@ -47,9 +48,9 @@ public class CategoryController {
 
     //PUT Mapping-Update Category
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,@PathVariable("id") Long categoryId){
+    public ResponseEntity<CategoryGetDto> updateCategory(@Valid @RequestBody CategoryUpdateDto categoryUpdateDto, @PathVariable("id") Long categoryId){
         logger.info("Received request to update category with ID : {}",categoryId);
-        CategoryDto updatedCategory = categoryService.updateCategory(categoryDto,categoryId);
+        CategoryGetDto updatedCategory = categoryService.updateCategory(categoryUpdateDto,categoryId);
         logger.info("Returning response for update category with ID : {}",categoryId);
         return new ResponseEntity<>(updatedCategory,HttpStatus.OK);
     }
