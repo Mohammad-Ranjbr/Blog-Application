@@ -1,6 +1,7 @@
 package com.blog_application.config.mapper;
 
 import com.blog_application.dto.category.CategoryDto;
+import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.model.Category;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class CategoryMapper {
 
     public Category toEntity(CategoryDto categoryDto){
         return modelMapper.map(categoryDto,Category.class);
+    }
+
+    public CategoryGetDto toCategoryGetDto(Category category){
+        return modelMapper.map(category,CategoryGetDto.class);
     }
 
 }

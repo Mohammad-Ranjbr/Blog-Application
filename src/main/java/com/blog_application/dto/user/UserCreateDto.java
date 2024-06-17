@@ -7,14 +7,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class UserCreateDto {
+public class UserCreateDto extends UserUpdateDto {
 
-    private String name;
-    private String email;
-    private String about;
-    private String gender;
     private String password;
-    private String userName;
-    private String phoneNumber;
 
 }

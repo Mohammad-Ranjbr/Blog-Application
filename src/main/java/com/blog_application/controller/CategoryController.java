@@ -1,6 +1,7 @@
 package com.blog_application.controller;
 
 import com.blog_application.dto.category.CategoryDto;
+import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.service.CategoryService;
 import com.blog_application.util.ApiResponse;
 import jakarta.validation.Valid;
@@ -63,9 +64,9 @@ public class CategoryController {
 
     //GET Mapping-Get All Categories
     @GetMapping("/")
-    public ResponseEntity<List<CategoryDto>> getAllCategories(){
+    public ResponseEntity<List<CategoryGetDto>> getAllCategories(){
         logger.info("Received request to get all categories");
-        List<CategoryDto> categories = categoryService.getAllCategories();
+        List<CategoryGetDto> categories = categoryService.getAllCategories();
         logger.info("Returning response with {} categories",categories.size());
         return new ResponseEntity<>(categories,HttpStatus.OK);
     }

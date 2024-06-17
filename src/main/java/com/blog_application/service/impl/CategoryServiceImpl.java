@@ -2,6 +2,7 @@ package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.dto.category.CategoryDto;
+import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
 import com.blog_application.repository.CategoryRepository;
@@ -68,11 +69,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryDto> getAllCategories() {
+    public List<CategoryGetDto> getAllCategories() {
         logger.info("Fetching all categories");
         List<Category> categories = categoryRepository.findAll();
         logger.info("Total categories found : {}",categories.size());
-        return categories.stream().map(categoryMapper::toDto).collect(Collectors.toList());
+        return categories.stream()
+                .map(categoryMapper::toCategoryGetDto)
+                .collect(Collectors.toList());
     }
 
     @Override

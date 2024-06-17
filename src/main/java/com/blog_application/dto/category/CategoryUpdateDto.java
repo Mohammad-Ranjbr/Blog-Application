@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class CategoryUpdateDto {
+public class CategoryUpdateDto extends CategoryCreateDto {
 }
