@@ -2,6 +2,8 @@ package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.user.UserDto;
+import com.blog_application.dto.user.UserGetDto;
+import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.User;
 import com.blog_application.repository.UserRepository;
@@ -85,13 +87,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto updateUser(UserDto userDto, Long userId) {
+    public UserGetDto updateUser(UserUpdateDto userUpdateDto, Long userId) {
         logger.info("Updating user with ID : {}",userId);
         User updatedUser = userRepository.findById(userId).map(user -> {
-            user.setName(userDto.getName());
-            user.setEmail(userDto.getEmail());
-            user.setAbout(userDto.getAbout());
-            user.setPassword(userDto.getPassword());
+            user.setName(userUpdateDto.getName());
+            user.setEmail(userUpdateDto.getEmail());
+            user.setAbout(userUpdateDto.getAbout());
+            user.setGender(userUpdateDto.getGender());
+            user.setPassword(userUpdateDto.getUserName());
+            user.setPhoneNumber(userUpdateDto.getPhoneNumber());
             User savedUser = userRepository.save(user);
             logger.info("User with ID {} updated successfully",userId);
             return savedUser;
