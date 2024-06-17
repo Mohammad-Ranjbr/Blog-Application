@@ -1,7 +1,6 @@
 package com.blog_application.controller;
 
 import com.blog_application.dto.category.CategoryCreateDto;
-import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.service.CategoryService;

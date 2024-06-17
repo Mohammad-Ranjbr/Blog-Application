@@ -1,7 +1,6 @@
 package com.blog_application.config.mapper;
 
 import com.blog_application.dto.category.CategoryCreateDto;
-import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.model.Category;
 import org.modelmapper.ModelMapper;
@@ -18,9 +17,6 @@ public class CategoryMapper {
         this.modelMapper = modelMapper;
     }
 
-    public CategoryDto toDto(Category category){
-        return modelMapper.map(category,CategoryDto.class);
-    }
 
     public Category toEntity(CategoryGetDto categoryGetDto){
         return modelMapper.map(categoryGetDto,Category.class);

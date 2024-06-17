@@ -1,6 +1,6 @@
 package com.blog_application.dto.user;
 
-import com.blog_application.dto.post.PostDto;
+import com.blog_application.dto.post.PostGetDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,6 +19,6 @@ public class UserGetDto extends UserBasicInfoDto{
     private String phoneNumber;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private List<PostDto> posts;
+    private List<PostGetDto> posts;
 
 }

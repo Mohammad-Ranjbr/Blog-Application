@@ -1,7 +1,6 @@
 package com.blog_application.service;
 
 import com.blog_application.dto.post.PostCreateDto;
-import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.util.PostResponse;

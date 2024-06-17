@@ -1,7 +1,6 @@
 package com.blog_application.config.mapper;
 
 import com.blog_application.dto.post.PostCreateDto;
-import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.model.Post;
 import org.modelmapper.ModelMapper;
@@ -17,10 +16,6 @@ public class PostMapper {
     @Autowired
     public PostMapper(ModelMapper modelMapper){
         this.modelMapper = modelMapper;
-        modelMapper.createTypeMap(Post.class, PostDto.class)
-                .addMapping(Post::getCategory,PostDto::setCategoryDto)
-                .addMapping(Post::getUser,PostDto::setUserDto)
-                .addMapping(Post::getComments,PostDto::setCommentDtos);
     }
 
     public Post toEntity(PostCreateDto postCreateDto){

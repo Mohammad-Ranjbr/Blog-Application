@@ -1,7 +1,6 @@
 package com.blog_application.service;
 
 import com.blog_application.dto.comment.CommentCreateDto;
-import com.blog_application.dto.comment.CommentDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 
