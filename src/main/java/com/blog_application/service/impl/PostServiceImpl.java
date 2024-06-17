@@ -5,6 +5,7 @@ import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
+import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
 import com.blog_application.model.Post;
@@ -64,12 +65,12 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto updatePost(PostDto postDto, Long postId) {
+    public PostGetDto updatePost(PostUpdateDto postUpdateDto, Long postId) {
         logger.info("Updating post with ID : {}",postId);
         Post updatedPost = postRepository.findById(postId).map(post -> {
-            post.setTitle(postDto.getTitle());
-            post.setContent(postDto.getContent());
-            post.setImageName(postDto.getImageName());
+            post.setTitle(postUpdateDto.getTitle());
+            post.setContent(postUpdateDto.getContent());
+            post.setImageName(postUpdateDto.getImageName());
             Post savedPost = postRepository.save(post);
             logger.info("Post with ID {} updated successfully",postId);
             return savedPost;
@@ -77,7 +78,7 @@ public class PostServiceImpl implements PostService {
             logger.warn("Post with ID {} not found, Update post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Update Post operation not performed");
         });
-        return postMapper.toDto(updatedPost);
+        return postMapper.toPostGetDto(updatedPost);
     }
 
     @Override

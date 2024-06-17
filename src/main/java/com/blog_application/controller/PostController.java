@@ -2,6 +2,7 @@ package com.blog_application.controller;
 
 import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
+import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.service.PostService;
 import com.blog_application.util.ApiResponse;
 import com.blog_application.util.PostResponse;
@@ -85,9 +86,9 @@ public class PostController {
 
     //PUT Mapping-Update Post
     @PutMapping("/{id}")
-    public ResponseEntity<PostDto> updatePost(@RequestBody PostDto postDto,@PathVariable("id") Long postId){
+    public ResponseEntity<PostGetDto> updatePost(@RequestBody PostUpdateDto postUpdateDto, @PathVariable("id") Long postId){
         logger.info("Received request to update post with ID : {}", postId);
-        PostDto updatedPost = postService.updatePost(postDto,postId);
+        PostGetDto updatedPost = postService.updatePost(postUpdateDto,postId);
         logger.info("Returning response for updated post with ID : {}", postId);
         return new ResponseEntity<>(updatedPost,HttpStatus.OK);
     }
