@@ -19,5 +19,10 @@
 19- Refactor all logging message ✅
 20- Add DTO for cruud operation (create,update,get) for all entities
 21- Use resources percentage
+22- Send Email
+23- Login
+24- Register
+25- Forget Password
+26- Basic info endpoint`s
 
 ✅	❌

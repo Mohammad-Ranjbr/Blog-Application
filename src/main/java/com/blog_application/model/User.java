@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -20,7 +24,15 @@ public class User {
     private String email;
     @Column(nullable = false , length = 1000)
     private String about;
+    private String gender;
     private String password;
+    private String userName;
+    private String phoneNumber;
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
     //mappedBy="user" -> It means that the Foreign Key column is located in the Post table, which points to the User table.
     //cascade = CascadeType.ALL -> This property specifies that various operations (such as saving, updating, deleting, etc.)
     // performed on the User entity will automatically be performed on the associated Post entities.
@@ -35,6 +47,7 @@ public class User {
 
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.
+
     @Override
     public String toString() {
         return "User{" +
@@ -42,7 +55,12 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", about='" + about + '\'' +
+                ", gender='" + gender + '\'' +
                 ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 

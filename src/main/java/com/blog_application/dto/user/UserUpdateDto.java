@@ -8,4 +8,12 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class UserUpdateDto {
+
+    private String name;
+    private String email;
+    private String about;
+    private String gender;
+    private String userName;
+    private String phoneNumber;
+
 }
