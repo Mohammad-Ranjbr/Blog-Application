@@ -39,11 +39,11 @@ public class CategoryController {
 
     //GET Mapping-Get Category By ID
     @GetMapping("/{id}")
-    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable("id") Long categoryId){
+    public ResponseEntity<CategoryGetDto> getCategoryById(@PathVariable("id") Long categoryId){
         logger.info("Received request to get category with ID : {}",categoryId);
-        CategoryDto categoryDto = categoryService.getCategoryById(categoryId);
+        CategoryGetDto categoryGetDto = categoryService.getCategoryById(categoryId);
         logger.info("Returning response for get category with ID : {}",categoryId);
-        return new ResponseEntity<>(categoryDto,HttpStatus.OK);
+        return new ResponseEntity<>(categoryGetDto,HttpStatus.OK);
     }
 
     //PUT Mapping-Update Category

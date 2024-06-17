@@ -22,8 +22,8 @@ public class CategoryMapper {
         return modelMapper.map(category,CategoryDto.class);
     }
 
-    public Category toEntity(CategoryDto categoryDto){
-        return modelMapper.map(categoryDto,Category.class);
+    public Category toEntity(CategoryGetDto categoryGetDto){
+        return modelMapper.map(categoryGetDto,Category.class);
     }
 
     public Category toEntity(CategoryCreateDto categoryCreateDto){

@@ -2,7 +2,6 @@ package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.dto.category.CategoryCreateDto;
-import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
@@ -41,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto getCategoryById(Long categoryId) {
+    public CategoryGetDto getCategoryById(Long categoryId) {
         logger.info("Fetching category with ID : {}",categoryId);
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
             logger.warn("Category with ID {} not found, Get category operation not performed",categoryId);
@@ -51,7 +50,7 @@ public class CategoryServiceImpl implements CategoryService {
         Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
         optionalCategory.ifPresent(printCategoryDetails);
         logger.info("Category found with ID : {}",categoryId);
-        return categoryMapper.toDto(category);
+        return categoryMapper.toCategoryGetDto(category);
     }
 
     @Override
