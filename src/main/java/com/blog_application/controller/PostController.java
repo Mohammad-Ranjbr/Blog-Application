@@ -47,9 +47,9 @@ public class PostController {
     //GET Mapping-Get All Posts By Category
     @GetMapping("/category/{categoryId}")
     public ResponseEntity<List<PostDto>> getPostsByCategory(@PathVariable("categoryId") Long categoryId){
-        logger.info("Received request to get posts for category with ID: {}", categoryId);
+        logger.info("Received request to get posts for category with ID : {}", categoryId);
         List<PostDto> posts = postService.getPostsByCategory(categoryId);
-        logger.info("Returning response for posts for category with ID: {}", categoryId);
+        logger.info("Returning response for posts for category with ID : {}", categoryId);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
@@ -68,45 +68,45 @@ public class PostController {
     //GET Mapping-Get Post By ID
     @GetMapping("/{id}")
     public ResponseEntity<PostGetDto> git (@PathVariable("id") Long postId){
-        logger.info("Received request to fetch post with ID: {}", postId);
+        logger.info("Received request to fetch post with ID : {}", postId);
         PostGetDto postDto = postService.getPostById(postId);
-        logger.info("Returning response for post with ID: {}", postId);
+        logger.info("Returning response for post with ID : {}", postId);
         return new ResponseEntity<>(postDto,HttpStatus.OK);
     }
 
     //DELETE Mapping-Delete Post
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long postId){
-        logger.info("Received request to delete post with ID: {}", postId);
+        logger.info("Received request to delete post with ID : {}", postId);
         postService.deletePost(postId);
-        logger.info("Returning response for delete post with ID: {}", postId);
+        logger.info("Returning response for delete post with ID : {}", postId);
         return new ResponseEntity<>(new ApiResponse("Post Deleted Successfully",true),HttpStatus.OK);
     }
 
     //PUT Mapping-Update Post
     @PutMapping("/{id}")
     public ResponseEntity<PostDto> updatePost(@RequestBody PostDto postDto,@PathVariable("id") Long postId){
-        logger.info("Received request to update post with ID: {}", postId);
+        logger.info("Received request to update post with ID : {}", postId);
         PostDto updatedPost = postService.updatePost(postDto,postId);
-        logger.info("Returning response for updated post with ID: {}", postId);
+        logger.info("Returning response for updated post with ID : {}", postId);
         return new ResponseEntity<>(updatedPost,HttpStatus.OK);
     }
 
     //GET Mapping-Search Post
     @GetMapping("/search/{keyword}")
-    public ResponseEntity<List<PostDto>> searchPostByTitle(@PathVariable("keyword") String title){
-        logger.info("Received request to search posts by title containing: {}", title);
-        List<PostDto> posts = postService.searchPosts(title);
-        logger.info("Returning response for search posts by title containing: {}", title);
+    public ResponseEntity<List<PostGetDto>> searchPostByTitle(@PathVariable("keyword") String title){
+        logger.info("Received request to search posts by title containing : {}", title);
+        List<PostGetDto> posts = postService.searchPosts(title);
+        logger.info("Returning response for search posts by title containing : {}", title);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
     //GET Mapping-Search Post
     @GetMapping("/search2/{keyword}")
     public ResponseEntity<List<PostDto>> searchPostByTitleWithQueryMethod(@PathVariable("keyword") String title){
-        logger.info("Received request to search posts by title using query method with keyword: {}", title);
+        logger.info("Received request to search posts by title using query method with keyword : {}", title);
         List<PostDto> posts = postService.searchPostsWithQueryMethod(title);
-        logger.info("Returning response for search posts by title using query method with keyword: {}", title);
+        logger.info("Returning response for search posts by title using query method with keyword : {}", title);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
