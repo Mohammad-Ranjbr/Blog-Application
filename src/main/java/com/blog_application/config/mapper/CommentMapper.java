@@ -1,6 +1,8 @@
 package com.blog_application.config.mapper;
 
+import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentDto;
+import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.model.Comment;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,14 @@ public class CommentMapper {
 
     public Comment toEntity(CommentDto commentDto){
         return modelMapper.map(commentDto,Comment.class);
+    }
+
+    public Comment toEntity(CommentCreateDto commentCreateDto){
+        return modelMapper.map(commentCreateDto,Comment.class);
+    }
+
+    public CommentGetDto toCommentGetDto(Comment comment){
+        return modelMapper.map(comment,CommentGetDto.class);
     }
 
     public CommentDto toDto(Comment comment){

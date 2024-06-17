@@ -1,6 +1,8 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentDto;
+import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.service.CommentService;
 import com.blog_application.util.ApiResponse;
 import org.slf4j.Logger;
@@ -24,11 +26,11 @@ public class CommentController {
 
     //POST Mapping-Create Comment
     @PostMapping("/post/{post_id}/user/{user_id}")
-    public ResponseEntity<CommentDto> createComment(@RequestBody CommentDto commentDto, @PathVariable("post_id") Long postId,
-                                                    @PathVariable("user_id") Long userId){
-        logger.info("Received request to create comment with content: {}",commentDto.getContent());
-        CommentDto createdComment = commentService.createComment(commentDto,postId,userId);
-        logger.info("Returning response for comment creation with content : {}",commentDto.getContent());
+    public ResponseEntity<CommentGetDto> createComment(@RequestBody CommentCreateDto commentCreateDto, @PathVariable("post_id") Long postId,
+                                                       @PathVariable("user_id") Long userId){
+        logger.info("Received request to create comment with content: {}",commentCreateDto.getContent());
+        CommentGetDto createdComment = commentService.createComment(commentCreateDto,postId,userId);
+        logger.info("Returning response for comment creation with content : {}",commentCreateDto.getContent());
         return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
     }
 

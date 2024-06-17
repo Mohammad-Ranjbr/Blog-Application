@@ -3,7 +3,9 @@ package com.blog_application.service.impl;
 import com.blog_application.config.mapper.CommentMapper;
 import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.config.mapper.UserMapper;
+import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentDto;
+import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Comment;
 import com.blog_application.model.Post;
@@ -43,16 +45,16 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public CommentDto createComment(CommentDto commentDto, Long postId, Long userId) {
-        logger.info("Creating comment with content : {}",commentDto.getContent());
+    public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, Long userId) {
+        logger.info("Creating comment with content : {}",commentCreateDto.getContent());
         Post post = postMapper.toEntity(postService.getPostById(postId));
         User user = userMapper.toEntity(userService.getUserById(userId));
-        Comment comment = commentMapper.toEntity(commentDto);
+        Comment comment = commentMapper.toEntity(commentCreateDto);
         comment.setPost(post);
         comment.setUser(user);
         Comment savedComment = commentRepository.save(comment);
-        logger.info("Comment created successfully with content : {}",commentDto.getContent());
-        return commentMapper.toDto(savedComment);
+        logger.info("Comment created successfully with content : {}",commentCreateDto.getContent());
+        return commentMapper.toCommentGetDto(savedComment);
     }
 
     @Override

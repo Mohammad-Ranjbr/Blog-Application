@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class CommentUpdateDto {
+public class CommentUpdateDto extends CommentCreateDto{
 }
