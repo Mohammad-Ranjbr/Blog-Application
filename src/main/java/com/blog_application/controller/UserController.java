@@ -1,6 +1,8 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserDto;
+import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.service.UserService;
 import com.blog_application.util.ApiResponse;
 import jakarta.validation.Valid;
@@ -27,9 +29,9 @@ public class UserController {
 
     //POST Mapping-Create User
     @PostMapping("/")
-    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
-        logger.info("Received request to create user with email : {}", userDto.getEmail());
-        UserDto createdUser = this.userService.createUser(userDto);
+    public ResponseEntity<UserGetDto> createUser(@Valid @RequestBody UserCreateDto userCreateDto){
+        logger.info("Received request to create user with email : {}", userCreateDto.getEmail());
+        UserGetDto createdUser = this.userService.createUser(userCreateDto);
         logger.info("Returning response for user creation with email : {}", createdUser.getEmail());
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
