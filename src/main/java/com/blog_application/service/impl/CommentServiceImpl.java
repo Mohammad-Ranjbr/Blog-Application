@@ -4,7 +4,6 @@ import com.blog_application.config.mapper.CommentMapper;
 import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.comment.CommentCreateDto;
-import com.blog_application.dto.comment.CommentDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
@@ -70,7 +69,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public CommentDto getCommentById(Long commentId) {
+    public CommentGetDto getCommentById(Long commentId) {
         logger.info("Fetching comment with ID : {}",commentId);
         Comment comment = commentRepository.findById(commentId).orElseThrow(() -> {
             logger.warn("Comment with ID {} not found, Get comment operation not performed",commentId);
@@ -80,7 +79,7 @@ public class CommentServiceImpl implements CommentService {
         Consumer<Comment> printCommentDetails = foundComment -> System.out.println("Comment Found : "+comment);
         optionalComment.ifPresent(printCommentDetails);
         logger.info("Comment found with ID : {}",commentId);
-        return commentMapper.toDto(comment);
+        return commentMapper.toCommentGetDto(comment);
     }
 
     @Override

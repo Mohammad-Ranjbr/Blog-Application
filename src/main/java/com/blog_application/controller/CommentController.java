@@ -1,7 +1,6 @@
 package com.blog_application.controller;
 
 import com.blog_application.dto.comment.CommentCreateDto;
-import com.blog_application.dto.comment.CommentDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 import com.blog_application.service.CommentService;
@@ -46,11 +45,11 @@ public class CommentController {
 
     //GET Mapping-Get comment by ID
     @GetMapping("/{id}")
-    public ResponseEntity<CommentDto> getCommentById(@PathVariable("id") Long commentId){
+    public ResponseEntity<CommentGetDto> getCommentById(@PathVariable("id") Long commentId){
         logger.info("Received request to get comment with ID : {}",commentId);
-        CommentDto commentDto = commentService.getCommentById(commentId);
+        CommentGetDto commentGetDto = commentService.getCommentById(commentId);
         logger.info("Returning response for get comment with ID : {}",commentId);
-        return new ResponseEntity<>(commentDto,HttpStatus.OK);
+        return new ResponseEntity<>(commentGetDto,HttpStatus.OK);
     }
 
     //PUT Mapping-Update comment
