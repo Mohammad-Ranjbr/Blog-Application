@@ -1,7 +1,6 @@
 package com.blog_application.config.mapper;
 
 import com.blog_application.dto.user.UserCreateDto;
-import com.blog_application.dto.user.UserDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.model.User;
 import org.modelmapper.ModelMapper;
@@ -18,16 +17,12 @@ public class UserMapper {
         this.modelMapper = modelMapper;
     }
 
-    public UserDto toDto(User user){
-        return modelMapper.map(user,UserDto.class);
-    }
-
-    public User toEntity(UserDto userDto){
-        return modelMapper.map(userDto,User.class);
-    }
-
     public User toEntity(UserCreateDto userCreateDto){
         return modelMapper.map(userCreateDto,User.class);
+    }
+
+    public User toEntity(UserGetDto userGetDto){
+        return modelMapper.map(userGetDto,User.class);
     }
 
     public UserGetDto toUserGetDto(User user){

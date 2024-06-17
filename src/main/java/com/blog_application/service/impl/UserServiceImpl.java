@@ -2,7 +2,6 @@ package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.user.UserCreateDto;
-import com.blog_application.dto.user.UserDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
@@ -33,13 +32,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDto> getAllUsers() {
+    public List<UserGetDto> getAllUsers() {
         logger.info("Fetching all users");
         List<User> users = userRepository.findAll();
         logger.info("Total users found : {}",users.size());
         //Method Reference
         return users.stream()
-                .map(userMapper::toDto)
+                .map(userMapper::toUserGetDto)
                 .collect(Collectors.toList());
     }
 
@@ -69,7 +68,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserById(Long userId) {
+    public UserGetDto getUserById(Long userId) {
         logger.info("Fetching user with ID : {}",userId);
         User user = userRepository.findById(userId).orElseThrow(() -> {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
@@ -84,7 +83,7 @@ public class UserServiceImpl implements UserService {
         Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
         optionalUser.ifPresent(printUserDetails);
         logger.info("User found with ID : {}",user.getId());
-        return userMapper.toDto(user);
+        return userMapper.toUserGetDto(user);
     }
 
     @Override

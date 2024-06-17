@@ -1,7 +1,6 @@
 package com.blog_application.controller;
 
 import com.blog_application.dto.user.UserCreateDto;
-import com.blog_application.dto.user.UserDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.service.UserService;
@@ -39,11 +38,11 @@ public class UserController {
 
     //GET Mapping-Get User By ID
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long userId){
+    public ResponseEntity<UserGetDto> getUserById(@PathVariable("id") Long userId){
         logger.info("Received request to get user with ID : {}",userId);
-        UserDto userDto = userService.getUserById(userId);
-        logger.info("Returning response for get user with ID : {}",userDto.getId());
-        return new ResponseEntity<>(userDto,HttpStatus.OK);
+        UserGetDto userGetDto = userService.getUserById(userId);
+        logger.info("Returning response for get user with ID : {}",userGetDto.getId());
+        return new ResponseEntity<>(userGetDto,HttpStatus.OK);
     }
 
     //PUT Mapping-Update User
@@ -66,9 +65,9 @@ public class UserController {
 
     //GET Mapping-Get All Users
     @GetMapping("/")
-    public ResponseEntity<List<UserDto>> getAllUsers(){
+    public ResponseEntity<List<UserGetDto>> getAllUsers(){
         logger.info("Received request to get all users");
-        List<UserDto> users = userService.getAllUsers();
+        List<UserGetDto> users = userService.getAllUsers();
         logger.info("Returning response with {} users",users.size());
         return new ResponseEntity<>(users,HttpStatus.OK);
     }
