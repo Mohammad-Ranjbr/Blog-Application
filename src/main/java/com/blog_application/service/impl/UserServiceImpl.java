@@ -1,6 +1,7 @@
 package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.UserMapper;
+import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
@@ -43,12 +44,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto createUser(UserDto userDto) {
-        logger.info("Creating user with email : {}",userDto.getEmail());
-        User user = userMapper.toEntity(userDto);
+    public UserGetDto createUser(UserCreateDto userCreateDto) {
+        logger.info("Creating user with email : {}",userCreateDto.getEmail());
+        User user = userMapper.toEntity(userCreateDto);
         User savedUser = userRepository.save(user);
         logger.info("User created successfully with email : {}",savedUser.getEmail());
-        return userMapper.toDto(savedUser);
+        return userMapper.toUserGetDto(savedUser);
     }
 
     @Override
@@ -103,7 +104,7 @@ public class UserServiceImpl implements UserService {
             logger.warn("User with ID {} not found, Updated user operation not performed", userId);
             return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User not performed");
         });
-        return userMapper.toDto(userRepository.save(updatedUser));
+        return userMapper.toUserGetDto(updatedUser);
     }
 
 }

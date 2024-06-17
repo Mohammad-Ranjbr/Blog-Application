@@ -1,6 +1,8 @@
 package com.blog_application.config.mapper;
 
+import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserDto;
+import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.model.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,14 @@ public class UserMapper {
 
     public User toEntity(UserDto userDto){
         return modelMapper.map(userDto,User.class);
+    }
+
+    public User toEntity(UserCreateDto userCreateDto){
+        return modelMapper.map(userCreateDto,User.class);
+    }
+
+    public UserGetDto toUserGetDto(User user){
+        return modelMapper.map(user,UserGetDto.class);
     }
 
 }

@@ -1,6 +1,9 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserDto;
+import com.blog_application.dto.user.UserGetDto;
+import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.service.UserService;
 import com.blog_application.util.ApiResponse;
 import jakarta.validation.Valid;
@@ -27,9 +30,9 @@ public class UserController {
 
     //POST Mapping-Create User
     @PostMapping("/")
-    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
-        logger.info("Received request to create user with email : {}", userDto.getEmail());
-        UserDto createdUser = this.userService.createUser(userDto);
+    public ResponseEntity<UserGetDto> createUser(@Valid @RequestBody UserCreateDto userCreateDto){
+        logger.info("Received request to create user with email : {}", userCreateDto.getEmail());
+        UserGetDto createdUser = this.userService.createUser(userCreateDto);
         logger.info("Returning response for user creation with email : {}", createdUser.getEmail());
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
@@ -45,9 +48,9 @@ public class UserController {
 
     //PUT Mapping-Update User
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto,@PathVariable("id") Long userId){
+    public ResponseEntity<UserGetDto> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") Long userId){
         logger.info("Received request to update user with ID : {}",userId);
-        UserDto updatedUser = userService.updateUser(userDto,userId);
+        UserGetDto updatedUser = userService.updateUser(userUpdateDto,userId);
         logger.info("Returning response for updated user with ID : {}",userId);
         return new ResponseEntity<>(updatedUser,HttpStatus.OK);
     }
