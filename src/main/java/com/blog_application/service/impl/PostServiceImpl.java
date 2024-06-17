@@ -122,12 +122,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getPostsByUser(Long userId) {
+    public List<PostGetDto> getPostsByUser(Long userId) {
         logger.info("Fetching posts for User with ID : {}",userId);
         User user = userMapper.toEntity(userService.getUserById(userId));
         List<Post> posts = postRepository.findAllByUser(user);
         logger.info("Total posts found for user ID {}: {}",userId,posts.size());
-        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
+        return posts.stream()
+                .map(postMapper::toPostGetDto)
+                .collect(Collectors.toList());
     }
 
     @Override

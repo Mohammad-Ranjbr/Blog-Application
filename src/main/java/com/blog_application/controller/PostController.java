@@ -37,9 +37,9 @@ public class PostController {
 
     //GET Mapping-Get All Posts By User
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<PostDto>> getPostsByUser(@PathVariable("userId") Long userId){
+    public ResponseEntity<List<PostGetDto>> getPostsByUser(@PathVariable("userId") Long userId){
         logger.info("Received request to get posts for user with ID : {}", userId);
-        List<PostDto> posts = postService.getPostsByUser(userId);
+        List<PostGetDto> posts = postService.getPostsByUser(userId);
         logger.info("Returning response for get posts for user with ID : {}", userId);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
