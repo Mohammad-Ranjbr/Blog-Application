@@ -1,5 +1,6 @@
 package com.blog_application.config.mapper;
 
+import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.model.Post;
@@ -25,8 +26,8 @@ public class PostMapper {
         return modelMapper.map(post,PostDto.class);
     }
 
-    public Post toEntity(PostDto postDto){
-        return modelMapper.map(postDto,Post.class);
+    public Post toEntity(PostCreateDto postCreateDto){
+        return modelMapper.map(postCreateDto,Post.class);
     }
 
     public Post toEntity(PostGetDto postGetDto){

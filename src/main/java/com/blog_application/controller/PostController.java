@@ -1,6 +1,6 @@
 package com.blog_application.controller;
 
-import com.blog_application.dto.post.PostDto;
+import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.service.PostService;
@@ -29,9 +29,9 @@ public class PostController {
 
     //POST Mapping-Create Post
     @PostMapping("/user/{userId}/category/{categoryId}")
-    public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto, @PathVariable("userId") Long userId, @PathVariable("categoryId") Long categoryId){
+    public ResponseEntity<PostGetDto> createPost(@RequestBody PostCreateDto postCreateDto, @PathVariable("userId") Long userId, @PathVariable("categoryId") Long categoryId){
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
-        PostDto createdPost = postService.createPost(postDto,userId,categoryId);
+        PostGetDto createdPost = postService.createPost(postCreateDto,userId,categoryId);
         logger.info("Returning response for post creation with title: {}", createdPost.getTitle());
         return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
     }

@@ -1,5 +1,6 @@
 package com.blog_application.service;
 
+import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
@@ -16,7 +17,7 @@ public interface PostService {
     PostGetDto updatePost(PostUpdateDto postDto, Long postId);
     List<PostGetDto> getPostsByCategory(Long categoryId);
     List<PostGetDto> searchPostsWithQueryMethod(String keyword);
-    PostDto createPost(PostDto postDto,Long userId,Long categoryId);
+    PostGetDto createPost(PostCreateDto postCreateDto, Long userId, Long categoryId);
     PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir);
 
 }

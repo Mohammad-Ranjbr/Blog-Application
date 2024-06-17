@@ -3,6 +3,7 @@ package com.blog_application.service.impl;
 import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.config.mapper.UserMapper;
+import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
@@ -51,17 +52,17 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public PostDto createPost(PostDto postDto,Long userId,Long categoryId) {
-        logger.info("Creating post with title : {}",postDto.getTitle());
+    public PostGetDto createPost(PostCreateDto postCreateDto, Long userId, Long categoryId) {
+        logger.info("Creating post with title : {}",postCreateDto.getTitle());
         User user = userMapper.toEntity(userService.getUserById(userId));
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
-        Post post = postMapper.toEntity(postDto);
+        Post post = postMapper.toEntity(postCreateDto);
         post.setUser(user);
         post.setCategory(category);
         post.setImageName("default.png");
         Post savedPost = postRepository.save(post);
-        logger.info("Post created successfully with title : {}",postDto.getTitle());
-        return postMapper.toDto(savedPost);
+        logger.info("Post created successfully with title : {}",postCreateDto.getTitle());
+        return postMapper.toPostGetDto(savedPost);
     }
 
     @Override
