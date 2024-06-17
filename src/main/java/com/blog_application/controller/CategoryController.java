@@ -1,5 +1,6 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.service.CategoryService;
@@ -28,10 +29,10 @@ public class CategoryController {
 
     //POST Mapping-Create Category
     @PostMapping("/")
-    public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
-        logger.info("Received request to create category with title : {}",categoryDto.getTitle());
-        CategoryDto createdCategory = categoryService.createCategory(categoryDto);
-        logger.info("Returning response for category creation with title : {}",categoryDto.getTitle());
+    public ResponseEntity<CategoryGetDto> createCategory(@Valid @RequestBody CategoryCreateDto categoryCreateDto){
+        logger.info("Received request to create category with title : {}",categoryCreateDto.getTitle());
+        CategoryGetDto createdCategory = categoryService.createCategory(categoryCreateDto);
+        logger.info("Returning response for category creation with title : {}",categoryCreateDto.getTitle());
         return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
     }
 

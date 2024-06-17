@@ -1,6 +1,7 @@
 package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.CategoryMapper;
+import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.exception.ResourceNotFoundException;
@@ -30,12 +31,12 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
     @Override
-    public CategoryDto createCategory(CategoryDto categoryDto) {
-        logger.info("Creating category with title : {}",categoryDto.getTitle());
-        Category category = categoryMapper.toEntity(categoryDto);
+    public CategoryGetDto createCategory(CategoryCreateDto categoryCreateDto) {
+        logger.info("Creating category with title : {}",categoryCreateDto.getTitle());
+        Category category = categoryMapper.toEntity(categoryCreateDto);
         Category savedCategory = categoryRepository.save(category);
         logger.info("Category created successfully with title : {}",savedCategory.getTitle());
-        return categoryMapper.toDto(savedCategory);
+        return categoryMapper.toCategoryGetDto(savedCategory);
     }
 
     @Override

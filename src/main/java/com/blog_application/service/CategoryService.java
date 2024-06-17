@@ -1,5 +1,6 @@
 package com.blog_application.service;
 
+import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryDto;
 import com.blog_application.dto.category.CategoryGetDto;
 
@@ -10,7 +11,7 @@ public interface CategoryService {
     List<CategoryGetDto> getAllCategories();
     void deleteCategory(Long categoryId);
     CategoryDto getCategoryById(Long categoryId);
-    CategoryDto createCategory(CategoryDto categoryDto);
+    CategoryGetDto createCategory(CategoryCreateDto categoryDto);
     CategoryDto updateCategory(CategoryDto categoryDto,Long categoryId);
 
 }
