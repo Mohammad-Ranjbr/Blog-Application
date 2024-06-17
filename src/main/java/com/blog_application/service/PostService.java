@@ -14,7 +14,7 @@ public interface PostService {
     List<PostGetDto> getPostsByUser(Long userId);
     List<PostGetDto> searchPosts(String keyword);
     PostGetDto updatePost(PostUpdateDto postDto, Long postId);
-    List<PostDto> getPostsByCategory(Long categoryId);
+    List<PostGetDto> getPostsByCategory(Long categoryId);
     List<PostDto> searchPostsWithQueryMethod(String keyword);
     PostDto createPost(PostDto postDto,Long userId,Long categoryId);
     PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir);

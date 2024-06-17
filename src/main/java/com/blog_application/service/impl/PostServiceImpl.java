@@ -134,12 +134,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getPostsByCategory(Long categoryId) {
+    public List<PostGetDto> getPostsByCategory(Long categoryId) {
         logger.info("Fetching posts for Category with ID : {}",categoryId);
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
         List<Post> posts = postRepository.findAllByCategory(category);
         logger.info("Total posts found for category ID {} : {}",categoryId,posts.size());
-        return posts.stream().map(postMapper::toDto).collect(Collectors.toList());
+        return posts.stream()
+                .map(postMapper::toPostGetDto)
+                .collect(Collectors.toList());
     }
 
     @Override

@@ -47,9 +47,9 @@ public class PostController {
 
     //GET Mapping-Get All Posts By Category
     @GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<PostDto>> getPostsByCategory(@PathVariable("categoryId") Long categoryId){
+    public ResponseEntity<List<PostGetDto>> getPostsByCategory(@PathVariable("categoryId") Long categoryId){
         logger.info("Received request to get posts for category with ID : {}", categoryId);
-        List<PostDto> posts = postService.getPostsByCategory(categoryId);
+        List<PostGetDto> posts = postService.getPostsByCategory(categoryId);
         logger.info("Returning response for posts for category with ID : {}", categoryId);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
