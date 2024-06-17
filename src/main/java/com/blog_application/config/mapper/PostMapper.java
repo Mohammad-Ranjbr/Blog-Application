@@ -22,9 +22,6 @@ public class PostMapper {
                 .addMapping(Post::getUser,PostDto::setUserDto)
                 .addMapping(Post::getComments,PostDto::setCommentDtos);
     }
-    public PostDto toDto(Post post){
-        return modelMapper.map(post,PostDto.class);
-    }
 
     public Post toEntity(PostCreateDto postCreateDto){
         return modelMapper.map(postCreateDto,Post.class);
