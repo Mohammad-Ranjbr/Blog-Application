@@ -3,6 +3,7 @@ package com.blog_application.controller;
 import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentDto;
 import com.blog_application.dto.comment.CommentGetDto;
+import com.blog_application.dto.comment.CommentUpdateDto;
 import com.blog_application.service.CommentService;
 import com.blog_application.util.ApiResponse;
 import org.slf4j.Logger;
@@ -54,9 +55,9 @@ public class CommentController {
 
     //PUT Mapping-Update comment
     @PutMapping("/{id}")
-    public ResponseEntity<CommentDto> updateComment(@RequestBody CommentDto commentDto,@PathVariable("id") Long commentId){
+    public ResponseEntity<CommentGetDto> updateComment(@RequestBody CommentUpdateDto commentUpdateDto, @PathVariable("id") Long commentId){
         logger.info("Received request to update comment with ID : {}",commentId);
-        CommentDto updatedComment = commentService.updateComment(commentDto,commentId);
+        CommentGetDto updatedComment = commentService.updateComment(commentUpdateDto,commentId);
         logger.info("Returning response for update comment with ID : {}",commentId);
         return new ResponseEntity<>(updatedComment,HttpStatus.OK);
     }
