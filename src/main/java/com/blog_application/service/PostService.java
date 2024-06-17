@@ -1,6 +1,7 @@
 package com.blog_application.service;
 
 import com.blog_application.dto.post.PostDto;
+import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.util.PostResponse;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public interface PostService {
 
     void deletePost(Long post_id);
-    PostDto getPostById(Long postId);
+    PostGetDto getPostById(Long postId);
     List<PostDto> getPostsByUser(Long userId);
     List<PostDto> searchPosts(String keyword);
     PostDto updatePost(PostDto postDto,Long postId);

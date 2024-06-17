@@ -1,7 +1,6 @@
 package com.blog_application.dto.comment;
 
 import com.blog_application.dto.user.UserBasicInfoDto;
-import com.blog_application.dto.user.UserDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

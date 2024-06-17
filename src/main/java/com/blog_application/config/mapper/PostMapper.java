@@ -1,6 +1,7 @@
 package com.blog_application.config.mapper;
 
 import com.blog_application.dto.post.PostDto;
+import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.model.Post;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,14 @@ public class PostMapper {
 
     public Post toEntity(PostDto postDto){
         return modelMapper.map(postDto,Post.class);
+    }
+
+    public Post toEntity(PostGetDto postGetDto){
+        return modelMapper.map(postGetDto,Post.class);
+    }
+
+    public PostGetDto toPostGetDto(Post post){
+        return modelMapper.map(post,PostGetDto.class);
     }
 
 }

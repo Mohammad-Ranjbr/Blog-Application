@@ -8,4 +8,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class PostCreateDto {
+
+    private String title;
+    private String content;
+
 }

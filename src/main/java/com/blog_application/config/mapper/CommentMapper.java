@@ -1,7 +1,6 @@
 package com.blog_application.config.mapper;
 
 import com.blog_application.dto.comment.CommentCreateDto;
-import com.blog_application.dto.comment.CommentDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.model.Comment;
 import org.modelmapper.ModelMapper;
@@ -16,12 +15,6 @@ public class CommentMapper {
     @Autowired
     public CommentMapper(ModelMapper modelMapper){
         this.modelMapper = modelMapper;
-        modelMapper.createTypeMap(Comment.class, CommentDto.class)
-                .addMapping(Comment::getUser,CommentDto::setUserDto);
-    }
-
-    public Comment toEntity(CommentDto commentDto){
-        return modelMapper.map(commentDto,Comment.class);
     }
 
     public Comment toEntity(CommentCreateDto commentCreateDto){
@@ -30,10 +23,6 @@ public class CommentMapper {
 
     public CommentGetDto toCommentGetDto(Comment comment){
         return modelMapper.map(comment,CommentGetDto.class);
-    }
-
-    public CommentDto toDto(Comment comment){
-        return  modelMapper.map(comment,CommentDto.class);
     }
 
 }

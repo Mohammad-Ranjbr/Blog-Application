@@ -1,6 +1,7 @@
 package com.blog_application.controller;
 
 import com.blog_application.dto.post.PostDto;
+import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.service.PostService;
 import com.blog_application.util.ApiResponse;
 import com.blog_application.util.PostResponse;
@@ -66,9 +67,9 @@ public class PostController {
 
     //GET Mapping-Get Post By ID
     @GetMapping("/{id}")
-    public ResponseEntity<PostDto> git (@PathVariable("id") Long postId){
+    public ResponseEntity<PostGetDto> git (@PathVariable("id") Long postId){
         logger.info("Received request to fetch post with ID: {}", postId);
-        PostDto postDto = postService.getPostById(postId);
+        PostGetDto postDto = postService.getPostById(postId);
         logger.info("Returning response for post with ID: {}", postId);
         return new ResponseEntity<>(postDto,HttpStatus.OK);
     }

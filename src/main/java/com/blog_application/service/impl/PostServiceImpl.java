@@ -4,6 +4,7 @@ import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.post.PostDto;
+import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
 import com.blog_application.model.Post;
@@ -110,14 +111,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto getPostById(Long postId) {
+    public PostGetDto getPostById(Long postId) {
         logger.info("Fetching post with ID : {}",postId);
         Post post = postRepository.findById(postId).orElseThrow(() -> {
             logger.warn("Post with ID {} not found, Get post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
         logger.info("Post found with ID : {}",postId);
-        return postMapper.toDto(post);
+        return postMapper.toPostGetDto(post);
     }
 
     @Override

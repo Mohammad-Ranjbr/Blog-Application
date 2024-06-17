@@ -8,4 +8,9 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class PostUpdateDto {
+
+    private String title;
+    private String content;
+    private String imageName;
+
 }
