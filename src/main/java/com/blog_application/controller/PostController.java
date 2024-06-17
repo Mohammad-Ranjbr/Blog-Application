@@ -104,9 +104,9 @@ public class PostController {
 
     //GET Mapping-Search Post
     @GetMapping("/search2/{keyword}")
-    public ResponseEntity<List<PostDto>> searchPostByTitleWithQueryMethod(@PathVariable("keyword") String title){
+    public ResponseEntity<List<PostGetDto>> searchPostByTitleWithQueryMethod(@PathVariable("keyword") String title){
         logger.info("Received request to search posts by title using query method with keyword : {}", title);
-        List<PostDto> posts = postService.searchPostsWithQueryMethod(title);
+        List<PostGetDto> posts = postService.searchPostsWithQueryMethod(title);
         logger.info("Returning response for search posts by title using query method with keyword : {}", title);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
