@@ -89,7 +89,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserBasicInfoDto> getAllBasicUserInfo() {
-        return null;
+        logger.info("Fetching all user basic info");
+        List<User> users = userRepository.findAll();
+        logger.info("Total user basic info found : {}",users.size());
+        return users.stream()
+                .map(userMapper::toUserBasicInfoDto)
+                .collect(Collectors.toList());
     }
 
     @Override

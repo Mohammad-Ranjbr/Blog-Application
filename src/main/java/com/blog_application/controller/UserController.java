@@ -73,12 +73,22 @@ public class UserController {
         return new ResponseEntity<>(users,HttpStatus.OK);
     }
 
+    //GET Mapping-Get User Basic Info By ID
     @GetMapping("/basic-info/{id}")
     public ResponseEntity<UserBasicInfoDto> getUserBasicInfo(@PathVariable("id") Long userId){
         logger.info("Received request to get user basic info with ID : {}",userId);
         UserBasicInfoDto userBasicInfoDto = userService.getUserBasicInfoById(userId);
         logger.info("Returning response for get user basic info with ID : {}",userId);
         return new ResponseEntity<>(userBasicInfoDto,HttpStatus.OK);
+    }
+
+    //GET Mapping-Get All User Basic Info
+    @GetMapping("/basic-info/")
+    public ResponseEntity<List<UserBasicInfoDto>> getAllUserBasicInfo(){
+        logger.info("Received request to get all user basic info");
+        List<UserBasicInfoDto> userBasicInfos = userService.getAllBasicUserInfo();
+        logger.info("Returning response with {} user basic info",userBasicInfos.size());
+        return new ResponseEntity<>(userBasicInfos,HttpStatus.OK);
     }
 
 }
