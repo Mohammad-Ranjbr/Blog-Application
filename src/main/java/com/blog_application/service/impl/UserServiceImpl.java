@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
         });
         logger.info("User found with ID : {}",user.getId());
         UserBasicInfoDto userBasicInfoDto = userMapper.toUserBasicInfoDto(user);
-        logger.debug("UserBasicInfoDto created: {}", userBasicInfoDto);
+        logger.info("UserBasicInfoDto created: {}", userBasicInfoDto);
         return userBasicInfoDto;
     }
 
