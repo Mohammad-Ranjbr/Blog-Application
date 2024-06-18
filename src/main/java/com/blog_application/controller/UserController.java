@@ -1,5 +1,6 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
@@ -70,6 +71,14 @@ public class UserController {
         List<UserGetDto> users = userService.getAllUsers();
         logger.info("Returning response with {} users",users.size());
         return new ResponseEntity<>(users,HttpStatus.OK);
+    }
+
+    @GetMapping("/basic-info/{id}")
+    public ResponseEntity<UserBasicInfoDto> getUserBasicInfo(@PathVariable("id") Long userId){
+        logger.info("Received request to get user basic info with ID : {}",userId);
+        UserBasicInfoDto userBasicInfoDto = userService.getUserBasicInfoById(userId);
+        logger.info("Returning response for get user basic info with ID : {}",userId);
+        return new ResponseEntity<>(userBasicInfoDto,HttpStatus.OK);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.UserMapper;
+import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
@@ -84,6 +85,24 @@ public class UserServiceImpl implements UserService {
         optionalUser.ifPresent(printUserDetails);
         logger.info("User found with ID : {}",user.getId());
         return userMapper.toUserGetDto(user);
+    }
+
+    @Override
+    public List<UserBasicInfoDto> getAllBasicUserInfo() {
+        return null;
+    }
+
+    @Override
+    public UserBasicInfoDto getUserBasicInfoById(Long userId) {
+        logger.info("Fetching user with ID: {}", userId);
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User not performed");
+        });
+        logger.info("User found with ID : {}",user.getId());
+        UserBasicInfoDto userBasicInfoDto = userMapper.toUserBasicInfoDto(user);
+        logger.info("UserBasicInfoDto created: {}", userBasicInfoDto);
+        return userBasicInfoDto;
     }
 
     @Override
