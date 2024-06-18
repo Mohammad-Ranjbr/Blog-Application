@@ -1,5 +1,6 @@
 package com.blog_application.config.mapper;
 
+import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.model.User;
@@ -27,6 +28,10 @@ public class UserMapper {
 
     public UserGetDto toUserGetDto(User user){
         return modelMapper.map(user,UserGetDto.class);
+    }
+
+    public UserBasicInfoDto toUserBasicInfoDto(User user){
+        return modelMapper.map(user,UserBasicInfoDto.class);
     }
 
 }
