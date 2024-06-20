@@ -113,7 +113,7 @@ public class PostController {
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
-    //OPTIONS Mapping for all users
+    //OPTIONS Mapping for all posts
     @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
     public ResponseEntity<?> optionsForAllPosts(){
         logger.info("Received OPTIONS request for all posts");
@@ -123,7 +123,7 @@ public class PostController {
         return new ResponseEntity<>(headers,HttpStatus.OK);
     }
 
-    //OPTIONS Mapping fo single user
+    //OPTIONS Mapping fo single post
     @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
     public ResponseEntity<?> optionsForSinglePost(@PathVariable("id") Long postId){
         logger.info("Received OPTIONS request for post with ID : {}", postId);

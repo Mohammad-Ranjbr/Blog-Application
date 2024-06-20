@@ -8,6 +8,8 @@ import com.blog_application.util.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -59,6 +61,27 @@ public class CommentController {
         CommentGetDto updatedComment = commentService.updateComment(commentUpdateDto,commentId);
         logger.info("Returning response for update comment with ID : {}",commentId);
         return new ResponseEntity<>(updatedComment,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping for all comments
+    @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForAllComments(){
+        logger.info("Received OPTIONS request for all comments");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Allow","POST,OPTIONS");
+        logger.info("Returning response with allowed methods for all comments");
+        return new ResponseEntity<>(headers,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping fo single comment
+    @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForSingleComment(@PathVariable("id") Long commentId){
+        logger.info("Received OPTIONS request for comment with ID : {}", commentId);
+        ResponseEntity<?> response = ResponseEntity.ok()
+                .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
+                .build();
+        logger.info("Returning response with allowed methods for comment with ID : {}", commentId);
+        return response;
     }
 
 }

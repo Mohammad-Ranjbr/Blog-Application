@@ -10,6 +10,8 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -89,6 +91,27 @@ public class CategoryController {
         List<CategoryBasicInfoDto> categoryBasicInfoDtos = categoryService.getAllCategoryBasicInfo();
         logger.info("Returning response with {} category basic info",categoryBasicInfoDtos.size());
         return new ResponseEntity<>(categoryBasicInfoDtos,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping for all categories
+    @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForAllCategories(){
+        logger.info("Received OPTIONS request for all categories");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Allow","GET,POST,OPTIONS");
+        logger.info("Returning response with allowed methods for all categories");
+        return new ResponseEntity<>(headers,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping fo single category
+    @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForSingleCategory(@PathVariable("id") Long categoryId){
+        logger.info("Received OPTIONS request for category with ID : {}", categoryId);
+        ResponseEntity<?> response = ResponseEntity.ok()
+                .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
+                .build();
+        logger.info("Returning response with allowed methods for category with ID : {}", categoryId);
+        return response;
     }
 
 }
