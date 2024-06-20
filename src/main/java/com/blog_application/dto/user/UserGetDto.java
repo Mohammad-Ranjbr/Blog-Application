@@ -19,6 +19,6 @@ public class UserGetDto extends UserBasicInfoDto{
     private String phoneNumber;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private List<PostGetDto> posts;
+    //private List<PostGetDto> posts;
 
 }

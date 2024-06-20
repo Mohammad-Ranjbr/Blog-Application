@@ -15,6 +15,6 @@ public class ErrorResponse {
     private String message;
     private String action;
     private boolean success;
-    private long timestamp;
+    private String time;
 
 }

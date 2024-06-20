@@ -1,6 +1,8 @@
 package com.blog_application.exception;
 
 import com.blog_application.util.ApiResponse;
+import com.blog_application.util.Time;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,13 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    private final Time time;
+
+    @Autowired
+    public GlobalExceptionHandler(Time time){
+        this.time = time;
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> resourceNotfoundExceptionHandler(ResourceNotFoundException resourceNotFoundException){
         ErrorResponse errorResponse = new ErrorResponse(
@@ -23,7 +32,7 @@ public class GlobalExceptionHandler {
                 resourceNotFoundException.getMessage(),
                 resourceNotFoundException.getAction(),
                 false,
-                System.currentTimeMillis()
+                time.getCurrentTimeAsString("yyyy-MM-dd HH:mm:ss")
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
