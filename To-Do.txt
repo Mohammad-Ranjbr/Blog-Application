@@ -24,5 +24,6 @@
 24- Register
 25- Forget Password
 26- Basic info endpoint`s
+27- Option Http Method
 
 ✅	❌

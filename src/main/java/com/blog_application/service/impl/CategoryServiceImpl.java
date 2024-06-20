@@ -1,6 +1,7 @@
 package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.CategoryMapper;
+import com.blog_application.dto.category.CategoryBasicInfoDto;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
@@ -40,17 +41,40 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public CategoryBasicInfoDto getCategoryBasicInfoById(Long categoryId) {
+        logger.info("Fetching category with ID: {}", categoryId);
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, Get category basic info operation not performed",categoryId);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category basic info operation not performed");
+        });
+        logger.info("Category found with ID : {}",categoryId);
+        CategoryBasicInfoDto categoryBasicInfoDto = categoryMapper.toCategoryBasicInfoDto(category);
+        logger.info("CategoryBasicInfo created: {}", categoryBasicInfoDto);
+        return categoryBasicInfoDto;
+    }
+
+    @Override
     public CategoryGetDto getCategoryById(Long categoryId) {
         logger.info("Fetching category with ID : {}",categoryId);
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
             logger.warn("Category with ID {} not found, Get category operation not performed",categoryId);
-            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category not performed");
+            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category operation not performed");
         });
         Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
         Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
         optionalCategory.ifPresent(printCategoryDetails);
         logger.info("Category found with ID : {}",categoryId);
         return categoryMapper.toCategoryGetDto(category);
+    }
+
+    @Override
+    public List<CategoryBasicInfoDto> getAllCategoryBasicInfo() {
+        logger.info("Fetching all category basic info");
+        List<Category> categories = categoryRepository.findAll();
+        logger.info("Total category basic info found : {}",categories.size());
+        return categories.stream()
+                .map(categoryMapper::toCategoryBasicInfoDto)
+                .collect(Collectors.toList());
     }
 
     @Override

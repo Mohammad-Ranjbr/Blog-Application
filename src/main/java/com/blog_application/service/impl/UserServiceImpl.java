@@ -104,7 +104,7 @@ public class UserServiceImpl implements UserService {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
             return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User not performed");
         });
-        logger.info("User found with ID : {}",user.getId());
+        logger.info("User found with ID : {}",userId);
         UserBasicInfoDto userBasicInfoDto = userMapper.toUserBasicInfoDto(user);
         logger.info("UserBasicInfoDto created: {}", userBasicInfoDto);
         return userBasicInfoDto;
