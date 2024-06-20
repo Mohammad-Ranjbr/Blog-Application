@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
         logger.info("Fetching user with ID : {}",userId);
         User user = userRepository.findById(userId).orElseThrow(() -> {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User not performed");
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
         });
         //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
         //This class is a container that may contain a value (which is present) or no value (which is empty).
@@ -100,10 +100,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserBasicInfoDto getUserBasicInfoById(UUID userId) {
-        logger.info("Fetching user with ID: {}", userId);
+        logger.info("Fetching user with ID : {}", userId);
         User user = userRepository.findById(userId).orElseThrow(() -> {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User not performed");
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
         });
         logger.info("User found with ID : {}",userId);
         UserBasicInfoDto userBasicInfoDto = userMapper.toUserBasicInfoDto(user);
@@ -126,7 +126,7 @@ public class UserServiceImpl implements UserService {
             return savedUser;
         }).orElseThrow(() -> {
             logger.warn("User with ID {} not found, Updated user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User not performed");
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
         });
         return userMapper.toUserGetDto(updatedUser);
     }

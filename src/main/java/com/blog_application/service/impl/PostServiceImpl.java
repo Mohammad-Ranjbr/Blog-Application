@@ -129,7 +129,7 @@ public class PostServiceImpl implements PostService {
         logger.info("Fetching posts for User with ID : {}",userId);
         User user = userMapper.toEntity(userService.getUserById(userId));
         List<Post> posts = postRepository.findAllByUser(user);
-        logger.info("Total posts found for user ID {}: {}",userId,posts.size());
+        logger.info("Total posts found for user with ID {} : {}",userId,posts.size());
         return posts.stream()
                 .map(postMapper::toPostGetDto)
                 .collect(Collectors.toList());
@@ -140,7 +140,7 @@ public class PostServiceImpl implements PostService {
         logger.info("Fetching posts for Category with ID : {}",categoryId);
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
         List<Post> posts = postRepository.findAllByCategory(category);
-        logger.info("Total posts found for category ID {} : {}",categoryId,posts.size());
+        logger.info("Total posts found for category with ID {} : {}",categoryId,posts.size());
         return posts.stream()
                 .map(postMapper::toPostGetDto)
                 .collect(Collectors.toList());

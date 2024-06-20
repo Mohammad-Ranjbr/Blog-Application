@@ -1997,3 +1997,320 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "id" cannot be cast 
 2024-06-20T17:45:50.240+03:30  INFO 16400 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-06-20T17:45:50.243+03:30  INFO 16400 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-06-20T17:45:50.253+03:30  INFO 16400 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-20T17:55:39.608+03:30  INFO 13084 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 13084 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-20T17:55:39.611+03:30  INFO 13084 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-20T17:55:39.667+03:30  INFO 13084 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-20T17:55:39.668+03:30  INFO 13084 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-20T17:55:40.422+03:30  INFO 13084 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-20T17:55:40.511+03:30  INFO 13084 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 4 JPA repository interfaces.
+2024-06-20T17:55:41.132+03:30  INFO 13084 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-20T17:55:41.145+03:30  INFO 13084 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-20T17:55:41.145+03:30  INFO 13084 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-20T17:55:41.202+03:30  INFO 13084 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-20T17:55:41.203+03:30  INFO 13084 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1535 ms
+2024-06-20T17:55:41.369+03:30  INFO 13084 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-20T17:55:41.426+03:30  INFO 13084 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-20T17:55:41.458+03:30  INFO 13084 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-20T17:55:41.758+03:30  INFO 13084 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-20T17:55:41.786+03:30  INFO 13084 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-20T17:55:41.978+03:30  INFO 13084 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@306188ce
+2024-06-20T17:55:41.983+03:30  INFO 13084 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-20T17:55:42.032+03:30  WARN 13084 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-20T17:55:43.238+03:30  INFO 13084 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-20T17:55:43.338+03:30  INFO 13084 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-20T17:55:43.777+03:30  INFO 13084 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-20T17:55:44.216+03:30  WARN 13084 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-20T17:55:44.657+03:30  INFO 13084 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-20T17:55:44.700+03:30  INFO 13084 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-20T17:55:44.715+03:30  INFO 13084 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.611 seconds (process running for 6.354)
+2024-06-20T17:55:52.853+03:30  INFO 13084 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-20T17:55:52.859+03:30  INFO 13084 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-20T17:55:52.873+03:30  INFO 13084 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-20T17:55:55.564+03:30  INFO 1596 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 1596 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-20T17:55:55.568+03:30  INFO 1596 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-20T17:55:55.623+03:30  INFO 1596 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-20T17:55:55.623+03:30  INFO 1596 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-20T17:55:56.346+03:30  INFO 1596 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-20T17:55:56.421+03:30  INFO 1596 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 4 JPA repository interfaces.
+2024-06-20T17:55:56.995+03:30  INFO 1596 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-20T17:55:57.007+03:30  INFO 1596 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-20T17:55:57.007+03:30  INFO 1596 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-20T17:55:57.064+03:30  INFO 1596 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-20T17:55:57.065+03:30  INFO 1596 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1440 ms
+2024-06-20T17:55:57.227+03:30  INFO 1596 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-20T17:55:57.288+03:30  INFO 1596 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-20T17:55:57.320+03:30  INFO 1596 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-20T17:55:57.608+03:30  INFO 1596 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-20T17:55:57.634+03:30  INFO 1596 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-20T17:55:57.805+03:30  INFO 1596 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5238ad84
+2024-06-20T17:55:57.807+03:30  INFO 1596 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-20T17:55:57.874+03:30  WARN 1596 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-20T17:55:59.062+03:30  INFO 1596 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-20T17:55:59.186+03:30  INFO 1596 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-20T17:55:59.595+03:30  INFO 1596 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-20T17:55:59.954+03:30  WARN 1596 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-20T17:56:00.363+03:30  INFO 1596 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-20T17:56:00.403+03:30  INFO 1596 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-20T17:56:00.416+03:30  INFO 1596 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.307 seconds (process running for 6.035)
+2024-06-20T17:56:35.298+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-20T17:56:35.298+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-20T17:56:35.300+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-06-20T17:56:35.491+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.UserController            : Received request to create user with email : mohammadranjbar@gmail.com
+2024-06-20T17:56:35.491+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Creating user with email : mohammadranjbar@gmail.com
+2024-06-20T17:56:35.636+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : User created successfully with email : mohammadranjbar@gmail.com
+2024-06-20T17:56:35.641+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.UserController            : Returning response for user creation with email : mohammadranjbar@gmail.com
+2024-06-20T17:57:32.686+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Received request to create user with email : hosseinranjbar@gmail.com
+2024-06-20T17:57:32.687+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Creating user with email : hosseinranjbar@gmail.com
+2024-06-20T17:57:32.699+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : User created successfully with email : hosseinranjbar@gmail.com
+2024-06-20T17:57:32.701+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Returning response for user creation with email : hosseinranjbar@gmail.com
+2024-06-20T18:01:21.011+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.UserController            : Received request to create user with email : fatemehranjbar@gmail.com
+2024-06-20T18:01:21.012+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.UserServiceImpl         : Creating user with email : fatemehranjbar@gmail.com
+2024-06-20T18:01:21.024+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.UserServiceImpl         : User created successfully with email : fatemehranjbar@gmail.com
+2024-06-20T18:01:21.025+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.UserController            : Returning response for user creation with email : fatemehranjbar@gmail.com
+2024-06-20T18:02:33.326+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.UserController            : Received request to create user with email : moharramranjbar@gmail.com
+2024-06-20T18:02:33.330+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.UserServiceImpl         : Creating user with email : moharramranjbar@gmail.com
+2024-06-20T18:02:33.342+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.UserServiceImpl         : User created successfully with email : moharramranjbar@gmail.com
+2024-06-20T18:02:33.343+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.UserController            : Returning response for user creation with email : moharramranjbar@gmail.com
+2024-06-20T18:03:26.790+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.UserController            : Received request to create user with email : faribamoslem@gmail.com
+2024-06-20T18:03:26.791+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : Creating user with email : faribamoslem@gmail.com
+2024-06-20T18:03:26.805+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : User created successfully with email : faribamoslem@gmail.com
+2024-06-20T18:03:26.806+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.UserController            : Returning response for user creation with email : faribamoslem@gmail.com
+2024-06-20T18:03:51.216+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.UserController            : Received request to create user with email : faribamoslem@gmail.com
+2024-06-20T18:03:51.217+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : Creating user with email : faribamoslem@gmail.com
+2024-06-20T18:03:51.228+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : User created successfully with email : faribamoslem@gmail.com
+2024-06-20T18:03:51.229+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.UserController            : Returning response for user creation with email : faribamoslem@gmail.com
+2024-06-20T18:04:13.325+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.UserController            : Received request to get user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:04:13.326+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:04:13.425+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : User found with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:04:13.445+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.UserController            : Returning response for get user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:04:19.118+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.UserController            : Received request to get user with ID : 244a717c-1fad-42f8-8083-034e1dcecfb2
+2024-06-20T18:04:19.119+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 244a717c-1fad-42f8-8083-034e1dcecfb2
+2024-06-20T18:04:19.122+03:30  WARN 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : User with ID 244a717c-1fad-42f8-8083-034e1dcecfb2 not found, Get user operation not performed
+2024-06-20T18:04:19.137+03:30  WARN 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.blog_application.exception.ResourceNotFoundException: User not found with ID : 244a717c-1fad-42f8-8083-034e1dcecfb2]
+2024-06-20T18:04:56.013+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.UserController            : Received request to get all users
+2024-06-20T18:04:56.014+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Fetching all users
+2024-06-20T18:04:56.100+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Total users found : 6
+2024-06-20T18:04:56.118+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.UserController            : Returning response with 6 users
+2024-06-20T18:05:48.136+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Received request to delete user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:05:48.136+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Deleting user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:05:48.175+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : User with ID 244a717c-1fad-42f8-8083-34e1dcecfb2a deleted successfully
+2024-06-20T18:05:48.177+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Returning response for delete user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:06:05.201+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.UserController            : Received request to delete user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:06:05.202+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.UserServiceImpl         : Deleting user with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a
+2024-06-20T18:06:05.205+03:30  WARN 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.UserServiceImpl         : User with ID 244a717c-1fad-42f8-8083-34e1dcecfb2a not found, Delete user operation not performed
+2024-06-20T18:06:05.208+03:30  WARN 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.blog_application.exception.ResourceNotFoundException: User not found with ID : 244a717c-1fad-42f8-8083-34e1dcecfb2a]
+2024-06-20T18:06:59.271+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.UserController            : Received request to update user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:06:59.271+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.UserServiceImpl         : Updating user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:06:59.300+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.UserServiceImpl         : User with ID 3aab4158-b38d-46ec-89e2-9903cf35a77c updated successfully
+2024-06-20T18:06:59.303+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.UserController            : Returning response for updated user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:07:35.825+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.UserController            : Received request to update user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:07:35.825+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.UserServiceImpl         : Updating user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:07:35.837+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.UserServiceImpl         : User with ID 3aab4158-b38d-46ec-89e2-9903cf35a77c updated successfully
+2024-06-20T18:07:35.840+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.UserController            : Returning response for updated user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:03.619+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.UserController            : Received request to update user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:03.620+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : Updating user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:03.636+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : User with ID 3aab4158-b38d-46ec-89e2-9903cf35a77c updated successfully
+2024-06-20T18:09:03.645+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.UserController            : Returning response for updated user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:19.597+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.UserController            : Received request to update user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:19.597+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : Updating user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:19.613+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : User with ID 3aab4158-b38d-46ec-89e2-9903cf35a77c updated successfully
+2024-06-20T18:09:19.617+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.UserController            : Returning response for updated user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:31.441+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.UserController            : Received request to update user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:31.441+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : Updating user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:09:31.446+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : User with ID 3aab4158-b38d-46ec-89e2-9903cf35a77c updated successfully
+2024-06-20T18:09:31.448+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.UserController            : Returning response for updated user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:10:15.598+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.UserController            : Received request to update user with ID : 3aab4158-b38d-46ec-89e2-09903cf35a77
+2024-06-20T18:10:15.599+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : Updating user with ID : 3aab4158-b38d-46ec-89e2-09903cf35a77
+2024-06-20T18:10:15.601+03:30  WARN 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : User with ID 3aab4158-b38d-46ec-89e2-09903cf35a77 not found, Updated user operation not performed
+2024-06-20T18:10:15.603+03:30  WARN 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.blog_application.exception.ResourceNotFoundException: User not found with ID : 3aab4158-b38d-46ec-89e2-09903cf35a77]
+2024-06-20T18:11:08.478+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.UserController            : Received request to get user basic info with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:11:08.478+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Fetching user with ID: 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:11:08.483+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : User found with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:11:08.486+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : UserBasicInfoDto created: UserBasicInfoDto(id=3aab4158-b38d-46ec-89e2-9903cf35a77c, name=Fariba Moslem, email=faribamoslem@gmail.com)
+2024-06-20T18:11:08.487+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.UserController            : Returning response for get user basic info with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:11:16.147+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Received request to get all user basic info
+2024-06-20T18:11:16.148+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Fetching all user basic info
+2024-06-20T18:11:16.156+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Total user basic info found : 5
+2024-06-20T18:11:16.158+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Returning response with 5 user basic info
+2024-06-20T18:11:24.850+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.UserController            : Received OPTIONS request for all users
+2024-06-20T18:11:24.852+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.UserController            : Returning response with allowed methods for all users
+2024-06-20T18:11:35.003+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.UserController            : Received OPTIONS request for user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:11:35.005+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.UserController            : Returning response with allowed methods for user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-20T18:16:28.588+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CategoryController        : Received request to create category with title : AI
+2024-06-20T18:16:28.589+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CategoryServiceImpl     : Creating category with title : AI
+2024-06-20T18:16:28.606+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CategoryServiceImpl     : Category created successfully with title : AI
+2024-06-20T18:16:28.607+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CategoryController        : Returning response for category creation with title : AI
+2024-06-20T18:18:09.024+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CategoryController        : Received request to create category with title : Programming Languages and Frameworks
+2024-06-20T18:18:09.025+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CategoryServiceImpl     : Creating category with title : Programming Languages and Frameworks
+2024-06-20T18:18:09.036+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CategoryServiceImpl     : Category created successfully with title : Programming Languages and Frameworks
+2024-06-20T18:18:09.036+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CategoryController        : Returning response for category creation with title : Programming Languages and Frameworks
+2024-06-20T18:19:15.677+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CategoryController        : Received request to create category with title : Web Development
+2024-06-20T18:19:15.677+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CategoryServiceImpl     : Creating category with title : Web Development
+2024-06-20T18:19:15.688+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CategoryServiceImpl     : Category created successfully with title : Web Development
+2024-06-20T18:19:15.689+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CategoryController        : Returning response for category creation with title : Web Development
+2024-06-20T18:19:50.850+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CategoryController        : Received request to create category with title : Lifestyle and Fashion
+2024-06-20T18:19:50.851+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CategoryServiceImpl     : Creating category with title : Lifestyle and Fashion
+2024-06-20T18:19:50.863+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CategoryServiceImpl     : Category created successfully with title : Lifestyle and Fashion
+2024-06-20T18:19:50.863+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CategoryController        : Returning response for category creation with title : Lifestyle and Fashion
+2024-06-20T18:20:31.003+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CategoryController        : Received request to create category with title : Technology and Gadgets
+2024-06-20T18:20:31.005+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CategoryServiceImpl     : Creating category with title : Technology and Gadgets
+2024-06-20T18:20:31.019+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CategoryServiceImpl     : Category created successfully with title : Technology and Gadgets
+2024-06-20T18:20:31.020+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CategoryController        : Returning response for category creation with title : Technology and Gadgets
+2024-06-20T18:21:03.279+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CategoryController        : Received request to get category with ID : 1
+2024-06-20T18:21:03.280+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID : 1
+2024-06-20T18:21:03.286+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 1
+2024-06-20T18:21:03.286+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CategoryController        : Returning response for get category with ID : 1
+2024-06-20T18:21:18.747+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.CategoryController        : Received request to create category with title : Technology and Gadgets
+2024-06-20T18:21:18.747+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.CategoryServiceImpl     : Creating category with title : Technology and Gadgets
+2024-06-20T18:21:18.758+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.CategoryServiceImpl     : Category created successfully with title : Technology and Gadgets
+2024-06-20T18:21:18.759+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.CategoryController        : Returning response for category creation with title : Technology and Gadgets
+2024-06-20T18:21:25.195+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.CategoryController        : Received request to get all categories
+2024-06-20T18:21:25.195+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.CategoryServiceImpl     : Fetching all categories
+2024-06-20T18:21:25.203+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.CategoryServiceImpl     : Total categories found : 6
+2024-06-20T18:21:25.206+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.CategoryController        : Returning response with 6 categories
+2024-06-20T18:21:41.430+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CategoryController        : Received request to delete category with ID : 6
+2024-06-20T18:21:41.431+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CategoryServiceImpl     : Deleting category with ID : 6
+2024-06-20T18:21:41.435+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CategoryServiceImpl     : Category with ID 6 deleted successfully
+2024-06-20T18:21:41.450+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CategoryController        : Returning response for delete category with ID : 6
+2024-06-20T18:22:16.175+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CategoryController        : Received request to update category with ID : 5
+2024-06-20T18:22:16.176+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CategoryServiceImpl     : Updating category with ID : 5
+2024-06-20T18:22:16.192+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CategoryServiceImpl     : Category with ID 5 updated successfully
+2024-06-20T18:22:16.194+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CategoryController        : Returning response for update category with ID : 5
+2024-06-20T18:22:37.613+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CategoryController        : Received request to get category basic info with ID : 1
+2024-06-20T18:22:37.613+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID: 1
+2024-06-20T18:22:37.618+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 1
+2024-06-20T18:22:37.621+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CategoryServiceImpl     : CategoryBasicInfo created: CategoryBasicInfoDto(id=1, title=AI)
+2024-06-20T18:22:37.621+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CategoryController        : Returning response for get category basic info with ID : 1
+2024-06-20T18:22:52.652+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CategoryController        : Received request to get category with ID : 1
+2024-06-20T18:22:52.653+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID : 1
+2024-06-20T18:22:52.658+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 1
+2024-06-20T18:22:52.660+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CategoryController        : Returning response for get category with ID : 1
+2024-06-20T18:22:57.142+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CategoryController        : Received request to get category basic info with ID : 1
+2024-06-20T18:22:57.143+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID: 1
+2024-06-20T18:22:57.146+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 1
+2024-06-20T18:22:57.146+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CategoryServiceImpl     : CategoryBasicInfo created: CategoryBasicInfoDto(id=1, title=AI)
+2024-06-20T18:22:57.146+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CategoryController        : Returning response for get category basic info with ID : 1
+2024-06-20T18:23:42.532+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CategoryController        : Received request to get all category basic info
+2024-06-20T18:23:42.532+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CategoryServiceImpl     : Fetching all category basic info
+2024-06-20T18:23:42.538+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CategoryServiceImpl     : Total category basic info found : 5
+2024-06-20T18:23:42.539+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CategoryController        : Returning response with 5 category basic info
+2024-06-20T18:25:01.983+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CategoryController        : Received OPTIONS request for all categories
+2024-06-20T18:25:01.984+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CategoryController        : Returning response with allowed methods for all categories
+2024-06-20T18:25:15.988+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.CategoryController        : Received OPTIONS request for category with ID : 1
+2024-06-20T18:25:15.989+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.CategoryController        : Returning response with allowed methods for category with ID : 1
+2024-06-20T18:34:48.364+03:30  WARN 1596 --- [blog-application] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s762ms28µs400ns).
+2024-06-20T20:32:17.236+03:30  WARN 1596 --- [blog-application] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h57m4s305ms716µs600ns).
+2024-06-20T20:34:08.680+03:30  WARN 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.util.UUID'; Invalid UUID string: 2]
+2024-06-20T20:35:52.388+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.PostController            : Received request to create post for user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489 and category with ID : 2
+2024-06-20T20:35:52.388+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.PostServiceImpl         : Creating post with title : Spring Boot
+2024-06-20T20:35:52.388+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:35:52.403+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : User found with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:35:52.410+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID : 2
+2024-06-20T20:35:52.412+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 2
+2024-06-20T20:35:52.425+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.PostServiceImpl         : Post created successfully with title : Spring Boot
+2024-06-20T20:35:52.429+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.PostController            : Returning response for post creation with title: Spring Boot
+2024-06-20T20:37:54.411+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.PostController            : Received request to create post for user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489 and category with ID : 2
+2024-06-20T20:37:54.411+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.PostServiceImpl         : Creating post with title : Spring Security
+2024-06-20T20:37:54.411+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:37:54.418+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : User found with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:37:54.434+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID : 2
+2024-06-20T20:37:54.435+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 2
+2024-06-20T20:37:54.449+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.PostServiceImpl         : Post created successfully with title : Spring Security
+2024-06-20T20:37:54.449+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.PostController            : Returning response for post creation with title: Spring Security
+2024-06-20T20:38:12.515+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.PostController            : Received request to get posts for user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:38:12.516+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.PostServiceImpl         : Fetching posts for User with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:38:12.516+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:38:12.520+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : User found with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:38:12.597+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.PostServiceImpl         : Total posts found for user ID 471ea3dc-e689-47f1-be93-b1ac28997489: 2
+2024-06-20T20:38:12.600+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.PostController            : Returning response for get posts for user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:39:20.642+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.PostController            : Received request to get posts for category with ID : 1
+2024-06-20T20:39:20.642+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.PostServiceImpl         : Fetching posts for Category with ID : 1
+2024-06-20T20:39:20.642+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID : 1
+2024-06-20T20:39:20.645+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 1
+2024-06-20T20:39:20.650+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.PostServiceImpl         : Total posts found for category ID 1 : 0
+2024-06-20T20:39:20.651+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.PostController            : Returning response for posts for category with ID : 1
+2024-06-20T20:39:26.766+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.PostController            : Received request to get posts for category with ID : 2
+2024-06-20T20:39:26.766+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.PostServiceImpl         : Fetching posts for Category with ID : 2
+2024-06-20T20:39:26.766+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID : 2
+2024-06-20T20:39:26.770+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 2
+2024-06-20T20:39:26.776+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.PostServiceImpl         : Total posts found for category ID 2 : 2
+2024-06-20T20:39:26.781+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.PostController            : Returning response for posts for category with ID : 2
+2024-06-20T20:40:38.226+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.PostController            : Received request to fetch all posts
+2024-06-20T20:40:38.227+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.PostServiceImpl         : Fetching all posts with pageNumber: 0, pageSize: 5, sortBy: id, sortDir: desc
+2024-06-20T20:40:38.274+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.PostServiceImpl         : Total posts found : 2
+2024-06-20T20:40:38.274+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.PostController            : Returning response for all posts
+2024-06-20T20:40:50.201+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.PostController            : Received request to fetch all posts
+2024-06-20T20:40:50.201+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.PostServiceImpl         : Fetching all posts with pageNumber: 0, pageSize: 5, sortBy: id, sortDir: asc
+2024-06-20T20:40:50.217+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.PostServiceImpl         : Total posts found : 2
+2024-06-20T20:40:50.218+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.PostController            : Returning response for all posts
+2024-06-20T20:41:08.796+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.PostController            : Received request to fetch post with ID : 2
+2024-06-20T20:41:08.797+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.PostServiceImpl         : Fetching post with ID : 2
+2024-06-20T20:41:08.802+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.PostServiceImpl         : Post found with ID : 2
+2024-06-20T20:41:08.804+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.PostController            : Returning response for post with ID : 2
+2024-06-20T20:42:06.989+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.PostController            : Received request to update post with ID : 2
+2024-06-20T20:42:06.990+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.PostServiceImpl         : Updating post with ID : 2
+2024-06-20T20:42:07.007+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.PostServiceImpl         : Post with ID 2 updated successfully
+2024-06-20T20:42:07.010+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.PostController            : Returning response for updated post with ID : 2
+2024-06-20T20:42:18.195+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.PostController            : Received request to update post with ID : 2
+2024-06-20T20:42:18.195+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.PostServiceImpl         : Updating post with ID : 2
+2024-06-20T20:42:18.210+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.PostServiceImpl         : Post with ID 2 updated successfully
+2024-06-20T20:42:18.218+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.PostController            : Returning response for updated post with ID : 2
+2024-06-20T20:42:46.682+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.PostController            : Received request to create post for user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489 and category with ID : 2
+2024-06-20T20:42:46.682+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.PostServiceImpl         : Creating post with title : Spring Security
+2024-06-20T20:42:46.682+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:42:46.686+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : User found with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:42:46.694+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CategoryServiceImpl     : Fetching category with ID : 2
+2024-06-20T20:42:46.695+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CategoryServiceImpl     : Category found with ID : 2
+2024-06-20T20:42:46.699+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.PostServiceImpl         : Post created successfully with title : Spring Security
+2024-06-20T20:42:46.700+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.PostController            : Returning response for post creation with title: Spring Security
+2024-06-20T20:43:03.707+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.PostController            : Received request to delete post with ID : 3
+2024-06-20T20:43:03.707+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.PostServiceImpl         : Deleting post with ID : 3
+2024-06-20T20:43:03.725+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.PostServiceImpl         : Post with ID 3 deleted successfully
+2024-06-20T20:43:03.725+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.PostController            : Returning response for delete post with ID : 3
+2024-06-20T20:43:30.317+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.PostController            : Received request to search posts by title using query method with keyword : Spring
+2024-06-20T20:43:30.318+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.PostServiceImpl         : Fetching posts with keyword: Spring
+2024-06-20T20:43:30.349+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.PostServiceImpl         : Fetched 2 posts for keyword: Spring
+2024-06-20T20:43:30.349+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.PostController            : Returning response for search posts by title using query method with keyword : Spring
+2024-06-20T20:43:58.699+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.PostController            : Received request to search posts by title containing : Spring
+2024-06-20T20:43:58.700+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.PostServiceImpl         : Fetching posts with keyword: Spring
+2024-06-20T20:43:58.729+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.PostServiceImpl         : Fetched 2 posts for keyword: Spring
+2024-06-20T20:43:58.729+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.PostController            : Returning response for search posts by title containing : Spring
+2024-06-20T20:44:22.119+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.PostController            : Received OPTIONS request for all posts
+2024-06-20T20:44:22.120+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.PostController            : Returning response with allowed methods for all posts
+2024-06-20T20:44:32.699+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.PostController            : Received OPTIONS request for post with ID : 1
+2024-06-20T20:44:32.700+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.PostController            : Returning response with allowed methods for post with ID : 1
+2024-06-20T20:45:46.177+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CommentController         : Received request to create comment with content: I like it.
+2024-06-20T20:45:46.177+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CommentServiceImpl      : Creating comment with content : I like it.
+2024-06-20T20:45:46.178+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.PostServiceImpl         : Fetching post with ID : 1
+2024-06-20T20:45:46.183+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.PostServiceImpl         : Post found with ID : 1
+2024-06-20T20:45:46.186+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:45:46.187+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : User found with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:45:46.204+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CommentServiceImpl      : Comment created successfully with content : I like it.
+2024-06-20T20:45:46.207+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CommentController         : Returning response for comment creation with content : I like it.
+2024-06-20T20:46:27.298+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CommentController         : Received request to create comment with content: I like it.
+2024-06-20T20:46:27.299+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CommentServiceImpl      : Creating comment with content : I like it.
+2024-06-20T20:46:27.299+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.PostServiceImpl         : Fetching post with ID : 1
+2024-06-20T20:46:27.302+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.PostServiceImpl         : Post found with ID : 1
+2024-06-20T20:46:27.305+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:46:27.306+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : User found with ID : 471ea3dc-e689-47f1-be93-b1ac28997489
+2024-06-20T20:46:27.320+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CommentServiceImpl      : Comment created successfully with content : I like it.
+2024-06-20T20:46:27.320+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CommentController         : Returning response for comment creation with content : I like it.
+2024-06-20T20:46:33.396+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CommentController         : Received request to delete comment with ID : 2
+2024-06-20T20:46:33.396+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CommentServiceImpl      : Deleting comment with ID : 2
+2024-06-20T20:46:33.418+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CommentServiceImpl      : Comment with ID : 2 deleted successfully
+2024-06-20T20:46:33.418+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CommentController         : Returning response for delete comment with ID : 2
+2024-06-20T20:46:58.317+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CommentController         : Received request to get comment with ID : 1
+2024-06-20T20:46:58.318+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-20T20:46:58.327+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-20T20:46:58.327+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CommentController         : Returning response for get comment with ID : 1
+2024-06-20T20:47:21.085+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Received request to update comment with ID : 1
+2024-06-20T20:47:21.085+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Updating comment with ID : 1
+2024-06-20T20:47:21.102+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Comment with ID 1 updated successfully
+2024-06-20T20:47:21.106+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Returning response for update comment with ID : 1
+2024-06-20T20:47:40.988+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Received OPTIONS request for all comments
+2024-06-20T20:47:40.989+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Returning response with allowed methods for all comments
+2024-06-20T20:47:50.202+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CommentController         : Received OPTIONS request for comment with ID : 1
+2024-06-20T20:47:50.203+03:30  INFO 1596 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CommentController         : Returning response with allowed methods for comment with ID : 1
+2024-06-20T20:47:58.909+03:30  INFO 1596 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-20T20:47:58.922+03:30  INFO 1596 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-20T20:47:58.932+03:30  INFO 1596 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
