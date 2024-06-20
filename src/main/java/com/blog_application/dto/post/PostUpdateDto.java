@@ -7,10 +7,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class PostUpdateDto {
+public class PostUpdateDto extends PostCreateDto{
 
-    private String title;
-    private String content;
     private String imageName;
 
 }

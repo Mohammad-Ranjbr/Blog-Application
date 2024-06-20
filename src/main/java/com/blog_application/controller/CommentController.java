@@ -5,6 +5,7 @@ import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 import com.blog_application.service.CommentService;
 import com.blog_application.util.ApiResponse;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class CommentController {
 
     //POST Mapping-Create Comment
     @PostMapping("/post/{post_id}/user/{user_id}")
-    public ResponseEntity<CommentGetDto> createComment(@RequestBody CommentCreateDto commentCreateDto, @PathVariable("post_id") Long postId,
+    public ResponseEntity<CommentGetDto> createComment(@Valid @RequestBody CommentCreateDto commentCreateDto, @PathVariable("post_id") Long postId,
                                                        @PathVariable("user_id") UUID userId){
         logger.info("Received request to create comment with content: {}",commentCreateDto.getContent());
         CommentGetDto createdComment = commentService.createComment(commentCreateDto,postId,userId);
@@ -58,7 +59,7 @@ public class CommentController {
 
     //PUT Mapping-Update comment
     @PutMapping("/{id}")
-    public ResponseEntity<CommentGetDto> updateComment(@RequestBody CommentUpdateDto commentUpdateDto, @PathVariable("id") Long commentId){
+    public ResponseEntity<CommentGetDto> updateComment(@Valid @RequestBody CommentUpdateDto commentUpdateDto, @PathVariable("id") Long commentId){
         logger.info("Received request to update comment with ID : {}",commentId);
         CommentGetDto updatedComment = commentService.updateComment(commentUpdateDto,commentId);
         logger.info("Returning response for update comment with ID : {}",commentId);

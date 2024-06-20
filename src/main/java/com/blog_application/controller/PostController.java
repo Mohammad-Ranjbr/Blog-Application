@@ -6,6 +6,7 @@ import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.service.PostService;
 import com.blog_application.util.ApiResponse;
 import com.blog_application.util.PostResponse;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class PostController {
 
     //POST Mapping-Create Post
     @PostMapping("/user/{userId}/category/{categoryId}")
-    public ResponseEntity<PostGetDto> createPost(@RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId){
+    public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId){
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
         PostGetDto createdPost = postService.createPost(postCreateDto,userId,categoryId);
         logger.info("Returning response for post creation with title: {}", createdPost.getTitle());
@@ -89,7 +90,7 @@ public class PostController {
 
     //PUT Mapping-Update Post
     @PutMapping("/{id}")
-    public ResponseEntity<PostGetDto> updatePost(@RequestBody PostUpdateDto postUpdateDto, @PathVariable("id") Long postId){
+    public ResponseEntity<PostGetDto> updatePost(@Valid @RequestBody PostUpdateDto postUpdateDto, @PathVariable("id") Long postId){
         logger.info("Received request to update post with ID : {}", postId);
         PostGetDto updatedPost = postService.updatePost(postUpdateDto,postId);
         logger.info("Returning response for updated post with ID : {}", postId);
