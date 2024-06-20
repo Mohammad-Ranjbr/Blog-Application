@@ -9,6 +9,8 @@ import com.blog_application.util.PostResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -109,6 +111,27 @@ public class PostController {
         List<PostGetDto> posts = postService.searchPostsWithQueryMethod(title);
         logger.info("Returning response for search posts by title using query method with keyword : {}", title);
         return new ResponseEntity<>(posts,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping for all users
+    @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForAllPosts(){
+        logger.info("Received OPTIONS request for all posts");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Allow","GET,POST,OPTIONS");
+        logger.info("Returning response with allowed methods for all posts");
+        return new ResponseEntity<>(headers,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping fo single user
+    @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForSinglePost(@PathVariable("id") Long postId){
+        logger.info("Received OPTIONS request for post with ID : {}", postId);
+        ResponseEntity<?> response = ResponseEntity.ok()
+                .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
+                .build();
+        logger.info("Returning response with allowed methods for post with ID : {}", postId);
+        return response;
     }
 
 }

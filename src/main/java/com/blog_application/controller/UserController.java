@@ -106,11 +106,11 @@ public class UserController {
     //OPTIONS Mapping for single user by ID
     @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
     public ResponseEntity<?> optionsForSingleUser(@PathVariable("id") Long userId){
-        logger.info("Received OPTIONS request for user with ID: {}", userId);
+        logger.info("Received OPTIONS request for user with ID : {}", userId);
         ResponseEntity<?> response = ResponseEntity.ok()
                 .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
                 .build();
-        logger.info("Returning response with allowed methods for user with ID: {}", userId);
+        logger.info("Returning response with allowed methods for user with ID : {}", userId);
         return response;
     }
 
