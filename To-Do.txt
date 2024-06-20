@@ -1,9 +1,9 @@
 1- validation for all model`s ✅
 2- DataIntegrityViolationException -> get specific feild`s ✅
-3- Convert timestamp to time
+3- Convert timestamp to time ✅
 4- Pagination
 5- User ID value type (convert to UUID) ✅
-6- Update post image
+6- Upload post image
 7- Get null posts ✅
 8- Application Constants
 9- Add user to comment entity ✅
