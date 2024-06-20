@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -17,9 +18,20 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
 
+    //In some projects, it might be not possible to jump from JPA specification 2.x to JPA (or Jakarta) specification 3.1.0. However,
+    //if we have Hibernate version 4 or 5, we still have the ability to generate UUIDs. For that, we have two approaches.
+    //@GeneratedValue(generator = "uuid-hibernate-generator") //Approach 1
+    //@GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
+    //@UuidGenerator //Approach 2
+    //Furthermore, when specifying @UuidGenerator, we can choose the concrete version of UUID to generate. This is defined by the style parameter. Let’s see the values that this parameter can take:
+    //
+    //RANDOM – generate UUID based on random numbers (version 4 in RFC)
+    //TIME – generate time-based UUID (version 1 in RFC)
+    //AUTO – this is the default option and is the same as RANDOM
+    //@UuidGenerator(style = UuidGenerator.Style.TIME)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID) //Approach 3
+    private UUID id;
     private String name;
     private String email;
     @Column(nullable = false , length = 1000)

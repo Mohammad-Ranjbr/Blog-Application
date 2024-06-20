@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/posts")
@@ -31,7 +32,7 @@ public class PostController {
 
     //POST Mapping-Create Post
     @PostMapping("/user/{userId}/category/{categoryId}")
-    public ResponseEntity<PostGetDto> createPost(@RequestBody PostCreateDto postCreateDto, @PathVariable("userId") Long userId, @PathVariable("categoryId") Long categoryId){
+    public ResponseEntity<PostGetDto> createPost(@RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId){
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
         PostGetDto createdPost = postService.createPost(postCreateDto,userId,categoryId);
         logger.info("Returning response for post creation with title: {}", createdPost.getTitle());
@@ -40,7 +41,7 @@ public class PostController {
 
     //GET Mapping-Get All Posts By User
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<PostGetDto>> getPostsByUser(@PathVariable("userId") Long userId){
+    public ResponseEntity<List<PostGetDto>> getPostsByUser(@PathVariable("userId") UUID userId){
         logger.info("Received request to get posts for user with ID : {}", userId);
         List<PostGetDto> posts = postService.getPostsByUser(userId);
         logger.info("Returning response for get posts for user with ID : {}", userId);

@@ -26,6 +26,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,7 +53,7 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public PostGetDto createPost(PostCreateDto postCreateDto, Long userId, Long categoryId) {
+    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
         User user = userMapper.toEntity(userService.getUserById(userId));
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
@@ -124,7 +125,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostGetDto> getPostsByUser(Long userId) {
+    public List<PostGetDto> getPostsByUser(UUID userId) {
         logger.info("Fetching posts for User with ID : {}",userId);
         User user = userMapper.toEntity(userService.getUserById(userId));
         List<Post> posts = postRepository.findAllByUser(user);

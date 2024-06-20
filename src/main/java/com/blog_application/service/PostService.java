@@ -6,17 +6,18 @@ import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.util.PostResponse;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface PostService {
 
     void deletePost(Long post_id);
     PostGetDto getPostById(Long postId);
-    List<PostGetDto> getPostsByUser(Long userId);
+    List<PostGetDto> getPostsByUser(UUID userId);
     List<PostGetDto> searchPosts(String keyword);
     PostGetDto updatePost(PostUpdateDto postDto, Long postId);
     List<PostGetDto> getPostsByCategory(Long categoryId);
     List<PostGetDto> searchPostsWithQueryMethod(String keyword);
-    PostGetDto createPost(PostCreateDto postCreateDto, Long userId, Long categoryId);
+    PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId);
     PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir);
 
 }

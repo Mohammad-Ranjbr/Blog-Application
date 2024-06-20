@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 @Service
@@ -45,7 +46,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, Long userId) {
+    public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) {
         logger.info("Creating comment with content : {}",commentCreateDto.getContent());
         Post post = postMapper.toEntity(postService.getPostById(postId));
         User user = userMapper.toEntity(userService.getUserById(userId));

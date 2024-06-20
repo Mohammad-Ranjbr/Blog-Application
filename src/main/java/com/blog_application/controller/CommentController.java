@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/v1/comments")
 public class CommentController {
@@ -29,7 +31,7 @@ public class CommentController {
     //POST Mapping-Create Comment
     @PostMapping("/post/{post_id}/user/{user_id}")
     public ResponseEntity<CommentGetDto> createComment(@RequestBody CommentCreateDto commentCreateDto, @PathVariable("post_id") Long postId,
-                                                       @PathVariable("user_id") Long userId){
+                                                       @PathVariable("user_id") UUID userId){
         logger.info("Received request to create comment with content: {}",commentCreateDto.getContent());
         CommentGetDto createdComment = commentService.createComment(commentCreateDto,postId,userId);
         logger.info("Returning response for comment creation with content : {}",commentCreateDto.getContent());

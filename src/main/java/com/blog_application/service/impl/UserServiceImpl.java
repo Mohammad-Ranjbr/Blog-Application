@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -53,7 +54,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUserById(Long userId) {
+    public void deleteUserById(UUID userId) {
         //Lambda Expression : Passing a function as an argument to another function
         //orElseThrow is a method that takes a Supplier as an argument. Supplier is a functional interface that accepts no parameters and returns a result. Here, the expected result is an exception.
         //Consumer is a functional interface in Java that takes an input and returns no result. Consumer is typically used for operations that take a parameter and return nothing (such as a print operation).
@@ -69,7 +70,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserGetDto getUserById(Long userId) {
+    public UserGetDto getUserById(UUID userId) {
         logger.info("Fetching user with ID : {}",userId);
         User user = userRepository.findById(userId).orElseThrow(() -> {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
@@ -98,7 +99,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserBasicInfoDto getUserBasicInfoById(Long userId) {
+    public UserBasicInfoDto getUserBasicInfoById(UUID userId) {
         logger.info("Fetching user with ID: {}", userId);
         User user = userRepository.findById(userId).orElseThrow(() -> {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
@@ -111,7 +112,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserGetDto updateUser(UserUpdateDto userUpdateDto, Long userId) {
+    public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) {
         logger.info("Updating user with ID : {}",userId);
         User updatedUser = userRepository.findById(userId).map(user -> {
             user.setName(userUpdateDto.getName());

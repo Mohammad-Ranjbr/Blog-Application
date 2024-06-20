@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -41,7 +42,7 @@ public class UserController {
 
     //GET Mapping-Get User By ID
     @GetMapping("/{id}")
-    public ResponseEntity<UserGetDto> getUserById(@PathVariable("id") Long userId){
+    public ResponseEntity<UserGetDto> getUserById(@PathVariable("id") UUID userId){
         logger.info("Received request to get user with ID : {}",userId);
         UserGetDto userGetDto = userService.getUserById(userId);
         logger.info("Returning response for get user with ID : {}",userGetDto.getId());
@@ -50,7 +51,7 @@ public class UserController {
 
     //PUT Mapping-Update User
     @PutMapping("/{id}")
-    public ResponseEntity<UserGetDto> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") Long userId){
+    public ResponseEntity<UserGetDto> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") UUID userId){
         logger.info("Received request to update user with ID : {}",userId);
         UserGetDto updatedUser = userService.updateUser(userUpdateDto,userId);
         logger.info("Returning response for updated user with ID : {}",userId);
@@ -59,7 +60,7 @@ public class UserController {
 
     //DELETE Mapping-Delete User
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("id") Long userId){
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("id") UUID userId){
         logger.info("Received request to delete user with ID : {}",userId);
         userService.deleteUserById(userId);
         logger.info("Returning response for delete user with ID : {}",userId);
@@ -77,7 +78,7 @@ public class UserController {
 
     //GET Mapping-Get User Basic Info By ID
     @GetMapping("/basic-info/{id}")
-    public ResponseEntity<UserBasicInfoDto> getUserBasicInfo(@PathVariable("id") Long userId){
+    public ResponseEntity<UserBasicInfoDto> getUserBasicInfo(@PathVariable("id") UUID userId){
         logger.info("Received request to get user basic info with ID : {}",userId);
         UserBasicInfoDto userBasicInfoDto = userService.getUserBasicInfoById(userId);
         logger.info("Returning response for get user basic info with ID : {}",userId);
@@ -105,7 +106,7 @@ public class UserController {
 
     //OPTIONS Mapping for single user by ID
     @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> optionsForSingleUser(@PathVariable("id") Long userId){
+    public ResponseEntity<?> optionsForSingleUser(@PathVariable("id") UUID userId){
         logger.info("Received OPTIONS request for user with ID : {}", userId);
         ResponseEntity<?> response = ResponseEntity.ok()
                 .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
