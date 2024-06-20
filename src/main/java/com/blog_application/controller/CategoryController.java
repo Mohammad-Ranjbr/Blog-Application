@@ -1,5 +1,6 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.category.CategoryBasicInfoDto;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
@@ -70,6 +71,24 @@ public class CategoryController {
         List<CategoryGetDto> categories = categoryService.getAllCategories();
         logger.info("Returning response with {} categories",categories.size());
         return new ResponseEntity<>(categories,HttpStatus.OK);
+    }
+
+    //GET Mapping-Get Category Basic Info By ID
+    @GetMapping("/basic-info/{id}")
+    public ResponseEntity<CategoryBasicInfoDto> getCategoryBasicInfo(@PathVariable("id") Long categoryId){
+        logger.info("Received request to get category basic info with ID : {}",categoryId);
+        CategoryBasicInfoDto categoryBasicInfoDto = categoryService.getCategoryBasicInfoById(categoryId);
+        logger.info("Returning response for get category basic info with ID : {}",categoryId);
+        return new ResponseEntity<>(categoryBasicInfoDto,HttpStatus.OK);
+    }
+
+    //GET Mapping-Get All Category Basic Info
+    @GetMapping("/basic-info/")
+    public ResponseEntity<List<CategoryBasicInfoDto>> getAllBasicInfo(){
+        logger.info("Received request to get all category basic info");
+        List<CategoryBasicInfoDto> categoryBasicInfoDtos = categoryService.getAllCategoryBasicInfo();
+        logger.info("Returning response with {} category basic info",categoryBasicInfoDtos.size());
+        return new ResponseEntity<>(categoryBasicInfoDtos,HttpStatus.OK);
     }
 
 }

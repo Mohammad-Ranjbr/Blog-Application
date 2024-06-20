@@ -86,9 +86,9 @@ public class UserController {
     @GetMapping("/basic-info/")
     public ResponseEntity<List<UserBasicInfoDto>> getAllUserBasicInfo(){
         logger.info("Received request to get all user basic info");
-        List<UserBasicInfoDto> userBasicInfos = userService.getAllBasicUserInfo();
-        logger.info("Returning response with {} user basic info",userBasicInfos.size());
-        return new ResponseEntity<>(userBasicInfos,HttpStatus.OK);
+        List<UserBasicInfoDto> userBasicInfoDtos = userService.getAllBasicUserInfo();
+        logger.info("Returning response with {} user basic info",userBasicInfoDtos.size());
+        return new ResponseEntity<>(userBasicInfoDtos,HttpStatus.OK);
     }
 
 }
