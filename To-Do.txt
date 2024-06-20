@@ -23,7 +23,7 @@
 23- Login
 24- Register
 25- Forget Password
-26- Basic info endpoint`s
+26- Basic info endpoint`s ✅
 27- Option Http Method
 
 ✅	❌

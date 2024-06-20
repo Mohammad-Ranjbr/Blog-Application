@@ -10,6 +10,8 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -89,6 +91,27 @@ public class UserController {
         List<UserBasicInfoDto> userBasicInfoDtos = userService.getAllBasicUserInfo();
         logger.info("Returning response with {} user basic info",userBasicInfoDtos.size());
         return new ResponseEntity<>(userBasicInfoDtos,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping for all users
+    @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForAllUsers(){
+        logger.info("Received OPTIONS request for all users");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Allow","GET,POST,OPTIONS");
+        logger.info("Returning response with allowed methods for all users");
+        return new ResponseEntity<>(headers,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping for single user by ID
+    @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForSingleUser(@PathVariable("id") Long userId){
+        logger.info("Received OPTIONS request for user with ID: {}", userId);
+        ResponseEntity<?> response = ResponseEntity.ok()
+                .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
+                .build();
+        logger.info("Returning response with allowed methods for user with ID: {}", userId);
+        return response;
     }
 
 }
