@@ -33,12 +33,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID) //Approach 3
     private UUID id;
     private String name;
+    @Column(unique = true)
     private String email;
-    @Column(nullable = false , length = 1000)
     private String about;
     private String gender;
     private String password;
+    @Column(unique = true)
     private String userName;
+    @Column(unique = true)
     private String phoneNumber;
     @CreationTimestamp
     @Column(updatable = false)

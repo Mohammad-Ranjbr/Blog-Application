@@ -119,7 +119,7 @@ public class UserServiceImpl implements UserService {
             user.setEmail(userUpdateDto.getEmail());
             user.setAbout(userUpdateDto.getAbout());
             user.setGender(userUpdateDto.getGender());
-            user.setPassword(userUpdateDto.getUserName());
+            user.setUserName(userUpdateDto.getUserName());
             user.setPhoneNumber(userUpdateDto.getPhoneNumber());
             User savedUser = userRepository.save(user);
             logger.info("User with ID {} updated successfully",userId);
