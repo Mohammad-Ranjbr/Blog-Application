@@ -1,7 +1,8 @@
 package com.blog_application.exception;
 
 import com.blog_application.util.ApiResponse;
-import com.blog_application.util.Time;
+import com.blog_application.util.ApplicationConstants;
+import com.blog_application.util.TimeUtils;
 import com.blog_application.util.UriResourceExtractor;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,12 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    private final Time time;
+    private final TimeUtils timeUtils;
     private final UriResourceExtractor uriResourceExtractor;
 
     @Autowired
-    public GlobalExceptionHandler(Time time,UriResourceExtractor uriResourceExtractor){
-        this.time = time;
+    public GlobalExceptionHandler(TimeUtils timeUtils,UriResourceExtractor uriResourceExtractor){
+        this.timeUtils = timeUtils;
         this.uriResourceExtractor = uriResourceExtractor;
     }
 
@@ -37,7 +38,7 @@ public class GlobalExceptionHandler {
                 resourceNotFoundException.getMessage(),
                 resourceNotFoundException.getAction(),
                 false,
-                time.getCurrentTimeAsString("yyyy-MM-dd HH:mm:ss")
+                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
@@ -63,9 +64,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<ErrorResponse> methodArgumentTypeMismatchExceptionHandler(MethodArgumentTypeMismatchException methodArgumentTypeMismatchException,
                                                                                     HttpServletRequest request) {
-
         String httpMethod = request.getMethod();
-        String requestUri = request.getRequestURI();
+        String requestUri = request.getRequestURI(); //Example : /api/v1/categories/string
 
         // Extracting resource from URI
         String resource = uriResourceExtractor.extractResourceFromUri(requestUri);
@@ -76,7 +76,7 @@ public class GlobalExceptionHandler {
                         methodArgumentTypeMismatchException.getMessage(),
                 httpMethod + " , " + resource + " operation not performed",
                 false,
-                time.getCurrentTimeAsString("yyyy-MM-dd HH:mm:ss")
+                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }

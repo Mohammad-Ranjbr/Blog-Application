@@ -8,7 +8,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 @Component
-public class Time {
+public class TimeUtils {
 
     public String getCurrentTimeAsString(String format){
         //Calculates the current system time in milliseconds since January 1, 1970

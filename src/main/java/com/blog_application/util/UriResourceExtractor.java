@@ -6,10 +6,8 @@ import org.springframework.stereotype.Component;
 public class UriResourceExtractor {
 
     public String extractResourceFromUri(String uri) {
-        // Example logic to extract resource name from URI
-        // Assuming the resource is the first path segment after the base path
         String[] segments = uri.split("/");
-        if (segments.length > 3) {
+        if (segments.length > 1) {
             return switch (segments[3]) {
                 case "categories" -> "Category";
                 case "users" -> "User";

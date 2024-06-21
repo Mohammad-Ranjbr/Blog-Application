@@ -5,6 +5,7 @@ import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.service.PostService;
 import com.blog_application.util.ApiResponse;
+import com.blog_application.util.ApplicationConstants;
 import com.blog_application.util.PostResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -60,10 +61,11 @@ public class PostController {
 
     //GET Mapping-Get All Posts
     @GetMapping("/")
-    public ResponseEntity<PostResponse> getAllPosts(@RequestParam(value = "pageNumber",defaultValue = "0",required = false) int pageNumber,
-                                                    @RequestParam(value = "pageSize",defaultValue = "10",required = false) int pageSize,
-                                                    @RequestParam(value = "sortBy",defaultValue = "title",required = false) String sortBy,
-                                                    @RequestParam(value = "sortDir",defaultValue = "asc",required = false) String sortDir){
+    public ResponseEntity<PostResponse> getAllPosts(
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
         logger.info("Received request to fetch all posts");
         PostResponse postResponse = postService.getAllPosts(pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for all posts");
@@ -120,7 +122,7 @@ public class PostController {
     public ResponseEntity<?> optionsForAllPosts(){
         logger.info("Received OPTIONS request for all posts");
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Allow","GET,POST,OPTIONS");
+        headers.add(ApplicationConstants.HEADER_ALLOW,"GET,POST,OPTIONS");
         logger.info("Returning response with allowed methods for all posts");
         return new ResponseEntity<>(headers,HttpStatus.OK);
     }

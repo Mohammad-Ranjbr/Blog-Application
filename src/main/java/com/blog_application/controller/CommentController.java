@@ -5,6 +5,7 @@ import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 import com.blog_application.service.CommentService;
 import com.blog_application.util.ApiResponse;
+import com.blog_application.util.ApplicationConstants;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +72,7 @@ public class CommentController {
     public ResponseEntity<?> optionsForAllComments(){
         logger.info("Received OPTIONS request for all comments");
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Allow","POST,OPTIONS");
+        headers.add(ApplicationConstants.HEADER_ALLOW,"POST,OPTIONS");
         logger.info("Returning response with allowed methods for all comments");
         return new ResponseEntity<>(headers,HttpStatus.OK);
     }

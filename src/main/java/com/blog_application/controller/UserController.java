@@ -6,6 +6,7 @@ import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.service.UserService;
 import com.blog_application.util.ApiResponse;
+import com.blog_application.util.ApplicationConstants;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -99,7 +100,7 @@ public class UserController {
     public ResponseEntity<?> optionsForAllUsers(){
         logger.info("Received OPTIONS request for all users");
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Allow","GET,POST,OPTIONS");
+        headers.add(ApplicationConstants.HEADER_ALLOW,"GET,POST,OPTIONS");
         logger.info("Returning response with allowed methods for all users");
         return new ResponseEntity<>(headers,HttpStatus.OK);
     }

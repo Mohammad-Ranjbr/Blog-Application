@@ -6,6 +6,7 @@ import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.service.CategoryService;
 import com.blog_application.util.ApiResponse;
+import com.blog_application.util.ApplicationConstants;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -98,7 +99,7 @@ public class CategoryController {
     public ResponseEntity<?> optionsForAllCategories(){
         logger.info("Received OPTIONS request for all categories");
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Allow","GET,POST,OPTIONS");
+        headers.add(ApplicationConstants.HEADER_ALLOW,"GET,POST,OPTIONS");
         logger.info("Returning response with allowed methods for all categories");
         return new ResponseEntity<>(headers,HttpStatus.OK);
     }
