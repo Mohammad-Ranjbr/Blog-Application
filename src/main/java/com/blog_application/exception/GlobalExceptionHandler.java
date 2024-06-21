@@ -2,6 +2,8 @@ package com.blog_application.exception;
 
 import com.blog_application.util.ApiResponse;
 import com.blog_application.util.Time;
+import com.blog_application.util.UriResourceExtractor;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -20,10 +22,12 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     private final Time time;
+    private final UriResourceExtractor uriResourceExtractor;
 
     @Autowired
-    public GlobalExceptionHandler(Time time){
+    public GlobalExceptionHandler(Time time,UriResourceExtractor uriResourceExtractor){
         this.time = time;
+        this.uriResourceExtractor = uriResourceExtractor;
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
@@ -57,16 +61,24 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<ErrorResponse> methodArgumentTypeMismatchExceptionHandler(MethodArgumentTypeMismatchException methodArgumentTypeMismatchException){
+    public ResponseEntity<ErrorResponse> methodArgumentTypeMismatchExceptionHandler(MethodArgumentTypeMismatchException methodArgumentTypeMismatchException,
+                                                                                    HttpServletRequest request) {
+
+        String httpMethod = request.getMethod();
+        String requestUri = request.getRequestURI();
+
+        // Extracting resource from URI
+        String resource = uriResourceExtractor.extractResourceFromUri(requestUri);
+
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.BAD_REQUEST.value(),
                 "For argument : " + methodArgumentTypeMismatchException.getName() + " - " +
                         methodArgumentTypeMismatchException.getMessage(),
-                "",
+                httpMethod + " , " + resource + " operation not performed",
                 false,
                 time.getCurrentTimeAsString("yyyy-MM-dd HH:mm:ss")
         );
-        return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
 }
