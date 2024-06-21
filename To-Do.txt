@@ -25,7 +25,7 @@
 25- Forget Password
 26- Basic info endpoint`s ✅
 27- Option Http Method ✅
-28- Handle MethodArgumentTypeMismatchException (Create post -> User ID) 
+28- Handle MethodArgumentTypeMismatchException (Create post -> User ID) ✅
 29- upload excel file to database
 
 ✅	❌

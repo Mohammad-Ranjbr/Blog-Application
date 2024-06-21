@@ -11,6 +11,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,6 +54,19 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException dataIntegrityViolationException){
         System.out.println("DataIntegrityViolationException message : " + dataIntegrityViolationException.getMessage());
         return new ResponseEntity<>(new ApiResponse("Input value is too long for the field",false),HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ErrorResponse> methodArgumentTypeMismatchExceptionHandler(MethodArgumentTypeMismatchException methodArgumentTypeMismatchException){
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.BAD_REQUEST.value(),
+                "For argument : " + methodArgumentTypeMismatchException.getName() + " - " +
+                        methodArgumentTypeMismatchException.getMessage(),
+                "",
+                false,
+                time.getCurrentTimeAsString("yyyy-MM-dd HH:mm:ss")
+        );
+        return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
     }
 
 }

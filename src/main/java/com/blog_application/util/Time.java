@@ -11,9 +11,11 @@ import java.time.format.DateTimeFormatter;
 public class Time {
 
     public String getCurrentTimeAsString(String format){
+        //Calculates the current system time in milliseconds since January 1, 1970
         long currentTimeMillis = System.currentTimeMillis();
 
         // Convert to LocalDateTime
+        //LocalDateTime not save information about zone
         LocalDateTime localDateTime = LocalDateTime.ofInstant(
                 Instant.ofEpochMilli(currentTimeMillis),
                 ZoneId.systemDefault()
