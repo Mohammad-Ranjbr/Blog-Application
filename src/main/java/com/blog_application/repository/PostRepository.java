@@ -16,7 +16,7 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post,Long> {
 
     Page<Post> findAllByUser(User user, Pageable pageable);
-    List<Post> findAllByCategory(Category category);
+    Page<Post> findAllByCategory(Category category, Pageable pageable);
     //Query Methods
     //Indicates that we want to find records whose title contains the input value.
     List<Post> findByTitleContaining(String title);

@@ -56,9 +56,13 @@ public class PostController {
 
     //GET Mapping-Get All Posts By Category
     @GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<PostGetDto>> getPostsByCategory(@PathVariable("categoryId") Long categoryId){
+    public ResponseEntity<PaginatedResponse<PostGetDto>> getPostsByCategory(@PathVariable("categoryId") Long categoryId,
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
         logger.info("Received request to get posts for category with ID : {}", categoryId);
-        List<PostGetDto> posts = postService.getPostsByCategory(categoryId);
+        PaginatedResponse<PostGetDto> posts = postService.getPostsByCategory(categoryId,pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for posts for category with ID : {}", categoryId);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
