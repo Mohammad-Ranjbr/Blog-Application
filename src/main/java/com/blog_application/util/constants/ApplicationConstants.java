@@ -9,7 +9,8 @@ public class ApplicationConstants {
     public static final String DEFAULT_PAGE_SIZE = "10";
 
     public static final String SORT_BY = "sortBy";
-    public static final String DEFAULT_SORT_BY = "title";
+    public static final String DEFAULT_POST_SORT_BY = "title";
+    public static final String DEFAULT_USER_SORT_BY = "name";
 
     public static final String SORT_DIR = "sortDir";
     public static final String DEFAULT_SORT_DIR = "asc";

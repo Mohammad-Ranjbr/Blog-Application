@@ -9,9 +9,15 @@ import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.User;
 import com.blog_application.repository.UserRepository;
 import com.blog_application.service.UserService;
+import com.blog_application.util.responses.PaginatedResponse;
+import com.blog_application.util.utils.SortHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,14 +40,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserGetDto> getAllUsers() {
+    public PaginatedResponse<UserGetDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching all users");
-        List<User> users = userRepository.findAll();
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<User> userPage = userRepository.findAll(pageable);
+
+        List<User> users = userPage.getContent();
+        List<UserGetDto> userGetDtoList = users.stream()
+                        .map(userMapper::toUserGetDto) //Method Reference
+                                .toList();
+        PaginatedResponse<UserGetDto> paginatedResponse = new PaginatedResponse<>(
+                userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
         logger.info("Total users found : {}",users.size());
-        //Method Reference
-        return users.stream()
-                .map(userMapper::toUserGetDto)
-                .collect(Collectors.toList());
+        return paginatedResponse;
     }
 
     @Override
