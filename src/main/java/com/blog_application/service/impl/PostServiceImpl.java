@@ -4,7 +4,6 @@ import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.post.PostCreateDto;
-//import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
@@ -125,14 +124,23 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostGetDto> getPostsByUser(UUID userId) {
+    public PaginatedResponse<PostGetDto> getPostsByUser(UUID userId, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts for User with ID : {}",userId);
+        Sort sort = (sortDir.equalsIgnoreCase("acc")) ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
         User user = userMapper.toEntity(userService.getUserById(userId));
-        List<Post> posts = postRepository.findAllByUser(user);
+        Page<Post> postPage = postRepository.findAllByUser(user,pageable);
+        List<Post> posts = postPage.getContent();
+        List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
+        PaginatedResponse<PostGetDto> paginatedPostResponse = new PaginatedResponse<>();
+        paginatedPostResponse.setContent(postGetDtoList);
+        paginatedPostResponse.setPageNumber(postPage.getNumber());
+        paginatedPostResponse.setPageSize(postPage.getSize());
+        paginatedPostResponse.setTotalPages(postPage.getTotalPages());
+        paginatedPostResponse.setTotalElements(postPage.getTotalElements());
+        paginatedPostResponse.setLastPage(postPage.isLast());
         logger.info("Total posts found for user with ID {} : {}",userId,posts.size());
-        return posts.stream()
-                .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
+        return paginatedPostResponse;
     }
 
     @Override

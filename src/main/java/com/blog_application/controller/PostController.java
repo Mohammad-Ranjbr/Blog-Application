@@ -43,9 +43,13 @@ public class PostController {
 
     //GET Mapping-Get All Posts By User
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<PostGetDto>> getPostsByUser(@PathVariable("userId") UUID userId){
+    public ResponseEntity<PaginatedResponse<PostGetDto>> getPostsByUser(@PathVariable("userId") UUID userId,
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
         logger.info("Received request to get posts for user with ID : {}", userId);
-        List<PostGetDto> posts = postService.getPostsByUser(userId);
+        PaginatedResponse<PostGetDto> posts = postService.getPostsByUser(userId,pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for get posts for user with ID : {}", userId);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
