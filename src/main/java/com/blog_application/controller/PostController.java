@@ -17,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -48,6 +47,7 @@ public class PostController {
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
             @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
             @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to get posts for user with ID : {}", userId);
         PaginatedResponse<PostGetDto> posts = postService.getPostsByUser(userId,pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for get posts for user with ID : {}", userId);
@@ -61,6 +61,7 @@ public class PostController {
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
             @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
             @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to get posts for category with ID : {}", categoryId);
         PaginatedResponse<PostGetDto> posts = postService.getPostsByCategory(categoryId,pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for posts for category with ID : {}", categoryId);
@@ -74,6 +75,7 @@ public class PostController {
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
             @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
             @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to fetch all posts");
         PaginatedResponse<PostGetDto> postResponse = postService.getAllPosts(pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for all posts");
@@ -109,18 +111,28 @@ public class PostController {
 
     //GET Mapping-Search Post
     @GetMapping("/search/{keyword}")
-    public ResponseEntity<List<PostGetDto>> searchPostByTitle(@PathVariable("keyword") String title){
+    public ResponseEntity<PaginatedResponse<PostGetDto>> searchPostByTitle(@PathVariable("keyword") String title,
+              @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+              @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+              @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
+              @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to search posts by title containing : {}", title);
-        List<PostGetDto> posts = postService.searchPosts(title);
+        PaginatedResponse<PostGetDto> posts = postService.searchPosts(title,pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for search posts by title containing : {}", title);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
     //GET Mapping-Search Post
     @GetMapping("/search2/{keyword}")
-    public ResponseEntity<List<PostGetDto>> searchPostByTitleWithQueryMethod(@PathVariable("keyword") String title){
+    public ResponseEntity<PaginatedResponse<PostGetDto>> searchPostByTitleWithQueryMethod(@PathVariable("keyword") String title,
+             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+             @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_SORT_BY,required = false) String sortBy,
+             @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to search posts by title using query method with keyword : {}", title);
-        List<PostGetDto> posts = postService.searchPostsWithQueryMethod(title);
+        PaginatedResponse<PostGetDto> posts = postService.searchPostsWithQueryMethod(title,pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response for search posts by title using query method with keyword : {}", title);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }

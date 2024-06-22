@@ -27,7 +27,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -163,25 +162,41 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostGetDto> searchPostsWithQueryMethod(String keyword) {
+    public PaginatedResponse<PostGetDto> searchPostsWithQueryMethod(String keyword, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts with keyword: {}", keyword);
-        List<Post> posts = postRepository.findByTitleContaining(keyword);
-        List<PostGetDto> postDtos = posts.stream()
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Post> postPage = postRepository.findByTitleContaining(keyword,pageable);
+
+        List<Post> posts = postPage.getContent();
+        List<PostGetDto> postGetDtoList = posts.stream()
                 .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
-        logger.info("Fetched {} posts for keyword: {}", postDtos.size(), keyword);
-        return postDtos;
+                .toList();
+
+        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+        logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
+        return paginatedResponse;
     }
 
     @Override
-    public List<PostGetDto> searchPosts(String keyword) {
+    public PaginatedResponse<PostGetDto> searchPosts(String keyword, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts with keyword: {}", keyword);
-        List<Post> posts = postRepository.searchByTitle("%" + keyword + "%");
-        List<PostGetDto> postDtos = posts.stream()
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Post> postPage = postRepository.searchByTitle("%" + keyword + "%",pageable);
+
+        List<Post> posts = postPage.getContent();
+        List<PostGetDto> postGetDtoList = posts.stream()
                 .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
-        logger.info("Fetched {} posts for keyword: {}", postDtos.size(), keyword);
-        return postDtos;
+                .toList();
+
+        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+        logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
+        return paginatedResponse;
     }
 
 }
