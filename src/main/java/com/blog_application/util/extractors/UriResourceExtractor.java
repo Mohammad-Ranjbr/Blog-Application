@@ -1,4 +1,4 @@
-package com.blog_application.util;
+package com.blog_application.util.extractors;
 
 import org.springframework.stereotype.Component;
 

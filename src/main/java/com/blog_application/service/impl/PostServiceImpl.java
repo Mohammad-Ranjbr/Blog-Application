@@ -15,7 +15,7 @@ import com.blog_application.repository.PostRepository;
 import com.blog_application.service.CategoryService;
 import com.blog_application.service.PostService;
 import com.blog_application.service.UserService;
-import com.blog_application.util.PostResponse;
+import com.blog_application.util.responses.PaginatedResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,14 +95,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir) {
+    public PaginatedResponse<PostGetDto> getAllPosts(int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching all posts with pageNumber: {}, pageSize: {}, sortBy: {}, sortDir: {}", pageNumber, pageSize, sortBy, sortDir);
         Sort sort = (sortDir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending());
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
         Page<Post> postPage = postRepository.findAll(pageable);
         List<Post> posts = postPage.getContent();
         List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
-        PostResponse postResponse = new PostResponse();
+        PaginatedResponse<PostGetDto> postResponse = new PaginatedResponse<>();
         postResponse.setContent(postGetDtoList);
         postResponse.setPageNumber(postPage.getNumber());
         postResponse.setPageSize(postPage.getSize());

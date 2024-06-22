@@ -1,4 +1,4 @@
-package com.blog_application.util;
+package com.blog_application.util.constants;
 
 public class ApplicationConstants {
 

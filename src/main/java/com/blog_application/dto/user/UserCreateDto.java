@@ -1,6 +1,6 @@
 package com.blog_application.dto.user;
 
-import com.blog_application.util.ApplicationConstants;
+import com.blog_application.util.constants.ApplicationConstants;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;

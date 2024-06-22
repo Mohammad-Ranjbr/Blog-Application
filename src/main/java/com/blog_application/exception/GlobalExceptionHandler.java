@@ -1,9 +1,9 @@
 package com.blog_application.exception;
 
-import com.blog_application.util.ApiResponse;
-import com.blog_application.util.ApplicationConstants;
-import com.blog_application.util.TimeUtils;
-import com.blog_application.util.UriResourceExtractor;
+import com.blog_application.util.responses.ApiResponse;
+import com.blog_application.util.constants.ApplicationConstants;
+import com.blog_application.util.utils.TimeUtils;
+import com.blog_application.util.extractors.UriResourceExtractor;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

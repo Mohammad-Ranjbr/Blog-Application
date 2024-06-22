@@ -3,7 +3,7 @@ package com.blog_application.service;
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
-import com.blog_application.util.PostResponse;
+import com.blog_application.util.responses.PaginatedResponse;
 
 import java.util.List;
 import java.util.UUID;
@@ -18,6 +18,6 @@ public interface PostService {
     List<PostGetDto> getPostsByCategory(Long categoryId);
     List<PostGetDto> searchPostsWithQueryMethod(String keyword);
     PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId);
-    PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir);
+    PaginatedResponse<PostGetDto> getAllPosts(int pageNumber, int pageSize, String sortBy, String sortDir);
 
 }
