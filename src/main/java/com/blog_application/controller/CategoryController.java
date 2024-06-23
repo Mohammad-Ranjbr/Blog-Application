@@ -7,6 +7,7 @@ import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.service.CategoryService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
+import com.blog_application.util.responses.PaginatedResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,10 +70,15 @@ public class CategoryController {
 
     //GET Mapping-Get All Categories
     @GetMapping("/")
-    public ResponseEntity<List<CategoryGetDto>> getAllCategories(){
+    public ResponseEntity<PaginatedResponse<CategoryGetDto>> getAllCategories(
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_CATEGORY_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to get all categories");
-        List<CategoryGetDto> categories = categoryService.getAllCategories();
-        logger.info("Returning response with {} categories",categories.size());
+        PaginatedResponse<CategoryGetDto> categories = categoryService.getAllCategories(pageNumber,pageSize,sortBy,sortDir);
+        logger.info("Returning response all categories");
         return new ResponseEntity<>(categories,HttpStatus.OK);
     }
 
