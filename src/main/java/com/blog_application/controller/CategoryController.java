@@ -18,8 +18,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/v1/categories")
 public class CategoryController {
@@ -93,10 +91,14 @@ public class CategoryController {
 
     //GET Mapping-Get All Category Basic Info
     @GetMapping("/basic-info/")
-    public ResponseEntity<List<CategoryBasicInfoDto>> getAllBasicInfo(){
+    public ResponseEntity<PaginatedResponse<CategoryBasicInfoDto>> getAllBasicInfo(
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_CATEGORY_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
         logger.info("Received request to get all category basic info");
-        List<CategoryBasicInfoDto> categoryBasicInfoDtos = categoryService.getAllCategoryBasicInfo();
-        logger.info("Returning response with {} category basic info",categoryBasicInfoDtos.size());
+        PaginatedResponse<CategoryBasicInfoDto> categoryBasicInfoDtos = categoryService.getAllCategoryBasicInfo(pageNumber,pageSize,sortBy,sortDir);
+        logger.info("Returning response all category basic info");
         return new ResponseEntity<>(categoryBasicInfoDtos,HttpStatus.OK);
     }
 

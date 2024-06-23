@@ -7,7 +7,6 @@ import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Category;
-import com.blog_application.model.User;
 import com.blog_application.repository.CategoryRepository;
 import com.blog_application.service.CategoryService;
 import com.blog_application.util.responses.PaginatedResponse;
@@ -75,13 +74,22 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryBasicInfoDto> getAllCategoryBasicInfo() {
+    public PaginatedResponse<CategoryBasicInfoDto> getAllCategoryBasicInfo(int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching all category basic info");
-        List<Category> categories = categoryRepository.findAll();
-        logger.info("Total category basic info found : {}",categories.size());
-        return categories.stream()
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Category> categoryPage = categoryRepository.findAll(pageable);
+
+        List<Category> categories = categoryPage.getContent();
+        List<CategoryBasicInfoDto> categoryGetDtoList = categories.stream()
                 .map(categoryMapper::toCategoryBasicInfoDto)
-                .collect(Collectors.toList());
+                .toList();
+
+        PaginatedResponse<CategoryBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
+                categoryGetDtoList,categoryPage.getSize(),categoryPage.getNumber(),categoryPage.getTotalPages(),categoryPage.getTotalElements(),categoryPage.isLast());
+        logger.info("Total category basic info found : {}",categories.size());
+        return paginatedResponse;
     }
 
     @Override
