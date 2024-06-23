@@ -18,7 +18,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -94,15 +93,15 @@ public class UserController {
 
     //GET Mapping-Get All User Basic Info
     @GetMapping("/basic-info/")
-    public ResponseEntity<List<UserBasicInfoDto>> getAllUserBasicInfo(
+    public ResponseEntity<PaginatedResponse<UserBasicInfoDto>> getAllUserBasicInfo(
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
             @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_USER_SORT_BY,required = false) String sortBy,
             @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
 
         logger.info("Received request to get all user basic info");
-        List<UserBasicInfoDto> userBasicInfoDtos = userService.getAllBasicUserInfo();
-        logger.info("Returning response with {} user basic info",userBasicInfoDtos.size());
+        PaginatedResponse<UserBasicInfoDto> userBasicInfoDtos = userService.getAllBasicUserInfo(pageNumber,pageSize,sortBy,sortDir);
+        logger.info("Returning response with all user basic info");
         return new ResponseEntity<>(userBasicInfoDtos,HttpStatus.OK);
     }
 

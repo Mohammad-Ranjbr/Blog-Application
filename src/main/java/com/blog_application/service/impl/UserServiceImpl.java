@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -102,13 +101,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserBasicInfoDto> getAllBasicUserInfo() {
+    public PaginatedResponse<UserBasicInfoDto> getAllBasicUserInfo(int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching all user basic info");
-        List<User> users = userRepository.findAll();
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<User> userPage = userRepository.findAll(pageable);
+
+        List<User> users = userPage.getContent();
+        List<UserBasicInfoDto> userGetDtoList = users.stream()
+                .map(userMapper::toUserBasicInfoDto) //Method Reference
+                .toList();
+
+        PaginatedResponse<UserBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
+                userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
         logger.info("Total user basic info found : {}",users.size());
-        return users.stream()
-                .map(userMapper::toUserBasicInfoDto)
-                .collect(Collectors.toList());
+        return paginatedResponse;
     }
 
     @Override
