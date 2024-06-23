@@ -5,7 +5,7 @@
 5- User ID value type (convert to UUID) ✅
 6- Upload post image
 7- Get null posts ✅
-8- Application Constants
+8- Application Constants ✅
 9- Add user to comment entity ✅
 10- implement custom ModelMapper for all entities ✅
 11- Unit and Integration test
