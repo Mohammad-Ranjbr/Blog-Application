@@ -37,6 +37,6 @@
 37- schedule Post
 38- Design Pattern
 39- Dockerize
-40- CI/CD
+40- CI/CD 
 
 ✅	❌
