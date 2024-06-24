@@ -4,17 +4,16 @@ import com.blog_application.dto.category.CategoryBasicInfoDto;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
-
-import java.util.List;
+import com.blog_application.util.responses.PaginatedResponse;
 
 public interface CategoryService {
 
-    List<CategoryGetDto> getAllCategories();
     void deleteCategory(Long categoryId);
     CategoryGetDto getCategoryById(Long categoryId);
-    List<CategoryBasicInfoDto> getAllCategoryBasicInfo();
     CategoryGetDto createCategory(CategoryCreateDto categoryDto);
     CategoryBasicInfoDto getCategoryBasicInfoById(Long categoryId);
     CategoryGetDto updateCategory(CategoryUpdateDto categoryUpdateDto, Long categoryId);
+    PaginatedResponse<CategoryGetDto> getAllCategories(int pageNumber, int pageSize, String sortBy, String sortDir);
+    PaginatedResponse<CategoryBasicInfoDto> getAllCategoryBasicInfo(int pageNumber, int pageSize, String sortBy, String sortDir);
 
 }

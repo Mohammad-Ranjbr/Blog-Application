@@ -5,8 +5,9 @@ import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.service.UserService;
-import com.blog_application.util.ApiResponse;
-import com.blog_application.util.ApplicationConstants;
+import com.blog_application.util.responses.ApiResponse;
+import com.blog_application.util.constants.ApplicationConstants;
+import com.blog_application.util.responses.PaginatedResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -70,10 +70,15 @@ public class UserController {
 
     //GET Mapping-Get All Users
     @GetMapping("/")
-    public ResponseEntity<List<UserGetDto>> getAllUsers(){
+    public ResponseEntity<PaginatedResponse<UserGetDto>> getAllUsers(
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_USER_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to get all users");
-        List<UserGetDto> users = userService.getAllUsers();
-        logger.info("Returning response with {} users",users.size());
+        PaginatedResponse<UserGetDto> users = userService.getAllUsers(pageNumber,pageSize,sortBy,sortDir);
+        logger.info("Returning response all users");
         return new ResponseEntity<>(users,HttpStatus.OK);
     }
 
@@ -88,10 +93,15 @@ public class UserController {
 
     //GET Mapping-Get All User Basic Info
     @GetMapping("/basic-info/")
-    public ResponseEntity<List<UserBasicInfoDto>> getAllUserBasicInfo(){
+    public ResponseEntity<PaginatedResponse<UserBasicInfoDto>> getAllUserBasicInfo(
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_USER_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
         logger.info("Received request to get all user basic info");
-        List<UserBasicInfoDto> userBasicInfoDtos = userService.getAllBasicUserInfo();
-        logger.info("Returning response with {} user basic info",userBasicInfoDtos.size());
+        PaginatedResponse<UserBasicInfoDto> userBasicInfoDtos = userService.getAllBasicUserInfo(pageNumber,pageSize,sortBy,sortDir);
+        logger.info("Returning response with all user basic info");
         return new ResponseEntity<>(userBasicInfoDtos,HttpStatus.OK);
     }
 

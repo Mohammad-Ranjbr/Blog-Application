@@ -4,7 +4,6 @@ import com.blog_application.config.mapper.CategoryMapper;
 import com.blog_application.config.mapper.PostMapper;
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.post.PostCreateDto;
-//import com.blog_application.dto.post.PostDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
@@ -15,7 +14,8 @@ import com.blog_application.repository.PostRepository;
 import com.blog_application.service.CategoryService;
 import com.blog_application.service.PostService;
 import com.blog_application.service.UserService;
-import com.blog_application.util.PostResponse;
+import com.blog_application.util.responses.PaginatedResponse;
+import com.blog_application.util.utils.SortHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -95,22 +94,20 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostResponse getAllPosts(int pageNumber, int pageSize,String sortBy,String sortDir) {
+    public PaginatedResponse<PostGetDto> getAllPosts(int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching all posts with pageNumber: {}, pageSize: {}, sortBy: {}, sortDir: {}", pageNumber, pageSize, sortBy, sortDir);
-        Sort sort = (sortDir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending());
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
         Page<Post> postPage = postRepository.findAll(pageable);
+
         List<Post> posts = postPage.getContent();
         List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
-        PostResponse postResponse = new PostResponse();
-        postResponse.setContent(postGetDtoList);
-        postResponse.setPageNumber(postPage.getNumber());
-        postResponse.setPageSize(postPage.getSize());
-        postResponse.setTotalPages(postPage.getTotalPages());
-        postResponse.setTotalElements(postPage.getTotalElements());
-        postResponse.setLastPage(postResponse.isLastPage());
+
+        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
         logger.info("Total posts found : {}",postPage.getTotalElements());
-        return postResponse;
+        return paginatedResponse;
     }
 
     @Override
@@ -125,47 +122,81 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostGetDto> getPostsByUser(UUID userId) {
+    public PaginatedResponse<PostGetDto> getPostsByUser(UUID userId, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts for User with ID : {}",userId);
         User user = userMapper.toEntity(userService.getUserById(userId));
-        List<Post> posts = postRepository.findAllByUser(user);
-        logger.info("Total posts found for user with ID {} : {}",userId,posts.size());
-        return posts.stream()
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Post> postPage = postRepository.findAllByUser(user,pageable);
+
+        List<Post> posts = postPage.getContent();
+        List<PostGetDto> postGetDtoList = posts.stream()
                 .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
+                .toList();
+
+        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+        logger.info("Total posts found for user with ID {} : {}",userId,posts.size());
+        return paginatedResponse;
     }
 
     @Override
-    public List<PostGetDto> getPostsByCategory(Long categoryId) {
+    public PaginatedResponse<PostGetDto> getPostsByCategory(Long categoryId, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts for Category with ID : {}",categoryId);
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
-        List<Post> posts = postRepository.findAllByCategory(category);
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Post> postPage = postRepository.findAllByCategory(category,pageable);
+
+        List<Post> posts = postPage.getContent();
+        List<PostGetDto> postGetDtoList = posts.stream()
+                        .map(postMapper::toPostGetDto)
+                                .toList();
+
+        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
         logger.info("Total posts found for category with ID {} : {}",categoryId,posts.size());
-        return posts.stream()
-                .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
+        return paginatedResponse;
     }
 
     @Override
-    public List<PostGetDto> searchPostsWithQueryMethod(String keyword) {
+    public PaginatedResponse<PostGetDto> searchPostsWithQueryMethod(String keyword, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts with keyword: {}", keyword);
-        List<Post> posts = postRepository.findByTitleContaining(keyword);
-        List<PostGetDto> postDtos = posts.stream()
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Post> postPage = postRepository.findByTitleContaining(keyword,pageable);
+
+        List<Post> posts = postPage.getContent();
+        List<PostGetDto> postGetDtoList = posts.stream()
                 .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
-        logger.info("Fetched {} posts for keyword: {}", postDtos.size(), keyword);
-        return postDtos;
+                .toList();
+
+        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+        logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
+        return paginatedResponse;
     }
 
     @Override
-    public List<PostGetDto> searchPosts(String keyword) {
+    public PaginatedResponse<PostGetDto> searchPosts(String keyword, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts with keyword: {}", keyword);
-        List<Post> posts = postRepository.searchByTitle("%" + keyword + "%");
-        List<PostGetDto> postDtos = posts.stream()
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Post> postPage = postRepository.searchByTitle("%" + keyword + "%",pageable);
+
+        List<Post> posts = postPage.getContent();
+        List<PostGetDto> postGetDtoList = posts.stream()
                 .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
-        logger.info("Fetched {} posts for keyword: {}", postDtos.size(), keyword);
-        return postDtos;
+                .toList();
+
+        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+        logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
+        return paginatedResponse;
     }
 
 }
