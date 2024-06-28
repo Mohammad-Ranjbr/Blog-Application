@@ -2,12 +2,13 @@ package com.blog_application.service.impl;
 
 import com.blog_application.config.mapper.CommentMapper;
 import com.blog_application.config.mapper.UserMapper;
-import com.blog_application.dto.comment.reaction.LikeDislikeRequestDTO;
-import com.blog_application.dto.comment.reaction.LikeDislikeResponseDTO;
+import com.blog_application.dto.comment.CommentGetDto;
+import com.blog_application.dto.comment.reaction.CommentReactionRequestDTO;
 import com.blog_application.model.Comment;
 import com.blog_application.model.CommentReaction;
 import com.blog_application.model.User;
 import com.blog_application.repository.CommentReactionRepository;
+import com.blog_application.repository.CommentRepository;
 import com.blog_application.service.CommentService;
 import com.blog_application.service.CommentReactionService;
 import com.blog_application.service.UserService;
@@ -25,21 +26,23 @@ public class CommentReactionServiceImpl implements CommentReactionService {
     private final UserService userService;
     private final CommentMapper commentMapper;
     private final CommentService commentService;
+    private final CommentRepository commentRepository;
     private final CommentReactionRepository commentReactionRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(CommentReactionServiceImpl.class);
 
     @Autowired
     public CommentReactionServiceImpl(UserService userService, CommentService commentService, CommentReactionRepository commentReactionRepository,
-                                      UserMapper userMapper, CommentMapper commentMapper){
+                                      UserMapper userMapper, CommentMapper commentMapper, CommentRepository commentRepository){
         this.userMapper = userMapper;
         this.userService  =userService;
         this.commentMapper = commentMapper;
         this.commentService = commentService;
+        this.commentRepository = commentRepository;
         this.commentReactionRepository = commentReactionRepository;
     }
     @Override
-    public LikeDislikeResponseDTO likeDislikeComment(LikeDislikeRequestDTO requestDTO) {
+    public CommentGetDto likeDislikeComment(CommentReactionRequestDTO requestDTO) {
         logger.info("Starting likeDislikeComment...");
         User user = userMapper.toEntity(userService.getUserById(requestDTO.getUserId()));
         Comment comment = commentMapper.toEntity(commentService.getCommentById(requestDTO.getCommentId()));
@@ -67,8 +70,15 @@ public class CommentReactionServiceImpl implements CommentReactionService {
             commentReactionRepository.save(commentReaction);
             logger.info("New Like/Dislike added for user {} on comment {}", user.getId(), comment.getId());
         }
+
+        int likeCount = commentReactionRepository.countLikesByComment(comment);
+        int dislikeCount = commentReactionRepository.contDislikesByComment(comment);
+        comment.setLikes(likeCount);
+        comment.setDislikes(dislikeCount);
+        commentRepository.save(comment);
+        
         logger.info("likeDislikeComment finished.");
-        return new LikeDislikeResponseDTO(commentReaction.getId(),commentReaction.getUser().getId(),commentReaction.getComment().getId(), commentReaction.isLike());
+        return commentMapper.toCommentGetDto(comment);
     }
 
 }

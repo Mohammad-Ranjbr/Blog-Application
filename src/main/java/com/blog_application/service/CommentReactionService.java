@@ -1,10 +1,10 @@
 package com.blog_application.service;
 
-import com.blog_application.dto.comment.reaction.LikeDislikeRequestDTO;
-import com.blog_application.dto.comment.reaction.LikeDislikeResponseDTO;
+import com.blog_application.dto.comment.CommentGetDto;
+import com.blog_application.dto.comment.reaction.CommentReactionRequestDTO;
 
 public interface CommentReactionService {
 
-    LikeDislikeResponseDTO likeDislikeComment(LikeDislikeRequestDTO likeDislikeRequestDTO);
+    CommentGetDto likeDislikeComment(CommentReactionRequestDTO commentReactionRequestDTO);
 
 }
