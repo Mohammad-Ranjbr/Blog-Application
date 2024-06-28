@@ -95,10 +95,13 @@ public class CommentController {
 
     @PostMapping("/like-dislike")
     public ResponseEntity<LikeDislikeResponseDTO> likeDislikeComment(@RequestBody LikeDislikeRequestDTO requestDTO){
+        logger.info("Received like/dislike request for User {} on Comment {}", requestDTO.getUserId(), requestDTO.getCommentId());
         LikeDislikeResponseDTO responseDTO = commentReactionService.likeDislikeComment(requestDTO);
         if (responseDTO == null) {
+            logger.warn("No response DTO generated for like/dislike request");
             return ResponseEntity.noContent().build();
         }
+        logger.info("Returning response for like/dislike with User {} on Comment {}", requestDTO.getUserId(), requestDTO.getCommentId());
         return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 
