@@ -27,8 +27,8 @@
 27- Option Http Method ✅
 28- Handle MethodArgumentTypeMismatchException ✅
 29- upload excel file to database
-30- Like comment 
-31- Dislike comment
+30- Like comment ✅
+31- Dislike comment ✅
 32- Reply comment
 33- Like post
 34- Post tag

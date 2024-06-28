@@ -1,10 +1,10 @@
 package com.blog_application.service;
 
-import java.util.UUID;
+import com.blog_application.dto.comment.reaction.LikeDislikeRequestDTO;
+import com.blog_application.dto.comment.reaction.LikeDislikeResponseDTO;
 
 public interface CommentReactionService {
 
-    void likeComment(UUID userId, Long commentId);
-    void dislikeComment(UUID userId, Long commentId);
+    LikeDislikeResponseDTO likeDislikeComment(LikeDislikeRequestDTO likeDislikeRequestDTO);
 
 }

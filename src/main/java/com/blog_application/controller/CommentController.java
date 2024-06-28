@@ -3,6 +3,8 @@ package com.blog_application.controller;
 import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
+import com.blog_application.dto.comment.reaction.LikeDislikeRequestDTO;
+import com.blog_application.dto.comment.reaction.LikeDislikeResponseDTO;
 import com.blog_application.service.CommentReactionService;
 import com.blog_application.service.CommentService;
 import com.blog_application.util.responses.ApiResponse;
@@ -91,16 +93,14 @@ public class CommentController {
         return response;
     }
 
-    @PostMapping("/{comment_id}/like/{user_id}")
-    public ResponseEntity<?> likeComment(@PathVariable("comment_id") Long commentId, @PathVariable("user_id") UUID userId){
-        commentReactionService.likeComment(userId,commentId);
-        return ResponseEntity.ok().build();
+    @PostMapping("/like-dislike")
+    public ResponseEntity<LikeDislikeResponseDTO> likeDislikeComment(@RequestBody LikeDislikeRequestDTO requestDTO){
+        LikeDislikeResponseDTO responseDTO = commentReactionService.likeDislikeComment(requestDTO);
+        if (responseDTO == null) {
+            return ResponseEntity.noContent().build();
+        }
+        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 
-    @PostMapping("/{comment_id}/dislike/{user_id}")
-    public ResponseEntity<?> dislikeComment(@PathVariable("comment_id") Long commentId, @PathVariable("user_id") UUID userId){
-        commentReactionService.dislikeComment(userId,commentId);
-        return ResponseEntity.ok().build();
-    }
 
 }
