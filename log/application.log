@@ -559,3 +559,833 @@ Caused by: java.lang.ClassNotFoundException: com.blog_application.model.Comment
 2024-06-28T19:38:28.314+03:30  INFO 22124 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-06-28T19:38:28.317+03:30  INFO 22124 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-06-28T19:38:28.327+03:30  INFO 22124 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T20:33:30.958+03:30  INFO 16348 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 16348 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T20:33:30.961+03:30  INFO 16348 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T20:33:31.020+03:30  INFO 16348 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T20:33:31.021+03:30  INFO 16348 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T20:33:31.857+03:30  INFO 16348 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T20:33:31.935+03:30  INFO 16348 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 5 JPA repository interfaces.
+2024-06-28T20:33:32.622+03:30  INFO 16348 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T20:33:32.641+03:30  INFO 16348 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T20:33:32.642+03:30  INFO 16348 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T20:33:32.706+03:30  INFO 16348 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T20:33:32.706+03:30  INFO 16348 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1684 ms
+2024-06-28T20:33:32.895+03:30  INFO 16348 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T20:33:32.950+03:30  INFO 16348 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T20:33:32.989+03:30  INFO 16348 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T20:33:33.258+03:30  INFO 16348 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T20:33:33.299+03:30  INFO 16348 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T20:33:33.502+03:30  INFO 16348 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@703cd82a
+2024-06-28T20:33:33.504+03:30  INFO 16348 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T20:33:33.546+03:30  WARN 16348 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T20:33:34.832+03:30  INFO 16348 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T20:33:35.015+03:30  INFO 16348 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T20:33:35.404+03:30  INFO 16348 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T20:33:35.968+03:30  WARN 16348 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T20:33:36.367+03:30  INFO 16348 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T20:33:36.409+03:30  INFO 16348 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T20:33:36.432+03:30  INFO 16348 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.948 seconds (process running for 6.819)
+2024-06-28T20:34:42.862+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-28T20:34:42.862+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-28T20:34:42.863+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-28T20:35:05.596+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:05.735+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:05.784+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T20:35:05.802+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T20:35:27.666+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:27.672+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:27.673+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T20:35:27.679+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T20:35:34.672+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:34.679+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:34.681+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T20:35:34.690+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T20:35:55.647+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:55.651+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:35:55.651+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T20:35:55.658+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T20:36:00.871+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:36:00.876+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:36:00.877+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T20:36:00.883+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T20:36:04.083+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:36:04.090+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T20:36:04.091+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T20:36:04.097+03:30  INFO 16348 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T20:38:54.698+03:30  INFO 16348 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T20:38:54.705+03:30  INFO 16348 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T20:38:54.714+03:30  INFO 16348 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T22:00:47.615+03:30  INFO 13416 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 13416 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T22:00:47.618+03:30  INFO 13416 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T22:00:47.673+03:30  INFO 13416 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T22:00:47.673+03:30  INFO 13416 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T22:00:48.455+03:30  INFO 13416 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T22:00:48.534+03:30  INFO 13416 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 5 JPA repository interfaces.
+2024-06-28T22:00:49.157+03:30  INFO 13416 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T22:00:49.172+03:30  INFO 13416 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T22:00:49.177+03:30  INFO 13416 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T22:00:49.245+03:30  INFO 13416 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T22:00:49.246+03:30  INFO 13416 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1572 ms
+2024-06-28T22:00:49.447+03:30  INFO 13416 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T22:00:49.514+03:30  INFO 13416 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T22:00:49.551+03:30  INFO 13416 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T22:00:49.790+03:30  INFO 13416 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T22:00:49.826+03:30  INFO 13416 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T22:00:50.087+03:30  INFO 13416 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@69d4d62d
+2024-06-28T22:00:50.092+03:30  INFO 13416 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T22:00:50.150+03:30  WARN 13416 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T22:00:51.382+03:30  INFO 13416 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T22:00:51.541+03:30  INFO 13416 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T22:00:51.892+03:30  INFO 13416 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T22:00:52.368+03:30  WARN 13416 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T22:00:52.789+03:30  INFO 13416 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T22:00:52.832+03:30  INFO 13416 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T22:00:52.843+03:30  INFO 13416 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.753 seconds (process running for 6.503)
+2024-06-28T22:01:26.663+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-28T22:01:26.663+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-28T22:01:26.665+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-06-28T22:01:26.752+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Received request to get all users
+2024-06-28T22:01:26.753+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Fetching all users
+2024-06-28T22:01:27.020+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Total users found : 7
+2024-06-28T22:01:27.020+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Returning response all users
+2024-06-28T22:01:43.240+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Received like/dislike request for User 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on Comment 1
+2024-06-28T22:01:43.241+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T22:01:43.241+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T22:01:43.274+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : User found with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T22:01:43.279+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T22:01:43.293+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T22:01:43.416+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on comment 1
+2024-06-28T22:01:43.418+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T22:01:43.418+03:30  INFO 13416 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Returning response for like/dislike with User 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on Comment 1
+2024-06-28T22:02:45.915+03:30  INFO 13416 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T22:02:45.919+03:30  INFO 13416 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T22:02:45.926+03:30  INFO 13416 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T23:03:05.758+03:30  INFO 6984 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 6984 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:03:05.761+03:30  INFO 6984 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:03:05.857+03:30  INFO 6984 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T23:03:05.857+03:30  INFO 6984 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T23:03:06.608+03:30  INFO 6984 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:03:06.689+03:30  INFO 6984 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:03:07.262+03:30  INFO 6984 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:03:07.272+03:30  INFO 6984 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:03:07.274+03:30  INFO 6984 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:03:07.345+03:30  INFO 6984 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:03:07.345+03:30  INFO 6984 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1487 ms
+2024-06-28T23:03:07.528+03:30  INFO 6984 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:03:07.585+03:30  INFO 6984 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T23:03:07.617+03:30  INFO 6984 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:03:07.882+03:30  INFO 6984 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:03:07.910+03:30  INFO 6984 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T23:03:08.090+03:30  INFO 6984 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41d1196e
+2024-06-28T23:03:08.093+03:30  INFO 6984 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T23:03:08.144+03:30  WARN 6984 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:03:09.384+03:30  INFO 6984 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:03:09.535+03:30  INFO 6984 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:03:09.979+03:30  INFO 6984 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T23:03:10.427+03:30  WARN 6984 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:03:10.818+03:30  INFO 6984 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:03:10.857+03:30  INFO 6984 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:03:10.872+03:30  INFO 6984 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.559 seconds (process running for 6.36)
+2024-06-28T23:03:35.987+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-28T23:03:35.988+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-28T23:03:35.989+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-28T23:03:36.106+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Received like/dislike request for User 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on Comment 1
+2024-06-28T23:03:36.107+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:03:36.107+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T23:03:36.192+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : User found with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T23:03:36.239+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:03:36.254+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:03:36.390+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on comment 1
+2024-06-28T23:03:36.390+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:03:36.390+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Returning response for like/dislike with User 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on Comment 1
+2024-06-28T23:03:42.967+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Received like/dislike request for User 995475e2-c7e2-4e28-9dae-db35ee74c56a on Comment 1
+2024-06-28T23:03:42.967+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:03:42.967+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T23:03:42.972+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T23:03:42.972+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:03:42.981+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:03:42.996+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 995475e2-c7e2-4e28-9dae-db35ee74c56a on comment 1
+2024-06-28T23:03:42.997+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:03:42.997+03:30  INFO 6984 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Returning response for like/dislike with User 995475e2-c7e2-4e28-9dae-db35ee74c56a on Comment 1
+2024-06-28T23:05:19.910+03:30  INFO 6984 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:05:19.914+03:30  INFO 6984 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T23:05:19.922+03:30  INFO 6984 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T23:05:24.579+03:30  INFO 10112 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 10112 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:05:24.582+03:30  INFO 10112 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:05:24.636+03:30  INFO 10112 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T23:05:24.636+03:30  INFO 10112 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T23:05:25.406+03:30  INFO 10112 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:05:25.481+03:30  INFO 10112 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:05:26.047+03:30  INFO 10112 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:05:26.061+03:30  INFO 10112 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:05:26.061+03:30  INFO 10112 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:05:26.117+03:30  INFO 10112 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:05:26.118+03:30  INFO 10112 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1481 ms
+2024-06-28T23:05:26.286+03:30  INFO 10112 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:05:26.342+03:30  INFO 10112 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T23:05:26.374+03:30  INFO 10112 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:05:26.630+03:30  INFO 10112 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:05:26.655+03:30  INFO 10112 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T23:05:26.837+03:30  INFO 10112 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@476a04d6
+2024-06-28T23:05:26.839+03:30  INFO 10112 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T23:05:26.888+03:30  WARN 10112 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:05:28.098+03:30  INFO 10112 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:05:28.168+03:30  WARN 10112 --- [blog-application] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists comment_reaction 
+       add column like boolean not null" via JDBC [ERROR: syntax error at or near "like"
+  Position: 66]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists comment_reaction 
+       add column like boolean not null" via JDBC [ERROR: syntax error at or near "like"
+  Position: 66]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.2.6.jar:3.2.6]
+	at com.blog_application.BlogApplication.main(BlogApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "like"
+  Position: 66
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292) ~[postgresql-42.6.2.jar:42.6.2]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	... 42 common frames omitted
+
+2024-06-28T23:05:28.254+03:30  INFO 10112 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:05:28.661+03:30  INFO 10112 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T23:05:29.149+03:30  WARN 10112 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:05:29.577+03:30  INFO 10112 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:05:29.621+03:30  INFO 10112 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:05:29.633+03:30  INFO 10112 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.545 seconds (process running for 6.301)
+2024-06-28T23:06:01.969+03:30  INFO 10112 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:06:01.973+03:30  INFO 10112 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T23:06:01.986+03:30  INFO 10112 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T23:06:04.287+03:30  INFO 16824 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 16824 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:06:04.291+03:30  INFO 16824 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:06:04.341+03:30  INFO 16824 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T23:06:04.341+03:30  INFO 16824 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T23:06:05.068+03:30  INFO 16824 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:06:05.146+03:30  INFO 16824 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:06:05.751+03:30  INFO 16824 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:06:05.765+03:30  INFO 16824 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:06:05.766+03:30  INFO 16824 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:06:05.834+03:30  INFO 16824 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:06:05.835+03:30  INFO 16824 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1492 ms
+2024-06-28T23:06:06.022+03:30  INFO 16824 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:06:06.078+03:30  INFO 16824 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T23:06:06.114+03:30  INFO 16824 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:06:06.390+03:30  INFO 16824 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:06:06.419+03:30  INFO 16824 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T23:06:06.585+03:30  INFO 16824 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@608d7650
+2024-06-28T23:06:06.588+03:30  INFO 16824 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T23:06:06.633+03:30  WARN 16824 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:06:07.851+03:30  INFO 16824 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:06:07.914+03:30  WARN 16824 --- [blog-application] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create table comment_reaction (
+        id bigserial not null,
+        like boolean not null,
+        comment_id bigint,
+        user_id uuid,
+        primary key (id)
+    )" via JDBC [ERROR: syntax error at or near "not"
+  Position: 93]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create table comment_reaction (
+        id bigserial not null,
+        like boolean not null,
+        comment_id bigint,
+        user_id uuid,
+        primary key (id)
+    )" via JDBC [ERROR: syntax error at or near "not"
+  Position: 93]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.2.6.jar:3.2.6]
+	at com.blog_application.BlogApplication.main(BlogApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "not"
+  Position: 93
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292) ~[postgresql-42.6.2.jar:42.6.2]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	... 42 common frames omitted
+
+2024-06-28T23:06:07.921+03:30  WARN 16824 --- [blog-application] [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-06-28T23:06:07.921+03:30  WARN 16824 --- [blog-application] [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "comment_reaction" does not exist, skipping
+2024-06-28T23:06:07.922+03:30  WARN 16824 --- [blog-application] [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-06-28T23:06:07.923+03:30  WARN 16824 --- [blog-application] [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "comment_reaction" does not exist, skipping
+2024-06-28T23:06:07.989+03:30  INFO 16824 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:06:08.451+03:30  INFO 16824 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T23:06:08.984+03:30  WARN 16824 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:06:09.641+03:30  INFO 16824 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:06:09.678+03:30  INFO 16824 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:06:09.692+03:30  INFO 16824 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.869 seconds (process running for 6.678)
+2024-06-28T23:07:03.435+03:30  INFO 16824 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:07:03.441+03:30  INFO 16824 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T23:07:03.448+03:30  INFO 16824 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T23:07:08.357+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 14132 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:07:08.360+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:07:08.413+03:30  INFO 14132 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T23:07:08.413+03:30  INFO 14132 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T23:07:09.156+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:07:09.235+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:07:09.812+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:07:09.825+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:07:09.825+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:07:09.883+03:30  INFO 14132 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:07:09.884+03:30  INFO 14132 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1470 ms
+2024-06-28T23:07:10.049+03:30  INFO 14132 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:07:10.102+03:30  INFO 14132 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T23:07:10.133+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:07:10.382+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:07:10.408+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T23:07:10.582+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d6463b
+2024-06-28T23:07:10.583+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T23:07:10.633+03:30  WARN 14132 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:07:11.898+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:07:12.044+03:30  INFO 14132 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:07:12.445+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T23:07:12.924+03:30  WARN 14132 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:07:13.346+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:07:13.409+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:07:13.421+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.545 seconds (process running for 6.305)
+2024-06-28T23:07:22.764+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-28T23:07:22.764+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-28T23:07:22.765+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-28T23:07:22.909+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Received like/dislike request for User 995475e2-c7e2-4e28-9dae-db35ee74c56a on Comment 1
+2024-06-28T23:07:22.909+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:07:22.909+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T23:07:23.031+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T23:07:23.063+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:07:23.075+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:07:23.234+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 995475e2-c7e2-4e28-9dae-db35ee74c56a on comment 1
+2024-06-28T23:07:23.234+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:07:23.234+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Returning response for like/dislike with User 995475e2-c7e2-4e28-9dae-db35ee74c56a on Comment 1
+2024-06-28T23:07:25.038+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Received like/dislike request for User 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on Comment 1
+2024-06-28T23:07:25.038+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:07:25.038+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T23:07:25.043+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.UserServiceImpl         : User found with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T23:07:25.045+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:07:25.051+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:07:25.066+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on comment 1
+2024-06-28T23:07:25.066+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:07:25.066+03:30  INFO 14132 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Returning response for like/dislike with User 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74 on Comment 1
+2024-06-28T23:09:47.482+03:30  INFO 14132 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-06-28T23:09:47.492+03:30  INFO 14132 --- [blog-application] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:09:47.496+03:30  INFO 14132 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T23:09:47.505+03:30  INFO 14132 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T23:09:47.606+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 14132 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:09:47.607+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:09:47.812+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:09:47.820+03:30  WARN 14132 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.TypeNotPresentException: Type com.blog_application.model.CommentReaction not present
+2024-06-28T23:09:47.825+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-06-28T23:09:47.847+03:30 ERROR 14132 --- [blog-application] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.TypeNotPresentException: Type com.blog_application.model.CommentReaction not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.computeSuperInterfaces(ClassRepository.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:95) ~[na:na]
+	at java.base/java.lang.Class.getGenericInterfaces(Class.java:1211) ~[na:na]
+	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:517) ~[spring-core-6.1.8.jar:6.1.8]
+	at org.springframework.core.ResolvableType.as(ResolvableType.java:465) ~[spring-core-6.1.8.jar:6.1.8]
+	at org.springframework.data.util.TypeDiscoverer.getSuperTypeInformation(TypeDiscoverer.java:256) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.util.ClassTypeInformation.getSuperTypeInformation(ClassTypeInformation.java:36) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.util.TypeInformation.getRequiredSuperTypeInformation(TypeInformation.java:327) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.DefaultRepositoryMetadata.<init>(DefaultRepositoryMetadata.java:55) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.getMetadata(AbstractRepositoryMetadata.java:79) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:91) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:168) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:62) ~[spring-boot-autoconfigure-3.2.6.jar:3.2.6]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:376) ~[spring-context-6.1.8.jar:6.1.8]
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721) ~[na:na]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:375) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:429) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.2.6.jar:3.2.6]
+	at com.blog_application.BlogApplication.main(BlogApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
+Caused by: java.lang.ClassNotFoundException: com.blog_application.model.CommentReaction
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:467) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:467) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 41 common frames omitted
+
+2024-06-28T23:09:49.302+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 14132 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:09:49.302+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:09:49.504+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:09:49.526+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:09:49.644+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:09:49.645+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:09:49.645+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:09:49.664+03:30  INFO 14132 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:09:49.664+03:30  INFO 14132 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 360 ms
+2024-06-28T23:09:49.706+03:30  INFO 14132 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:09:49.709+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:09:49.713+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:09:49.714+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-06-28T23:09:49.773+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@73894fb5
+2024-06-28T23:09:49.774+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-06-28T23:09:49.784+03:30  WARN 14132 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:09:49.933+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:09:50.042+03:30  INFO 14132 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:09:50.167+03:30  WARN 14132 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:09:50.267+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:09:50.283+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:09:50.288+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 1.012 seconds (process running for 163.171)
+2024-06-28T23:09:50.291+03:30  INFO 14132 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-28T23:11:18.081+03:30  INFO 14132 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-06-28T23:11:18.087+03:30  INFO 14132 --- [blog-application] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:11:18.088+03:30  INFO 14132 --- [blog-application] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-06-28T23:11:18.097+03:30  INFO 14132 --- [blog-application] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-06-28T23:11:18.188+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 14132 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:11:18.188+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:11:18.382+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:11:18.404+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:11:18.499+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:11:18.500+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:11:18.500+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:11:18.518+03:30  INFO 14132 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:11:18.519+03:30  INFO 14132 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 329 ms
+2024-06-28T23:11:18.555+03:30  INFO 14132 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:11:18.557+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:11:18.566+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:11:18.567+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-06-28T23:11:18.630+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@156275f0
+2024-06-28T23:11:18.630+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-06-28T23:11:18.645+03:30  WARN 14132 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:11:18.782+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:11:18.904+03:30  INFO 14132 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:11:19.024+03:30  WARN 14132 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:11:19.145+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:11:19.166+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:11:19.174+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 1.011 seconds (process running for 252.057)
+2024-06-28T23:11:19.176+03:30  INFO 14132 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-28T23:11:20.579+03:30  INFO 14132 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-06-28T23:11:20.582+03:30  INFO 14132 --- [blog-application] [Thread-14] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:11:20.583+03:30  INFO 14132 --- [blog-application] [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-06-28T23:11:20.590+03:30  INFO 14132 --- [blog-application] [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-06-28T23:11:20.671+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 14132 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:11:20.671+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:11:20.860+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:11:20.882+03:30  INFO 14132 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:11:21.013+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:11:21.014+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:11:21.015+03:30  INFO 14132 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:11:21.040+03:30  INFO 14132 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:11:21.041+03:30  INFO 14132 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 368 ms
+2024-06-28T23:11:21.096+03:30  INFO 14132 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:11:21.107+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:11:21.114+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:11:21.115+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-06-28T23:11:21.292+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@20c43122
+2024-06-28T23:11:21.293+03:30  INFO 14132 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-06-28T23:11:21.306+03:30  WARN 14132 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:11:21.532+03:30  INFO 14132 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:11:21.638+03:30  INFO 14132 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:11:21.824+03:30  WARN 14132 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:11:21.985+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:11:22.016+03:30  INFO 14132 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:11:22.024+03:30  INFO 14132 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 1.375 seconds (process running for 254.907)
+2024-06-28T23:11:22.026+03:30  INFO 14132 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-28T23:15:44.568+03:30  INFO 14132 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:15:44.570+03:30  INFO 14132 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-06-28T23:15:44.576+03:30  INFO 14132 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-06-28T23:31:30.639+03:30  INFO 12808 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 12808 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:31:30.641+03:30  INFO 12808 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:31:30.695+03:30  INFO 12808 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T23:31:30.696+03:30  INFO 12808 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T23:31:31.464+03:30  INFO 12808 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:31:31.546+03:30  INFO 12808 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:31:32.235+03:30  INFO 12808 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:31:32.246+03:30  INFO 12808 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:31:32.246+03:30  INFO 12808 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:31:32.303+03:30  INFO 12808 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:31:32.303+03:30  INFO 12808 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1607 ms
+2024-06-28T23:31:32.504+03:30  INFO 12808 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:31:32.579+03:30  INFO 12808 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T23:31:32.617+03:30  INFO 12808 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:31:32.936+03:30  INFO 12808 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:31:32.966+03:30  INFO 12808 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T23:31:33.154+03:30  INFO 12808 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5edbc394
+2024-06-28T23:31:33.156+03:30  INFO 12808 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T23:31:33.198+03:30  WARN 12808 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:31:34.469+03:30  INFO 12808 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:31:34.546+03:30  WARN 12808 --- [blog-application] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists comments 
+       add column dislikes integer not null" via JDBC [ERROR: column "dislikes" of relation "comments" contains null values]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists comments 
+       add column dislikes integer not null" via JDBC [ERROR: column "dislikes" of relation "comments" contains null values]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.2.6.jar:3.2.6]
+	at com.blog_application.BlogApplication.main(BlogApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
+Caused by: org.postgresql.util.PSQLException: ERROR: column "dislikes" of relation "comments" contains null values
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292) ~[postgresql-42.6.2.jar:42.6.2]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	... 42 common frames omitted
+
+2024-06-28T23:31:34.555+03:30  WARN 12808 --- [blog-application] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists comments 
+       add column likes integer not null" via JDBC [ERROR: column "likes" of relation "comments" contains null values]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists comments 
+       add column likes integer not null" via JDBC [ERROR: column "likes" of relation "comments" contains null values]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.2.6.jar:3.2.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.2.6.jar:3.2.6]
+	at com.blog_application.BlogApplication.main(BlogApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
+Caused by: org.postgresql.util.PSQLException: ERROR: column "likes" of relation "comments" contains null values
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292) ~[postgresql-42.6.2.jar:42.6.2]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	... 42 common frames omitted
+
+2024-06-28T23:31:34.652+03:30  INFO 12808 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:31:35.158+03:30  INFO 12808 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T23:31:35.650+03:30  WARN 12808 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:31:36.072+03:30  INFO 12808 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:31:36.116+03:30  INFO 12808 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:31:36.128+03:30  INFO 12808 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.997 seconds (process running for 6.728)
+2024-06-28T23:32:14.371+03:30  INFO 12808 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:32:14.375+03:30  INFO 12808 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T23:32:14.380+03:30  INFO 12808 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-28T23:32:17.024+03:30  INFO 22156 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 22156 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-06-28T23:32:17.026+03:30  INFO 22156 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-06-28T23:32:17.080+03:30  INFO 22156 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-28T23:32:17.081+03:30  INFO 22156 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-28T23:32:17.849+03:30  INFO 22156 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-28T23:32:17.933+03:30  INFO 22156 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+2024-06-28T23:32:18.504+03:30  INFO 22156 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-06-28T23:32:18.516+03:30  INFO 22156 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-28T23:32:18.517+03:30  INFO 22156 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-28T23:32:18.579+03:30  INFO 22156 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-28T23:32:18.580+03:30  INFO 22156 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1498 ms
+2024-06-28T23:32:18.776+03:30  INFO 22156 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-28T23:32:18.827+03:30  INFO 22156 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-06-28T23:32:18.862+03:30  INFO 22156 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-28T23:32:19.154+03:30  INFO 22156 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-28T23:32:19.179+03:30  INFO 22156 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-28T23:32:19.372+03:30  INFO 22156 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42a916c8
+2024-06-28T23:32:19.374+03:30  INFO 22156 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-28T23:32:19.412+03:30  WARN 22156 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-28T23:32:20.674+03:30  INFO 22156 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-28T23:32:20.810+03:30  INFO 22156 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:32:21.217+03:30  INFO 22156 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-28T23:32:21.687+03:30  WARN 22156 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-28T23:32:22.129+03:30  INFO 22156 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-28T23:32:22.174+03:30  INFO 22156 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-06-28T23:32:22.186+03:30  INFO 22156 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.637 seconds (process running for 6.402)
+2024-06-28T23:32:50.934+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-28T23:32:50.935+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-28T23:32:50.936+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-28T23:32:51.014+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Received request to get all users
+2024-06-28T23:32:51.014+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Fetching all users
+2024-06-28T23:32:51.268+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Total users found : 7
+2024-06-28T23:32:51.269+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.UserController            : Returning response all users
+2024-06-28T23:32:57.010+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.PostController            : Received request to fetch all posts
+2024-06-28T23:32:57.011+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.PostServiceImpl         : Fetching all posts with pageNumber: 0, pageSize: 5, sortBy: id, sortDir: asc
+2024-06-28T23:32:57.074+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.PostServiceImpl         : Total posts found : 4
+2024-06-28T23:32:57.074+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.PostController            : Returning response for all posts
+2024-06-28T23:33:36.231+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CommentController         : Received request to create comment with content: I love it
+2024-06-28T23:33:36.233+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CommentServiceImpl      : Creating comment with content : I love it
+2024-06-28T23:33:36.233+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.PostServiceImpl         : Fetching post with ID : 1
+2024-06-28T23:33:36.244+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.PostServiceImpl         : Post found with ID : 1
+2024-06-28T23:33:36.251+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T23:33:36.266+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.UserServiceImpl         : User found with ID : 1ddd0b72-bb3c-4d2d-81a4-3d1f24f98d74
+2024-06-28T23:33:36.328+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.CommentServiceImpl      : Comment created successfully with content : I love it
+2024-06-28T23:33:36.332+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CommentController         : Returning response for comment creation with content : I love it
+2024-06-28T23:34:03.628+03:30  WARN 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.UUID` from String "471ea3dc-e689-47f1-be93-b1ac2899748": UUID has to be represented by standard 36-char representation]
+2024-06-28T23:35:07.456+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.CommentController         : Received like/dislike request for User f5285e64-10ad-4483-af56-6c0d73c1cb1b on Comment 1
+2024-06-28T23:35:07.456+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:35:07.457+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.UserServiceImpl         : Fetching user with ID : f5285e64-10ad-4483-af56-6c0d73c1cb1b
+2024-06-28T23:35:07.462+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.UserServiceImpl         : User found with ID : f5285e64-10ad-4483-af56-6c0d73c1cb1b
+2024-06-28T23:35:07.465+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:35:07.476+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:35:07.523+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user f5285e64-10ad-4483-af56-6c0d73c1cb1b on comment 1
+2024-06-28T23:35:07.575+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:35:07.576+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.CommentController         : Returning response for like/dislike with User f5285e64-10ad-4483-af56-6c0d73c1cb1b on Comment 1
+2024-06-28T23:35:42.688+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CommentController         : Received like/dislike request for User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:35:42.689+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:35:42.689+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:35:42.695+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.UserServiceImpl         : User found with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:35:42.695+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:35:42.701+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:35:42.717+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 3aab4158-b38d-46ec-89e2-9903cf35a77c on comment 1
+2024-06-28T23:35:42.728+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:35:42.729+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CommentController         : Returning response for like/dislike with User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:35:47.865+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CommentController         : Received like/dislike request for User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:35:47.865+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:35:47.865+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:35:47.870+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.UserServiceImpl         : User found with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:35:47.871+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:35:47.878+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:35:47.905+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.s.impl.CommentReactionServiceImpl    : Like/Dislike removed for user 3aab4158-b38d-46ec-89e2-9903cf35a77c on comment 1
+2024-06-28T23:35:47.915+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:35:47.916+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CommentController         : Returning response for like/dislike with User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:35:49.699+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CommentController         : Received like/dislike request for User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:35:49.700+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:35:49.700+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:35:49.709+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.UserServiceImpl         : User found with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:35:49.710+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:35:49.715+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:35:49.729+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 3aab4158-b38d-46ec-89e2-9903cf35a77c on comment 1
+2024-06-28T23:35:49.737+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:35:49.740+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CommentController         : Returning response for like/dislike with User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:36:02.433+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CommentController         : Received like/dislike request for User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:36:02.434+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:36:02.434+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:36:02.443+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.UserServiceImpl         : User found with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:36:02.444+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:36:02.459+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:36:02.474+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.s.impl.CommentReactionServiceImpl    : Like/Dislike updated for user 3aab4158-b38d-46ec-89e2-9903cf35a77c on comment 1
+2024-06-28T23:36:02.483+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:36:02.484+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CommentController         : Returning response for like/dislike with User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:36:07.367+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CommentController         : Received like/dislike request for User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:36:07.367+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:36:07.367+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:36:07.371+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.UserServiceImpl         : User found with ID : 3aab4158-b38d-46ec-89e2-9903cf35a77c
+2024-06-28T23:36:07.372+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:36:07.378+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:36:07.392+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.s.impl.CommentReactionServiceImpl    : Like/Dislike updated for user 3aab4158-b38d-46ec-89e2-9903cf35a77c on comment 1
+2024-06-28T23:36:07.401+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:36:07.401+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-10] c.b.controller.CommentController         : Returning response for like/dislike with User 3aab4158-b38d-46ec-89e2-9903cf35a77c on Comment 1
+2024-06-28T23:36:19.547+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Received like/dislike request for User 995475e2-c7e2-4e28-9dae-db35ee74c56a on Comment 1
+2024-06-28T23:36:19.547+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : Starting likeDislikeComment...
+2024-06-28T23:36:19.547+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : Fetching user with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T23:36:19.553+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.UserServiceImpl         : User found with ID : 995475e2-c7e2-4e28-9dae-db35ee74c56a
+2024-06-28T23:36:19.553+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:36:19.559+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:36:19.574+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : New Like/Dislike added for user 995475e2-c7e2-4e28-9dae-db35ee74c56a on comment 1
+2024-06-28T23:36:19.581+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.CommentReactionServiceImpl    : likeDislikeComment finished.
+2024-06-28T23:36:19.582+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Returning response for like/dislike with User 995475e2-c7e2-4e28-9dae-db35ee74c56a on Comment 1
+2024-06-28T23:36:28.276+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Received request to get comment with ID : 1
+2024-06-28T23:36:28.276+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Fetching comment with ID : 1
+2024-06-28T23:36:28.281+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.CommentServiceImpl      : Comment found with ID : 1
+2024-06-28T23:36:28.297+03:30  INFO 22156 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Returning response for get comment with ID : 1
+2024-06-28T23:37:24.742+03:30  INFO 22156 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28T23:37:24.745+03:30  INFO 22156 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-28T23:37:24.750+03:30  INFO 22156 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

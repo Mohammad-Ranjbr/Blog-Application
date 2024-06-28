@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "like_dislike")
+@Table(name = "comment_reaction")
 public class CommentReaction {
 
     @Id
@@ -20,4 +20,5 @@ public class CommentReaction {
     @ManyToOne
     private Comment comment;
     private boolean isLike;
+
 }

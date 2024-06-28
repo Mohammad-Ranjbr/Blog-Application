@@ -17,5 +17,7 @@ public class CommentGetDto {
     private LocalDateTime creationDate;
     private LocalDateTime updatedDate;
     private UserBasicInfoDto user;
+    private int likes;
+    private int dislikes;
 
 }

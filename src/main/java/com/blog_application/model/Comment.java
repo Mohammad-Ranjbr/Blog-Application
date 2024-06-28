@@ -33,6 +33,8 @@ public class Comment {
     private User user;
     @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CommentReaction> commentReactions;
+    private int likes;
+    private int dislikes;
 
     @Override
     public String toString() {
