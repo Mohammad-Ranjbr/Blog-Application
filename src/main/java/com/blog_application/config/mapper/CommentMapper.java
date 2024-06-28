@@ -21,6 +21,10 @@ public class CommentMapper {
         return modelMapper.map(commentCreateDto,Comment.class);
     }
 
+    public Comment toEntity(CommentGetDto commentGetDto){
+        return modelMapper.map(commentGetDto,Comment.class);
+    }
+
     public CommentGetDto toCommentGetDto(Comment comment){
         return modelMapper.map(comment,CommentGetDto.class);
     }

@@ -48,7 +48,7 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<LikeDislike> likeDislikes;
+    private List<CommentReaction> commentReactions;
 
     //mappedBy="user" -> It means that the Foreign Key column is located in the Post table, which points to the User table.
     //cascade = CascadeType.ALL -> This property specifies that various operations (such as saving, updating, deleting, etc.)
