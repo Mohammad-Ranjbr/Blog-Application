@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,6 +31,8 @@ public class Comment {
     private Post post;
     @ManyToOne
     private User user;
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CommentReaction> commentReactions;
 
     @Override
     public String toString() {
