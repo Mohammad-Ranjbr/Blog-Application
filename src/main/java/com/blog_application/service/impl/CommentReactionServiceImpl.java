@@ -73,7 +73,7 @@ public class CommentReactionServiceImpl implements CommentReactionService {
         }
 
         int likeCount = commentReactionRepository.countLikesByComment(comment);
-        int dislikeCount = commentReactionRepository.contDislikesByComment(comment);
+        int dislikeCount = commentReactionRepository.countDislikesByComment(comment);
         comment.setLikes(likeCount);
         comment.setDislikes(dislikeCount);
         commentRepository.save(comment);
