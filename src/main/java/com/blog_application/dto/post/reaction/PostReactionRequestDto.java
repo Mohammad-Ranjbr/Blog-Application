@@ -14,7 +14,7 @@ import java.util.UUID;
 public class PostReactionRequestDto {
 
     private UUID userId;
-    private Long commentId;
+    private Long postId;
     private boolean isLike;
 
 }
