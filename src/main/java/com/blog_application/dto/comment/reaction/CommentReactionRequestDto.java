@@ -8,7 +8,7 @@ import java.util.UUID;
 @Getter
 @ToString
 @AllArgsConstructor
-public class CommentReactionRequestDTO {
+public class CommentReactionRequestDto {
 
     private UUID userId;
     private Long commentId;

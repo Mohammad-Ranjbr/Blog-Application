@@ -12,6 +12,8 @@ import com.blog_application.repository.PostRepository;
 import com.blog_application.service.PostReactionService;
 import com.blog_application.service.PostService;
 import com.blog_application.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,7 @@ public class PostReactionServiceImpl implements PostReactionService {
     private final PostService postService;
     private final PostRepository postRepository;
     private final PostReactionRepository postReactionRepository;
+    private final static Logger logger = LoggerFactory.getLogger(PostReactionServiceImpl.class);
 
     @Autowired
     public PostReactionServiceImpl(PostMapper postMapper, UserMapper userMapper, UserService userService, PostService postService,
@@ -39,6 +42,7 @@ public class PostReactionServiceImpl implements PostReactionService {
     }
     @Override
     public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) {
+        logger.info("Starting like post...");
         User user = userMapper.toEntity(userService.getUserById(postReactionRequestDto.getUserId()));
         Post post = postMapper.toEntity(postService.getPostById(postReactionRequestDto.getPostId()));
         Optional<PostReaction> existing = postReactionRepository.findByUserAndPost(user,post);
@@ -47,7 +51,9 @@ public class PostReactionServiceImpl implements PostReactionService {
         if(existing.isPresent()){
             postReaction = existing.get();
             if(postReaction.isLike() == postReactionRequestDto.isLike()){
+                // If the action is the same, remove the like
                 postReactionRepository.delete(postReaction);
+                logger.info("Like removed for user {} on post {}", user.getId(), post.getId());
             }
         } else {
             if (postReactionRequestDto.isLike()){
@@ -56,6 +62,7 @@ public class PostReactionServiceImpl implements PostReactionService {
                 postReaction.setPost(post);
                 postReaction.setLike(true);
                 postReactionRepository.save(postReaction);
+                logger.info("New Like added for user {} on post {}", user.getId(), post.getId());
             }
         }
 
@@ -63,6 +70,7 @@ public class PostReactionServiceImpl implements PostReactionService {
         post.setLikes(likeCount);
         postRepository.save(post);
 
+        logger.info("like Post finished.");
         return postMapper.toPostGetDto(post);
     }
     

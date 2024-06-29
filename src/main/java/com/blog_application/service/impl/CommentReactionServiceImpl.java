@@ -3,7 +3,7 @@ package com.blog_application.service.impl;
 import com.blog_application.config.mapper.CommentMapper;
 import com.blog_application.config.mapper.UserMapper;
 import com.blog_application.dto.comment.CommentGetDto;
-import com.blog_application.dto.comment.reaction.CommentReactionRequestDTO;
+import com.blog_application.dto.comment.reaction.CommentReactionRequestDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.Comment;
 import com.blog_application.model.CommentReaction;
@@ -40,8 +40,8 @@ public class CommentReactionServiceImpl implements CommentReactionService {
         this.commentReactionRepository = commentReactionRepository;
     }
     @Override
-    public CommentGetDto likeDislikeComment(CommentReactionRequestDTO requestDTO) {
-        logger.info("Starting likeDislikeComment...");
+    public CommentGetDto likeDislikeComment(CommentReactionRequestDto requestDTO) {
+        logger.info("Starting like/Dislike Comment...");
         User user = userMapper.toEntity(userService.getUserById(requestDTO.getUserId()));
         Comment comment = commentRepository.findById(requestDTO.getCommentId()).orElseThrow(() -> {
             logger.warn("Comment with ID {} not found, Get comment operation not performed",requestDTO.getCommentId());

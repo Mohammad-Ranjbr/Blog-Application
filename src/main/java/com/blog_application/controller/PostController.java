@@ -164,11 +164,13 @@ public class PostController {
 
     @PostMapping("/like")
     public ResponseEntity<PostGetDto> likePost(@RequestBody PostReactionRequestDto requestDto){
+        logger.info("Received like request for User {} on Post {}", requestDto.getUserId(), requestDto.getPostId());
         PostGetDto postGetDto = postReactionService.likePost(requestDto);
         if(postGetDto == null){
             logger.warn("No response DTO generated for like post request");
             return ResponseEntity.noContent().build();
         }
+        logger.info("Returning response for like post with User {} on Post {}", requestDto.getUserId(), requestDto.getPostId());
         return new ResponseEntity<>(postGetDto,HttpStatus.OK);
     }
 
