@@ -24,5 +24,6 @@ public class PostGetDto {
     private CategoryBasicInfoDto category;
     private UserBasicInfoDto user;
     private List<CommentGetDto> comments;
+    private int likes;
 
 }

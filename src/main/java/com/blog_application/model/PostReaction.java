@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "comment_reactions")
-public class CommentReaction {
+@Table(name = "post_reactions")
+public class PostReaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class CommentReaction {
     @ManyToOne
     private User user;
     @ManyToOne
-    private Comment comment;
+    private Post post;
     private boolean isLike;
 
 }

@@ -39,6 +39,9 @@ public class Post {
     private User user;
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Comment> comments;
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<PostReaction> postReactions;
+    private int likes;
 
     @Override
     public String toString() {

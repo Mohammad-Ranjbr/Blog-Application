@@ -19,7 +19,7 @@ public interface CommentReactionRepository extends JpaRepository<CommentReaction
     int countLikesByComment(@Param("comment") Comment comment);
 
     @Query("select count(cr) from CommentReaction cr where cr.comment = :comment and cr.isLike = false ")
-    int contDislikesByComment(@Param("comment") Comment comment);
+    int countDislikesByComment(@Param("comment") Comment comment);
 
 
 }
