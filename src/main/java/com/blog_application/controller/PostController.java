@@ -3,6 +3,8 @@ package com.blog_application.controller;
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
+import com.blog_application.dto.post.reaction.PostReactionRequestDto;
+import com.blog_application.service.PostReactionService;
 import com.blog_application.service.PostService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
@@ -24,11 +26,13 @@ import java.util.UUID;
 public class PostController {
 
     private final PostService postService;
+    private final PostReactionService postReactionService;
     private final static Logger logger = LoggerFactory.getLogger(PostController.class);
 
     @Autowired
-    public PostController(PostService postService){
+    public PostController(PostService postService,PostReactionService postReactionService){
         this.postService = postService;
+        this.postReactionService = postReactionService;
     }
 
     //POST Mapping-Create Post
@@ -156,6 +160,16 @@ public class PostController {
                 .build();
         logger.info("Returning response with allowed methods for post with ID : {}", postId);
         return response;
+    }
+
+    @PostMapping("/like")
+    public ResponseEntity<PostGetDto> likePost(@RequestBody PostReactionRequestDto requestDto){
+        PostGetDto postGetDto = postReactionService.likePost(requestDto);
+        if(postGetDto == null){
+            logger.warn("No response DTO generated for like post request");
+            return ResponseEntity.noContent().build();
+        }
+        return new ResponseEntity<>(postGetDto,HttpStatus.OK);
     }
 
 }

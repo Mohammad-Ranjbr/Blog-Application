@@ -97,7 +97,7 @@ public class CommentController {
         logger.info("Received like/dislike request for User {} on Comment {}", requestDTO.getUserId(), requestDTO.getCommentId());
         CommentGetDto commentGetDto = commentReactionService.likeDislikeComment(requestDTO);
         if (commentGetDto == null) {
-            logger.warn("No response DTO generated for like/dislike request");
+            logger.warn("No response DTO generated for like/dislike comment request");
             return ResponseEntity.noContent().build();
         }
         logger.info("Returning response for like/dislike with User {} on Comment {}", requestDTO.getUserId(), requestDTO.getCommentId());

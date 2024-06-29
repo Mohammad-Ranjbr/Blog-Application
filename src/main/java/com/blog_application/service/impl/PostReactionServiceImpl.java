@@ -54,7 +54,7 @@ public class PostReactionServiceImpl implements PostReactionService {
                 postReaction = new PostReaction();
                 postReaction.setUser(user);
                 postReaction.setPost(post);
-                postReaction.setLike(postReaction.isLike());
+                postReaction.setLike(true);
                 postReactionRepository.save(postReaction);
             }
         }
