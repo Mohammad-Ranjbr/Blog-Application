@@ -53,6 +53,13 @@ public class CommentServiceImpl implements CommentService {
         Comment comment = commentMapper.toEntity(commentCreateDto);
         comment.setPost(post);
         comment.setUser(user);
+        if(commentCreateDto.getParent() != null){
+            Comment parentComment = commentRepository.findById(commentCreateDto.getParent()).orElseThrow(() ->{
+                logger.warn("Parent comment with ID {} not found",commentCreateDto.getParent());
+                return new ResourceNotFoundException("Comment","ID",String.valueOf(commentCreateDto.getParent()),"Parent comment not found");
+            });
+            comment.setParent(parentComment);
+        }
         Comment savedComment = commentRepository.save(comment);
         logger.info("Comment created successfully with content : {}",commentCreateDto.getContent());
         return commentMapper.toCommentGetDto(savedComment);
