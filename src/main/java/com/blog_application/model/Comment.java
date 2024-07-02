@@ -31,10 +31,15 @@ public class Comment {
     private Post post;
     @ManyToOne
     private User user;
-    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY,orphanRemoval = true)
     private List<CommentReaction> commentReactions;
     private int likes;
     private int dislikes;
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Comment parent;
+    @OneToMany(mappedBy = "parent",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<Comment> replies;
 
     @Override
     public String toString() {

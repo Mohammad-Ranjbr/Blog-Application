@@ -36,10 +36,12 @@ public class Post {
     @JoinColumn(name = "category_id")
     private Category category;
     @ManyToOne
+    // When orphanRemoval = true is set, if a child is removed from the parent collection,
+    // JPA automatically removes that child from the database as well. This behavior is called "orphan removal".
     private User user;
-    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Comment> comments;
-    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<PostReaction> postReactions;
     private int likes;
 
