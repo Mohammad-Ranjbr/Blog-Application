@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -17,7 +18,9 @@ public class CommentGetDto {
     private LocalDateTime creationDate;
     private LocalDateTime updatedDate;
     private UserBasicInfoDto user;
+    private Long parentId;
     private int likes;
     private int dislikes;
+    private List<CommentGetDto> replies;
 
 }

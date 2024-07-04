@@ -29,7 +29,11 @@
 29- upload excel file to database
 30- Like comment ✅
 31- Dislike comment ✅
+<<<<<<< HEAD
 32- Reply comment
+=======
+32- Reply comment ✅
+>>>>>>> a4f95da6d9e1f0df77a56b7632faae5927dab656
 33- Like post ✅
 34- Post tag
 35- Debug get all user api ✅
@@ -38,7 +42,7 @@
 38- Schedule Post
 39- Block User
 40- Fail Login Counter
-41- Dockerize
+41- Dockerized
 42- CI/CD
 43- Follow User
 44- Chat
