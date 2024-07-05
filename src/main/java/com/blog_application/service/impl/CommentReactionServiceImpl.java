@@ -12,6 +12,7 @@ import com.blog_application.repository.CommentReactionRepository;
 import com.blog_application.repository.CommentRepository;
 import com.blog_application.service.CommentReactionService;
 import com.blog_application.service.UserService;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class CommentReactionServiceImpl implements CommentReactionService {
         this.commentReactionRepository = commentReactionRepository;
     }
     @Override
+    @Transactional
     public CommentGetDto likeDislikeComment(CommentReactionRequestDto requestDTO) {
         logger.info("Starting like/Dislike Comment...");
         User user = userMapper.toEntity(userService.getUserById(requestDTO.getUserId()));

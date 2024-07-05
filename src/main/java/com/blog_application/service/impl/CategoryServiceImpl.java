@@ -11,6 +11,7 @@ import com.blog_application.repository.CategoryRepository;
 import com.blog_application.service.CategoryService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
     @Override
+    @Transactional
     public CategoryGetDto createCategory(CategoryCreateDto categoryCreateDto) {
         logger.info("Creating category with title : {}",categoryCreateDto.getTitle());
         Category category = categoryMapper.toEntity(categoryCreateDto);
@@ -92,6 +94,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public CategoryGetDto updateCategory(CategoryUpdateDto categoryUpdateDto, Long categoryId) {
         logger.info("Updating category with ID : {}",categoryId);
         Category updatedCategory = categoryRepository.findById(categoryId).map(category -> {
@@ -127,6 +130,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public void deleteCategory(Long categoryId) {
         logger.info("Deleting category with ID : {}",categoryId);
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {

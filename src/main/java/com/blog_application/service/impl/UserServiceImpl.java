@@ -11,6 +11,7 @@ import com.blog_application.repository.UserRepository;
 import com.blog_application.service.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserGetDto createUser(UserCreateDto userCreateDto) {
         logger.info("Creating user with email : {}",userCreateDto.getEmail());
         User user = userMapper.toEntity(userCreateDto);
@@ -66,6 +68,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUserById(UUID userId) {
         //Lambda Expression : Passing a function as an argument to another function
         //orElseThrow is a method that takes a Supplier as an argument. Supplier is a functional interface that accepts no parameters and returns a result. Here, the expected result is an exception.
@@ -133,6 +136,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) {
         logger.info("Updating user with ID : {}",userId);
         User updatedUser = userRepository.findById(userId).map(user -> {

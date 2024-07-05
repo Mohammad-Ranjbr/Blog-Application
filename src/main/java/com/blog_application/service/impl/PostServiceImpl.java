@@ -16,6 +16,7 @@ import com.blog_application.service.PostService;
 import com.blog_application.service.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,7 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
+    @Transactional
     public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
         User user = userMapper.toEntity(userService.getUserById(userId));
@@ -66,6 +68,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    @Transactional
     public PostGetDto updatePost(PostUpdateDto postUpdateDto, Long postId) {
         logger.info("Updating post with ID : {}",postId);
         Post updatedPost = postRepository.findById(postId).map(post -> {
@@ -83,6 +86,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    @Transactional
     public void deletePost(Long postId) {
         logger.info("Deleting post with ID : {}",postId);
         Post post = postRepository.findById(postId).orElseThrow(() -> {

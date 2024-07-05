@@ -14,6 +14,7 @@ import com.blog_application.repository.CommentRepository;
 import com.blog_application.service.CommentService;
 import com.blog_application.service.PostService;
 import com.blog_application.service.UserService;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    @Transactional
     public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) {
         logger.info("Creating comment with content : {}",commentCreateDto.getContent());
         Post post = postMapper.toEntity(postService.getPostById(postId));
@@ -66,6 +68,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    @Transactional
     public void deleteComment(Long commentId) {
         logger.info("Deleting comment with ID : {}",commentId);
         Comment comment = commentRepository.findById(commentId).orElseThrow(() -> {
@@ -76,6 +79,7 @@ public class CommentServiceImpl implements CommentService {
         logger.info("Comment with ID : {} deleted successfully",commentId);
     }
 
+    // getCommentById don't need @Transactional because they don't make any changes to the database and just retrieve the data.
     @Override
     public CommentGetDto getCommentById(Long commentId) {
         logger.info("Fetching comment with ID : {}",commentId);
@@ -91,6 +95,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    @Transactional
     public CommentGetDto updateComment(CommentUpdateDto commentUpdateDto, Long commentId) {
         logger.info("Updating comment with ID : {}",commentId);
         Comment updatedComment = commentRepository.findById(commentId).map(comment -> {
@@ -104,5 +109,18 @@ public class CommentServiceImpl implements CommentService {
         });
         return commentMapper.toCommentGetDto(updatedComment);
     }
+
+    //@Transactional Annotation in Java programming language is mainly used to manage transactions at the method level.
+    // When you annotate a method with this annotation, Spring automatically creates a transaction for that method,
+    // and Spring handles transactions such as starting, committing, or canceling the transaction.
+    // A transaction in programming and database language means a unit of work that includes one or more database operations that are executed atomically,
+    // meaning that if any of these operations fail, all their changes are rolled back. (Rollback), and if all are executed successfully, the changes become final and permanent (Commit).
+    // Transaction features:
+    // Atomicity: All operations in a transaction are executed atomically, meaning all or none of them are executed.
+    // Durability: After the successful execution of the transaction and applying the changes, the changes must be permanently recorded in the database and not be lost.
+    // Isolation: The operation of a transaction should be independent , from other transactions and not affect them.
+    // Commit: If all operations are successful, the transaction must be committed and the changes will be final and permanent.
+    // Rollback: If a problem occurs, the transaction must be canceled and the changes returned to the previous state.
+    // In the service layer (Service Layer): This annotation is mostly used in services that are related to the business logic of the program.
 
 }

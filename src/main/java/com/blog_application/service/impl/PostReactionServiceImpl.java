@@ -12,6 +12,7 @@ import com.blog_application.repository.PostRepository;
 import com.blog_application.service.PostReactionService;
 import com.blog_application.service.PostService;
 import com.blog_application.service.UserService;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,7 @@ public class PostReactionServiceImpl implements PostReactionService {
         this.postReactionRepository = postReactionRepository;
     }
     @Override
+    @Transactional
     public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) {
         logger.info("Starting like post...");
         User user = userMapper.toEntity(userService.getUserById(postReactionRequestDto.getUserId()));
