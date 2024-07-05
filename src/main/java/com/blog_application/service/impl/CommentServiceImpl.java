@@ -1,15 +1,15 @@
 package com.blog_application.service.impl;
 
-import com.blog_application.config.mapper.CommentMapper;
-import com.blog_application.config.mapper.PostMapper;
-import com.blog_application.config.mapper.UserMapper;
+import com.blog_application.config.mapper.comment.CommentMapper;
+import com.blog_application.config.mapper.post.PostMapper;
+import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
-import com.blog_application.model.Comment;
-import com.blog_application.model.Post;
-import com.blog_application.model.User;
+import com.blog_application.model.comment.Comment;
+import com.blog_application.model.post.Post;
+import com.blog_application.model.user.User;
 import com.blog_application.repository.CommentRepository;
 import com.blog_application.service.CommentService;
 import com.blog_application.service.PostService;
@@ -58,7 +58,7 @@ public class CommentServiceImpl implements CommentService {
                 logger.warn("Parent comment with ID {} not found",commentCreateDto.getParent());
                 return new ResourceNotFoundException("Comment","ID",String.valueOf(commentCreateDto.getParent()),"Parent comment not found");
             });
-            comment.setParent(parentComment);
+            parentComment.addReply(comment);
         }
         Comment savedComment = commentRepository.save(comment);
         logger.info("Comment created successfully with content : {}",commentCreateDto.getContent());

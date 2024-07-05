@@ -1,12 +1,12 @@
 package com.blog_application.service.impl;
 
-import com.blog_application.config.mapper.PostMapper;
-import com.blog_application.config.mapper.UserMapper;
+import com.blog_application.config.mapper.post.PostMapper;
+import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
-import com.blog_application.model.Post;
-import com.blog_application.model.PostReaction;
-import com.blog_application.model.User;
+import com.blog_application.model.post.Post;
+import com.blog_application.model.post.PostReaction;
+import com.blog_application.model.user.User;
 import com.blog_application.repository.PostReactionRepository;
 import com.blog_application.repository.PostRepository;
 import com.blog_application.service.PostReactionService;

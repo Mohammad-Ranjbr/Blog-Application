@@ -1,9 +1,9 @@
-package com.blog_application.config.mapper;
+package com.blog_application.config.mapper.category;
 
 import com.blog_application.dto.category.CategoryBasicInfoDto;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryGetDto;
-import com.blog_application.model.Category;
+import com.blog_application.model.category.Category;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

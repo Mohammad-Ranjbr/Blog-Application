@@ -1,8 +1,8 @@
 package com.blog_application.repository;
 
-import com.blog_application.model.Comment;
-import com.blog_application.model.CommentReaction;
-import com.blog_application.model.User;
+import com.blog_application.model.comment.Comment;
+import com.blog_application.model.comment.CommentReaction;
+import com.blog_application.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,6 +1,6 @@
 package com.blog_application.repository;
 
-import com.blog_application.model.Comment;
+import com.blog_application.model.comment.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

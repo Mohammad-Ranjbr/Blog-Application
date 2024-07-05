@@ -18,7 +18,7 @@ public class CommentGetDto {
     private LocalDateTime creationDate;
     private LocalDateTime updatedDate;
     private UserBasicInfoDto user;
-    private Long parentId;
+    private Long parent;
     private int likes;
     private int dislikes;
     private List<CommentGetDto> replies;

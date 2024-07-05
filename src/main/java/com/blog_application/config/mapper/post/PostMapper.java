@@ -1,8 +1,8 @@
-package com.blog_application.config.mapper;
+package com.blog_application.config.mapper.post;
 
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
-import com.blog_application.model.Post;
+import com.blog_application.model.post.Post;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

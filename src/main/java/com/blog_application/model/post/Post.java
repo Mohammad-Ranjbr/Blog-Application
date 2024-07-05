@@ -1,5 +1,8 @@
-package com.blog_application.model;
+package com.blog_application.model.post;
 
+import com.blog_application.model.user.User;
+import com.blog_application.model.category.Category;
+import com.blog_application.model.comment.Comment;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

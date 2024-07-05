@@ -1,9 +1,9 @@
-package com.blog_application.config.mapper;
+package com.blog_application.config.mapper.user;
 
 import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
-import com.blog_application.model.User;
+import com.blog_application.model.user.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,8 +1,8 @@
 package com.blog_application.repository;
 
-import com.blog_application.model.Category;
-import com.blog_application.model.Post;
-import com.blog_application.model.User;
+import com.blog_application.model.category.Category;
+import com.blog_application.model.post.Post;
+import com.blog_application.model.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

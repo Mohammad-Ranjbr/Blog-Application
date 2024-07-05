@@ -1,5 +1,7 @@
-package com.blog_application.model;
+package com.blog_application.model.comment;
 
+import com.blog_application.model.post.Post;
+import com.blog_application.model.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,6 +51,11 @@ public class Comment {
                 ", creationDate=" + creationDate +
                 ", updatedDate=" + updatedDate +
                 '}';
+    }
+
+    public void addReply(Comment reply){
+        replies.add(reply);
+        reply.setParent(this);
     }
 
 }

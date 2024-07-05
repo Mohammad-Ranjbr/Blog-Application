@@ -1,5 +1,9 @@
-package com.blog_application.model;
+package com.blog_application.model.user;
 
+import com.blog_application.model.comment.Comment;
+import com.blog_application.model.comment.CommentReaction;
+import com.blog_application.model.post.Post;
+import com.blog_application.model.post.PostReaction;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

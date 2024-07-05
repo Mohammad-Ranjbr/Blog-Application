@@ -1,12 +1,12 @@
 package com.blog_application.service.impl;
 
-import com.blog_application.config.mapper.UserMapper;
+import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
-import com.blog_application.model.User;
+import com.blog_application.model.user.User;
 import com.blog_application.repository.UserRepository;
 import com.blog_application.service.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
