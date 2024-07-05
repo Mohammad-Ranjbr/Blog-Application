@@ -2524,3 +2524,6 @@ Consider defining a bean of type 'org.modelmapper.ModelMapper' in your configura
 2024-07-05T19:27:11.551+03:30  INFO 4420 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
 2024-07-05T19:27:11.563+03:30  INFO 4420 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 1.552 seconds (process running for 310.945)
 2024-07-05T19:27:11.566+03:30  INFO 4420 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-05T19:33:30.468+03:30  INFO 4420 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-05T19:33:30.469+03:30  INFO 4420 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-07-05T19:33:30.475+03:30  INFO 4420 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
