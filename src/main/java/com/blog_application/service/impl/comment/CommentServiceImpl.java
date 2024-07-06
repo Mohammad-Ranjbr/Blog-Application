@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -102,7 +103,7 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> comments = commentRepository.findByPost(post);
         if(comments.isEmpty()){
             logger.info("No comments found for post with ID : {}", postId);
-            return null;
+            return Collections.emptyList();
         } else {
             List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
             logger.info("{} comments found for post with ID : {}", comments.size(), postId);
@@ -112,11 +113,20 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<CommentGetDto> getCommentsByParentId(Long parentId) {
-        Comment comment = commentRepository.findById(parentId).orElseThrow(() -> new ResourceNotFoundException("Comment","ID",String.valueOf(parentId),"Get Parent Comment operation not performed"));
+        logger.info("Fetching comments for parent comment with ID: {}", parentId);
+        Comment comment = commentRepository.findById(parentId).orElseThrow(() -> {
+            logger.warn("Comment with ID {} not found, Get Parent Comment operation not performed",parentId);
+            return new ResourceNotFoundException("Comment","ID",String.valueOf(parentId),"Get Parent Comment operation not performed");
+        });
         List<Comment> comments = commentRepository.findByParentId(comment.getId());
-        List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
-        System.out.println();
-        return commentGetDtos;
+        if(comments.isEmpty()){
+            logger.info("No child comments found for parent comment with ID: {}", parentId);
+            return Collections.emptyList();
+        } else {
+            List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
+            logger.info("{} child comments found for parent comment with ID: {}", comments.size(), parentId);
+            return commentGetDtos;
+        }
     }
 
     @Override

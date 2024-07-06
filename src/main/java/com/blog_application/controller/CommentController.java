@@ -74,7 +74,9 @@ public class CommentController {
     //GET Mapping-Get comment by Parent ID
     @GetMapping("/parent/{parent_id}")
     public ResponseEntity<List<CommentGetDto>> getCommentsByParentId(@PathVariable("parent_id") Long parentId){
+        logger.info("Received request to fetch comments for parent comment with ID: {}", parentId);
         List<CommentGetDto> commentGetDtos = commentService.getCommentsByParentId(parentId);
+        logger.info("Returning response for parent comment with ID : {}", parentId);
         return new ResponseEntity<>(commentGetDtos,HttpStatus.OK);
     }
 

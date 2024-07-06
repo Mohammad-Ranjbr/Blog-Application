@@ -3260,3 +3260,76 @@ java.lang.NullPointerException: Cannot invoke "com.blog_application.dto.post.Pos
 2024-07-06T14:56:46.250+03:30  INFO 70256 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-06T14:56:46.254+03:30  INFO 70256 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-07-06T14:56:46.262+03:30  INFO 70256 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-06T15:21:47.049+03:30  INFO 71301 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 71301 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-06T15:21:47.050+03:30  INFO 71301 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-06T15:21:47.079+03:30  INFO 71301 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-06T15:21:47.079+03:30  INFO 71301 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-06T15:21:47.690+03:30  INFO 71301 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-06T15:21:47.753+03:30  INFO 71301 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 6 JPA repository interfaces.
+2024-07-06T15:21:48.197+03:30  INFO 71301 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-06T15:21:48.205+03:30  INFO 71301 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-06T15:21:48.205+03:30  INFO 71301 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-06T15:21:48.240+03:30  INFO 71301 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-06T15:21:48.241+03:30  INFO 71301 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1161 ms
+2024-07-06T15:21:48.359+03:30  INFO 71301 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-06T15:21:48.393+03:30  INFO 71301 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-07-06T15:21:48.415+03:30  INFO 71301 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-06T15:21:48.574+03:30  INFO 71301 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-06T15:21:48.591+03:30  INFO 71301 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-06T15:21:48.786+03:30  INFO 71301 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@635ceedc
+2024-07-06T15:21:48.787+03:30  INFO 71301 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-06T15:21:48.806+03:30  WARN 71301 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-06T15:21:49.450+03:30  INFO 71301 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-06T15:21:49.533+03:30  INFO 71301 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-06T15:21:49.972+03:30  INFO 71301 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-06T15:21:50.280+03:30  WARN 71301 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-06T15:21:50.517+03:30  INFO 71301 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-06T15:21:50.538+03:30  INFO 71301 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-07-06T15:21:50.545+03:30  INFO 71301 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 3.787 seconds (process running for 4.173)
+2024-07-06T15:22:00.435+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-06T15:22:00.436+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-06T15:22:00.438+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-07-06T15:22:00.482+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Received request to fetch comments for post with ID : 1
+2024-07-06T15:22:00.482+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for post with ID : 1
+2024-07-06T15:22:00.482+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-06T15:22:00.543+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-06T15:22:00.618+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.s.impl.comment.CommentServiceImpl    : 3 comments found for post with ID : 1
+2024-07-06T15:22:00.618+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.CommentController         : Returning response for get comments with post ID : 1
+2024-07-06T15:22:37.510+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.CommentController         : Received request to fetch comments for post with ID : 2
+2024-07-06T15:22:37.510+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for post with ID : 2
+2024-07-06T15:22:37.510+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 2
+2024-07-06T15:22:37.512+03:30  WARN 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Post with ID 2 not found, Get post operation not performed
+2024-07-06T15:22:37.516+03:30  WARN 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.blog_application.exception.ResourceNotFoundException: Post not found with ID : 2]
+2024-07-06T15:22:43.693+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CommentController         : Received request to fetch comments for post with ID : 14
+2024-07-06T15:22:43.693+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for post with ID : 14
+2024-07-06T15:22:43.693+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 14
+2024-07-06T15:22:43.698+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 14
+2024-07-06T15:22:43.702+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.s.impl.comment.CommentServiceImpl    : No comments found for post with ID : 14
+2024-07-06T15:22:43.702+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-3] c.b.controller.CommentController         : Returning response for get comments with post ID : 14
+2024-07-06T15:23:34.283+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.CommentController         : Received request to fetch comments for parent comment with ID: 1
+2024-07-06T15:23:34.284+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for parent comment with ID: 1
+2024-07-06T15:23:34.306+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.s.impl.comment.CommentServiceImpl    : 1 child comments found for parent comment with ID: 1
+2024-07-06T15:23:34.306+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-4] c.b.controller.CommentController         : Returning response for parent comment with ID : 1
+2024-07-06T15:23:47.122+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.CommentController         : Received request to fetch comments for parent comment with ID: 2
+2024-07-06T15:23:47.122+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for parent comment with ID: 2
+2024-07-06T15:23:47.130+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.s.impl.comment.CommentServiceImpl    : 1 child comments found for parent comment with ID: 2
+2024-07-06T15:23:47.130+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-5] c.b.controller.CommentController         : Returning response for parent comment with ID : 2
+2024-07-06T15:23:51.723+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CommentController         : Received request to fetch comments for parent comment with ID: 3
+2024-07-06T15:23:51.723+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for parent comment with ID: 3
+2024-07-06T15:23:51.734+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.s.impl.comment.CommentServiceImpl    : No child comments found for parent comment with ID: 3
+2024-07-06T15:23:51.739+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-6] c.b.controller.CommentController         : Returning response for parent comment with ID : 3
+2024-07-06T15:23:58.010+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CommentController         : Received request to fetch comments for parent comment with ID: 2
+2024-07-06T15:23:58.010+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for parent comment with ID: 2
+2024-07-06T15:23:58.017+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.s.impl.comment.CommentServiceImpl    : 1 child comments found for parent comment with ID: 2
+2024-07-06T15:23:58.017+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-7] c.b.controller.CommentController         : Returning response for parent comment with ID : 2
+2024-07-06T15:24:07.527+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CommentController         : Received request to fetch comments for parent comment with ID: 2
+2024-07-06T15:24:07.528+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for parent comment with ID: 2
+2024-07-06T15:24:07.544+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.s.impl.comment.CommentServiceImpl    : 1 child comments found for parent comment with ID: 2
+2024-07-06T15:24:07.544+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-8] c.b.controller.CommentController         : Returning response for parent comment with ID : 2
+2024-07-06T15:24:38.229+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CommentController         : Received request to fetch comments for parent comment with ID: 3
+2024-07-06T15:24:38.229+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.s.impl.comment.CommentServiceImpl    : Fetching comments for parent comment with ID: 3
+2024-07-06T15:24:38.239+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.s.impl.comment.CommentServiceImpl    : No child comments found for parent comment with ID: 3
+2024-07-06T15:24:38.239+03:30  INFO 71301 --- [blog-application] [http-nio-127.0.0.1-8081-exec-9] c.b.controller.CommentController         : Returning response for parent comment with ID : 3
+2024-07-06T15:24:49.059+03:30  INFO 71301 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-06T15:24:49.062+03:30  INFO 71301 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-06T15:24:49.075+03:30  INFO 71301 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
