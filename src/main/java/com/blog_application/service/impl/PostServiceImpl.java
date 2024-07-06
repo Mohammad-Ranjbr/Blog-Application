@@ -229,6 +229,7 @@ public class PostServiceImpl implements PostService {
         scheduler.schedule(() -> {
             postRepository.save(schedulePost);
             logger.info("Notification: Scheduled post with title '{}' has been saved successfully.", schedulePost.getTitle());}, delay, TimeUnit.MILLISECONDS);
+        scheduler.shutdown();
     }
 
     // ScheduledExecutorService ( java.util.concurrent ) is used to manage and execute scheduled tasks.
