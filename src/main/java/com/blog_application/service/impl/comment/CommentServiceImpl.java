@@ -97,11 +97,17 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<CommentGetDto> getCommentsByPostId(Long postId) {
+        logger.info("Fetching comments for post with ID : {}", postId);
         Post post = postMapper.toEntity(postService.getPostById(postId));
         List<Comment> comments = commentRepository.findByPost(post);
-        List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
-        System.out.println();
-        return commentGetDtos;
+        if(comments.isEmpty()){
+            logger.info("No comments found for post with ID : {}", postId);
+            return null;
+        } else {
+            List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
+            logger.info("{} comments found for post with ID : {}", comments.size(), postId);
+            return commentGetDtos;
+        }
     }
 
     @Override

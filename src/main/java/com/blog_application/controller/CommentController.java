@@ -65,7 +65,9 @@ public class CommentController {
     //GET Mapping-Get comment by Post ID
     @GetMapping("/post/{post_id}")
     public ResponseEntity<List<CommentGetDto>> getCommentsByPostId(@PathVariable("post_id") Long postId){
+        logger.info("Received request to fetch comments for post with ID : {}", postId);
         List<CommentGetDto> commentGetDtos = commentService.getCommentsByPostId(postId);
+        logger.info("Returning response for get comments with post ID : {}", postId);
         return new ResponseEntity<>(commentGetDtos,HttpStatus.OK);
     }
 
