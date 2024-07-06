@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -18,5 +20,7 @@ public class PostCreateDto {
     @NotBlank(message = "Content is mandatory")
     @Size(max = 1000, message = "Content must be less than 1000 characters")
     private String content;
+
+    private LocalDateTime scheduledTime;
 
 }

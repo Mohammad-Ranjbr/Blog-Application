@@ -26,8 +26,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -56,15 +61,25 @@ public class PostServiceImpl implements PostService {
     @Transactional
     public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
+
         User user = userMapper.toEntity(userService.getUserById(userId));
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
+
         Post post = postMapper.toEntity(postCreateDto);
         post.setUser(user);
         post.setCategory(category);
         post.setImageName("default.png");
-        Post savedPost = postRepository.save(post);
-        logger.info("Post created successfully with title : {}",postCreateDto.getTitle());
-        return postMapper.toPostGetDto(savedPost);
+
+        if (postCreateDto.getScheduledTime() != null && postCreateDto.getScheduledTime().isAfter(LocalDateTime.now())) { // The time is after now
+            schedulePost(post, postCreateDto.getScheduledTime());
+            logger.info("Post scheduled successfully with title : {} at {}", postCreateDto.getTitle(), postCreateDto.getScheduledTime());
+            return postMapper.toPostGetDto(post);
+        } else {
+            Post savedPost = postRepository.save(post);
+            logger.info("Post created successfully with title : {}", postCreateDto.getTitle());
+            return postMapper.toPostGetDto(savedPost);
+        }
+
     }
 
     @Override
@@ -202,5 +217,19 @@ public class PostServiceImpl implements PostService {
         logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
         return paginatedResponse;
     }
+
+    private void schedulePost(Post post, LocalDateTime scheduledTime) {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        long delay = Duration.between(LocalDateTime.now(), scheduledTime).toMillis();
+        scheduler.schedule(() -> postRepository.save(post), delay, TimeUnit.MILLISECONDS);
+    }
+
+    // ScheduledExecutorService is used to manage and execute scheduled tasks. The ScheduledExecutorService allows you to run tasks in the future at a specified delay or periodically.
+    // Execution of tasks with a certain delay: You can define a task that will be executed after a certain period of time.
+    // Execution of tasks periodically: You can define a task to be executed regularly and at specified time intervals.
+    // Advantages of using ScheduledExecutorService
+    // Management of threads (Threads): This interface automatically handles thread management, avoiding the manual creation and management of threads.
+    // flexibility: You can schedule tasks on a delayed or periodic basis.
+    // Sustainability: ScheduledExecutorService supports handling exceptions and preventing threads from stalling due to unexpected errors.
 
 }
