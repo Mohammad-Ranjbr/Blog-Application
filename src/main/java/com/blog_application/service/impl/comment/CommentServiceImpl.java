@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
@@ -92,6 +93,15 @@ public class CommentServiceImpl implements CommentService {
         optionalComment.ifPresent(printCommentDetails);
         logger.info("Comment found with ID : {}",commentId);
         return commentMapper.toCommentGetDto(comment);
+    }
+
+    @Override
+    public List<CommentGetDto> getCommentByPostId(Long postId) {
+        Post post = postMapper.toEntity(postService.getPostById(postId));
+        List<Comment> comments = commentRepository.findByPost(post);
+        List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
+        System.out.println();
+        return commentGetDtos;
     }
 
     @Override

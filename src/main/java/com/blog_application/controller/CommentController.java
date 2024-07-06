@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -59,6 +60,13 @@ public class CommentController {
         CommentGetDto commentGetDto = commentService.getCommentById(commentId);
         logger.info("Returning response for get comment with ID : {}",commentId);
         return new ResponseEntity<>(commentGetDto,HttpStatus.OK);
+    }
+
+    //GET Mapping-Get comment by Post ID
+    @GetMapping("/post/{post_id}")
+    public ResponseEntity<List<CommentGetDto>> getCommentByPostId(@PathVariable("post_id") Long postId){
+        List<CommentGetDto> commentGetDtos = commentService.getCommentByPostId(postId);
+        return new ResponseEntity<>(commentGetDtos,HttpStatus.OK);
     }
 
     //PUT Mapping-Update comment
