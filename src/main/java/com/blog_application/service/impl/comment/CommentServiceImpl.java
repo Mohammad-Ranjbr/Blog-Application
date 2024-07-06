@@ -96,9 +96,18 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<CommentGetDto> getCommentByPostId(Long postId) {
+    public List<CommentGetDto> getCommentsByPostId(Long postId) {
         Post post = postMapper.toEntity(postService.getPostById(postId));
         List<Comment> comments = commentRepository.findByPost(post);
+        List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
+        System.out.println();
+        return commentGetDtos;
+    }
+
+    @Override
+    public List<CommentGetDto> getCommentsByParentId(Long parentId) {
+        Comment comment = commentRepository.findById(parentId).orElseThrow(() -> new ResourceNotFoundException("Comment","ID",String.valueOf(parentId),"Get Parent Comment operation not performed"));
+        List<Comment> comments = commentRepository.findByParentId(comment.getId());
         List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
         System.out.println();
         return commentGetDtos;

@@ -64,8 +64,15 @@ public class CommentController {
 
     //GET Mapping-Get comment by Post ID
     @GetMapping("/post/{post_id}")
-    public ResponseEntity<List<CommentGetDto>> getCommentByPostId(@PathVariable("post_id") Long postId){
-        List<CommentGetDto> commentGetDtos = commentService.getCommentByPostId(postId);
+    public ResponseEntity<List<CommentGetDto>> getCommentsByPostId(@PathVariable("post_id") Long postId){
+        List<CommentGetDto> commentGetDtos = commentService.getCommentsByPostId(postId);
+        return new ResponseEntity<>(commentGetDtos,HttpStatus.OK);
+    }
+
+    //GET Mapping-Get comment by Parent ID
+    @GetMapping("/parent/{parent_id}")
+    public ResponseEntity<List<CommentGetDto>> getCommentsByParentId(@PathVariable("parent_id") Long parentId){
+        List<CommentGetDto> commentGetDtos = commentService.getCommentsByParentId(parentId);
         return new ResponseEntity<>(commentGetDtos,HttpStatus.OK);
     }
 
