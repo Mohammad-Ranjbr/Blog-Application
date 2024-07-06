@@ -219,17 +219,40 @@ public class PostServiceImpl implements PostService {
     }
 
     private void schedulePost(Post post, LocalDateTime scheduledTime) {
+        // This method creates a ScheduledExecutorService instance with a single thread. This thread is responsible for scheduling and executing specified tasks.
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+        // This method of the Duration class calculates the time between the current time (LocalDateTime.now()) and the scheduled time (scheduledTime).
+        // This method converts the calculated duration to milliseconds. This period of time indicates the delay until the execution of the task.
         long delay = Duration.between(LocalDateTime.now(), scheduledTime).toMillis();
+
+        // TimeUnit.MILLISECONDS: The unit of delay time, which is milliseconds here.
         scheduler.schedule(() -> postRepository.save(post), delay, TimeUnit.MILLISECONDS);
     }
 
-    // ScheduledExecutorService is used to manage and execute scheduled tasks. The ScheduledExecutorService allows you to run tasks in the future at a specified delay or periodically.
+    // ScheduledExecutorService ( java.util.concurrent ) is used to manage and execute scheduled tasks.
+    // The ScheduledExecutorService allows you to run tasks in the future at a specified delay or periodically.
     // Execution of tasks with a certain delay: You can define a task that will be executed after a certain period of time.
     // Execution of tasks periodically: You can define a task to be executed regularly and at specified time intervals.
     // Advantages of using ScheduledExecutorService
     // Management of threads (Threads): This interface automatically handles thread management, avoiding the manual creation and management of threads.
     // flexibility: You can schedule tasks on a delayed or periodic basis.
     // Sustainability: ScheduledExecutorService supports handling exceptions and preventing threads from stalling due to unexpected errors.
+
+    // The Executors class in Java is part of the java.util.concurrent package and provides utility tools for creating and managing various executors.
+    // Executors contains methods that briefly simplify the creation and configuration of executors. These tools include creating single-threaded, multi-threaded, and scheduled executions.
+    // To execute tasks with specific timing : Executors.newScheduledThreadPool(int n)
+    // Single Thread Executor: This type of executor executes tasks sequentially with a single thread. Suitable for tasks that must be performed in sequence without interference.
+    // Fixed Thread Pool: This type of executor provides a fixed set of threads to execute tasks. Suitable for tasks that can be executed simultaneously, but the number of threads must be fixed.
+    // Cached Thread Pool: This type of processor manages threads dynamically and can execute a large number of tasks simultaneously. Suitable for short-term and high-volume tasks.
+    // Scheduled Thread Pool: This type of executor is used to execute scheduled tasks. Suitable for tasks that must be executed at specific times or periodically.
+    // Using Executors in Java makes thread management simpler and more efficient. These tools allow you to run your tasks efficiently without having to manually manage threads.
+
+    // Duration means duration and is included in Java programming as a class in the java.time package. This class is used to display and calculate the duration between two times (LocalDateTime, LocalTime or any other type of java.time).
+    // This class allows you to perform operations such as comparing two times, calculating the duration between them, and performing various other actions on durations.
+    // between(Temporal startInclusive, Temporal endExclusive): Used to calculate the duration between two times.
+    // toDays(), toHours(), toMinutes(), toMillis(): Used to convert duration to different time units such as days, hours, minutes and milliseconds.
+    // plus(Duration duration), minus(Duration duration): Used to add and subtract a Duration to another time.
+
 
 }
