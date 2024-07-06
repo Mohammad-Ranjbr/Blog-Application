@@ -79,7 +79,6 @@ public class PostServiceImpl implements PostService {
             logger.info("Post created successfully with title : {}", postCreateDto.getTitle());
             return postMapper.toPostGetDto(savedPost);
         }
-
     }
 
     @Override
@@ -218,7 +217,7 @@ public class PostServiceImpl implements PostService {
         return paginatedResponse;
     }
 
-    private void schedulePost(Post post, LocalDateTime scheduledTime) {
+    private void schedulePost(Post schedulePost, LocalDateTime scheduledTime) {
         // This method creates a ScheduledExecutorService instance with a single thread. This thread is responsible for scheduling and executing specified tasks.
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
@@ -227,14 +226,15 @@ public class PostServiceImpl implements PostService {
         long delay = Duration.between(LocalDateTime.now(), scheduledTime).toMillis();
 
         // TimeUnit.MILLISECONDS: The unit of delay time, which is milliseconds here.
-        scheduler.schedule(() -> postRepository.save(post), delay, TimeUnit.MILLISECONDS);
+        scheduler.schedule(() -> {
+            postRepository.save(schedulePost);
+            logger.info("Notification: Scheduled post with title '{}' has been saved successfully.", schedulePost.getTitle());}, delay, TimeUnit.MILLISECONDS);
     }
 
     // ScheduledExecutorService ( java.util.concurrent ) is used to manage and execute scheduled tasks.
     // The ScheduledExecutorService allows you to run tasks in the future at a specified delay or periodically.
     // Execution of tasks with a certain delay: You can define a task that will be executed after a certain period of time.
     // Execution of tasks periodically: You can define a task to be executed regularly and at specified time intervals.
-    // Advantages of using ScheduledExecutorService
     // Management of threads (Threads): This interface automatically handles thread management, avoiding the manual creation and management of threads.
     // flexibility: You can schedule tasks on a delayed or periodic basis.
     // Sustainability: ScheduledExecutorService supports handling exceptions and preventing threads from stalling due to unexpected errors.
@@ -253,6 +253,5 @@ public class PostServiceImpl implements PostService {
     // between(Temporal startInclusive, Temporal endExclusive): Used to calculate the duration between two times.
     // toDays(), toHours(), toMinutes(), toMillis(): Used to convert duration to different time units such as days, hours, minutes and milliseconds.
     // plus(Duration duration), minus(Duration duration): Used to add and subtract a Duration to another time.
-
-
+    
 }
