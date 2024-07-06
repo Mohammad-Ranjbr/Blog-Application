@@ -1,4 +1,4 @@
-package com.blog_application.service;
+package com.blog_application.service.category;
 
 import com.blog_application.dto.category.CategoryBasicInfoDto;
 import com.blog_application.dto.category.CategoryCreateDto;

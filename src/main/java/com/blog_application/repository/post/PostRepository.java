@@ -1,4 +1,4 @@
-package com.blog_application.repository;
+package com.blog_application.repository.post;
 
 import com.blog_application.model.category.Category;
 import com.blog_application.model.post.Post;

@@ -1,4 +1,4 @@
-package com.blog_application.service.impl;
+package com.blog_application.service.impl.post;
 
 import com.blog_application.config.mapper.category.CategoryMapper;
 import com.blog_application.config.mapper.post.PostMapper;
@@ -10,10 +10,10 @@ import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.category.Category;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.user.User;
-import com.blog_application.repository.PostRepository;
-import com.blog_application.service.CategoryService;
-import com.blog_application.service.PostService;
-import com.blog_application.service.UserService;
+import com.blog_application.repository.post.PostRepository;
+import com.blog_application.service.category.CategoryService;
+import com.blog_application.service.post.PostService;
+import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
 import jakarta.transaction.Transactional;

@@ -115,7 +115,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
 	at jdk.proxy4/jdk.proxy4.$Proxy134.save(Unknown Source) ~[na:na]
-	at com.blog_application.service.impl.CommentServiceImpl.createComment(CommentServiceImpl.java:63) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.createComment(CommentServiceImpl.java:63) ~[classes/:na]
 	at com.blog_application.controller.CommentController.createComment(CommentController.java:41) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -278,7 +278,7 @@ java.lang.NumberFormatException: For input string: "Comment{id=1, content='I lov
 	at org.modelmapper.ModelMapper.mapInternal(ModelMapper.java:589) ~[modelmapper-3.2.0.jar:na]
 	at org.modelmapper.ModelMapper.map(ModelMapper.java:422) ~[modelmapper-3.2.0.jar:na]
 	at com.blog_application.config.mapper.comment.CommentMapper.toCommentGetDto(CommentMapper.java:29) ~[classes/:na]
-	at com.blog_application.service.impl.CommentServiceImpl.getCommentById(CommentServiceImpl.java:90) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.getCommentById(CommentServiceImpl.java:90) ~[classes/:na]
 	at com.blog_application.controller.CommentController.getCommentById(CommentController.java:59) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -413,7 +413,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.blog_application.service.impl.CommentServiceImpl required a bean of type 'com.blog_application.config.mapper.comment.CommentMapper' that could not be found.
+Parameter 0 of constructor in com.blog_application.service.impl.comment.CommentServiceImpl required a bean of type 'com.blog_application.config.mapper.comment.CommentMapper' that could not be found.
 
 
 Action:
@@ -593,7 +593,7 @@ Consider defining a bean of type 'com.blog_application.config.mapper.comment.Com
 2024-07-05T18:13:55.545+03:30  WARN 15180 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
 2024-07-05T18:13:55.710+03:30  INFO 15180 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-07-05T18:13:55.863+03:30  INFO 15180 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-07-05T18:13:55.937+03:30  WARN 15180 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@67dbf6fa] failed
+2024-07-05T18:13:55.937+03:30  WARN 15180 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.comment.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@67dbf6fa] failed
 2024-07-05T18:13:55.938+03:30  INFO 15180 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-05T18:13:55.938+03:30  INFO 15180 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2024-07-05T18:13:55.968+03:30  INFO 15180 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
@@ -603,7 +603,7 @@ Consider defining a bean of type 'com.blog_application.config.mapper.comment.Com
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-07-05T18:13:56.011+03:30 ERROR 15180 --- [blog-application] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@67dbf6fa] failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.comment.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@67dbf6fa] failed
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.1.8.jar:6.1.8]
@@ -629,7 +629,7 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@67dbf6fa] failed
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.comment.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@67dbf6fa] failed
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:383) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1296) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191) ~[spring-beans-6.1.8.jar:6.1.8]
@@ -833,7 +833,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
 	at jdk.proxy4/jdk.proxy4.$Proxy155.save(Unknown Source) ~[na:na]
-	at com.blog_application.service.impl.CommentServiceImpl.createComment(CommentServiceImpl.java:63) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.createComment(CommentServiceImpl.java:63) ~[classes/:na]
 	at com.blog_application.controller.CommentController.createComment(CommentController.java:41) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -958,7 +958,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
 	at jdk.proxy4/jdk.proxy4.$Proxy155.save(Unknown Source) ~[na:na]
-	at com.blog_application.service.impl.CommentServiceImpl.createComment(CommentServiceImpl.java:63) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.createComment(CommentServiceImpl.java:63) ~[classes/:na]
 	at com.blog_application.controller.CommentController.createComment(CommentController.java:41) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -1033,7 +1033,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 2024-07-05T18:19:46.196+03:30  WARN 288 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
 2024-07-05T18:19:46.348+03:30  INFO 288 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-07-05T18:19:46.489+03:30  INFO 288 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-07-05T18:19:46.562+03:30  WARN 288 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@9c09fa0] failed
+2024-07-05T18:19:46.562+03:30  WARN 288 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.comment.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@9c09fa0] failed
 2024-07-05T18:19:46.562+03:30  INFO 288 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-05T18:19:46.562+03:30  INFO 288 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2024-07-05T18:19:46.698+03:30  INFO 288 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
@@ -1043,7 +1043,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-07-05T18:19:46.731+03:30 ERROR 288 --- [blog-application] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@9c09fa0] failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.comment.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@9c09fa0] failed
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.1.8.jar:6.1.8]
@@ -1069,7 +1069,7 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.6.jar:3.2.6]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@9c09fa0] failed
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentServiceImpl': Resolution of declared constructors on bean Class [com.blog_application.service.impl.comment.CommentServiceImpl] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@9c09fa0] failed
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:383) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1296) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191) ~[spring-beans-6.1.8.jar:6.1.8]
@@ -1162,7 +1162,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.blog_application.service.impl.CommentServiceImpl required a bean of type 'com.blog_application.config.mapper.comment.CommentMapper' that could not be found.
+Parameter 0 of constructor in com.blog_application.service.impl.comment.CommentServiceImpl required a bean of type 'com.blog_application.config.mapper.comment.CommentMapper' that could not be found.
 
 
 Action:
@@ -1214,7 +1214,7 @@ Consider defining a bean of type 'com.blog_application.config.mapper.comment.Com
 2024-07-05T18:25:45.805+03:30  WARN 288 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
 2024-07-05T18:25:45.944+03:30  INFO 288 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-07-05T18:25:46.074+03:30  INFO 288 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-07-05T18:25:46.154+03:30  WARN 288 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.blog_application.service.CommentService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-07-05T18:25:46.154+03:30  WARN 288 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.blog_application.service.comment.CommentService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 2024-07-05T18:25:46.155+03:30  INFO 288 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-05T18:25:46.155+03:30  INFO 288 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
 2024-07-05T18:25:46.158+03:30  INFO 288 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
@@ -1230,12 +1230,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.blog_application.controller.CommentController required a bean of type 'com.blog_application.service.CommentService' that could not be found.
+Parameter 0 of constructor in com.blog_application.controller.CommentController required a bean of type 'com.blog_application.service.comment.CommentService' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'com.blog_application.service.CommentService' in your configuration.
+Consider defining a bean of type 'com.blog_application.service.comment.CommentService' in your configuration.
 
 2024-07-05T18:25:47.629+03:30  INFO 288 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 288 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
 2024-07-05T18:25:47.629+03:30  INFO 288 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
@@ -1332,7 +1332,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
 	at jdk.proxy4/jdk.proxy4.$Proxy155.save(Unknown Source) ~[na:na]
-	at com.blog_application.service.impl.CommentServiceImpl.createComment(CommentServiceImpl.java:67) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.createComment(CommentServiceImpl.java:67) ~[classes/:na]
 	at com.blog_application.controller.CommentController.createComment(CommentController.java:41) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -1425,7 +1425,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
 	at jdk.proxy4/jdk.proxy4.$Proxy155.save(Unknown Source) ~[na:na]
-	at com.blog_application.service.impl.CommentServiceImpl.createComment(CommentServiceImpl.java:67) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.createComment(CommentServiceImpl.java:67) ~[classes/:na]
 	at com.blog_application.controller.CommentController.createComment(CommentController.java:41) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -1550,7 +1550,7 @@ org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
 	at jdk.proxy4/jdk.proxy4.$Proxy155.save(Unknown Source) ~[na:na]
-	at com.blog_application.service.impl.CommentServiceImpl.createComment(CommentServiceImpl.java:67) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.createComment(CommentServiceImpl.java:67) ~[classes/:na]
 	at com.blog_application.controller.CommentController.createComment(CommentController.java:41) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -1941,7 +1941,7 @@ java.lang.NumberFormatException: For input string: "Comment{id=16, content='Fuck
 	at org.modelmapper.ModelMapper.mapInternal(ModelMapper.java:589) ~[modelmapper-3.2.0.jar:na]
 	at org.modelmapper.ModelMapper.map(ModelMapper.java:422) ~[modelmapper-3.2.0.jar:na]
 	at com.blog_application.config.mapper.comment.CommentMapper.toCommentGetDto(CommentMapper.java:25) ~[classes/:na]
-	at com.blog_application.service.impl.CommentServiceImpl.getCommentById(CommentServiceImpl.java:90) ~[classes/:na]
+	at com.blog_application.service.impl.comment.CommentServiceImpl.getCommentById(CommentServiceImpl.java:90) ~[classes/:na]
 	at com.blog_application.controller.CommentController.getCommentById(CommentController.java:59) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -2343,7 +2343,7 @@ Caused by: java.lang.ClassNotFoundException: com.blog_application.config.mapper.
 2024-07-05T19:23:15.985+03:30  WARN 4420 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
 2024-07-05T19:23:16.162+03:30  INFO 4420 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-07-05T19:23:16.328+03:30  INFO 4420 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-07-05T19:23:16.379+03:30  WARN 4420 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'categoryController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CategoryController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.blog_application.service.CategoryService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-07-05T19:23:16.379+03:30  WARN 4420 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'categoryController' defined in file [E:\Projects\blog-application\target\classes\com\blog_application\controller\CategoryController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.blog_application.service.category.CategoryService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 2024-07-05T19:23:16.379+03:30  INFO 4420 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-05T19:23:16.380+03:30  INFO 4420 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2024-07-05T19:23:16.457+03:30  INFO 4420 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
@@ -2359,12 +2359,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.blog_application.controller.CategoryController required a bean of type 'com.blog_application.service.CategoryService' that could not be found.
+Parameter 0 of constructor in com.blog_application.controller.CategoryController required a bean of type 'com.blog_application.service.category.CategoryService' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'com.blog_application.service.CategoryService' in your configuration.
+Consider defining a bean of type 'com.blog_application.service.category.CategoryService' in your configuration.
 
 2024-07-05T19:23:18.383+03:30  INFO 4420 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 4420 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
 2024-07-05T19:23:18.383+03:30  INFO 4420 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"

@@ -1,4 +1,4 @@
-package com.blog_application.service;
+package com.blog_application.service.user;
 
 import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;

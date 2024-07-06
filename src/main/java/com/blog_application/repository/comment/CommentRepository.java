@@ -1,4 +1,4 @@
-package com.blog_application.repository;
+package com.blog_application.repository.comment;
 
 import com.blog_application.model.comment.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.blog_application.service.impl;
+package com.blog_application.service.impl.comment;
 
 import com.blog_application.config.mapper.comment.CommentMapper;
 import com.blog_application.config.mapper.post.PostMapper;
@@ -10,10 +10,10 @@ import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.comment.Comment;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.user.User;
-import com.blog_application.repository.CommentRepository;
-import com.blog_application.service.CommentService;
-import com.blog_application.service.PostService;
-import com.blog_application.service.UserService;
+import com.blog_application.repository.comment.CommentRepository;
+import com.blog_application.service.comment.CommentService;
+import com.blog_application.service.post.PostService;
+import com.blog_application.service.user.UserService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

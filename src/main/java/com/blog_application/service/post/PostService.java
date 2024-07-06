@@ -1,4 +1,4 @@
-package com.blog_application.service;
+package com.blog_application.service.post;
 
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;

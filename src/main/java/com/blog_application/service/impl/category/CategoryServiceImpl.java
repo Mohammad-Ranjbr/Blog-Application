@@ -1,4 +1,4 @@
-package com.blog_application.service.impl;
+package com.blog_application.service.impl.category;
 
 import com.blog_application.config.mapper.category.CategoryMapper;
 import com.blog_application.dto.category.CategoryBasicInfoDto;
@@ -7,8 +7,8 @@ import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.category.Category;
-import com.blog_application.repository.CategoryRepository;
-import com.blog_application.service.CategoryService;
+import com.blog_application.repository.category.CategoryRepository;
+import com.blog_application.service.category.CategoryService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
 import jakarta.transaction.Transactional;
