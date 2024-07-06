@@ -31,7 +31,7 @@
 31- Dislike comment ✅
 32- Reply comment ✅
 33- Like post ✅
-34- Post tag
+34- Post tag -
 35- Debug get all user api ✅
 36- Response
 37- Design Pattern
@@ -40,9 +40,9 @@
 40- Fail Login Counter
 41- Dockerized
 42- CI/CD
-43- Follow User
+43- Follow User -
 44- Chat
-45- Save Post
+45- Save Post -
 46- Schedule Post With RabbitMQ
 47- Empty List Log
 48- Remove Child Comments in Response
