@@ -1,5 +1,6 @@
 package com.blog_application.model.post;
 
+import com.blog_application.model.tag.Tag;
 import com.blog_application.model.user.User;
 import com.blog_application.model.category.Category;
 import com.blog_application.model.comment.Comment;
@@ -47,6 +48,13 @@ public class Post {
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<PostReaction> postReactions;
     private int likes;
+    @ManyToMany
+    @JoinTable(
+            name = "post_tags",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private List<Tag> tags;
 
     @Override
     public String toString() {

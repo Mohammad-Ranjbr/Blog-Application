@@ -35,7 +35,7 @@
 35- Debug get all user api ✅
 36- Response
 37- Design Pattern
-38- Schedule Post ✅
+38- Schedule Post with ScheduledExecutorService ✅
 39- Block User
 40- Fail Login Counter
 41- Dockerized
@@ -46,5 +46,7 @@
 46- Schedule Post With RabbitMQ
 47- Empty List Log
 48- Remove Child Comments in Response
+49- Schedule Post With Redis
+50- Schedule Post With Quartz Scheduler -
 
 ✅	❌
