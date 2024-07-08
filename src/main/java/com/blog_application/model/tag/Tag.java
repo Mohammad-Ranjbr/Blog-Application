@@ -15,6 +15,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
+@Table(name = "tags")
 public class Tag {
 
     @Id
