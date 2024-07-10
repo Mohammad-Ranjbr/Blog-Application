@@ -10,12 +10,18 @@ import com.blog_application.model.tag.Tag;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.tag.TagService;
 import com.blog_application.util.responses.PaginatedResponse;
+import com.blog_application.util.utils.SortHelper;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -100,7 +106,22 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public PaginatedResponse<TagGetDto> getAllTags(int pageNumber, int pageSize, String sortBy, String sortDir) {
-        return null;
+        logger.info("Fetching all tags");
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Tag> tagPage = tagRepository.findAll(pageable);
+
+        List<Tag> tags = tagPage.getContent();
+        List<TagGetDto> tagGetDtoList = tags.stream()
+                .map(tagMapper::toTagGetDto)
+                .toList();
+
+        PaginatedResponse<TagGetDto> paginatedResponse = new PaginatedResponse<>(
+                tagGetDtoList,tagPage.getSize(),tagPage.getNumber(),tagPage.getTotalPages(),tagPage.getTotalElements(),tagPage.isLast()
+        );
+        logger.info("Total tags found : {}",tags.size());
+        return  paginatedResponse;
     }
 
     @Override

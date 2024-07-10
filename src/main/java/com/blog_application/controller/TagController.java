@@ -5,7 +5,9 @@ import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.dto.tag.TagGetDto;
 import com.blog_application.dto.tag.TagUpdateDto;
 import com.blog_application.service.tag.TagService;
+import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.responses.ApiResponse;
+import com.blog_application.util.responses.PaginatedResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,6 +71,20 @@ public class TagController {
         tagService.deleteTag(tagId);
         logger.info("Returning response for delete tag with ID : {}",tagId);
         return new ResponseEntity<>(new ApiResponse("Tag deleted successfully",true),HttpStatus.OK);
+    }
+
+    //GET Mapping-Get All Categories
+    @GetMapping("/")
+    public ResponseEntity<PaginatedResponse<TagGetDto>> getAllTags(
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_TAG_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir){
+
+        logger.info("Received request to get all tags");
+        PaginatedResponse<TagGetDto> tags = tagService.getAllTags(pageNumber,pageSize,sortBy,sortDir);
+        logger.info("Returning response all tags");
+        return new ResponseEntity<>(tags,HttpStatus.OK);
     }
 
 }
