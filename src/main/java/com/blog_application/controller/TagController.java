@@ -3,6 +3,7 @@ package com.blog_application.controller;
 import com.blog_application.dto.tag.TagBasicInfoDto;
 import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.dto.tag.TagGetDto;
+import com.blog_application.dto.tag.TagUpdateDto;
 import com.blog_application.service.tag.TagService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class TagController {
         logger.info("Received request to create tag with name : {}",tagCreateDto.getName());
         TagGetDto createdTag = tagService.createTag(tagCreateDto);
         logger.info("Returning response for tag creation with name : {}",tagCreateDto.getName());
-        return new ResponseEntity<>(createdTag, HttpStatus.OK);
+        return new ResponseEntity<>(createdTag, HttpStatus.CREATED);
     }
 
     //GET Mapping-Get Tag Basic Info By ID
@@ -49,6 +50,15 @@ public class TagController {
         TagGetDto tagGetDto = tagService.getTagById(tagId);
         logger.info("Returning response for get tag with ID : {}",tagId);
         return new ResponseEntity<>(tagGetDto,HttpStatus.OK);
+    }
+
+    //PUT Mapping-Update Tag
+    @PutMapping("/{id}")
+    public ResponseEntity<TagGetDto> updateTag(@Valid @RequestBody TagUpdateDto tagUpdateDto, @PathVariable("id") Long tagId){
+        logger.info("Received request to update tag with ID : {}",tagId);
+        TagGetDto updatedTag = tagService.updateTag(tagUpdateDto,tagId);
+        logger.info("Returning response for update tag with ID : {}",tagId);
+        return new ResponseEntity<>(updatedTag,HttpStatus.OK);
     }
 
 

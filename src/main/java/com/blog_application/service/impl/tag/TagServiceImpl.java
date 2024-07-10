@@ -66,7 +66,7 @@ public class TagServiceImpl implements TagService {
         logger.info("Fetching tag with ID: {}", tagId);
         Tag tag = tagRepository.findById(tagId).orElseThrow(() -> {
             logger.warn("Tag with ID {} not found, Get tag basic info operation not performed",tagId);
-           return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Get Tag basic info operation not performed");
+            return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Get Tag basic info operation not performed");
         });
         logger.info("Tag found with ID : {}",tagId);
         TagBasicInfoDto tagBasicInfoDto = tagMapper.toTagBasicInfoDto(tag);
@@ -75,8 +75,20 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    @Transactional
     public TagGetDto updateTag(TagUpdateDto tagUpdateDto, Long tagId) {
-        return null;
+        logger.info("Updating tag with ID : {}",tagId);
+        Tag updatedTag = tagRepository.findById(tagId).map(tag -> {
+            tag.setName(tagUpdateDto.getName());
+            tag.setDescription(tagUpdateDto.getDescription());
+            Tag savedTag =  tagRepository.save(tag);
+            logger.info("Tag with ID {} updated successfully",tagId);
+            return savedTag;
+        }).orElseThrow(() -> {
+            logger.warn("Tag with ID {} not found, Update tag operation not performed",tagId);
+            return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Update Tag operation not performed");
+        });
+        return tagMapper.toTagGetDto(updatedTag);
     }
 
     @Override
