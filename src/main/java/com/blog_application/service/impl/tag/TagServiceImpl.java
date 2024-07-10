@@ -16,6 +16,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.function.Consumer;
+
 @Service
 public class TagServiceImpl implements TagService {
 
@@ -36,7 +39,16 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public TagGetDto getTagById(Long tagId) {
-        return null;
+        logger.info("Fetching tag with ID : {}",tagId);
+        Tag tag = tagRepository.findById(tagId).orElseThrow(() -> {
+            logger.warn("Tag with ID {} not found, Get Tag operation not performed",tagId);
+           return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Get Tag operation not performed");
+        });
+        Optional<Tag> optionalTag = tagRepository.findById(tagId);
+        Consumer<Tag> printTagDetails = findTag -> System.out.println("Tag Found : " + findTag);
+        optionalTag.ifPresent(printTagDetails);
+        logger.info("Tag found with ID : {}",tagId);
+        return tagMapper.toTagGetDto(tag);
     }
 
     @Override
@@ -54,7 +66,7 @@ public class TagServiceImpl implements TagService {
         logger.info("Fetching tag with ID: {}", tagId);
         Tag tag = tagRepository.findById(tagId).orElseThrow(() -> {
             logger.warn("Tag with ID {} not found, Get tag basic info operation not performed",tagId);
-           return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Get tag basic info operation not performed");
+           return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Get Tag basic info operation not performed");
         });
         logger.info("Tag found with ID : {}",tagId);
         TagBasicInfoDto tagBasicInfoDto = tagMapper.toTagBasicInfoDto(tag);

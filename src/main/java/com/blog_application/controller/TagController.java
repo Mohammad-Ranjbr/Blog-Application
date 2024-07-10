@@ -42,4 +42,14 @@ public class TagController {
         return new ResponseEntity<>(tagBasicInfoDto,HttpStatus.OK);
     }
 
+    //GET Mapping-Get Tag By ID
+    @GetMapping("/{id}")
+    public ResponseEntity<TagGetDto> getTagById(@PathVariable("id") Long tagId){
+        logger.info("Received request to get tag with ID : {}",tagId);
+        TagGetDto tagGetDto = tagService.getTagById(tagId);
+        logger.info("Returning response for get tag with ID : {}",tagId);
+        return new ResponseEntity<>(tagGetDto,HttpStatus.OK);
+    }
+
+
 }
