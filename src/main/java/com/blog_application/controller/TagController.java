@@ -47,7 +47,7 @@ public class TagController {
     }
 
     //GET Mapping-Get Tag By ID
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<TagGetDto> getTagById(@PathVariable("id") Long tagId){
         logger.info("Received request to get tag with ID : {}",tagId);
         TagGetDto tagGetDto = tagService.getTagById(tagId);
@@ -100,6 +100,15 @@ public class TagController {
         PaginatedResponse<TagBasicInfoDto> tagBasicInfoDtos = tagService.getAllTagBasicInfo(pageNumber,pageSize,sortBy,sortDir);
         logger.info("Returning response all tag basic info");
         return new ResponseEntity<>(tagBasicInfoDtos,HttpStatus.OK);
+    }
+
+    //GET Mapping-Get Tag By Name
+    @GetMapping("/name/{name}")
+    public ResponseEntity<TagGetDto> getTagByName(@PathVariable("name") String tagName){
+        logger.info("Received request to get tag with Name : {}",tagName);
+        TagGetDto tagGetDto = tagService.getTagByName(tagName);
+        logger.info("Returning response for get tag with Name : {}",tagName);
+        return new ResponseEntity<>(tagGetDto,HttpStatus.OK);
     }
 
 }

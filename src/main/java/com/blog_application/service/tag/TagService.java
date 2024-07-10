@@ -10,6 +10,7 @@ public interface TagService {
 
     void deleteTag(Long tagId);
     TagGetDto getTagById(Long tagId);
+    TagGetDto getTagByName(String tagName);
     TagGetDto createTag(TagCreateDto tagCreateDto);
     TagBasicInfoDto getTagBasicInfoById(Long tagId);
     TagGetDto updateTag(TagUpdateDto tagUpdateDto, Long tagId);

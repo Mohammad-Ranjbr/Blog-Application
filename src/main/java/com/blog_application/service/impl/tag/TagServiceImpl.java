@@ -65,6 +65,20 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    public TagGetDto getTagByName(String tagName) {
+        logger.info("Fetching tag with Name : {}",tagName);
+        Tag tag = tagRepository.findByName(tagName).orElseThrow(() -> {
+            logger.warn("Tag with Name {} not found, Get Tag operation not performed",tagName);
+            return new ResourceNotFoundException("Tag","Name",String.valueOf(tagName),"Get Tag operation not performed");
+        });
+        Optional<Tag> optionalTag = tagRepository.findByName(tagName);
+        Consumer<Tag> printTagDetails = findTag -> System.out.println("Tag Found : " + findTag);
+        optionalTag.ifPresent(printTagDetails);
+        logger.info("Tag found with Name : {}",tagName);
+        return tagMapper.toTagGetDto(tag);
+    }
+
+    @Override
     @Transactional
     public TagGetDto createTag(TagCreateDto tagCreateDto) {
         logger.info("Creating tag with name : {}",tagCreateDto.getName());
