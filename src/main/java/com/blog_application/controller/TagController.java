@@ -5,6 +5,7 @@ import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.dto.tag.TagGetDto;
 import com.blog_application.dto.tag.TagUpdateDto;
 import com.blog_application.service.tag.TagService;
+import com.blog_application.util.responses.ApiResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,5 +62,13 @@ public class TagController {
         return new ResponseEntity<>(updatedTag,HttpStatus.OK);
     }
 
+    //DELETE Mapping-Delete Tag
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> deleteTag(@PathVariable("id") Long tagId){
+        logger.info("Received request to delete tag with ID : {}",tagId);
+        tagService.deleteTag(tagId);
+        logger.info("Returning response for delete tag with ID : {}",tagId);
+        return new ResponseEntity<>(new ApiResponse("Tag deleted successfully",true),HttpStatus.OK);
+    }
 
 }

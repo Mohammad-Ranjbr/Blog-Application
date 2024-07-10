@@ -33,8 +33,15 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    @Transactional
     public void deleteTag(Long tagId) {
-
+        logger.info("Deleting tag with ID : {}",tagId);
+        Tag tag = tagRepository.findById(tagId).orElseThrow(() -> {
+            logger.warn("Tag with ID {} not found, Delete Tag operation not performed",tagId);
+           return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Delete Tag operation not performed");
+        });
+        logger.info("Tag with ID {} deleted successfully",tagId);
+        tagRepository.delete(tag);
     }
 
     @Override
