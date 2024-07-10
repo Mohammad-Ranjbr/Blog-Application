@@ -27,9 +27,9 @@ public class Tag {
     private String description;
     @CreationTimestamp
     @Column(updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime createdDate;
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private LocalDateTime updatedDate;
     @ManyToMany(mappedBy = "tags")
     private List<Post> posts;
 
@@ -39,8 +39,8 @@ public class Tag {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
+                ", createdAt=" + createdDate +
+                ", updatedAt=" + updatedDate +
                 '}';
     }
 
