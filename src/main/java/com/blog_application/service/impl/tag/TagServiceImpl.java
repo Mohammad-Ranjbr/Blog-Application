@@ -120,13 +120,30 @@ public class TagServiceImpl implements TagService {
         PaginatedResponse<TagGetDto> paginatedResponse = new PaginatedResponse<>(
                 tagGetDtoList,tagPage.getSize(),tagPage.getNumber(),tagPage.getTotalPages(),tagPage.getTotalElements(),tagPage.isLast()
         );
+
         logger.info("Total tags found : {}",tags.size());
         return  paginatedResponse;
     }
 
     @Override
     public PaginatedResponse<TagBasicInfoDto> getAllTagBasicInfo(int pageNumber, int pageSize, String sortBy, String sortDir) {
-        return null;
+        logger.info("Fetching all tag basic info");
+
+        Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
+        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Page<Tag> tagPage =  tagRepository.findAll(pageable);
+
+        List<Tag> tags = tagPage.getContent();
+        List<TagBasicInfoDto> tagBasicInfoDtoList = tags.stream()
+                .map(tagMapper::toTagBasicInfoDto)
+                .toList();
+
+        PaginatedResponse<TagBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
+                tagBasicInfoDtoList,tagPage.getSize(),tagPage.getNumber(),tagPage.getTotalPages(),tagPage.getTotalElements(),tagPage.isLast()
+        );
+
+        logger.info("Total category basic info found : {}",tags.size());
+        return paginatedResponse;
     }
 
 }

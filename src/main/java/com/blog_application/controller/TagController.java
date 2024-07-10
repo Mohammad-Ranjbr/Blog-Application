@@ -87,4 +87,19 @@ public class TagController {
         return new ResponseEntity<>(tags,HttpStatus.OK);
     }
 
+    //GET Mapping-Get All Tag Basic Info
+    @GetMapping ("/basic-info/")
+    public ResponseEntity<PaginatedResponse<TagBasicInfoDto>> getAllBasicInfo(
+            @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
+            @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+            @RequestParam(value = ApplicationConstants.SORT_BY,defaultValue = ApplicationConstants.DEFAULT_TAG_SORT_BY,required = false) String sortBy,
+            @RequestParam(value = ApplicationConstants.SORT_DIR,defaultValue = ApplicationConstants.DEFAULT_SORT_DIR,required = false) String sortDir
+    ){
+
+        logger.info("Received request to get all tag basic info");
+        PaginatedResponse<TagBasicInfoDto> tagBasicInfoDtos = tagService.getAllTagBasicInfo(pageNumber,pageSize,sortBy,sortDir);
+        logger.info("Returning response all tag basic info");
+        return new ResponseEntity<>(tagBasicInfoDtos,HttpStatus.OK);
+    }
+
 }
