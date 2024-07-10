@@ -5,6 +5,7 @@ import com.blog_application.dto.tag.TagBasicInfoDto;
 import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.dto.tag.TagGetDto;
 import com.blog_application.dto.tag.TagUpdateDto;
+import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.tag.Tag;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.tag.TagService;
@@ -50,7 +51,15 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public TagBasicInfoDto getTagBasicInfoById(Long tagId) {
-        return null;
+        logger.info("Fetching tag with ID: {}", tagId);
+        Tag tag = tagRepository.findById(tagId).orElseThrow(() -> {
+            logger.warn("Tag with ID {} not found, Get tag basic info operation not performed",tagId);
+           return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Get tag basic info operation not performed");
+        });
+        logger.info("Tag found with ID : {}",tagId);
+        TagBasicInfoDto tagBasicInfoDto = tagMapper.toTagBasicInfoDto(tag);
+        logger.info("TagBasicInfo created: {}", tagBasicInfoDto);
+        return tagBasicInfoDto;
     }
 
     @Override
