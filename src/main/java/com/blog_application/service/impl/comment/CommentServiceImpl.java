@@ -145,7 +145,7 @@ public class CommentServiceImpl implements CommentService {
         return commentMapper.toCommentGetDto(updatedComment);
     }
 
-    //@Transactional Annotation in Java programming language is mainly used to manage transactions at the method level.
+    // @Transactional Annotation in Java programming language is mainly used to manage transactions at the method level.
     // When you annotate a method with this annotation, Spring automatically creates a transaction for that method,
     // and Spring handles transactions such as starting, committing, or canceling the transaction.
     // A transaction in programming and database language means a unit of work that includes one or more database operations that are executed atomically,
