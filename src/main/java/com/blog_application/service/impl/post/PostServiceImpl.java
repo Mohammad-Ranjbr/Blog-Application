@@ -2,6 +2,7 @@ package com.blog_application.service.impl.post;
 
 import com.blog_application.config.mapper.category.CategoryMapper;
 import com.blog_application.config.mapper.post.PostMapper;
+
 import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
@@ -9,8 +10,10 @@ import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.category.Category;
 import com.blog_application.model.post.Post;
+import com.blog_application.model.tag.Tag;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.post.PostRepository;
+import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.category.CategoryService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
@@ -40,6 +43,7 @@ public class PostServiceImpl implements PostService {
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
+    private final TagRepository tagRepository;
     private final CategoryMapper categoryMapper;
     private final PostRepository postRepository;
     private final CategoryService categoryService;
@@ -47,10 +51,11 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService,
-                           CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper){
+                           CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,TagRepository tagRepository){
         this.userMapper = userMapper;
         this.postMapper =  postMapper;
         this.userService = userService;
+        this.tagRepository = tagRepository;
         this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
         this.categoryService = categoryService;
@@ -137,6 +142,21 @@ public class PostServiceImpl implements PostService {
         });
         logger.info("Post found with ID : {}",postId);
         return postMapper.toPostGetDto(post);
+    }
+
+    @Override
+    public void addTagToPost(Long postId, List<String> tagNames) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> {
+            logger.warn("Post with ID {} not found, Get post operation not performed",postId);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
+        });
+        for (String tagName : tagNames) {
+            Tag tag = tagRepository.findByName(tagName).orElse(new Tag(tagName,tagName + "  " +"description"));
+            post.getTags().add(tag);
+            tag.getPosts().add(post);
+            tagRepository.save(tag);
+        }
+        postRepository.save(post);
     }
 
     @Override

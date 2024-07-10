@@ -19,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -172,6 +173,12 @@ public class PostController {
         }
         logger.info("Returning response for like post with User {} on Post {}", requestDto.getUserId(), requestDto.getPostId());
         return new ResponseEntity<>(postGetDto,HttpStatus.OK);
+    }
+
+    @PostMapping("/{post_id}/tags")
+    public ResponseEntity<?> addTagToPost(@PathVariable("post_id") Long postId,@RequestBody List<String> tagNames){
+        postService.addTagToPost(postId,tagNames);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

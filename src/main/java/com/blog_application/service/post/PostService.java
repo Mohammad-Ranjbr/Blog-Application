@@ -5,12 +5,14 @@ import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.util.responses.PaginatedResponse;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface PostService {
 
     void deletePost(Long post_id);
     PostGetDto getPostById(Long postId);
+    public void addTagToPost(Long postId, List<String> tagNames);
     PostGetDto updatePost(PostUpdateDto postDto, Long postId);
     PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId);
     PaginatedResponse<PostGetDto> getAllPosts(int pageNumber, int pageSize, String sortBy, String sortDir);

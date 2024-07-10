@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,7 +32,7 @@ public class Tag {
     @UpdateTimestamp
     private LocalDateTime updatedDate;
     @ManyToMany(mappedBy = "tags")
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -42,6 +43,11 @@ public class Tag {
                 ", createdAt=" + createdDate +
                 ", updatedAt=" + updatedDate +
                 '}';
+    }
+
+    public Tag(String name, String description){
+        this.name = name;
+        this.description = description;
     }
 
 }
