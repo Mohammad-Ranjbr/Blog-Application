@@ -12,6 +12,8 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -109,6 +111,27 @@ public class TagController {
         TagGetDto tagGetDto = tagService.getTagByName(tagName);
         logger.info("Returning response for get tag with Name : {}",tagName);
         return new ResponseEntity<>(tagGetDto,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping for all tags
+    @RequestMapping(value = "/", method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForAllTags(){
+        logger.info("Received OPTIONS request for all tags");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(ApplicationConstants.HEADER_ALLOW,"GET,POST,OPTIONS");
+        logger.info("Returning response with allowed methods for all tags");
+        return new ResponseEntity<>(headers,HttpStatus.OK);
+    }
+
+    //OPTIONS Mapping fo single tag
+    @RequestMapping(value = "/{id}", method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> optionsForSingleTag(@PathVariable("id") Long tagId){
+        logger.info("Received OPTIONS request for tag with ID : {}", tagId);
+        ResponseEntity<?> response = ResponseEntity.ok()
+                .allow(HttpMethod.GET,HttpMethod.DELETE,HttpMethod.PUT,HttpMethod.OPTIONS)
+                .build();
+        logger.info("Returning response with allowed methods for tag with ID : {}", tagId);
+        return response;
     }
 
 }
