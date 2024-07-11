@@ -48,7 +48,7 @@ public class Post {
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<PostReaction> postReactions;
     private int likes;
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(
             name = "post_tags",
             joinColumns = @JoinColumn(name = "post_id"),
