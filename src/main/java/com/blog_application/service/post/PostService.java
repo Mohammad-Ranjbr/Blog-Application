@@ -13,7 +13,7 @@ public interface PostService {
 
     void deletePost(Long post_id);
     PostGetDto getPostById(Long postId);
-    public void addTagToPost(Long postId, List<TagCreateDto> tagNames);
+    PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagNames);
     PostGetDto updatePost(PostUpdateDto postDto, Long postId);
     PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId);
     PaginatedResponse<PostGetDto> getAllPosts(int pageNumber, int pageSize, String sortBy, String sortDir);

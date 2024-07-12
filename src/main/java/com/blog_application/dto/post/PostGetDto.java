@@ -2,6 +2,7 @@ package com.blog_application.dto.post;
 
 import com.blog_application.dto.category.CategoryBasicInfoDto;
 import com.blog_application.dto.comment.CommentGetDto;
+import com.blog_application.dto.tag.TagBasicInfoDto;
 import com.blog_application.dto.user.UserBasicInfoDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class PostGetDto {
     private CategoryBasicInfoDto category;
     private UserBasicInfoDto user;
     private List<CommentGetDto> comments;
+    private List<TagBasicInfoDto> tags;
     private int likes;
 
 }

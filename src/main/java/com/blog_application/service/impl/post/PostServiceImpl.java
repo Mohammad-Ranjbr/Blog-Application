@@ -147,7 +147,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public void addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) {
+    public PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) {
         logger.info("Adding tags to post with ID: {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
         for (TagCreateDto tagCreateDto : tagCreateDtos) {
@@ -163,8 +163,9 @@ public class PostServiceImpl implements PostService {
         }
         // Because of CascadeType.PERSIST and CascadeType.MERGE, there is no need
         // to save tags manually This operation also automatically saves the tags
-        postRepository.save(post);
+        Post savedPost = postRepository.save(post);
         logger.info("Post with ID {} with tags saved", postId);
+        return postMapper.toPostGetDto(savedPost);
     }
 
     @Override

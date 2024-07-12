@@ -31,7 +31,7 @@
 31- Dislike comment ✅
 32- Reply comment ✅
 33- Like post ✅
-34- Post tag -
+34- Add tag to post ✅
 35- Debug get all user api ✅
 36- Response
 37- Design Pattern
@@ -48,5 +48,6 @@
 48- Remove Child Comments in Response
 49- Schedule Post With Redis
 50- Schedule Post With Quartz Scheduler -
+51- Delete tag from post
 
 ✅	❌
