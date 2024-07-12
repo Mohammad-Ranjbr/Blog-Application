@@ -12,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -42,19 +43,24 @@ public class Post {
     @ManyToOne
     // When orphanRemoval = true is set, if a child is removed from the parent collection,
     // JPA automatically removes that child from the database as well. This behavior is called "orphan removal".
+    // newArrayList<>() : Because of the cascade="all-delete-orphan" setting you need to make sure that collections are properly updated and orphaned entities are properly deleted.
     private User user;
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
-    private List<PostReaction> postReactions;
+    private List<PostReaction> postReactions = new ArrayList<>();
     private int likes;
+    // CascadeType.PERSIST: When a new entity is added to the database (EntityManager.persist is called), the related entities are automatically added.
+    // For example: if you create a new post and add new tags to it, the new tags are automatically saved in the database.
+    // CascadeType.MERGE: When an existing entity is updated (EntityManager.merge is called), related entities are automatically updated as well.
+    // For example: if you update an existing post and make changes to it, the changes will be automatically updated in the database.
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(
             name = "post_tags",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private List<Tag> tags;
+    private List<Tag> tags = new ArrayList<>();
 
     @Override
     public String toString() {

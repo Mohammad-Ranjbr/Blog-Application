@@ -9,7 +9,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,7 +31,7 @@ public class Tag {
     @UpdateTimestamp
     private LocalDateTime updatedDate;
     @ManyToMany(mappedBy = "tags")
-    private List<Post> posts = new ArrayList<>();
+    private List<Post> posts;
 
     @Override
     public String toString() {

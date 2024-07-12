@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,7 +35,7 @@ public class Comment {
     @ManyToOne
     private User user;
     @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY,orphanRemoval = true)
-    private List<CommentReaction> commentReactions;
+    private List<CommentReaction> commentReactions = new ArrayList<>();
     private int likes;
     private int dislikes;
     @ManyToOne

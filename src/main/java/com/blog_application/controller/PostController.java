@@ -4,6 +4,7 @@ import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
+import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.service.post.PostReactionService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.util.responses.ApiResponse;
@@ -176,8 +177,8 @@ public class PostController {
     }
 
     @PostMapping("/{post_id}/tags")
-    public ResponseEntity<?> addTagToPost(@PathVariable("post_id") Long postId,@RequestBody List<String> tagNames){
-        postService.addTagToPost(postId,tagNames);
+    public ResponseEntity<?> addTagToPost(@PathVariable("post_id") Long postId,@RequestBody List<TagCreateDto> tagCreateDtos){
+        postService.addTagToPost(postId,tagCreateDtos);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

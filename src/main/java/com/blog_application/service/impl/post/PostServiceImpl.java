@@ -7,6 +7,7 @@ import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
+import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.category.Category;
 import com.blog_application.model.post.Post;
@@ -145,17 +146,16 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void addTagToPost(Long postId, List<String> tagNames) {
-        Post post = postRepository.findById(postId).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, Get post operation not performed",postId);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
-        });
-        for (String tagName : tagNames) {
-            Tag tag = tagRepository.findByName(tagName).orElse(new Tag(tagName,tagName + "  " +"description"));
+    @Transactional
+    public void addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) {
+        Post post = postMapper.toEntity(this.getPostById(postId));
+        for (TagCreateDto tagCreateDto : tagCreateDtos) {
+            Tag tag = tagRepository.findByName(tagCreateDto.getName()).orElse(new Tag(tagCreateDto.getName(),
+                    (tagCreateDto.getDescription()).isEmpty() ? tagCreateDto.getName() + "  " + "Description" : tagCreateDto.getDescription()));
             post.getTags().add(tag);
-            tag.getPosts().add(post);
-            tagRepository.save(tag);
         }
+        // Because of CascadeType.PERSIST and CascadeType.MERGE, there is no need
+        // to save tags manually This operation also automatically saves the tags
         postRepository.save(post);
     }
 
