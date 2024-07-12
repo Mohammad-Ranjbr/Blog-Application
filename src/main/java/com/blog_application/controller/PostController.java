@@ -178,7 +178,9 @@ public class PostController {
 
     @PostMapping("/{post_id}/tags")
     public ResponseEntity<?> addTagToPost(@PathVariable("post_id") Long postId,@RequestBody List<TagCreateDto> tagCreateDtos){
+        logger.info("Received request to add tags to post with ID: {}", postId);
         postService.addTagToPost(postId,tagCreateDtos);
+        logger.info("Tags added successfully to post with ID: {}", postId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

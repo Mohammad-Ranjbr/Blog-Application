@@ -148,15 +148,23 @@ public class PostServiceImpl implements PostService {
     @Override
     @Transactional
     public void addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) {
+        logger.info("Adding tags to post with ID: {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
         for (TagCreateDto tagCreateDto : tagCreateDtos) {
-            Tag tag = tagRepository.findByName(tagCreateDto.getName()).orElse(new Tag(tagCreateDto.getName(),
-                    (tagCreateDto.getDescription()).isEmpty() ? tagCreateDto.getName() + "  " + "Description" : tagCreateDto.getDescription()));
+            logger.info("Processing tag: {}", tagCreateDto.getName());
+            // Using orElseGet instead of orElse causes the new Tag object to be created only when needed
+            // (when the tag is not found). orElse is always called, even if the value in Optional is present
+            Tag tag = tagRepository.findByName(tagCreateDto.getName()).orElseGet(() ->
+                new Tag(tagCreateDto.getName(),
+                        (tagCreateDto.getDescription()).isEmpty() ? tagCreateDto.getName().concat("  ").concat("Description") : tagCreateDto.getDescription())
+            );
             post.getTags().add(tag);
+            logger.info("Tag ({}) added to post", tag.getName());
         }
         // Because of CascadeType.PERSIST and CascadeType.MERGE, there is no need
         // to save tags manually This operation also automatically saves the tags
         postRepository.save(post);
+        logger.info("Post with ID {} with tags saved", postId);
     }
 
     @Override
