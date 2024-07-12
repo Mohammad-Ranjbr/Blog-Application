@@ -13,5 +13,6 @@ public class TagBasicInfoDto {
 
     private Long id;
     private String name;
+    private String description;
 
 }

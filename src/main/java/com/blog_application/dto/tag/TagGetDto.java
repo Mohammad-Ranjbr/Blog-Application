@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class TagGetDto extends TagBasicInfoDto{
 
-    private String description;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 

@@ -169,6 +169,17 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    @Transactional
+    public void removeTagsFromPost(Long postId, List<Long> tagIdsToRemove) {
+        Post post = postMapper.toEntity(this.getPostById(postId));
+        List<Tag> tagsToRemove = post.getTags().stream()
+                .filter(tag -> tagIdsToRemove.contains(tag.getId()))
+                .toList();
+        post.getTags().removeAll(tagsToRemove);
+        postRepository.save(post);
+    }
+
+    @Override
     public PaginatedResponse<PostGetDto> getPostsByUser(UUID userId, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts for User with ID : {}",userId);
         User user = userMapper.toEntity(userService.getUserById(userId));

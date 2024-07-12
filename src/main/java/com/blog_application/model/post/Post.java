@@ -54,7 +54,8 @@ public class Post {
     // For example: if you create a new post and add new tags to it, the new tags are automatically saved in the database.
     // CascadeType.MERGE: When an existing entity is updated (EntityManager.merge is called), related entities are automatically updated as well.
     // For example: if you update an existing post and make changes to it, the changes will be automatically updated in the database.
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    // CascadeType.REMOVE : It will be deleted when no other post uses it
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinTable(
             name = "post_tags",
             joinColumns = @JoinColumn(name = "post_id"),
