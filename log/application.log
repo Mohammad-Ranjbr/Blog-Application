@@ -1569,3 +1569,54 @@ java.lang.IllegalStateException: Multiple representations of the same entity [co
 2024-07-12T15:29:38.693+03:30  INFO 19596 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-12T15:29:38.698+03:30  INFO 19596 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-07-12T15:29:38.706+03:30  INFO 19596 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-12T15:36:21.003+03:30  INFO 10264 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 10264 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-07-12T15:36:21.006+03:30  INFO 10264 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-12T15:36:21.064+03:30  INFO 10264 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-12T15:36:21.064+03:30  INFO 10264 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-12T15:36:21.820+03:30  INFO 10264 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-12T15:36:21.912+03:30  INFO 10264 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
+2024-07-12T15:36:22.475+03:30  INFO 10264 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-12T15:36:22.486+03:30  INFO 10264 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-12T15:36:22.487+03:30  INFO 10264 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-12T15:36:22.546+03:30  INFO 10264 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-12T15:36:22.547+03:30  INFO 10264 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1482 ms
+2024-07-12T15:36:22.734+03:30  INFO 10264 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-12T15:36:22.791+03:30  INFO 10264 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-07-12T15:36:22.821+03:30  INFO 10264 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-12T15:36:23.115+03:30  INFO 10264 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-12T15:36:23.145+03:30  INFO 10264 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-12T15:36:23.317+03:30  INFO 10264 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6f966c32
+2024-07-12T15:36:23.319+03:30  INFO 10264 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-12T15:36:23.362+03:30  WARN 10264 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-12T15:36:24.662+03:30  INFO 10264 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-12T15:36:24.837+03:30  INFO 10264 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-12T15:36:25.558+03:30  INFO 10264 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-12T15:36:26.124+03:30  WARN 10264 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-12T15:36:26.554+03:30  INFO 10264 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-12T15:36:26.598+03:30  INFO 10264 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-07-12T15:36:26.612+03:30  INFO 10264 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 6.091 seconds (process running for 6.843)
+2024-07-12T15:36:32.372+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-12T15:36:32.373+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-12T15:36:32.376+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-12T15:36:32.519+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-12T15:36:32.527+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-12T15:36:32.527+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-12T15:36:32.626+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-12T15:36:32.658+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-12T15:36:32.749+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) added to post
+2024-07-12T15:36:32.749+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-12T15:36:32.752+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) added to post
+2024-07-12T15:36:32.752+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-12T15:36:32.757+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) added to post
+2024-07-12T15:36:32.767+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.service.impl.post.PostServiceImpl    : Post with ID 1 with tags saved
+2024-07-12T15:36:32.802+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-2] c.b.controller.PostController            : Tags added successfully to post with ID: 1
+2024-07-12T15:36:43.032+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.PostController            : Received request to remove tags from post with ID: 1
+2024-07-12T15:36:43.034+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.post.PostServiceImpl    : Removing tags from post with ID 1
+2024-07-12T15:36:43.034+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-12T15:36:43.038+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-12T15:36:43.050+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.post.PostServiceImpl    : Tags to remove: [Tag{id=26, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}, Tag{id=27, name='تکنولوژی', description='توضیحات تکنولوژی', createdDate=null, updatedDate=null}]
+2024-07-12T15:36:43.053+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.service.impl.post.PostServiceImpl    : Tags removed successfully from post with ID 1
+2024-07-12T15:36:43.083+03:30  INFO 10264 --- [blog-application] [http-nio-127.0.0.1-8081-exec-1] c.b.controller.PostController            : Tags removed successfully from post with ID: 1
+2024-07-12T15:37:17.394+03:30  INFO 10264 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-12T15:37:17.399+03:30  INFO 10264 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-12T15:37:17.405+03:30  INFO 10264 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

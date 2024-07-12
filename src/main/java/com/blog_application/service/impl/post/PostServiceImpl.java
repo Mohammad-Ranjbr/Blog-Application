@@ -171,12 +171,15 @@ public class PostServiceImpl implements PostService {
     @Override
     @Transactional
     public void removeTagsFromPost(Long postId, List<Long> tagIdsToRemove) {
+        logger.info("Removing tags from post with ID {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
         List<Tag> tagsToRemove = post.getTags().stream()
                 .filter(tag -> tagIdsToRemove.contains(tag.getId()))
                 .toList();
+        logger.info("Tags to remove: {}", tagsToRemove);
         post.getTags().removeAll(tagsToRemove);
         postRepository.save(post);
+        logger.info("Tags removed successfully from post with ID {}", postId);
     }
 
     @Override

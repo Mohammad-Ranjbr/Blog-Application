@@ -186,7 +186,9 @@ public class PostController {
 
     @DeleteMapping("/{post_id}/tags")
     public ResponseEntity<ApiResponse> removeTagsFromPost(@PathVariable("post_id") Long postId,@RequestBody List<Long> tagIds){
+        logger.info("Received request to remove tags from post with ID: {}", postId);
         postService.removeTagsFromPost(postId,tagIds);
+        logger.info("Tags removed successfully from post with ID: {}", postId);
         return new ResponseEntity<>(new ApiResponse("Tags Deleted From Post Successfully",true),HttpStatus.OK);
     }
 
