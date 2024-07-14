@@ -12,6 +12,8 @@ public interface UserService {
 
     void deleteUserById(UUID userId);
     UserGetDto getUserById(UUID userId);
+    void savePost(UUID userId,Long postId);
+    void unSavePost(UUID userId,Long postId);
     UserBasicInfoDto getUserBasicInfoById(UUID userId);
     UserGetDto createUser(UserCreateDto userCreateDto);
     UserGetDto updateUser(UserUpdateDto userUpdateDto,UUID userId);

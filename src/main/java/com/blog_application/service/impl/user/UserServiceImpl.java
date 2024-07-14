@@ -1,13 +1,16 @@
 package com.blog_application.service.impl.user;
 
+import com.blog_application.config.mapper.post.PostMapper;
 import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
+import com.blog_application.model.post.Post;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.user.UserRepository;
+import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
@@ -30,12 +33,17 @@ import java.util.function.Consumer;
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
+    private final PostMapper postMapper;
+    private final PostService postService;
     private final UserRepository userRepository;
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository,UserMapper userMapper){
+    public UserServiceImpl(UserRepository userRepository,UserMapper userMapper
+            ,PostService postService,PostMapper postMapper){
         this.userMapper = userMapper;
+        this.postMapper = postMapper;
+        this.postService = postService;
         this.userRepository = userRepository;
     }
 
@@ -101,6 +109,24 @@ public class UserServiceImpl implements UserService {
         optionalUser.ifPresent(printUserDetails);
         logger.info("User found with ID : {}",user.getId());
         return userMapper.toUserGetDto(user);
+    }
+
+    @Override
+    @Transactional
+    public void savePost(UUID userId, Long postId) {
+        User user = userMapper.toEntity(this.getUserById(userId));
+        Post post = postMapper.toEntity(postService.getPostById(postId));
+        user.getSavedPosts().add(post);
+        userRepository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public void unSavePost(UUID userId, Long postId) {
+        User user = userMapper.toEntity(this.getUserById(userId));
+        Post post = postMapper.toEntity(postService.getPostById(postId));
+        user.getSavedPosts().remove(post);
+        userRepository.save(user);
     }
 
     @Override
