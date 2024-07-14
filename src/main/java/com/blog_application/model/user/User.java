@@ -12,7 +12,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -68,6 +70,24 @@ public class User {
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Comment> comments;
+
+    // CascadeType.REMOVE is not needed here, as this type of operation results in the actual removal of the Post data from the database.
+    // Given that posts saved by different users may be shared, actually deleting a post from the database may result in the loss of information that other users may need.
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "user_saved_posts",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "post_id")
+    )
+    private final Set<Post> savedPosts = new HashSet<>();
+
+    // Set
+    // No repetition: Set automatically prevents duplicate elements from entering. If we want to ensure that each post is in the user's saved list only once, using Set is a better option.
+    // Performance: Search, add, and delete operations on a HashSet (which is an implementation of Set) have an average execution time of O(1). This optimized function can improve the performance of the application in cases where the data is large.
+    // List
+    // Specific order: If the order of elements is important to us (for example, the chronological order of saving posts), List is a more suitable option. List preserves the order in which elements are entered.
+    // Index access: If we need to access elements based on index, List is a better option. List allows us to access elements using index.
+    // Repetition allowed: If repetition of elements is allowed (for example, a post may be saved by a user multiple times), List is a more suitable option.
 
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.

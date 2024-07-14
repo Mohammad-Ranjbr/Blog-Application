@@ -14,6 +14,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -62,6 +63,8 @@ public class Post {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private List<Tag> tags = new ArrayList<>();
+    @ManyToMany(mappedBy = "savedPosts")
+    private Set<User> usersWhoSaved;
 
     @Override
     public String toString() {
