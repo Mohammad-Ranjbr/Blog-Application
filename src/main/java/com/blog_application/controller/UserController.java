@@ -126,4 +126,16 @@ public class UserController {
         return response;
     }
 
+    @PostMapping("/{user_id}/save_post/{post_id}")
+    public ResponseEntity<ApiResponse> savePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId){
+        userService.savePost(userId,postId);
+        return new ResponseEntity<>(new ApiResponse("Post saved successfully",true),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{user_id}/unsave_post/{post_id}")
+    public ResponseEntity<ApiResponse> unSavePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId){
+        userService.unSavePost(userId,postId);
+        return new ResponseEntity<>(new ApiResponse("post unsaved successfully",true),HttpStatus.OK);
+    }
+
 }

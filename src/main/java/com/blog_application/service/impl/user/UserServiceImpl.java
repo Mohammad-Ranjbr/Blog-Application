@@ -18,6 +18,7 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -39,8 +40,8 @@ public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository,UserMapper userMapper
-            ,PostService postService,PostMapper postMapper){
+    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper
+            ,@Lazy PostService postService, PostMapper postMapper){
         this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.postService = postService;
