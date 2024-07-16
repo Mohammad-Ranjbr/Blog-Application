@@ -65,8 +65,18 @@ public class Post {
     )
     private List<Tag> tags = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "savedPosts")
-    private Set<User> savedByUsers = new HashSet<>();
+    // Set -> No repetition: Set automatically prevents duplicate elements from entering. If we want to ensure that each post is in the user's saved list only once, using Set is a better option.
+    // Performance: Search, add, and delete operations on a HashSet (which is an implementation of Set) have an average execution time of O(1). This optimized function can improve the performance of the application in cases where the data is large.
+    // List -> Specific order: If the order of elements is important to us (for example, the chronological order of saving posts), List is a more suitable option. List preserves the order in which elements are entered.
+    // Index access: If we need to access elements based on index, List is a better option. List allows us to access elements using index.
+    // Repetition allowed: If repetition of elements is allowed (for example, a post may be saved by a user multiple times), List is a more suitable option.
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinTable(
+            name = "user_saved_posts",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> savedByUsers  = new HashSet<>();
 
     @Override
     public String toString() {

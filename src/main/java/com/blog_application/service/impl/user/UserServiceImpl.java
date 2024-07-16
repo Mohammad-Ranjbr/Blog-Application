@@ -9,6 +9,7 @@ import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.user.User;
+import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.user.UserRepository;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
@@ -37,15 +38,17 @@ public class UserServiceImpl implements UserService {
     private final PostMapper postMapper;
     private final PostService postService;
     private final UserRepository userRepository;
+    private final PostRepository postRepository;
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper
-            ,@Lazy PostService postService, PostMapper postMapper){
+            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository){
         this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.postService = postService;
         this.userRepository = userRepository;
+        this.postRepository = postRepository;
     }
 
     @Override
@@ -117,8 +120,8 @@ public class UserServiceImpl implements UserService {
     public void savePost(UUID userId, Long postId) {
         User user = userMapper.toEntity(this.getUserById(userId));
         Post post = postMapper.toEntity(postService.getPostById(postId));
-        user.getSavedPosts().add(post);
-        userRepository.save(user);
+        post.getSavedByUsers().add(user);
+        postRepository.save(post);
     }
 
     @Override
@@ -126,8 +129,8 @@ public class UserServiceImpl implements UserService {
     public void unSavePost(UUID userId, Long postId) {
         User user = userMapper.toEntity(this.getUserById(userId));
         Post post = postMapper.toEntity(postService.getPostById(postId));
-        user.getSavedPosts().remove(post);
-        userRepository.save(user);
+        post.getSavedByUsers().remove(user);
+        postRepository.save(post);
     }
 
     @Override
