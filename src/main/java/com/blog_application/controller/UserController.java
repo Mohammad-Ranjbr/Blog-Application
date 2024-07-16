@@ -126,12 +126,16 @@ public class UserController {
         return response;
     }
 
+    //POST Mapping - Save Post By User
     @PostMapping("/{user_id}/save_post/{post_id}")
     public ResponseEntity<ApiResponse> savePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId){
+        logger.info("Received request to save post with ID: {} for user with ID: {}", postId, userId);
         userService.savePost(userId,postId);
+        logger.info("Returning response with post ID: {} saved successfully for user with ID: {}", postId, userId);
         return new ResponseEntity<>(new ApiResponse("Post saved successfully",true),HttpStatus.OK);
     }
 
+    //DELETE Mapping - UnSave Post By User
     @DeleteMapping("/{user_id}/unsave_post/{post_id}")
     public ResponseEntity<ApiResponse> unSavePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId){
         userService.unSavePost(userId,postId);

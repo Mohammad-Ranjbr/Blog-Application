@@ -118,10 +118,12 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void savePost(UUID userId, Long postId) {
+        logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
         User user = userMapper.toEntity(this.getUserById(userId));
         Post post = postMapper.toEntity(postService.getPostById(postId));
         post.getSavedByUsers().add(user);
         postRepository.save(post);
+        logger.info("Post with ID: {} saved successfully for user with ID: {}", postId, userId);
     }
 
     @Override
