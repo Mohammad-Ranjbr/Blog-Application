@@ -119,7 +119,10 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void savePost(UUID userId, Long postId) {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
-        User user = userMapper.toEntity(this.getUserById(userId));
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Save Post operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Save Post operation not performed");
+        });
         Post post = postMapper.toEntity(postService.getPostById(postId));
         post.getSavedByUsers().add(user);
         postRepository.save(post);
@@ -130,7 +133,10 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void unSavePost(UUID userId, Long postId) {
         logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
-        User user = userMapper.toEntity(this.getUserById(userId));
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
+        });
         Post post = postMapper.toEntity(postService.getPostById(postId));
         post.getSavedByUsers().remove(user);
         postRepository.save(post);
