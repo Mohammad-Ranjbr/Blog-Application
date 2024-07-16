@@ -129,10 +129,12 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void unSavePost(UUID userId, Long postId) {
+        logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
         User user = userMapper.toEntity(this.getUserById(userId));
         Post post = postMapper.toEntity(postService.getPostById(postId));
         post.getSavedByUsers().remove(user);
         postRepository.save(post);
+        logger.info("Post with ID: {} unsaved successfully for user with ID: {}", postId, userId);
     }
 
     @Override

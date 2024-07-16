@@ -138,7 +138,9 @@ public class UserController {
     //DELETE Mapping - UnSave Post By User
     @DeleteMapping("/{user_id}/unsave_post/{post_id}")
     public ResponseEntity<ApiResponse> unSavePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId){
+        logger.info("Received request to unsave post with ID: {} for user with ID: {}", postId, userId);
         userService.unSavePost(userId,postId);
+        logger.info("Returning response with post ID: {} unsaved successfully for user with ID: {}", postId, userId);
         return new ResponseEntity<>(new ApiResponse("post unsaved successfully",true),HttpStatus.OK);
     }
 
