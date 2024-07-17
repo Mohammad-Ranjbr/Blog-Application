@@ -91,12 +91,22 @@ public class UserServiceImpl implements UserService {
         //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Delete user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Delete User operation not performed");
-        });
+        User user = this.fetchUserById(userId);
         userRepository.delete(user);
         logger.info("User with ID {} deleted successfully",user.getId());
+    }
+
+    @Override
+    public User fetchUserById(UUID userId) {
+        logger.info("Fetching user with ID : {}",userId);
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
+        });
+        Optional<User> optionalUser = userRepository.findById(userId);
+        Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
+        optionalUser.ifPresent(printUserDetails);
+        return user;
     }
 
     @Override
@@ -122,10 +132,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void savePost(UUID userId, Long postId) {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Save Post operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Save Post operation not performed");
-        });
+        User user = this.fetchUserById(userId);
         Post post = postMapper.toEntity(postService.getPostById(postId));
         post.getSavedByUsers().add(user);
         postRepository.save(post);
@@ -136,10 +143,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void unSavePost(UUID userId, Long postId) {
         logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
-        });
+        User user = this.fetchUserById(userId);
         Post post = postMapper.toEntity(postService.getPostById(postId));
         post.getSavedByUsers().remove(user);
         postRepository.save(post);
@@ -149,14 +153,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void followUser(UUID userId, UUID followUserId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
-        });
-        User followUser = userRepository.findById(followUserId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", followUserId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(followUserId),"Get User operation not performed");
-        });
+        User user = this.fetchUserById(userId);
+        User followUser = this.fetchUserById(followUserId);
 
         user.getFollowing().add(followUser);
         followUser.getFollowers().add(user);
@@ -168,14 +166,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void unfollowUser(UUID userId, UUID unfollowUserId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
-        });
-        User unfollowUser = userRepository.findById(unfollowUserId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", unfollowUserId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(unfollowUserId),"Get User operation not performed");
-        });
+        User user = this.fetchUserById(userId);
+        User unfollowUser = this.fetchUserById(unfollowUserId);
 
         user.getFollowing().remove(unfollowUser);
         unfollowUser.getFollowers().remove(user);
@@ -187,10 +179,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<PostGetDto> getSavedPostsByUser(UUID userId) {
         logger.info("Fetching saved posts for user with ID: {}", userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
-        });
+        User user = this.fetchUserById(userId);
         List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
         logger.info("Fetched {} saved posts for user with ID: {}", savedPosts.size(), userId);
         return savedPosts.stream()
@@ -220,10 +209,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserBasicInfoDto getUserBasicInfoById(UUID userId) {
         logger.info("Fetching user with ID : {}", userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
-        });
+        User user = this.fetchUserById(userId);
         logger.info("User found with ID : {}",userId);
         UserBasicInfoDto userBasicInfoDto = userMapper.toUserBasicInfoDto(user);
         logger.info("UserBasicInfoDto created: {}", userBasicInfoDto);
