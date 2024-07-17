@@ -187,6 +187,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void unfollowUser(UUID userId, UUID unfollowUserId) {
+        logger.info("Attempting to unfollow user with ID: {} for user with ID: {}", unfollowUserId, userId);
         User user = this.fetchUserById(userId);
         User unfollowUser = this.fetchUserById(unfollowUserId);
 
@@ -195,6 +196,7 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user);
         userRepository.save(unfollowUser);
+        logger.info("User with ID: {} successfully unfollowed user with ID: {}", userId, unfollowUserId);
     }
 
     @Override
