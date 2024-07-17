@@ -160,7 +160,7 @@ public class UserController {
     public ResponseEntity<ApiResponse> followUser(@PathVariable("user_id") UUID userId, @PathVariable("follow_user_id") UUID followUserId){
         logger.info("Received request for user with ID: {} to follow user with ID: {}", userId, followUserId);
         userService.followUser(userId,followUserId);
-        logger.info("Returning response for User with ID: {} followed user with ID: {} successfully", userId, followUserId);
+        logger.info("User with ID: {} followed user with ID: {} successfully", userId, followUserId);
         return new ResponseEntity<>(new ApiResponse("Followed user successfully",true),HttpStatus.OK);
     }
 
@@ -169,7 +169,7 @@ public class UserController {
     public ResponseEntity<ApiResponse> unfollowUser(@PathVariable("user_id") UUID userId,@PathVariable("unfollow_user_id") UUID unfollowUserId){
         logger.info("Received request for user with ID: {} to unfollow user with ID: {}", userId, unfollowUserId);
         userService.unfollowUser(userId,unfollowUserId);
-        logger.info("Returning response for User with ID: {} unfollowed user with ID: {} successfully", userId, unfollowUserId);
+        logger.info("User with ID: {} unfollowed user with ID: {} successfully", userId, unfollowUserId);
         return new ResponseEntity<>(new ApiResponse("Unfollowed user successfully",true),HttpStatus.OK);
     }
 
@@ -185,7 +185,9 @@ public class UserController {
     //GET Mapping - Get User Following
     @GetMapping("/{user_id}/following")
     public ResponseEntity<List<UserGetDto>> getFollowing(@PathVariable("user_id") UUID userId){
+        logger.info("Received request to get following users for user with ID: {}", userId);
         List<UserGetDto> following = userService.getFollowing(userId);
+        logger.info("Returning {} following users for user with ID: {}", following.size(), userId);
         return new ResponseEntity<>(following,HttpStatus.OK);
     }
 

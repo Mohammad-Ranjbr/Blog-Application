@@ -163,10 +163,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserGetDto> getFollowing(UUID userId) {
+        logger.info("Fetching users followed by user with ID: {}", userId);
         User user = this.fetchUserById(userId);
-        return user.getFollowing().stream()
+        List<UserGetDto> followingUsers = user.getFollowing().stream()
                 .map(userMapper::toUserGetDto)
                 .collect(Collectors.toList());
+        logger.info("Retrieved {} users followed by user with ID: {}", followingUsers.size(), userId);
+        return followingUsers;
     }
 
     @Override
