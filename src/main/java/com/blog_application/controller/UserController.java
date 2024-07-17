@@ -169,11 +169,18 @@ public class UserController {
         return new ResponseEntity<>(new ApiResponse("Unfollowed user successfully",true),HttpStatus.OK);
     }
 
-    //GET Mapping - Get Followers
+    //GET Mapping - Get User Followers
     @GetMapping("/{user_id}/followers")
     public ResponseEntity<List<UserGetDto>> getFollowers(@PathVariable("user_id") UUID userId){
         List<UserGetDto> followers = userService.getFollowers(userId);
         return new ResponseEntity<>(followers,HttpStatus.OK);
+    }
+
+    //GET Mapping - Get User Following
+    @GetMapping("/{user_id}/following")
+    public ResponseEntity<List<UserGetDto>> getFollowing(@PathVariable("user_id") UUID userId){
+        List<UserGetDto> following = userService.getFollowing(userId);
+        return new ResponseEntity<>(following,HttpStatus.OK);
     }
 
 }
