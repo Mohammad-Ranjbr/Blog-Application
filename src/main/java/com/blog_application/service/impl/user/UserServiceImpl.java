@@ -151,6 +151,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserGetDto> getFollowers(UUID userId) {
+        User user = this.fetchUserById(userId);
+        return user.getFollowers().stream()
+                .map(userMapper::toUserGetDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     @Transactional
     public void followUser(UUID userId, UUID followUserId) {
         User user = this.fetchUserById(userId);
