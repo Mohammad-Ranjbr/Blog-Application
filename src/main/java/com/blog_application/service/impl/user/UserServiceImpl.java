@@ -147,6 +147,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void followUser(UUID userId, UUID followUserId) {
+        User user = userMapper.toEntity(this.getUserById(userId));
+        User followUser = userMapper.toEntity(this.getUserById(followUserId));
+
+        user.getFollowing().add(followUser);
+        followUser.getFollowers().add(user);
+
+        userRepository.save(user);
+        userRepository.save(followUser);
+    }
+
+    @Override
     public List<PostGetDto> getSavedPostsByUser(UUID userId) {
         logger.info("Fetching saved posts for user with ID: {}", userId);
         User user = userRepository.findById(userId).orElseThrow(() -> {

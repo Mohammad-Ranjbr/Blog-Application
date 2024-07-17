@@ -16,6 +16,7 @@ public interface UserService {
     UserGetDto getUserById(UUID userId);
     void savePost(UUID userId,Long postId);
     void unSavePost(UUID userId,Long postId);
+    void followUser(UUID userId,UUID followUserId);
     List<PostGetDto> getSavedPostsByUser(UUID userId);
     UserBasicInfoDto getUserBasicInfoById(UUID userId);
     UserGetDto createUser(UserCreateDto userCreateDto);

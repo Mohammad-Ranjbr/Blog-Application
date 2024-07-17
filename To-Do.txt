@@ -51,5 +51,6 @@
 51- Delete tag from post ✅
 52- User set and HashSet
 53- Handle InvalidDataAccessApiUsageException
+54- Handle duplicate key value in database
 
 ✅	❌

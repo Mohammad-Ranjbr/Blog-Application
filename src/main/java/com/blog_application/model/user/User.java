@@ -77,10 +77,10 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "follower_id")
     )
-    private List<User> followers;
+    private List<User> followers = new ArrayList<>();
 
     @ManyToMany(mappedBy = "followers")
-    private List<User> following;
+    private List<User> following = new ArrayList<>();
 
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.
