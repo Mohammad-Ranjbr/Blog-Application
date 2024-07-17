@@ -158,7 +158,9 @@ public class UserController {
     //POST Mapping - Follow User
     @PostMapping("/{user_id}/follow/{follow_user_id}")
     public ResponseEntity<ApiResponse> followUser(@PathVariable("user_id") UUID userId, @PathVariable("follow_user_id") UUID followUserId){
+        logger.info("Received request for user with ID: {} to follow user with ID: {}", userId, followUserId);
         userService.followUser(userId,followUserId);
+        logger.info("Returning response for User with ID: {} followed user with ID: {} successfully", userId, followUserId);
         return new ResponseEntity<>(new ApiResponse("Followed user successfully",true),HttpStatus.OK);
     }
 

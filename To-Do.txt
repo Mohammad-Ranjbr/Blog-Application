@@ -40,7 +40,7 @@
 40- Fail Login Counter
 41- Dockerized
 42- CI/CD
-43- Follow User -
+43- Follow User ✅
 44- Chat
 45- Save Post ✅
 46- Schedule Post With RabbitMQ

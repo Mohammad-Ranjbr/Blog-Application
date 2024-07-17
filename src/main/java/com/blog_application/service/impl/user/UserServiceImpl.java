@@ -169,17 +169,18 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void followUser(UUID userId, UUID followUserId) {
+        logger.info("Attempting to follow user with ID: {} for user with ID: {}", followUserId, userId);
         User user = this.fetchUserById(userId);
         User followUser = this.fetchUserById(followUserId);
 
         if(!user.getFollowing().contains(followUser)){
             user.getFollowing().add(followUser);
             followUser.getFollowers().add(user);
-
             userRepository.save(user);
             userRepository.save(followUser);
+            logger.info("User with ID: {} successfully followed user with ID: {}", userId, followUserId);
         } else {
-            System.out.println("User already exist in following");
+            logger.warn("User with ID: {} already follows user with ID: {}", userId, followUserId);
         }
     }
 
