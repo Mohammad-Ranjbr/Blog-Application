@@ -176,7 +176,9 @@ public class UserController {
     //GET Mapping - Get User Followers
     @GetMapping("/{user_id}/followers")
     public ResponseEntity<List<UserGetDto>> getFollowers(@PathVariable("user_id") UUID userId){
+        logger.info("Received request to get followers for user with ID: {}", userId);
         List<UserGetDto> followers = userService.getFollowers(userId);
+        logger.info("Returning {} followers for user with ID: {}", followers.size(), userId);
         return new ResponseEntity<>(followers,HttpStatus.OK);
     }
 

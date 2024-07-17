@@ -152,10 +152,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserGetDto> getFollowers(UUID userId) {
+        logger.info("Fetching followers for user with ID: {}", userId);
         User user = this.fetchUserById(userId);
-        return user.getFollowers().stream()
+        List<UserGetDto> followers = user.getFollowers().stream()
                 .map(userMapper::toUserGetDto)
                 .collect(Collectors.toList());
+        logger.info("Retrieved {} followers for user with ID: {}", followers.size(), userId);
+        return followers;
     }
 
     @Override
