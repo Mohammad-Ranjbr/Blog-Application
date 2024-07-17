@@ -3,54 +3,53 @@
 3- Convert timestamp to time ✅
 4- Pagination ✅
 5- User ID value type (convert to UUID) ✅
-6- Upload post image
-7- Get null posts ✅
-8- Application Constants ✅
-9- Add user to comment entity ✅
-10- implement custom ModelMapper for all entities ✅
-11- Unit and Integration test
-12- Logging for PostServiceImpl ✅
-13- Logging for PostController ✅
-14- Logging for CommentServiceImpl ✅
-15- Logging for CommentController ✅
-16- Rate limiter for all Api`s
-17- Login log
-18- Complete comment api`s ✅
-19- Refactor all logging message ✅
-20- Add DTO for crud operation (create,update,get) for all entities ✅
-21- Use resources percentage
-22- Send Email
-23- Login
-24- Register
-25- Forget Password
-26- Basic info endpoint`s ✅
-27- Option Http Method ✅
-28- Handle MethodArgumentTypeMismatchException ✅
-29- upload excel file to database
-30- Like comment ✅
-31- Dislike comment ✅
-32- Reply comment ✅
-33- Like post ✅
-34- Add tag to post ✅
-35- Debug get all user api ✅
-36- Response
-37- Design Pattern
-38- Schedule Post with ScheduledExecutorService ✅
-39- Block User
-40- Fail Login Counter
-41- Dockerized
-42- CI/CD
-43- Follow User ✅
-44- Chat
-45- Save Post ✅
-46- Schedule Post With RabbitMQ
-47- Empty List Log
-48- Remove Child Comments in Response
-49- Schedule Post With Redis
-50- Schedule Post With Quartz Scheduler -
-51- Delete tag from post ✅
-52- User set and HashSet
-53- Handle InvalidDataAccessApiUsageException
-54- Handle duplicate key value in database
+6- Get null posts ✅
+7- Application Constants ✅
+8- Add user to comment entity ✅
+9- implement custom ModelMapper for all entities ✅
+10- Logging for PostServiceImpl ✅
+11- Logging for PostController ✅
+12- Logging for CommentServiceImpl ✅
+13- Logging for CommentController ✅
+14- Rate limiter for all Api`s
+15- Login log
+16- Complete comment api`s ✅
+17- Refactor all logging message ✅
+18- Add DTO for crud operation (create,update,get) for all entities ✅
+19- Basic info endpoint`s ✅
+20- Option Http Method ✅
+21- Handle MethodArgumentTypeMismatchException ✅
+22- Like comment ✅
+23- Dislike comment ✅
+24- Reply comment ✅
+25- Like post ✅
+26- Add tag to post ✅
+27- Debug get all user api ✅
+28- Schedule Post with ScheduledExecutorService ✅
+29- Follow User ✅
+30- Save Post ✅
+31- Delete tag from post ✅
+32- User set and HashSet
+33- Handle InvalidDataAccessApiUsageException
+34- Handle duplicate key value in database
+35- Upload post image
+36- Unit and Integration test
+37- Use resources percentage
+38- Send Email
+39- Login
+40- Register
+41- Forget Password
+42- upload excel file to database
+43- Response
+44- Design Pattern
+45- Block User
+46- Fail Login Counter
+47- Dockerized
+48- CI/CD
+49- Chat
+50- Schedule Post With RabbitMQ
+51- Remove Child Comments in Response
+52- Schedule Post With Redis
+53- Schedule Post With Quartz Scheduler
 
 ✅	❌
