@@ -172,11 +172,15 @@ public class UserServiceImpl implements UserService {
         User user = this.fetchUserById(userId);
         User followUser = this.fetchUserById(followUserId);
 
-        user.getFollowing().add(followUser);
-        followUser.getFollowers().add(user);
+        if(!user.getFollowing().contains(followUser)){
+            user.getFollowing().add(followUser);
+            followUser.getFollowers().add(user);
 
-        userRepository.save(user);
-        userRepository.save(followUser);
+            userRepository.save(user);
+            userRepository.save(followUser);
+        } else {
+            System.out.println("User already exist in following");
+        }
     }
 
     @Override
