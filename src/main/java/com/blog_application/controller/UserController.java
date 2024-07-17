@@ -149,7 +149,9 @@ public class UserController {
     //GET Mapping - Get User Saved Posts
     @GetMapping("/saved/{user_id}")
     public ResponseEntity<List<PostGetDto>> getSavedPostsByUser(@PathVariable("user_id") UUID userId){
+        logger.info("Received request to get saved posts for user with ID: {}", userId);
         List<PostGetDto> savedPosts = userService.getSavedPostsByUser(userId);
+        logger.info("Returning response {} saved posts for user with ID: {}", savedPosts.size(), userId);
         return new ResponseEntity<>(savedPosts,HttpStatus.OK);
     }
 

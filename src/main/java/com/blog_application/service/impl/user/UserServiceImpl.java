@@ -148,11 +148,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<PostGetDto> getSavedPostsByUser(UUID userId) {
+        logger.info("Fetching saved posts for user with ID: {}", userId);
         User user = userRepository.findById(userId).orElseThrow(() -> {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
             return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
         });
         List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
+        logger.info("Fetched {} saved posts for user with ID: {}", savedPosts.size(), userId);
         return savedPosts.stream()
                 .map(postMapper::toPostGetDto)
                 .collect(Collectors.toList());
