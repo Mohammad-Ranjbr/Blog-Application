@@ -2,6 +2,7 @@ package com.blog_application.service.impl.user;
 
 import com.blog_application.config.mapper.post.PostMapper;
 import com.blog_application.config.mapper.user.UserMapper;
+import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
@@ -26,10 +27,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -141,6 +144,18 @@ public class UserServiceImpl implements UserService {
         post.getSavedByUsers().remove(user);
         postRepository.save(post);
         logger.info("Post with ID: {} unsaved successfully for user with ID: {}", postId, userId);
+    }
+
+    @Override
+    public List<PostGetDto> getSavedPostsByUser(UUID userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
+        });
+        List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
+        return savedPosts.stream()
+                .map(postMapper::toPostGetDto)
+                .collect(Collectors.toList());
     }
 
     @Override

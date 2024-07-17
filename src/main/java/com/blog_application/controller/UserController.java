@@ -1,5 +1,6 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
@@ -18,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -142,6 +144,13 @@ public class UserController {
         userService.unSavePost(userId,postId);
         logger.info("Returning response with post ID: {} unsaved successfully for user with ID: {}", postId, userId);
         return new ResponseEntity<>(new ApiResponse("post unsaved successfully",true),HttpStatus.OK);
+    }
+
+    //GET Mapping - Get User Saved Posts
+    @GetMapping("/saved/{user_id}")
+    public ResponseEntity<List<PostGetDto>> getSavedPostsByUser(@PathVariable("user_id") UUID userId){
+        List<PostGetDto> savedPosts = userService.getSavedPostsByUser(userId);
+        return new ResponseEntity<>(savedPosts,HttpStatus.OK);
     }
 
 }
