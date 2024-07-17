@@ -147,15 +147,41 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void followUser(UUID userId, UUID followUserId) {
-        User user = userMapper.toEntity(this.getUserById(userId));
-        User followUser = userMapper.toEntity(this.getUserById(followUserId));
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
+        });
+        User followUser = userRepository.findById(followUserId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", followUserId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(followUserId),"Get User operation not performed");
+        });
 
         user.getFollowing().add(followUser);
         followUser.getFollowers().add(user);
 
         userRepository.save(user);
         userRepository.save(followUser);
+    }
+
+    @Override
+    @Transactional
+    public void unfollowUser(UUID userId, UUID unfollowUserId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", userId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
+        });
+        User unfollowUser = userRepository.findById(unfollowUserId).orElseThrow(() -> {
+            logger.warn("User with ID {} not found, Get user operation not performed", unfollowUserId);
+            return new ResourceNotFoundException("User","ID",String.valueOf(unfollowUserId),"Get User operation not performed");
+        });
+
+        user.getFollowing().remove(unfollowUser);
+        unfollowUser.getFollowers().remove(user);
+
+        userRepository.save(user);
+        userRepository.save(unfollowUser);
     }
 
     @Override

@@ -162,4 +162,11 @@ public class UserController {
         return new ResponseEntity<>(new ApiResponse("Followed user successfully",true),HttpStatus.OK);
     }
 
+    //DELETE Mapping - Unfollow User
+    @DeleteMapping("/{user_id}/unfollow/{unfollow_user_id}")
+    public ResponseEntity<ApiResponse> unfollowUser(@PathVariable("user_id") UUID userId,@PathVariable("unfollow_user_id") UUID unfollowUserId){
+        userService.unfollowUser(userId,unfollowUserId);
+        return new ResponseEntity<>(new ApiResponse("Unfollowed user successfully",true),HttpStatus.OK);
+    }
+
 }
