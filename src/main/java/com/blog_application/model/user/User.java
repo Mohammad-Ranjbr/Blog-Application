@@ -71,8 +71,16 @@ public class User {
     @ManyToMany(mappedBy = "savedByUsers")
     private Set<Post> savedPosts  = new HashSet<>();
 
-    // CascadeType.REMOVE is not needed here, as this type of operation results in the actual removal of the Post data from the database.
-    // Given that posts saved by different users may be shared, actually deleting a post from the database may result in the loss of information that other users may need.
+    @ManyToMany
+    @JoinTable(
+            name = "user_followers",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "follower_id")
+    )
+    private List<User> followers;
+
+    @ManyToMany(mappedBy = "followers")
+    private List<User> following;
 
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.

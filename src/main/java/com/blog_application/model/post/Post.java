@@ -70,6 +70,8 @@ public class Post {
     // List -> Specific order: If the order of elements is important to us (for example, the chronological order of saving posts), List is a more suitable option. List preserves the order in which elements are entered.
     // Index access: If we need to access elements based on index, List is a better option. List allows us to access elements using index.
     // Repetition allowed: If repetition of elements is allowed (for example, a post may be saved by a user multiple times), List is a more suitable option.
+    // CascadeType.REMOVE is not needed here, as this type of operation results in the actual removal of the Post data from the database.
+    // Given that posts saved by different users may be shared, actually deleting a post from the database may result in the loss of information that other users may need.
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(
             name = "user_saved_posts",
