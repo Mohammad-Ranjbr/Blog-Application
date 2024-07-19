@@ -15,6 +15,8 @@ public class UserGetDto extends UserBasicInfoDto{
     private String gender;
     private String userName;
     private String phoneNumber;
+    private int followersCount;
+    private int followingCount;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

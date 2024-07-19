@@ -103,19 +103,6 @@ public class UserServiceImpl implements UserService {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
             return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
         });
-        Optional<User> optionalUser = userRepository.findById(userId);
-        Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
-        optionalUser.ifPresent(printUserDetails);
-        return user;
-    }
-
-    @Override
-    public UserGetDto getUserById(UUID userId) {
-        logger.info("Fetching user with ID : {}",userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Get user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
-        });
         //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
         //This class is a container that may contain a value (which is present) or no value (which is empty).
         //Optional is a powerful tool for handling null values and makes code safer and more readable.
@@ -125,6 +112,12 @@ public class UserServiceImpl implements UserService {
         Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
         optionalUser.ifPresent(printUserDetails);
         logger.info("User found with ID : {}",user.getId());
+        return user;
+    }
+
+    @Override
+    public UserGetDto getUserById(UUID userId) {
+        User user = this.fetchUserById(userId);
         return userMapper.toUserGetDto(user);
     }
 
@@ -182,6 +175,8 @@ public class UserServiceImpl implements UserService {
         if(!user.getFollowing().contains(followUser)){
             user.getFollowing().add(followUser);
             followUser.getFollowers().add(user);
+            user.setFollowingCount(user.getFollowingCount() + 1);
+            followUser.setFollowersCount(followUser.getFollowersCount() + 1);
             userRepository.save(user);
             userRepository.save(followUser);
             logger.info("User with ID: {} successfully followed user with ID: {}", userId, followUserId);
@@ -199,6 +194,8 @@ public class UserServiceImpl implements UserService {
 
         user.getFollowing().remove(unfollowUser);
         unfollowUser.getFollowers().remove(user);
+        user.setFollowingCount(user.getFollowingCount() - 1);
+        unfollowUser.setFollowersCount(unfollowUser.getFollowersCount() - 1);
 
         userRepository.save(user);
         userRepository.save(unfollowUser);

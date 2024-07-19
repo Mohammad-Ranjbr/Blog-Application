@@ -82,6 +82,11 @@ public class User {
     @ManyToMany(mappedBy = "followers")
     private List<User> following = new ArrayList<>();
 
+    private int followersCount = 0;
+    private int followingCount = 0;
+
+    private boolean isActive = true;
+
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.
 

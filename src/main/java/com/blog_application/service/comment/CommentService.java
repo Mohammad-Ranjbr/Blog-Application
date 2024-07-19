@@ -3,7 +3,6 @@ package com.blog_application.service.comment;
 import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
-import com.blog_application.model.post.Post;
 
 import java.util.List;
 import java.util.UUID;

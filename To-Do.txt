@@ -29,12 +29,12 @@
 29- Follow User ✅
 30- Save Post ✅
 31- Delete tag from post ✅
-32- User set and HashSet
-33- Handle InvalidDataAccessApiUsageException
-34- Handle duplicate key value in database
+32- User set and HashSet -
+33- Handle InvalidDataAccessApiUsageException -
+34- Handle duplicate key value in database -
 35- Upload post image
-36- Unit and Integration test
-37- Use resources percentage
+36- Unit and Integration test -
+37- Use resources percentage -
 38- Send Email
 39- Login
 40- Register
@@ -48,8 +48,9 @@
 48- CI/CD
 49- Chat
 50- Schedule Post With RabbitMQ
-51- Remove Child Comments in Response
+51- Remove Child Comments in Response -
 52- Schedule Post With Redis
 53- Schedule Post With Quartz Scheduler
+54- Logic for active user
 
 ✅	❌
