@@ -12,7 +12,7 @@
 12- Logging for CommentServiceImpl ✅
 13- Logging for CommentController ✅
 14- Rate limiter for all Api`s
-15- Login log
+15- Unfollow User ✅
 16- Complete comment api`s ✅
 17- Refactor all logging message ✅
 18- Add DTO for crud operation (create,update,get) for all entities ✅
@@ -34,23 +34,23 @@
 34- Handle duplicate key value in database -
 35- Upload post image
 36- Unit and Integration test -
-37- Use resources percentage -
-38- Send Email
-39- Login
-40- Register
-41- Forget Password
-42- upload excel file to database
-43- Response
-44- Design Pattern
-45- Block User
-46- Fail Login Counter
-47- Dockerized
-48- CI/CD
-49- Chat
-50- Schedule Post With RabbitMQ
-51- Remove Child Comments in Response -
-52- Schedule Post With Redis
-53- Schedule Post With Quartz Scheduler
-54- Logic for active user
+37- Send Email
+38- Login
+39- Register
+40- Forget Password
+41- upload excel file to database
+42- Response
+43- Design Pattern
+44- Block User
+45- Fail Login Counter
+46- Dockerized
+47- CI/CD
+48- Chat
+49- Schedule Post With RabbitMQ
+50- Remove Child Comments in Response -
+51- Schedule Post With Redis
+52- Schedule Post With Quartz Scheduler
+53- Logic for active user
+54- Login log
 
 ✅	❌
