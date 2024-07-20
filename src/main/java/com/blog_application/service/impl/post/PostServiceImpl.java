@@ -32,6 +32,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Executors;
@@ -151,7 +152,7 @@ public class PostServiceImpl implements PostService {
         logger.info("Adding tags to post with ID: {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
 
-        List<String> existingTagNames = new java.util.ArrayList<>(post.getTags().stream()
+        List<String> existingTagNames = new ArrayList<>(post.getTags().stream()
                 .map(Tag::getName)
                 .toList());
 
@@ -164,15 +165,15 @@ public class PostServiceImpl implements PostService {
                         (tagCreateDto.getDescription()).isEmpty() ? tagCreateDto.getName().concat("  ").concat("Description") : tagCreateDto.getDescription())
             );
             // Check if the tag is already associated with the post
-            System.out.println(post.getTags().toString());
             if (!existingTagNames.contains(tag.getName())) {
                 post.getTags().add(tag);
-                existingTagNames.add(tag.getName()); // Update the set of tag names
+                existingTagNames.add(tag.getName()); // Update the list of tag names
                 logger.info("Tag ({}) added to post", tag.getName());
             } else {
                 logger.warn("Tag ({}) is already associated with post", tag.getName());
             }
         }
+
         // Because of CascadeType.PERSIST and CascadeType.MERGE, there is no need
         // to save tags manually This operation also automatically saves the tags
         Post savedPost = postRepository.save(post);
