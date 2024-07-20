@@ -4637,3 +4637,931 @@ Identify and stop the process that's listening on port 8081 or configure this ap
 2024-07-20T18:19:56.410+03:30  INFO 2722444 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-20T18:19:56.413+03:30  INFO 2722444 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-07-20T18:19:56.430+03:30  INFO 2722444 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-20T18:26:15.968+03:30  INFO 2724600 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2724600 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:26:15.969+03:30  INFO 2724600 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:26:16.002+03:30  INFO 2724600 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-20T18:26:16.003+03:30  INFO 2724600 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-20T18:26:16.624+03:30  INFO 2724600 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:26:16.679+03:30  INFO 2724600 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:26:17.027+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:26:17.041+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:26:17.042+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:26:17.066+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:26:17.067+03:30  INFO 2724600 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1063 ms
+2024-07-20T18:26:17.160+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:26:17.189+03:30  INFO 2724600 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-07-20T18:26:17.208+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:26:17.348+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:26:17.363+03:30  INFO 2724600 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-20T18:26:17.522+03:30  INFO 2724600 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@433384c
+2024-07-20T18:26:17.523+03:30  INFO 2724600 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-20T18:26:17.540+03:30  WARN 2724600 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:26:18.292+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:26:18.424+03:30  INFO 2724600 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:26:18.857+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-20T18:26:19.251+03:30  WARN 2724600 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-20T18:26:19.553+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-20T18:26:19.593+03:30  INFO 2724600 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-07-20T18:26:19.604+03:30  INFO 2724600 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 3.928 seconds (process running for 4.417)
+2024-07-20T18:26:45.771+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-20T18:26:45.771+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-20T18:26:45.772+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-20T18:26:45.851+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.CategoryController        : Received request to create category with title : Health and Wellness
+2024-07-20T18:26:45.856+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.s.impl.category.CategoryServiceImpl  : Creating category with title : Health and Wellness
+2024-07-20T18:26:45.879+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.s.impl.category.CategoryServiceImpl  : Category created successfully with title : Health and Wellness
+2024-07-20T18:26:45.886+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.CategoryController        : Returning response for category creation with title : Health and Wellness
+2024-07-20T18:27:41.133+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.PostController            : Received request to create post for user with ID : 28126f2a-b87b-4a95-8d5e-3804a22a8b2f and category with ID : 1
+2024-07-20T18:27:41.134+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.post.PostServiceImpl    : Creating post with title : Spring MVC (Model-View-Controller)
+2024-07-20T18:27:41.134+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.user.UserServiceImpl    : Fetching user with ID : 28126f2a-b87b-4a95-8d5e-3804a22a8b2f
+2024-07-20T18:27:41.173+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.user.UserServiceImpl    : User found with ID : 28126f2a-b87b-4a95-8d5e-3804a22a8b2f
+2024-07-20T18:27:41.175+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.s.impl.category.CategoryServiceImpl  : Fetching category with ID : 1
+2024-07-20T18:27:41.179+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.s.impl.category.CategoryServiceImpl  : Category found with ID : 1
+2024-07-20T18:27:41.184+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.post.PostServiceImpl    : Post created successfully with title : Spring MVC (Model-View-Controller)
+2024-07-20T18:27:41.193+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.PostController            : Returning response for post creation with title: Spring MVC (Model-View-Controller)
+2024-07-20T18:28:07.570+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-20T18:28:07.570+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-20T18:28:07.570+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:28:07.574+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:28:07.582+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-20T18:28:07.618+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) added to post
+2024-07-20T18:28:07.618+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-20T18:28:07.620+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) added to post
+2024-07-20T18:28:07.621+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-20T18:28:07.622+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) added to post
+2024-07-20T18:28:07.631+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.service.impl.post.PostServiceImpl    : Post with ID 1 with tags saved
+2024-07-20T18:28:07.638+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] c.b.controller.PostController            : Tags added successfully to post with ID: 1
+2024-07-20T18:28:38.933+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] c.b.controller.CommentController         : Received request to create comment with content: Fuck you
+2024-07-20T18:28:38.933+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] c.b.s.impl.comment.CommentServiceImpl    : Creating comment with content : Fuck you
+2024-07-20T18:28:38.934+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:28:38.936+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:28:38.941+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] c.b.service.impl.user.UserServiceImpl    : Fetching user with ID : 28126f2a-b87b-4a95-8d5e-3804a22a8b2f
+2024-07-20T18:28:38.942+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] c.b.service.impl.user.UserServiceImpl    : User found with ID : 28126f2a-b87b-4a95-8d5e-3804a22a8b2f
+2024-07-20T18:28:38.945+03:30  WARN 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] c.b.s.impl.comment.CommentServiceImpl    : Parent comment with ID 16 not found
+2024-07-20T18:28:38.950+03:30  WARN 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.blog_application.exception.ResourceNotFoundException: Comment not found with ID : 16]
+2024-07-20T18:29:00.640+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.controller.CommentController         : Received request to create comment with content: Fuck you
+2024-07-20T18:29:00.641+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.s.impl.comment.CommentServiceImpl    : Creating comment with content : Fuck you
+2024-07-20T18:29:00.641+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:29:00.643+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:29:00.647+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.service.impl.user.UserServiceImpl    : Fetching user with ID : 28126f2a-b87b-4a95-8d5e-3804a22a8b2f
+2024-07-20T18:29:00.648+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.service.impl.user.UserServiceImpl    : User found with ID : 28126f2a-b87b-4a95-8d5e-3804a22a8b2f
+2024-07-20T18:29:00.650+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.s.impl.comment.CommentServiceImpl    : Comment created successfully with content : Fuck you
+2024-07-20T18:29:00.655+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] c.b.controller.CommentController         : Returning response for comment creation with content : Fuck you
+2024-07-20T18:29:14.127+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-20T18:29:14.128+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-20T18:29:14.128+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:29:14.131+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:29:14.141+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-20T18:29:14.144+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) added to post
+2024-07-20T18:29:14.145+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-20T18:29:14.147+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) added to post
+2024-07-20T18:29:14.147+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-20T18:29:14.149+03:30  INFO 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) added to post
+2024-07-20T18:29:14.155+03:30 ERROR 2724600 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]] with root cause
+
+java.lang.IllegalStateException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]
+	at org.hibernate.event.internal.EntityCopyNotAllowedObserver.entityCopyDetected(EntityCopyNotAllowedObserver.java:45) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.spi.MergeContext.put(MergeContext.java:237) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsPersistent(DefaultMergeEventListener.java:276) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:214) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:872) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:843) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:253) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:243) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:517) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:439) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollectionElements(Cascade.java:551) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollection(Cascade.java:481) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:442) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:157) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.cascadeOnMerge(DefaultMergeEventListener.java:643) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:425) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:208) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:851) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:837) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy156.save(Unknown Source) ~[na:na]
+	at com.blog_application.service.impl.post.PostServiceImpl.addTagToPost(PostServiceImpl.java:166) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at com.blog_application.service.impl.post.PostServiceImpl$$SpringCGLIB$$0.addTagToPost(<generated>) ~[classes/:na]
+	at com.blog_application.controller.PostController.addTagToPost(PostController.java:182) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-20T18:39:54.393+03:30  INFO 2724600 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:39:54.396+03:30  INFO 2724600 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-20T18:39:54.409+03:30  INFO 2724600 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-20T18:39:57.597+03:30  INFO 2727868 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2727868 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:39:57.599+03:30  INFO 2727868 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:39:57.625+03:30  INFO 2727868 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-20T18:39:57.626+03:30  INFO 2727868 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-20T18:39:58.077+03:30  INFO 2727868 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:39:58.137+03:30  INFO 2727868 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:39:58.465+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:39:58.471+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:39:58.472+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:39:58.497+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:39:58.497+03:30  INFO 2727868 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 871 ms
+2024-07-20T18:39:58.589+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:39:58.617+03:30  INFO 2727868 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-07-20T18:39:58.634+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:39:58.777+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:39:58.791+03:30  INFO 2727868 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-20T18:39:58.952+03:30  INFO 2727868 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1654dbad
+2024-07-20T18:39:58.953+03:30  INFO 2727868 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-20T18:39:58.970+03:30  WARN 2727868 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:39:59.652+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:39:59.765+03:30  INFO 2727868 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:40:00.176+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-20T18:40:00.479+03:30  WARN 2727868 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-20T18:40:00.706+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-20T18:40:00.728+03:30  INFO 2727868 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-07-20T18:40:00.736+03:30  INFO 2727868 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 3.421 seconds (process running for 3.914)
+2024-07-20T18:40:17.262+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-20T18:40:17.262+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-20T18:40:17.263+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-20T18:40:17.326+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-20T18:40:17.330+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-20T18:40:17.331+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:40:17.376+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:40:17.396+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-20T18:40:17.436+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) added to post
+2024-07-20T18:40:17.436+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-20T18:40:17.439+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) added to post
+2024-07-20T18:40:17.439+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-20T18:40:17.442+03:30  INFO 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) added to post
+2024-07-20T18:40:17.452+03:30 ERROR 2727868 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]] with root cause
+
+java.lang.IllegalStateException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]
+	at org.hibernate.event.internal.EntityCopyNotAllowedObserver.entityCopyDetected(EntityCopyNotAllowedObserver.java:45) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.spi.MergeContext.put(MergeContext.java:237) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsPersistent(DefaultMergeEventListener.java:276) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:214) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:872) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:843) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:253) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:243) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:517) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:439) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollectionElements(Cascade.java:551) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollection(Cascade.java:481) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:442) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:157) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.cascadeOnMerge(DefaultMergeEventListener.java:643) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:425) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:208) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:851) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:837) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy156.save(Unknown Source) ~[na:na]
+	at com.blog_application.service.impl.post.PostServiceImpl.addTagToPost(PostServiceImpl.java:171) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at com.blog_application.service.impl.post.PostServiceImpl$$SpringCGLIB$$0.addTagToPost(<generated>) ~[classes/:na]
+	at com.blog_application.controller.PostController.addTagToPost(PostController.java:182) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-20T18:40:21.527+03:30  INFO 2727868 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:40:21.529+03:30  INFO 2727868 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-20T18:40:21.540+03:30  INFO 2727868 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-20T18:40:23.355+03:30  INFO 2728120 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2728120 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:40:23.357+03:30  INFO 2728120 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:40:23.393+03:30  INFO 2728120 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-20T18:40:23.393+03:30  INFO 2728120 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-20T18:40:23.881+03:30  INFO 2728120 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:40:23.932+03:30  INFO 2728120 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:40:24.275+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:40:24.281+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:40:24.282+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:40:24.306+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:40:24.307+03:30  INFO 2728120 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 913 ms
+2024-07-20T18:40:24.395+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:40:24.427+03:30  INFO 2728120 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-07-20T18:40:24.445+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:40:24.591+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:40:24.607+03:30  INFO 2728120 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-20T18:40:24.768+03:30  INFO 2728120 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@61da7e78
+2024-07-20T18:40:24.769+03:30  INFO 2728120 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-20T18:40:24.787+03:30  WARN 2728120 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:40:25.479+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:40:25.595+03:30  INFO 2728120 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:40:26.028+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-20T18:40:26.343+03:30  WARN 2728120 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-20T18:40:26.583+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-20T18:40:26.639+03:30  INFO 2728120 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-07-20T18:40:26.646+03:30  INFO 2728120 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 3.571 seconds (process running for 4.292)
+2024-07-20T18:40:32.830+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-20T18:40:32.830+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-20T18:40:32.831+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-20T18:40:32.905+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-20T18:40:32.910+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-20T18:40:32.910+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:40:32.955+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:40:32.977+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-20T18:40:33.026+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) added to post
+2024-07-20T18:40:33.026+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-20T18:40:33.029+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) added to post
+2024-07-20T18:40:33.029+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-20T18:40:33.031+03:30  INFO 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) added to post
+2024-07-20T18:40:33.048+03:30 ERROR 2728120 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]] with root cause
+
+java.lang.IllegalStateException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]
+	at org.hibernate.event.internal.EntityCopyNotAllowedObserver.entityCopyDetected(EntityCopyNotAllowedObserver.java:45) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.spi.MergeContext.put(MergeContext.java:237) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsPersistent(DefaultMergeEventListener.java:276) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:214) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:872) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:843) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:253) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:243) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:517) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:439) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollectionElements(Cascade.java:551) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollection(Cascade.java:481) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:442) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:157) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.cascadeOnMerge(DefaultMergeEventListener.java:643) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:425) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:208) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:851) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:837) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy156.save(Unknown Source) ~[na:na]
+	at com.blog_application.service.impl.post.PostServiceImpl.addTagToPost(PostServiceImpl.java:171) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at com.blog_application.service.impl.post.PostServiceImpl$$SpringCGLIB$$0.addTagToPost(<generated>) ~[classes/:na]
+	at com.blog_application.controller.PostController.addTagToPost(PostController.java:182) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-20T18:42:13.377+03:30  INFO 2728120 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:42:13.380+03:30  INFO 2728120 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-20T18:42:13.400+03:30  INFO 2728120 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-20T18:42:16.432+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2728694 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:42:16.434+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:42:16.463+03:30  INFO 2728694 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-20T18:42:16.463+03:30  INFO 2728694 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-20T18:42:16.966+03:30  INFO 2728694 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:42:17.023+03:30  INFO 2728694 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:42:17.389+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:42:17.397+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:42:17.397+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:42:17.423+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:42:17.424+03:30  INFO 2728694 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 960 ms
+2024-07-20T18:42:17.516+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:42:17.543+03:30  INFO 2728694 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-07-20T18:42:17.561+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:42:17.703+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:42:17.718+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-20T18:42:17.878+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6b767889
+2024-07-20T18:42:17.879+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-20T18:42:17.897+03:30  WARN 2728694 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:42:18.583+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:42:18.696+03:30  INFO 2728694 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:42:19.114+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-20T18:42:19.418+03:30  WARN 2728694 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-20T18:42:19.655+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-20T18:42:19.677+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-07-20T18:42:19.684+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 3.536 seconds (process running for 3.927)
+2024-07-20T18:42:22.003+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-20T18:42:22.004+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-20T18:42:22.005+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-20T18:42:22.093+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-20T18:42:22.097+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-20T18:42:22.098+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:42:22.144+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:42:22.177+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-20T18:42:22.231+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) added to post
+2024-07-20T18:42:22.232+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-20T18:42:22.238+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) added to post
+2024-07-20T18:42:22.238+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-20T18:42:22.240+03:30  INFO 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) added to post
+2024-07-20T18:42:22.254+03:30 ERROR 2728694 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]] with root cause
+
+java.lang.IllegalStateException: Multiple representations of the same entity [com.blog_application.model.tag.Tag#1] are being merged. Managed: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]; Detached: [Tag{id=1, name='خبر داغ', description='توضیحات خبر داغ', createdDate=null, updatedDate=null}]
+	at org.hibernate.event.internal.EntityCopyNotAllowedObserver.entityCopyDetected(EntityCopyNotAllowedObserver.java:45) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.spi.MergeContext.put(MergeContext.java:237) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsPersistent(DefaultMergeEventListener.java:276) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:214) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:872) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:843) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:253) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:243) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:517) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:439) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollectionElements(Cascade.java:551) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeCollection(Cascade.java:481) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:442) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:224) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:157) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.cascadeOnMerge(DefaultMergeEventListener.java:643) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:425) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:208) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:851) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:837) ~[hibernate-core-6.4.8.Final.jar:6.4.8.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy149.merge(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.6.jar:3.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy156.save(Unknown Source) ~[na:na]
+	at com.blog_application.service.impl.post.PostServiceImpl.addTagToPost(PostServiceImpl.java:172) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at com.blog_application.service.impl.post.PostServiceImpl$$SpringCGLIB$$0.addTagToPost(<generated>) ~[classes/:na]
+	at com.blog_application.controller.PostController.addTagToPost(PostController.java:182) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-20T18:47:05.208+03:30  INFO 2728694 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-07-20T18:47:05.229+03:30  INFO 2728694 --- [blog-application] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:47:05.238+03:30  INFO 2728694 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-20T18:47:05.261+03:30  INFO 2728694 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-20T18:47:05.332+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2728694 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:47:05.332+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:47:05.447+03:30  INFO 2728694 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:47:05.464+03:30  INFO 2728694 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:47:05.541+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:47:05.542+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:47:05.542+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:47:05.548+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:47:05.548+03:30  INFO 2728694 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 215 ms
+2024-07-20T18:47:05.581+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:47:05.582+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:47:05.585+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:47:05.585+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-07-20T18:47:05.610+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@35e5077b
+2024-07-20T18:47:05.610+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-07-20T18:47:05.612+03:30  WARN 2728694 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:47:05.747+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:47:05.848+03:30  INFO 2728694 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:47:06.034+03:30  WARN 2728694 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-20T18:47:06.119+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-20T18:47:06.127+03:30  INFO 2728694 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-07-20T18:47:06.132+03:30  INFO 2728694 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 0.816 seconds (process running for 290.375)
+2024-07-20T18:47:06.133+03:30  INFO 2728694 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-20T18:47:26.903+03:30  INFO 2728694 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:47:26.904+03:30  INFO 2728694 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-07-20T18:47:26.917+03:30  INFO 2728694 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-07-20T18:47:30.029+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2730149 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:47:30.030+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:47:30.063+03:30  INFO 2730149 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-20T18:47:30.063+03:30  INFO 2730149 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-20T18:47:30.562+03:30  INFO 2730149 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:47:30.616+03:30  INFO 2730149 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:47:30.962+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:47:30.968+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:47:30.969+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:47:30.993+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:47:30.993+03:30  INFO 2730149 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 929 ms
+2024-07-20T18:47:31.087+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:47:31.115+03:30  INFO 2730149 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-07-20T18:47:31.133+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:47:31.271+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:47:31.285+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-20T18:47:31.446+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@812cdde
+2024-07-20T18:47:31.447+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-20T18:47:31.464+03:30  WARN 2730149 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:47:32.155+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:47:32.267+03:30  INFO 2730149 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:47:32.672+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-20T18:47:32.990+03:30  WARN 2730149 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-20T18:47:33.230+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-20T18:47:33.251+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-07-20T18:47:33.259+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 3.513 seconds (process running for 3.881)
+2024-07-20T18:47:35.903+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-20T18:47:35.904+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-20T18:47:35.905+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-20T18:47:35.971+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-20T18:47:35.976+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-20T18:47:35.976+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:47:36.013+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:47:36.035+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-20T18:47:36.077+03:30  WARN 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) is already associated with post
+2024-07-20T18:47:36.077+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-20T18:47:36.082+03:30  WARN 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) is already associated with post
+2024-07-20T18:47:36.082+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-20T18:47:36.085+03:30  WARN 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) is already associated with post
+2024-07-20T18:47:36.092+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Post with ID 1 with tags saved
+2024-07-20T18:47:36.118+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Tags added successfully to post with ID: 1
+2024-07-20T18:48:58.138+03:30  INFO 2730149 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-07-20T18:48:58.161+03:30  INFO 2730149 --- [blog-application] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:48:58.169+03:30  INFO 2730149 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-20T18:48:58.194+03:30  INFO 2730149 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-20T18:48:58.282+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2730149 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:48:58.282+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:48:58.408+03:30  INFO 2730149 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:48:58.426+03:30  INFO 2730149 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:48:58.510+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:48:58.511+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:48:58.511+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:48:58.517+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:48:58.517+03:30  INFO 2730149 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 234 ms
+2024-07-20T18:48:58.555+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:48:58.557+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:48:58.560+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:48:58.560+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-07-20T18:48:58.585+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@3a8dfedc
+2024-07-20T18:48:58.586+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-07-20T18:48:58.588+03:30  WARN 2730149 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:48:58.751+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:48:58.864+03:30  INFO 2730149 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:48:58.936+03:30  WARN 2730149 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController' defined in file [/home/pc1/Documents/Projects/Blog-Application/target/classes/com/blog_application/controller/CommentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'commentServiceImpl' defined in file [/home/pc1/Documents/Projects/Blog-Application/target/classes/com/blog_application/service/impl/comment/CommentServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'com.blog_application.service.post.PostService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-07-20T18:48:58.937+03:30  INFO 2730149 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:48:58.937+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-07-20T18:48:58.972+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-07-20T18:48:58.977+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-20T18:48:58.984+03:30  INFO 2730149 --- [blog-application] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-20T18:48:59.004+03:30 ERROR 2730149 --- [blog-application] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.blog_application.service.impl.comment.CommentServiceImpl required a bean of type 'com.blog_application.service.post.PostService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.blog_application.service.post.PostService' in your configuration.
+
+2024-07-20T18:49:00.463+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.11 with PID 2730149 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-07-20T18:49:00.463+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-07-20T18:49:00.562+03:30  INFO 2730149 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20T18:49:00.575+03:30  INFO 2730149 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 7 JPA repository interfaces.
+2024-07-20T18:49:00.631+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-07-20T18:49:00.632+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-20T18:49:00.632+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-20T18:49:00.637+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-07-20T18:49:00.637+03:30  INFO 2730149 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 172 ms
+2024-07-20T18:49:00.663+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20T18:49:00.665+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-20T18:49:00.667+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-20T18:49:00.667+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-07-20T18:49:00.690+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@2a357a05
+2024-07-20T18:49:00.690+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-07-20T18:49:00.693+03:30  WARN 2730149 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-20T18:49:00.796+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-20T18:49:00.883+03:30  INFO 2730149 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:49:01.052+03:30  WARN 2730149 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-20T18:49:01.132+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-20T18:49:01.141+03:30  INFO 2730149 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-07-20T18:49:01.145+03:30  INFO 2730149 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 0.723 seconds (process running for 91.767)
+2024-07-20T18:49:01.146+03:30  INFO 2730149 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-20T18:49:24.162+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-20T18:49:24.162+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-20T18:49:24.163+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-20T18:49:24.166+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to add tags to post with ID: 1
+2024-07-20T18:49:24.167+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Adding tags to post with ID: 1
+2024-07-20T18:49:24.168+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching post with ID : 1
+2024-07-20T18:49:24.172+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Post found with ID : 1
+2024-07-20T18:49:24.179+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: خبر داغ
+2024-07-20T18:49:24.183+03:30  WARN 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (خبر داغ) is already associated with post
+2024-07-20T18:49:24.183+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: تکنولوژی
+2024-07-20T18:49:24.186+03:30  WARN 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (تکنولوژی) is already associated with post
+2024-07-20T18:49:24.186+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: ورزش
+2024-07-20T18:49:24.188+03:30  WARN 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (ورزش) is already associated with post
+2024-07-20T18:49:24.188+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Processing tag: a
+2024-07-20T18:49:24.190+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Tag (a) added to post
+2024-07-20T18:49:24.201+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Post with ID 1 with tags saved
+2024-07-20T18:49:24.209+03:30  INFO 2730149 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Tags added successfully to post with ID: 1
+2024-07-20T18:49:35.577+03:30  INFO 2730149 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20T18:49:35.577+03:30  INFO 2730149 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-07-20T18:49:35.586+03:30  INFO 2730149 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.

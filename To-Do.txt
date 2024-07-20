@@ -30,7 +30,7 @@
 30- Save Post ✅
 31- Delete tag from post ✅
 32- User set and HashSet -
-33- Handle InvalidDataAccessApiUsageException -
+33- Handle InvalidDataAccessApiUsageException ✅
 34- Handle duplicate key value error in response ✅
 35- Upload post image
 36- Unit and Integration test -

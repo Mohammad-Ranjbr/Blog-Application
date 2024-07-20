@@ -150,6 +150,11 @@ public class PostServiceImpl implements PostService {
     public PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) {
         logger.info("Adding tags to post with ID: {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
+
+        List<String> existingTagNames = new java.util.ArrayList<>(post.getTags().stream()
+                .map(Tag::getName)
+                .toList());
+
         for (TagCreateDto tagCreateDto : tagCreateDtos) {
             logger.info("Processing tag: {}", tagCreateDto.getName());
             // Using orElseGet instead of orElse causes the new Tag object to be created only when needed
@@ -158,8 +163,15 @@ public class PostServiceImpl implements PostService {
                 new Tag(tagCreateDto.getName(),
                         (tagCreateDto.getDescription()).isEmpty() ? tagCreateDto.getName().concat("  ").concat("Description") : tagCreateDto.getDescription())
             );
-            post.getTags().add(tag);
-            logger.info("Tag ({}) added to post", tag.getName());
+            // Check if the tag is already associated with the post
+            System.out.println(post.getTags().toString());
+            if (!existingTagNames.contains(tag.getName())) {
+                post.getTags().add(tag);
+                existingTagNames.add(tag.getName()); // Update the set of tag names
+                logger.info("Tag ({}) added to post", tag.getName());
+            } else {
+                logger.warn("Tag ({}) is already associated with post", tag.getName());
+            }
         }
         // Because of CascadeType.PERSIST and CascadeType.MERGE, there is no need
         // to save tags manually This operation also automatically saves the tags
