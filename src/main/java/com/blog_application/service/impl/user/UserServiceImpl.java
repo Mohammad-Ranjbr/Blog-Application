@@ -78,6 +78,7 @@ public class UserServiceImpl implements UserService {
         logger.info("Creating user with email : {}",userCreateDto.getEmail());
         User user = userMapper.toEntity(userCreateDto);
         User savedUser = userRepository.save(user);
+        System.out.println(savedUser);
         logger.info("User created successfully with email : {}",savedUser.getEmail());
         return userMapper.toUserGetDto(savedUser);
     }

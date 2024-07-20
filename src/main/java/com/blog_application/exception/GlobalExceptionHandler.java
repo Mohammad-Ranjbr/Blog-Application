@@ -58,7 +58,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ApiResponse> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException dataIntegrityViolationException){
         System.out.println("DataIntegrityViolationException message : " + dataIntegrityViolationException.getMessage());
-        return new ResponseEntity<>(new ApiResponse("Input value is too long for the field",false),HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new ApiResponse(dataIntegrityViolationException.getMessage(),false),HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
