@@ -907,3 +907,88 @@ This generated password is for development use only. Your security configuration
 2024-11-23T11:39:53.644+03:30  INFO 1769620 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-11-23T11:39:53.648+03:30  INFO 1769620 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-11-23T11:39:53.656+03:30  INFO 1769620 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-23T12:20:41.653+03:30  INFO 1773435 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 1773435 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-11-23T12:20:41.654+03:30  INFO 1773435 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-11-23T12:20:41.687+03:30  INFO 1773435 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-23T12:20:41.688+03:30  INFO 1773435 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-23T12:20:42.385+03:30  INFO 1773435 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-23T12:20:42.447+03:30  INFO 1773435 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 7 JPA repository interfaces.
+2024-11-23T12:20:42.986+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-11-23T12:20:42.993+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-23T12:20:42.994+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-11-23T12:20:43.026+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-23T12:20:43.026+03:30  INFO 1773435 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1338 ms
+2024-11-23T12:20:43.224+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-23T12:20:43.280+03:30  INFO 1773435 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-11-23T12:20:43.319+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-23T12:20:43.820+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-23T12:20:43.851+03:30  INFO 1773435 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-23T12:20:44.199+03:30  INFO 1773435 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7e7e39d8
+2024-11-23T12:20:44.201+03:30  INFO 1773435 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-23T12:20:44.234+03:30  WARN 1773435 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-23T12:20:45.157+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-23T12:20:45.293+03:30  INFO 1773435 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-23T12:20:45.813+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-23T12:20:46.196+03:30  WARN 1773435 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-23T12:20:46.228+03:30  WARN 1773435 --- [blog-application] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 85823d91-5c54-4ac1-8845-3d5fbb341e4b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-11-23T12:20:46.530+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65adcd17, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72b7a1ca, org.springframework.security.web.context.SecurityContextHolderFilter@4020802f, org.springframework.security.web.header.HeaderWriterFilter@40eccdc2, org.springframework.web.filter.CorsFilter@77639b7c, org.springframework.security.web.authentication.logout.LogoutFilter@6b960788, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1d215595, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10da97c0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16aa793, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39aadb6b, org.springframework.security.web.access.ExceptionTranslationFilter@3d1ef43e, org.springframework.security.web.access.intercept.AuthorizationFilter@64bdbfff]
+2024-11-23T12:20:46.843+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-23T12:20:46.871+03:30  INFO 1773435 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-11-23T12:20:46.882+03:30  INFO 1773435 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.565 seconds (process running for 6.227)
+2024-11-23T12:20:47.616+03:30  INFO 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-23T12:20:47.616+03:30  INFO 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-23T12:20:47.618+03:30  INFO 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-23T12:20:47.658+03:30  INFO 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to fetch all posts
+2024-11-23T12:20:47.658+03:30  INFO 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Fetching all posts with pageNumber: 0, pageSize: 5, sortBy: id, sortDir: asc
+2024-11-23T12:20:47.743+03:30  INFO 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.post.PostServiceImpl    : Total posts found : 0
+2024-11-23T12:20:47.744+03:30  INFO 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Returning response for all posts
+2024-11-23T12:21:19.684+03:30  WARN 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-23T12:21:30.938+03:30  WARN 1773435 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-23T12:22:27.685+03:30  INFO 1773435 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-23T12:22:27.688+03:30  INFO 1773435 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-23T12:22:27.706+03:30  INFO 1773435 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-23T12:26:35.829+03:30  INFO 1773961 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 1773961 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-11-23T12:26:35.832+03:30  INFO 1773961 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-11-23T12:26:35.868+03:30  INFO 1773961 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-23T12:26:35.868+03:30  INFO 1773961 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-23T12:26:36.495+03:30  INFO 1773961 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-23T12:26:36.561+03:30  INFO 1773961 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 7 JPA repository interfaces.
+2024-11-23T12:26:37.049+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-11-23T12:26:37.059+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-23T12:26:37.059+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-11-23T12:26:37.088+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-23T12:26:37.088+03:30  INFO 1773961 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1219 ms
+2024-11-23T12:26:37.233+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-23T12:26:37.269+03:30  INFO 1773961 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.8.Final
+2024-11-23T12:26:37.295+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-23T12:26:37.450+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-23T12:26:37.466+03:30  INFO 1773961 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-23T12:26:37.663+03:30  INFO 1773961 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5547c625
+2024-11-23T12:26:37.664+03:30  INFO 1773961 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-23T12:26:37.684+03:30  WARN 1773961 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-23T12:26:38.463+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-23T12:26:38.607+03:30  INFO 1773961 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-23T12:26:39.089+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-23T12:26:39.485+03:30  WARN 1773961 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-23T12:26:39.518+03:30  WARN 1773961 --- [blog-application] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e74191c0-fb32-4b15-a44f-ff67888ba15f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-11-23T12:26:39.802+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2065ba62, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37c6a1ac, org.springframework.security.web.context.SecurityContextHolderFilter@3b162ced, org.springframework.security.web.header.HeaderWriterFilter@5505ea95, org.springframework.web.filter.CorsFilter@5fd2c2da, org.springframework.security.web.authentication.logout.LogoutFilter@2fc23b08, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@48abf3f9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@355da705, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a1166f0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ff9116c, org.springframework.security.web.access.ExceptionTranslationFilter@49c72f5d, org.springframework.security.web.access.intercept.AuthorizationFilter@42916579]
+2024-11-23T12:26:40.034+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-23T12:26:40.062+03:30  INFO 1773961 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-11-23T12:26:40.071+03:30  INFO 1773961 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 4.601 seconds (process running for 5.225)
+2024-11-23T12:26:42.434+03:30  INFO 1773961 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-23T12:26:42.435+03:30  INFO 1773961 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-23T12:26:42.436+03:30  INFO 1773961 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-23T12:26:42.544+03:30  WARN 1773961 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-23T12:27:31.579+03:30  INFO 1773961 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-23T12:27:31.582+03:30  INFO 1773961 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-23T12:27:31.594+03:30  INFO 1773961 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

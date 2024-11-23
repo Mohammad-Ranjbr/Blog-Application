@@ -18,6 +18,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class PostController {
     }
 
     //POST Mapping-Create Post
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/user/{userId}/category/{categoryId}")
     public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId){
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
@@ -99,6 +101,7 @@ public class PostController {
 
     //DELETE Mapping-Delete Post
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long postId){
         logger.info("Received request to delete post with ID : {}", postId);
         postService.deletePost(postId);
