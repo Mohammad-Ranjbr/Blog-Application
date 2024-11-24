@@ -92,7 +92,7 @@ public class User {
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private List<Role> roles;
+    private Set<Role> roles;
 
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.
