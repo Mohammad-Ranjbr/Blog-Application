@@ -7,15 +7,19 @@ import com.blog_application.dto.user.UserBasicInfoDto;
 import com.blog_application.dto.user.UserCreateDto;
 import com.blog_application.dto.user.UserGetDto;
 import com.blog_application.dto.user.UserUpdateDto;
+import com.blog_application.exception.ResourceAlreadyExistsException;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.post.Post;
+import com.blog_application.model.role.Role;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.post.PostRepository;
+import com.blog_application.repository.role.RoleRepository;
 import com.blog_application.repository.user.UserRepository;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
+import com.blog_application.util.utils.TimeUtils;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,33 +29,38 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
 
+    private final TimeUtils timeUtils;
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final PostService postService;
+    private final RoleRepository roleRepository;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
+    private final PasswordEncoder passwordEncoder;
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper
-            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository){
+            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository
+            , RoleRepository roleRepository,PasswordEncoder passwordEncoder, TimeUtils timeUtils){
+        this.timeUtils = timeUtils;
         this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.postService = postService;
+        this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.postRepository = postRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -75,12 +84,25 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserGetDto createUser(UserCreateDto userCreateDto) {
-        logger.info("Creating user with email : {}",userCreateDto.getEmail());
-        User user = userMapper.toEntity(userCreateDto);
-        User savedUser = userRepository.save(user);
-        System.out.println(savedUser);
-        logger.info("User created successfully with email : {}",savedUser.getEmail());
-        return userMapper.toUserGetDto(savedUser);
+        logger.info("Creating user with username : {}",userCreateDto.getUserName());
+        if(userRepository.existsByUserName(userCreateDto.getUserName())){
+            logger.warn("User with Username {} already exists, Register user operation not performed", userCreateDto.getUserName());
+            throw  new ResourceAlreadyExistsException("User","Username",String.valueOf(userCreateDto.getUserName()),"Register User operation not performed");
+        } else if (userRepository.existsByEmail(userCreateDto.getEmail())) {
+            logger.warn("User with Email {} already exists, Register user operation not performed", userCreateDto.getEmail());
+            throw  new ResourceAlreadyExistsException("User","Email",String.valueOf(userCreateDto.getEmail()),"Register User operation not performed");
+        } else {
+            User user = userMapper.toEntity(userCreateDto);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            Set<Role> roles =  new HashSet<>();
+            Role userRole = roleRepository.findByName("ROLE_USER").get();
+            roles.add(userRole);
+            user.setRoles(roles);
+            User savedUser = userRepository.save(user);
+            System.out.println(savedUser);
+            logger.info("User created successfully with email : {}",savedUser.getEmail());
+            return userMapper.toUserGetDto(savedUser);
+        }
     }
 
     @Override

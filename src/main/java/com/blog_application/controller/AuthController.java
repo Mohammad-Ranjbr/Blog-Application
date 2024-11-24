@@ -1,6 +1,6 @@
 package com.blog_application.controller;
 
-import com.blog_application.dto.login.LoginDto;
+import com.blog_application.dto.auth.LoginDto;
 import com.blog_application.service.auth.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

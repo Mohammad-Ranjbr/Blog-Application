@@ -44,6 +44,18 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(ResourceAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> resourceNotfoundExceptionHandler(ResourceAlreadyExistsException resourceAlreadyExistsException){
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.BAD_REQUEST.value(),
+                resourceAlreadyExistsException.getMessage(),
+                resourceAlreadyExistsException.getAction(),
+                false,
+                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
+        );
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String,String>> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException){
         Map<String,String> errors = new HashMap<>();

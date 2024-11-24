@@ -35,7 +35,7 @@ public class UserController {
     }
 
     //POST Mapping-Create User
-    @PostMapping("/")
+    @PostMapping("/register")
     public ResponseEntity<UserGetDto> createUser(@Valid @RequestBody UserCreateDto userCreateDto){
         logger.info("Received request to create user with email : {}", userCreateDto.getEmail());
         UserGetDto createdUser = this.userService.createUser(userCreateDto);

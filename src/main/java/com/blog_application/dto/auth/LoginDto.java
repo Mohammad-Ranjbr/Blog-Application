@@ -1,4 +1,4 @@
-package com.blog_application.dto.login;
+package com.blog_application.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
