@@ -10,6 +10,7 @@ import com.blog_application.service.post.PostService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.responses.PaginatedResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +42,7 @@ public class PostController {
     //POST Mapping-Create Post
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/user/{userId}/category/{categoryId}")
+    @SecurityRequirement(name = "Bear Authentication")
     public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId){
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
         PostGetDto createdPost = postService.createPost(postCreateDto,userId,categoryId);
@@ -102,6 +104,7 @@ public class PostController {
     //DELETE Mapping-Delete Post
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @SecurityRequirement(name = "Bear Authentication")
     public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long postId){
         logger.info("Received request to delete post with ID : {}", postId);
         postService.deletePost(postId);
