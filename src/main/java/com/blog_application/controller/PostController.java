@@ -10,7 +10,9 @@ import com.blog_application.service.post.PostService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.responses.PaginatedResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@Tag(name = "Post Controller")
 @RequestMapping("/api/v1/posts")
 public class PostController {
 
@@ -43,6 +46,8 @@ public class PostController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/user/{userId}/category/{categoryId}")
     @SecurityRequirement(name = "Bear Authentication")
+    @Operation(summary = "Create Post Rest Api", description = "Create Post Rest Api is used save post into database")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201",description = "Http Status 201 CREATED")
     public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId){
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
         PostGetDto createdPost = postService.createPost(postCreateDto,userId,categoryId);
@@ -80,6 +85,8 @@ public class PostController {
 
     //GET Mapping-Get All Posts
     @GetMapping("/")
+    @Operation(summary = "Get All Posts Rest Api", description = "Get All Post Rest Api is used to fetch all the posts from the database")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<PaginatedResponse<PostGetDto>> getAllPosts(
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
@@ -94,6 +101,8 @@ public class PostController {
 
     //GET Mapping-Get Post By ID
     @GetMapping("/{id}")
+    @Operation(summary = "Get Post Rest Api", description = "Get Post By Id Rest Api is used to get single post from database")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<PostGetDto> git (@PathVariable("id") Long postId){
         logger.info("Received request to fetch post with ID : {}", postId);
         PostGetDto postDto = postService.getPostById(postId);
@@ -105,6 +114,8 @@ public class PostController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @SecurityRequirement(name = "Bear Authentication")
+    @Operation(summary = "Delete Post Rest Api", description = "Delete Post Rest Api is used to delete a particular post from the database")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long postId){
         logger.info("Received request to delete post with ID : {}", postId);
         postService.deletePost(postId);
@@ -114,6 +125,8 @@ public class PostController {
 
     //PUT Mapping-Update Post
     @PutMapping("/{id}")
+    @Operation(summary = "Update Post Rest Api", description = "Update Post Rest Api is used to update a particular post in the database")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<PostGetDto> updatePost(@Valid @RequestBody PostUpdateDto postUpdateDto, @PathVariable("id") Long postId){
         logger.info("Received request to update post with ID : {}", postId);
         PostGetDto updatedPost = postService.updatePost(postUpdateDto,postId);
