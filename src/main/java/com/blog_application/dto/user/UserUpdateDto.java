@@ -1,6 +1,7 @@
 package com.blog_application.dto.user;
 
 import com.blog_application.util.constants.ApplicationConstants;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -12,8 +13,10 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
+@Schema(description = "UserUpdateDto Model Information")
 public class UserUpdateDto {
 
+    @Schema(description = "Blog user name")
     @NotBlank(message = "Name is mandatory")
     @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
     private String name;
