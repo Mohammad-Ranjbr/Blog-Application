@@ -40,7 +40,10 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers(HttpMethod.GET,"/api/**").permitAll()
-                                .requestMatchers("/api/v1/auth/**","/api/v1/users/register").permitAll()
+                                .requestMatchers("/api/v1/auth/**").permitAll()
+                                .requestMatchers("/api/v1/users/register").permitAll()
+                                .requestMatchers("/swagger-ui/**").permitAll()
+                                .requestMatchers("/v3/api-docs/**").permitAll()
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .exceptionHandling(ehc -> ehc.authenticationEntryPoint(jwtAuthenticationEntryPoint))
