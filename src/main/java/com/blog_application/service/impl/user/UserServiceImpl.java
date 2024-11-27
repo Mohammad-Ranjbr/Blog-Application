@@ -26,6 +26,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -40,16 +41,18 @@ public class UserServiceImpl implements UserService {
     private final PostService postService;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
+    private final PasswordEncoder passwordEncoder;
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper
-            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository){
+            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository,PasswordEncoder passwordEncoder){
         this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.postService = postService;
         this.userRepository = userRepository;
         this.postRepository = postRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -80,13 +83,17 @@ public class UserServiceImpl implements UserService {
         } else if (userRepository.existsByEmail(userCreateDto.getEmail())) {
             logger.warn("User with Email {} already exists, Register user operation not performed", userCreateDto.getEmail());
             throw  new ResourceAlreadyExistsException("User","Email",String.valueOf(userCreateDto.getEmail()),"Register User operation not performed");
-        } else {
-            User user = userMapper.toEntity(userCreateDto);
-            User savedUser = userRepository.save(user);
+        }
+
+        String hashPassword = passwordEncoder.encode(userCreateDto.getPassword());
+        User user = userMapper.toEntity(userCreateDto);
+        user.setPassword(hashPassword);
+        User savedUser = userRepository.save(user);
+        if(savedUser.getId() != null){
             System.out.println(savedUser);
             logger.info("User created successfully with email : {}",savedUser.getEmail());
-            return userMapper.toUserGetDto(savedUser);
         }
+        return userMapper.toUserGetDto(savedUser);
     }
 
     @Override

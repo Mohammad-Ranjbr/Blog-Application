@@ -39,4 +39,6 @@ public class UserUpdateDto {
     @Pattern(regexp = ApplicationConstants.PHONE_PATTERN_REGEX, message = "Phone number must be 11 digits and start with 09")
     private String phoneNumber;
 
+    private String role = "Admin";
+
 }

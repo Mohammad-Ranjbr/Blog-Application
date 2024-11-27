@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -15,7 +16,8 @@ public class BlogSecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.authorizeHttpRequests((requests) -> requests.
+        http.csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests((requests) -> requests.
                 requestMatchers(HttpMethod.GET, "api/v1/categories/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "api/v1/categories/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/categories/**").authenticated()
@@ -37,7 +39,9 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "api/v1/tags/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/tags/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "api/v1/users/**").permitAll()
-                .requestMatchers(HttpMethod.POST,"api/v1/users/**").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/v1/users/register").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/v1/users/{user_id}/save_post/{post_id}").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/v1/users/{user_id}/follow/{follow_user_id}").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/users/**").permitAll()
