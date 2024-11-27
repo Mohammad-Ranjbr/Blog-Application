@@ -19,6 +19,11 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "api/v1/categories/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/categories/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/categories/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "api/v1/comments/**").permitAll()
+                .requestMatchers(HttpMethod.POST,"api/v1/comments/**").authenticated()
+                .requestMatchers(HttpMethod.PUT, "api/v1/comments/**").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "api/v1/comments/**").authenticated()
+                .requestMatchers(HttpMethod.OPTIONS, "api/v1/comments/**").permitAll()
                 .requestMatchers("api/v1/notices/","api/v1/contacts/","/error").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());
