@@ -18,6 +18,6 @@ public class BlogApplication implements CommandLineRunner {
 	public void run(String... args) {
 		LocalDateTime now = LocalDateTime.now();
 		System.out.println("Current DateTIme : " + now);
-		System.out.println("Password : " + new BCryptPasswordEncoder().encode("123456Qq!"));
+		System.out.println("Password : " + new BCryptPasswordEncoder().encode("654321"));
 	}
 }
