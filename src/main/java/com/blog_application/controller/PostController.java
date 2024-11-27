@@ -103,7 +103,7 @@ public class PostController {
     @GetMapping("/{id}")
     @Operation(summary = "Get Post Rest Api", description = "Get Post By Id Rest Api is used to get single post from database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
-    public ResponseEntity<PostGetDto> git (@PathVariable("id") Long postId){
+    public ResponseEntity<PostGetDto> getPostById(@PathVariable("id") Long postId){
         logger.info("Received request to fetch post with ID : {}", postId);
         PostGetDto postDto = postService.getPostById(postId);
         logger.info("Returning response for post with ID : {}", postId);
