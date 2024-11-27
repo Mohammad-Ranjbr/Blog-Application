@@ -4,7 +4,6 @@ import com.blog_application.model.comment.Comment;
 import com.blog_application.model.comment.CommentReaction;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.post.PostReaction;
-import com.blog_application.model.role.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -87,12 +86,6 @@ public class User {
     private int followingCount = 0;
 
     private boolean isActive = true;
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Set<Role> roles;
 
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.
