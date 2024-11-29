@@ -1,5 +1,6 @@
 package com.blog_application.config.security;
 
+import com.blog_application.exception.BlogAccessDeniedHandler;
 import com.blog_application.exception.BlogBasicAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,8 @@ public class BlogSecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.requiresChannel(crm -> crm.anyRequest().requiresInsecure()) // Http Only
+        http.sessionManagement(smc -> smc.invalidSessionUrl("/invalidSession"))
+                .requiresChannel(crm -> crm.anyRequest().requiresInsecure()) // Http Only
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests.
                 requestMatchers(HttpMethod.GET, "api/v1/categories/**").permitAll()
@@ -51,6 +53,7 @@ public class BlogSecurityConfig {
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());
         http.httpBasic(hbc -> hbc.authenticationEntryPoint(new BlogBasicAuthenticationEntryPoint()));
+        http.exceptionHandling(ehc -> ehc.accessDeniedHandler(new BlogAccessDeniedHandler()));
         return http.build();
     }
 
