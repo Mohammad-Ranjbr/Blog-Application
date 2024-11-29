@@ -1,5 +1,6 @@
 package com.blog_application.config.security;
 
+import com.blog_application.exception.BlogBasicAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -49,7 +50,7 @@ public class BlogSecurityConfig {
                 .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());
-        http.httpBasic(withDefaults());
+        http.httpBasic(hbc -> hbc.authenticationEntryPoint(new BlogBasicAuthenticationEntryPoint()));
         return http.build();
     }
 
