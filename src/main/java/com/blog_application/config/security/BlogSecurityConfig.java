@@ -16,7 +16,8 @@ public class BlogSecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.csrf(AbstractHttpConfigurer::disable)
+        http.requiresChannel(crm -> crm.anyRequest().requiresInsecure()) // Http Only
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests.
                 requestMatchers(HttpMethod.GET, "api/v1/categories/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "api/v1/categories/**").authenticated()
