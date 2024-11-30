@@ -18,7 +18,9 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "contact_name")
     private String contactName;
+    @Column(name = "contact_email")
     private String contactEmail;
     private String subject;
     private String message;
