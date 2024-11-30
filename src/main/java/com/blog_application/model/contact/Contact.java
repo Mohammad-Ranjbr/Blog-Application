@@ -16,8 +16,7 @@ import java.time.LocalDateTime;
 public class Contact {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     @Column(name = "contact_name")
     private String contactName;
     @Column(name = "contact_email")

@@ -49,7 +49,7 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/users/**").permitAll()
-                .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**","/invalidSession").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());
         http.httpBasic(hbc -> hbc.authenticationEntryPoint(new BlogBasicAuthenticationEntryPoint()));
