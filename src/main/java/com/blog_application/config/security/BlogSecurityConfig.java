@@ -47,6 +47,7 @@ public class BlogSecurityConfig {
                 .requiresChannel(crm -> crm.anyRequest().requiresInsecure()) // Http Only
                 //.csrf(AbstractHttpConfigurer::disable)
                 .csrf(csrfConfig -> csrfConfig.csrfTokenRequestHandler(csrfTokenRequestAttributeHandler)
+                        .ignoringRequestMatchers("api/v1/contacts/", "/api/v1/users/register")
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests.
