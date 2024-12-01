@@ -45,11 +45,11 @@ public class BlogSecurityConfig {
                 }))
                 .sessionManagement(sessionConfig -> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .requiresChannel(crm -> crm.anyRequest().requiresInsecure()) // Http Only
-                //.csrf(AbstractHttpConfigurer::disable)
-                .csrf(csrfConfig -> csrfConfig.csrfTokenRequestHandler(csrfTokenRequestAttributeHandler)
-                        .ignoringRequestMatchers("api/v1/contacts/", "/api/v1/users/register")
-                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
-                .addFilterAfter(new CsrfTokenFilter(), BasicAuthenticationFilter.class)
+                .csrf(AbstractHttpConfigurer::disable)
+//                .csrf(csrfConfig -> csrfConfig.csrfTokenRequestHandler(csrfTokenRequestAttributeHandler)
+//                        .ignoringRequestMatchers("api/v1/contacts/", "/api/v1/users/register")
+//                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
+//                .addFilterAfter(new CsrfTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests.
                 requestMatchers(HttpMethod.GET, "api/v1/categories/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "api/v1/categories/**").authenticated()
