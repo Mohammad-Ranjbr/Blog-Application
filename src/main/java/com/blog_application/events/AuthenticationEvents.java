@@ -16,7 +16,7 @@ public class AuthenticationEvents {
     }
 
     @EventListener
-    public void onFaliure(AbstractAuthenticationFailureEvent failureEvent){
+    public void onFailure(AbstractAuthenticationFailureEvent failureEvent){
         log.warn("Login failed for the user : {} due to : {}", failureEvent.getAuthentication().getName(),
                 failureEvent.getException().getMessage());
     }
