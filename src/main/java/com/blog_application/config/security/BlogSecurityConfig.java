@@ -47,8 +47,8 @@ public class BlogSecurityConfig {
                         return corsConfiguration;
                     }
                 }))
-                .addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
-                .addFilterBefore(new JwtTokenValidatorFilter(), BasicAuthenticationFilter.class)
+               //.addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
+                //.addFilterBefore(new JwtTokenValidatorFilter(), BasicAuthenticationFilter.class)
                 .sessionManagement(sessionConfig -> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .requiresChannel(crm -> crm.anyRequest().requiresInsecure()) // Http Only
                 .csrf(AbstractHttpConfigurer::disable)
@@ -58,7 +58,7 @@ public class BlogSecurityConfig {
 //                .addFilterAfter(new CsrfTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests.
                 requestMatchers(HttpMethod.GET, "api/v1/categories/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "api/v1/categories/").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "api/v1/categories/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "api/v1/categories/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "api/v1/categories/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/categories/**").permitAll()
