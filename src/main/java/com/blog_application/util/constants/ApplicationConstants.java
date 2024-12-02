@@ -23,4 +23,8 @@ public class ApplicationConstants {
     public static final String HEADER_ALLOW = "Allow";
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
+    public static final String JWT_SECRET_KEY = "JWT_SECRET";
+    public static final String JWT_SECRET_DEFAULT_VALUE = "jxgEQeXHuPq8VdbyYFNkANdudQ53yUn4";
+    public static final String JWT_HEADER = "Authorization";
+
 }

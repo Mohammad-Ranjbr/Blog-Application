@@ -3489,3 +3489,425 @@ org.springframework.security.access.AccessDeniedException: Access Denied
 2024-12-02T12:43:36.351+03:30  INFO 1355563 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-02T12:43:36.354+03:30  INFO 1355563 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-02T12:43:36.372+03:30  INFO 1355563 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-02T13:23:20.276+03:30  INFO 1383911 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 1383911 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-02T13:23:20.279+03:30  INFO 1383911 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-02T13:23:20.338+03:30  INFO 1383911 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-02T13:23:20.339+03:30  INFO 1383911 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-02T13:23:21.362+03:30  INFO 1383911 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02T13:23:21.444+03:30  INFO 1383911 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 10 JPA repository interfaces.
+2024-12-02T13:23:22.051+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-02T13:23:22.061+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-02T13:23:22.061+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-02T13:23:22.096+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-02T13:23:22.096+03:30  INFO 1383911 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1757 ms
+2024-12-02T13:23:22.279+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02T13:23:22.370+03:30  INFO 1383911 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-02T13:23:22.431+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-02T13:23:23.123+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02T13:23:23.152+03:30  INFO 1383911 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-02T13:23:23.515+03:30  INFO 1383911 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3e23e906
+2024-12-02T13:23:23.516+03:30  INFO 1383911 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-02T13:23:23.553+03:30  WARN 1383911 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-02T13:23:24.583+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-02T13:23:24.742+03:30  INFO 1383911 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T13:23:25.454+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-02T13:23:25.895+03:30  WARN 1383911 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-02T13:23:25.921+03:30  INFO 1383911 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-02T13:23:25.922+03:30  WARN 1383911 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-02T13:23:26.219+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-02T13:23:26.224+03:30 DEBUG 1383911 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ForceEagerSessionCreationFilter, ForceEagerSessionCreationFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextPersistenceFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, DefaultLoginPageGeneratingFilter, DefaultLogoutPageGeneratingFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-02T13:23:26.482+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-02T13:23:26.522+03:30  INFO 1383911 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-02T13:23:26.531+03:30  INFO 1383911 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 6.694 seconds (process running for 7.657)
+2024-12-02T13:23:30.605+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-02T13:23:30.605+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-02T13:23:30.607+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-02T13:23:30.618+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/categories/
+2024-12-02T13:23:30.622+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.s.ForceEagerSessionCreationFilter : Created session eagerly
+2024-12-02T13:23:30.622+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.s.ForceEagerSessionCreationFilter : Created session eagerly
+2024-12-02T13:23:30.623+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [POST /api/v1/categories/]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-02T13:23:30.624+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Created session 7D1F9C32E4A6E6DA99E941885DDF4CF6 eagerly
+2024-12-02T13:23:30.626+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2024-12-02T13:23:30.823+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.events.AuthenticationEvents          : Login successful for the user : hossein@gmail.com
+2024-12-02T13:23:30.823+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=hossein@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=7D1F9C32E4A6E6DA99E941885DDF4CF6], Granted Authorities=[ROLE_ADMIN]]
+2024-12-02T13:23:30.826+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=hossein@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=7D1F9C32E4A6E6DA99E941885DDF4CF6], Granted Authorities=[ROLE_ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@41a79aa5]
+2024-12-02T13:23:30.827+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/categories/
+2024-12-02T13:23:30.950+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.CategoryController        : Received request to create category with title : Health and Wellness
+2024-12-02T13:23:30.953+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.s.impl.category.CategoryServiceImpl  : Creating category with title : Health and Wellness
+2024-12-02T13:23:30.988+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.s.impl.category.CategoryServiceImpl  : Category created successfully with title : Health and Wellness
+2024-12-02T13:23:30.997+03:30  INFO 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.CategoryController        : Returning response for category creation with title : Health and Wellness
+2024-12-02T13:23:31.026+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=hossein@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=7D1F9C32E4A6E6DA99E941885DDF4CF6], Granted Authorities=[ROLE_ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@41a79aa5]
+2024-12-02T13:23:31.030+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=hossein@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=7D1F9C32E4A6E6DA99E941885DDF4CF6], Granted Authorities=[ROLE_ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@41a79aa5]
+2024-12-02T13:23:31.031+03:30 DEBUG 1383911 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2024-12-02T13:24:24.062+03:30  INFO 1383911 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T13:24:24.065+03:30  INFO 1383911 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-02T13:24:24.076+03:30  INFO 1383911 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-02T13:24:27.329+03:30  INFO 1384866 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 1384866 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-02T13:24:27.331+03:30  INFO 1384866 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-02T13:24:27.365+03:30  INFO 1384866 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-02T13:24:27.365+03:30  INFO 1384866 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-02T13:24:27.992+03:30  INFO 1384866 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02T13:24:28.050+03:30  INFO 1384866 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 10 JPA repository interfaces.
+2024-12-02T13:24:28.427+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-02T13:24:28.435+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-02T13:24:28.435+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-02T13:24:28.462+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-02T13:24:28.462+03:30  INFO 1384866 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1097 ms
+2024-12-02T13:24:28.568+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02T13:24:28.602+03:30  INFO 1384866 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-02T13:24:28.623+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-02T13:24:28.803+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02T13:24:28.817+03:30  INFO 1384866 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-02T13:24:28.977+03:30  INFO 1384866 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1febe549
+2024-12-02T13:24:28.978+03:30  INFO 1384866 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-02T13:24:28.996+03:30  WARN 1384866 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-02T13:24:29.766+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-02T13:24:29.892+03:30  INFO 1384866 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T13:24:30.332+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-02T13:24:30.716+03:30  WARN 1384866 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-02T13:24:30.730+03:30 TRACE 1384866 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@2cb13aba}
+2024-12-02T13:24:30.731+03:30  INFO 1384866 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-02T13:24:30.731+03:30  WARN 1384866 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-02T13:24:30.923+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-02T13:24:30.928+03:30 DEBUG 1384866 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ForceEagerSessionCreationFilter, ForceEagerSessionCreationFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextPersistenceFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, DefaultLoginPageGeneratingFilter, DefaultLogoutPageGeneratingFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-02T13:24:30.946+03:30  WARN 1384866 --- [blog-application] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2024-12-02T13:24:31.135+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-02T13:24:31.173+03:30  INFO 1384866 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-02T13:24:31.186+03:30  INFO 1384866 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 4.18 seconds (process running for 4.753)
+2024-12-02T13:24:41.565+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-02T13:24:41.566+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-02T13:24:41.567+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-02T13:24:41.591+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/v1/categories/':
+
+org.apache.catalina.connector.RequestFacade@4026e89a
+
+servletPath:/api/v1/categories/
+pathInfo:null
+headers: 
+content-type: application/json
+authorization: Basic aG9zc2VpbkBnbWFpbC5jb206MTIzNDU2UXEhMQ==
+user-agent: PostmanRuntime/7.37.3
+accept: */*
+cache-control: no-cache
+postman-token: 51e0e5d8-71ce-436e-9a16-fd885f8e43e5
+host: localhost:8082
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 312
+cookie: JSESSIONID=7D1F9C32E4A6E6DA99E941885DDF4CF6
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  ForceEagerSessionCreationFilter
+  ForceEagerSessionCreationFilter
+  ChannelProcessingFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  CorsFilter
+  LogoutFilter
+  UsernamePasswordAuthenticationFilter
+  DefaultLoginPageGeneratingFilter
+  DefaultLogoutPageGeneratingFilter
+  BasicAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+2024-12-02T13:24:41.593+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@1167ec3, org.springframework.security.web.session.ForceEagerSessionCreationFilter@3900e741, org.springframework.security.web.session.ForceEagerSessionCreationFilter@1aa11e34, org.springframework.security.web.access.channel.ChannelProcessingFilter@18bcc1b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12be5124, org.springframework.security.web.context.SecurityContextPersistenceFilter@19dc36d9, org.springframework.security.web.header.HeaderWriterFilter@14741a5, org.springframework.web.filter.CorsFilter@178c8249, org.springframework.security.web.authentication.logout.LogoutFilter@647a2a03, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@345483a0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@e99b588, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@25de061d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1e1867bb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51d0d058, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b80a8bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b5ac708, org.springframework.security.web.session.SessionManagementFilter@662420d2, org.springframework.security.web.access.ExceptionTranslationFilter@3c4e0f48, org.springframework.security.web.access.intercept.AuthorizationFilter@397c0b67]] (1/1)
+2024-12-02T13:24:41.593+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/categories/
+2024-12-02T13:24:41.594+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/19)
+2024-12-02T13:24:41.594+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ForceEagerSessionCreationFilter (2/19)
+2024-12-02T13:24:41.595+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ForceEagerSessionCreationFilter (3/19)
+2024-12-02T13:24:41.595+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (4/19)
+2024-12-02T13:24:41.595+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [POST /api/v1/categories/]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-02T13:24:41.595+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (5/19)
+2024-12-02T13:24:41.597+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (6/19)
+2024-12-02T13:24:41.597+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=hossein@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=7D1F9C32E4A6E6DA99E941885DDF4CF6], Granted Authorities=[ROLE_ADMIN]]] from SPRING_SECURITY_CONTEXT
+2024-12-02T13:24:41.598+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-02T13:24:41.598+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=hossein@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=7D1F9C32E4A6E6DA99E941885DDF4CF6], Granted Authorities=[ROLE_ADMIN]]]
+2024-12-02T13:24:41.598+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (7/19)
+2024-12-02T13:24:41.599+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (8/19)
+2024-12-02T13:24:41.599+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (9/19)
+2024-12-02T13:24:41.600+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-02T13:24:41.600+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (10/19)
+2024-12-02T13:24:41.600+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-02T13:24:41.600+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking DefaultLoginPageGeneratingFilter (11/19)
+2024-12-02T13:24:41.600+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking DefaultLogoutPageGeneratingFilter (12/19)
+2024-12-02T13:24:41.600+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] .w.a.u.DefaultLogoutPageGeneratingFilter : Did not render default logout page since request did not match [Ant [pattern='/logout', GET]]
+2024-12-02T13:24:41.600+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (13/19)
+2024-12-02T13:24:41.601+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.www.BasicAuthenticationFilter  : Found username 'hossein@gmail.com' in Basic Authorization header
+2024-12-02T13:24:41.601+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (14/19)
+2024-12-02T13:24:41.601+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.s.HttpSessionRequestCache        : matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+2024-12-02T13:24:41.601+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (15/19)
+2024-12-02T13:24:41.602+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (16/19)
+2024-12-02T13:24:41.602+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (17/19)
+2024-12-02T13:24:41.602+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (18/19)
+2024-12-02T13:24:41.602+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (19/19)
+2024-12-02T13:24:41.603+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/v1/categories/
+2024-12-02T13:24:41.603+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/v1/categories/ using AuthorityAuthorizationManager[authorities=[ROLE_ADMIN]]
+2024-12-02T13:24:41.603+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=hossein@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=7D1F9C32E4A6E6DA99E941885DDF4CF6], Granted Authorities=[ROLE_ADMIN]]
+2024-12-02T13:24:41.604+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/categories/
+2024-12-02T13:24:41.714+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.CategoryController        : Received request to create category with title : Health and Wellness
+2024-12-02T13:24:41.719+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.s.impl.category.CategoryServiceImpl  : Creating category with title : Health and Wellness
+2024-12-02T13:24:41.781+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.s.impl.category.CategoryServiceImpl  : Category created successfully with title : Health and Wellness
+2024-12-02T13:24:41.789+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.CategoryController        : Returning response for category creation with title : Health and Wellness
+2024-12-02T13:24:41.807+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-02T13:24:41.809+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2024-12-02T13:25:10.527+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/v1/categories/':
+
+org.apache.catalina.connector.RequestFacade@45e9a492
+
+servletPath:/api/v1/categories/
+pathInfo:null
+headers: 
+content-type: application/json
+authorization: Basic aG9zc2VpbkBnbWFpbC5jb206MTIzNDU2UXEhMQ==
+user-agent: PostmanRuntime/7.37.3
+accept: */*
+cache-control: no-cache
+postman-token: baf5f517-ffe7-4a46-a413-53baa71177b7
+host: localhost:8082
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 312
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  ForceEagerSessionCreationFilter
+  ForceEagerSessionCreationFilter
+  ChannelProcessingFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  CorsFilter
+  LogoutFilter
+  UsernamePasswordAuthenticationFilter
+  DefaultLoginPageGeneratingFilter
+  DefaultLogoutPageGeneratingFilter
+  BasicAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+2024-12-02T13:25:10.528+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@1167ec3, org.springframework.security.web.session.ForceEagerSessionCreationFilter@3900e741, org.springframework.security.web.session.ForceEagerSessionCreationFilter@1aa11e34, org.springframework.security.web.access.channel.ChannelProcessingFilter@18bcc1b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12be5124, org.springframework.security.web.context.SecurityContextPersistenceFilter@19dc36d9, org.springframework.security.web.header.HeaderWriterFilter@14741a5, org.springframework.web.filter.CorsFilter@178c8249, org.springframework.security.web.authentication.logout.LogoutFilter@647a2a03, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@345483a0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@e99b588, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@25de061d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1e1867bb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51d0d058, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b80a8bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b5ac708, org.springframework.security.web.session.SessionManagementFilter@662420d2, org.springframework.security.web.access.ExceptionTranslationFilter@3c4e0f48, org.springframework.security.web.access.intercept.AuthorizationFilter@397c0b67]] (1/1)
+2024-12-02T13:25:10.528+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/categories/
+2024-12-02T13:25:10.528+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/19)
+2024-12-02T13:25:10.528+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ForceEagerSessionCreationFilter (2/19)
+2024-12-02T13:25:10.531+03:30  INFO 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] Spring Security Debugger                 : 
+
+************************************************************
+
+New HTTP session created: 2D58F620DF4BEE5F140A70EBD72D0E42
+
+Call stack: 
+
+	at org.springframework.security.web.debug.Logger.info(Logger.java:46)
+	at org.springframework.security.web.debug.DebugFilter$DebugRequestWrapper.getSession(DebugFilter.java:171)
+	at jakarta.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:229)
+	at org.springframework.security.web.session.ForceEagerSessionCreationFilter.doFilterInternal(ForceEagerSessionCreationFilter.java:41)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.security.web.debug.DebugFilter.invokeWithWrappedRequest(DebugFilter.java:90)
+	at org.springframework.security.web.debug.DebugFilter.doFilter(DebugFilter.java:78)
+	at org.springframework.security.web.debug.DebugFilter.doFilter(DebugFilter.java:67)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+
+************************************************************
+
+
+2024-12-02T13:25:10.532+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.s.ForceEagerSessionCreationFilter : Created session eagerly
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ForceEagerSessionCreationFilter (3/19)
+2024-12-02T13:25:10.532+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.s.ForceEagerSessionCreationFilter : Created session eagerly
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (4/19)
+2024-12-02T13:25:10.532+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [POST /api/v1/categories/]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (5/19)
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (6/19)
+2024-12-02T13:25:10.532+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Created session 2D58F620DF4BEE5F140A70EBD72D0E42 eagerly
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 2D58F620DF4BEE5F140A70EBD72D0E42 using the SPRING_SECURITY_CONTEXT session attribute
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-02T13:25:10.532+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (7/19)
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (8/19)
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (9/19)
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (10/19)
+2024-12-02T13:25:10.532+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-02T13:25:10.533+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking DefaultLoginPageGeneratingFilter (11/19)
+2024-12-02T13:25:10.533+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking DefaultLogoutPageGeneratingFilter (12/19)
+2024-12-02T13:25:10.533+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .w.a.u.DefaultLogoutPageGeneratingFilter : Did not render default logout page since request did not match [Ant [pattern='/logout', GET]]
+2024-12-02T13:25:10.533+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (13/19)
+2024-12-02T13:25:10.533+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.www.BasicAuthenticationFilter  : Found username 'hossein@gmail.com' in Basic Authorization header
+2024-12-02T13:25:10.533+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.authentication.ProviderManager     : Authenticating request with BlogUsernamePasswordAuthenticationProvider (1/1)
+2024-12-02T13:25:10.683+03:30  WARN 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.events.AuthenticationEvents          : Login failed for the user : hossein@gmail.com due to : Invalid Credential
+2024-12-02T13:25:10.683+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.www.BasicAuthenticationFilter  : Failed to process authentication request
+
+org.springframework.security.authentication.BadCredentialsException: Invalid Credential
+	at com.blog_application.config.security.BlogUsernamePasswordAuthenticationProvider.authenticate(BlogUsernamePasswordAuthenticationProvider.java:29) ~[classes/:na]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182) ~[spring-security-core-6.3.3.jar:6.3.3]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:201) ~[spring-security-core-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:187) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:189) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:175) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:117) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.channel.ChannelProcessingFilter.doFilter(ChannelProcessingFilter.java:133) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.ForceEagerSessionCreationFilter.doFilterInternal(ForceEagerSessionCreationFilter.java:45) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.ForceEagerSessionCreationFilter.doFilterInternal(ForceEagerSessionCreationFilter.java:45) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.debug.DebugFilter.invokeWithWrappedRequest(DebugFilter.java:90) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.debug.DebugFilter.doFilter(DebugFilter.java:78) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.debug.DebugFilter.doFilter(DebugFilter.java:67) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-12-02T13:25:10.688+03:30 TRACE 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-02T13:25:10.689+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2024-12-02T13:25:10.689+03:30 DEBUG 1384866 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2024-12-02T13:26:22.460+03:30  INFO 1384866 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T13:26:22.463+03:30  INFO 1384866 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-02T13:26:22.471+03:30  INFO 1384866 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
