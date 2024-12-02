@@ -52,9 +52,9 @@ public class BlogSecurityConfig {
 //                .addFilterAfter(new CsrfTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests.
                 requestMatchers(HttpMethod.GET, "api/v1/categories/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "api/v1/categories/**").authenticated()
-                .requestMatchers(HttpMethod.PUT, "api/v1/categories/**").authenticated()
-                .requestMatchers(HttpMethod.DELETE, "api/v1/categories/**").authenticated()
+                .requestMatchers(HttpMethod.POST, "api/v1/categories/").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "api/v1/categories/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "api/v1/categories/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/categories/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "api/v1/comments/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"api/v1/comments/**").authenticated()
