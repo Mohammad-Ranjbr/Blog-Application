@@ -46,7 +46,7 @@ public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
     // The filter path should be exactly the same endpoint used for user login (login).
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return !request.getServletPath().equals("/api/v1/users/get/{id}");
+        return !request.getServletPath().equals("/api/v1/auth/login");
     }
 
 }
