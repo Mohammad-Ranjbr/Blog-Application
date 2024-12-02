@@ -157,3 +157,6 @@
 2024-12-01T14:01:46.601+03:30  INFO 417966 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
 2024-12-01T14:01:46.607+03:30  INFO 417966 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 1.291 seconds (process running for 350.959)
 2024-12-01T14:01:46.689+03:30  INFO 417966 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-01T14:08:32.172+03:30  INFO 417966 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-01T14:08:32.173+03:30  INFO 417966 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-12-01T14:08:32.181+03:30  INFO 417966 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.

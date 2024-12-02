@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,11 +25,13 @@ public class BlogUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByUserNameOrEmail(email,email).orElseThrow(() -> {
-            logger.warn("User with Username or Email {} not found, Get user operation not performed", email);
-            return new ResourceNotFoundException("User","Username or Email",String.valueOf(email),"Get User operation not performed");
-        });
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), null);
+        User user = userRepository.findByUserNameOrEmail(email,email).orElseThrow(() ->
+            new ResourceNotFoundException("User","Username or Email",String.valueOf(email),"Get User operation not performed in BlogUserDetailsService")
+        );
+        List<GrantedAuthority> authorities = (user.getRoles().stream()
+                .map((role) -> new SimpleGrantedAuthority(role.getName()))
+                .collect(Collectors.toList()));
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
     }
 
 }
