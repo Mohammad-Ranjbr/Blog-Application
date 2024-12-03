@@ -8,6 +8,7 @@ import com.blog_application.service.category.CategoryService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.responses.PaginatedResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,7 @@ public class CategoryController {
 
     //POST Mapping-Create Category
     @PostMapping("/")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<CategoryGetDto> createCategory(@Valid @RequestBody CategoryCreateDto categoryCreateDto){
         logger.info("Received request to create category with title : {}",categoryCreateDto.getTitle());
         CategoryGetDto createdCategory = categoryService.createCategory(categoryCreateDto);

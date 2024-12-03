@@ -5,6 +5,8 @@ import com.blog_application.exception.BlogBasicAuthenticationEntryPoint;
 import com.blog_application.filter.CsrfTokenFilter;
 import com.blog_application.filter.JwtTokenGeneratorFilter;
 import com.blog_application.filter.JwtTokenValidatorFilter;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +32,7 @@ import java.util.List;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
+@SecurityScheme(name = "Jwt Token Authentication", type = SecuritySchemeType.HTTP, bearerFormat = "JWT", scheme = "Authorization")
 public class BlogSecurityConfig {
 
     @Bean
