@@ -36,7 +36,8 @@ public class BlogSecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
         CsrfTokenRequestAttributeHandler csrfTokenRequestAttributeHandler = new CsrfTokenRequestAttributeHandler();
-        http.securityContext(contextConfig -> contextConfig.requireExplicitSave(false))
+        http
+                .sessionManagement(sessionConfig -> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .cors(scc -> scc.configurationSource(new CorsConfigurationSource() {
                     @Override
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
@@ -50,15 +51,14 @@ public class BlogSecurityConfig {
                         return corsConfiguration;
                     }
                 }))
-               .addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
-               .addFilterBefore(new JwtTokenValidatorFilter(), BasicAuthenticationFilter.class)
-                .sessionManagement(sessionConfig -> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .requiresChannel(crm -> crm.anyRequest().requiresInsecure()) // Http Only
                 .csrf(AbstractHttpConfigurer::disable)
 //                .csrf(csrfConfig -> csrfConfig.csrfTokenRequestHandler(csrfTokenRequestAttributeHandler)
-//                        .ignoringRequestMatchers("api/v1/contacts/", "/api/v1/users/register")
-//                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
+//                .ignoringRequestMatchers("api/v1/contacts/", "/api/v1/users/register")
+//                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
 //                .addFilterAfter(new CsrfTokenFilter(), BasicAuthenticationFilter.class)
+               .addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
+               .addFilterBefore(new JwtTokenValidatorFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests.
                 requestMatchers(HttpMethod.GET, "api/v1/categories/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "api/v1/categories/**").hasRole("ADMIN")
@@ -80,13 +80,14 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "api/v1/tags/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/tags/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/tags/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "api/v1/users/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "api/v1/users/{id}").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users/register").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users/{user_id}/save_post/{post_id}").authenticated()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users/{user_id}/follow/{follow_user_id}").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/users/**").permitAll()
+                .requestMatchers("/api/v1/auth/basic-authentication").authenticated()
                 .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**","/api/v1/auth/login").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());

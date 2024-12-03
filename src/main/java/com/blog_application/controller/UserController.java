@@ -44,7 +44,7 @@ public class UserController {
     }
 
     //GET Mapping-Get User By ID
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserGetDto> getUserById(@PathVariable("id") UUID userId){
         logger.info("Received request to get user with ID : {}",userId);
         UserGetDto userGetDto = userService.getUserById(userId);
