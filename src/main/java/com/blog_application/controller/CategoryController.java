@@ -52,6 +52,7 @@ public class CategoryController {
 
     //PUT Mapping-Update Category
     @PutMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<CategoryGetDto> updateCategory(@Valid @RequestBody CategoryUpdateDto categoryUpdateDto, @PathVariable("id") Long categoryId){
         logger.info("Received request to update category with ID : {}",categoryId);
         CategoryGetDto updatedCategory = categoryService.updateCategory(categoryUpdateDto,categoryId);
@@ -61,6 +62,7 @@ public class CategoryController {
 
     //DELETE Mapping-Delete Category
     @DeleteMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> deleteCategory(@PathVariable("id") Long categoryId){
         logger.info("Received request to delete category with ID : {}",categoryId);
         categoryService.deleteCategory(categoryId);

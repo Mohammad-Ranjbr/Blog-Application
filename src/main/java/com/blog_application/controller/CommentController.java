@@ -8,6 +8,7 @@ import com.blog_application.service.comment.CommentReactionService;
 import com.blog_application.service.comment.CommentService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,7 @@ public class CommentController {
 
     //POST Mapping-Create Comment
     @PostMapping("/post/{post_id}/user/{user_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<CommentGetDto> createComment(@Valid @RequestBody CommentCreateDto commentCreateDto, @PathVariable("post_id") Long postId,@PathVariable("user_id") UUID userId){
         logger.info("Received request to create comment with content: {}",commentCreateDto.getContent());
         CommentGetDto createdComment = commentService.createComment(commentCreateDto,postId,userId);
@@ -46,6 +48,7 @@ public class CommentController {
 
     //DELETE Mapping-Delete Comment
     @DeleteMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> deleteComment(@PathVariable("id") Long commentId){
         logger.info("Received request to delete comment with ID : {}",commentId);
         commentService.deleteComment(commentId);
@@ -82,6 +85,7 @@ public class CommentController {
 
     //PUT Mapping-Update comment
     @PutMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<CommentGetDto> updateComment(@Valid @RequestBody CommentUpdateDto commentUpdateDto, @PathVariable("id") Long commentId){
         logger.info("Received request to update comment with ID : {}",commentId);
         CommentGetDto updatedComment = commentService.updateComment(commentUpdateDto,commentId);
@@ -111,6 +115,7 @@ public class CommentController {
     }
 
     @PostMapping("/like-dislike")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<CommentGetDto> likeDislikeComment(@RequestBody CommentReactionRequestDto requestDto){
         logger.info("Received like/dislike request for User {} on Comment {}", requestDto.getUserId(), requestDto.getCommentId());
         CommentGetDto commentGetDto = commentReactionService.likeDislikeComment(requestDto);

@@ -9,6 +9,7 @@ import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.responses.PaginatedResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +55,7 @@ public class UserController {
 
     //PUT Mapping-Update User
     @PutMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<UserGetDto> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") UUID userId){
         logger.info("Received request to update user with ID : {}",userId);
         UserGetDto updatedUser = userService.updateUser(userUpdateDto,userId);
@@ -63,6 +65,7 @@ public class UserController {
 
     //DELETE Mapping-Delete User
     @DeleteMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable("id") UUID userId){
         logger.info("Received request to delete user with ID : {}",userId);
         userService.deleteUserById(userId);
@@ -130,6 +133,7 @@ public class UserController {
 
     //POST Mapping - Save Post By User
     @PostMapping("/{user_id}/save_post/{post_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> savePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId){
         logger.info("Received request to save post with ID: {} for user with ID: {}", postId, userId);
         userService.savePost(userId,postId);
@@ -139,6 +143,7 @@ public class UserController {
 
     //DELETE Mapping - UnSave Post By User
     @DeleteMapping("/{user_id}/unsave_post/{post_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> unSavePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId){
         logger.info("Received request to unsave post with ID: {} for user with ID: {}", postId, userId);
         userService.unSavePost(userId,postId);
@@ -157,6 +162,7 @@ public class UserController {
 
     //POST Mapping - Follow User
     @PostMapping("/{user_id}/follow/{follow_user_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> followUser(@PathVariable("user_id") UUID userId, @PathVariable("follow_user_id") UUID followUserId){
         logger.info("Received request for user with ID: {} to follow user with ID: {}", userId, followUserId);
         userService.followUser(userId,followUserId);
@@ -166,6 +172,7 @@ public class UserController {
 
     //DELETE Mapping - Unfollow User
     @DeleteMapping("/{user_id}/unfollow/{unfollow_user_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> unfollowUser(@PathVariable("user_id") UUID userId,@PathVariable("unfollow_user_id") UUID unfollowUserId){
         logger.info("Received request for user with ID: {} to unfollow user with ID: {}", userId, unfollowUserId);
         userService.unfollowUser(userId,unfollowUserId);

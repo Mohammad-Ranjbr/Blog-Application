@@ -8,6 +8,7 @@ import com.blog_application.service.tag.TagService;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.responses.PaginatedResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,7 @@ public class TagController {
 
     //POST Mapping-Create Tag
     @PostMapping("/")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<TagGetDto> createTag(@Valid @RequestBody TagCreateDto tagCreateDto){
         logger.info("Received request to create tag with name : {}",tagCreateDto.getName());
         TagGetDto createdTag = tagService.createTag(tagCreateDto);
@@ -59,6 +61,7 @@ public class TagController {
 
     //PUT Mapping-Update Tag
     @PutMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<TagGetDto> updateTag(@Valid @RequestBody TagUpdateDto tagUpdateDto, @PathVariable("id") Long tagId){
         logger.info("Received request to update tag with ID : {}",tagId);
         TagGetDto updatedTag = tagService.updateTag(tagUpdateDto,tagId);
@@ -68,6 +71,7 @@ public class TagController {
 
     //DELETE Mapping-Delete Tag
     @DeleteMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> deleteTag(@PathVariable("id") Long tagId){
         logger.info("Received request to delete tag with ID : {}",tagId);
         tagService.deleteTag(tagId);

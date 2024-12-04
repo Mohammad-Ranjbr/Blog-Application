@@ -43,9 +43,8 @@ public class PostController {
     }
 
     //POST Mapping-Create Post
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/user/{userId}/category/{categoryId}")
-    @SecurityRequirement(name = "Bear Authentication")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Create Post Rest Api", description = "Create Post Rest Api is used save post into database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201",description = "Http Status 201 CREATED")
     public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId){
@@ -113,7 +112,7 @@ public class PostController {
     //DELETE Mapping-Delete Post
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    @SecurityRequirement(name = "Bear Authentication")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Delete Post Rest Api", description = "Delete Post Rest Api is used to delete a particular post from the database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long postId){
@@ -125,6 +124,7 @@ public class PostController {
 
     //PUT Mapping-Update Post
     @PutMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Update Post Rest Api", description = "Update Post Rest Api is used to update a particular post in the database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<PostGetDto> updatePost(@Valid @RequestBody PostUpdateDto postUpdateDto, @PathVariable("id") Long postId){
@@ -184,6 +184,7 @@ public class PostController {
     }
 
     @PostMapping("/like")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PostGetDto> likePost(@RequestBody PostReactionRequestDto requestDto){
         logger.info("Received like request for User {} on Post {}", requestDto.getUserId(), requestDto.getPostId());
         PostGetDto postGetDto = postReactionService.likePost(requestDto);
@@ -196,6 +197,7 @@ public class PostController {
     }
 
     @PostMapping("/{post_id}/tags")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PostGetDto> addTagToPost(@PathVariable("post_id") Long postId,@RequestBody List<TagCreateDto> tagCreateDtos){
         logger.info("Received request to add tags to post with ID: {}", postId);
         PostGetDto postGetDto = postService.addTagToPost(postId,tagCreateDtos);
@@ -204,6 +206,7 @@ public class PostController {
     }
 
     @DeleteMapping("/{post_id}/tags")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> removeTagsFromPost(@PathVariable("post_id") Long postId,@RequestBody List<Long> tagIds){
         logger.info("Received request to remove tags from post with ID: {}", postId);
         postService.removeTagsFromPost(postId,tagIds);
