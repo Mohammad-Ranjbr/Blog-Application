@@ -2,7 +2,6 @@ package com.blog_application.config.security;
 
 import com.blog_application.exception.BlogAccessDeniedHandler;
 import com.blog_application.exception.BlogBasicAuthenticationEntryPoint;
-import com.blog_application.filter.CsrfTokenFilter;
 import com.blog_application.filter.JwtTokenGeneratorFilter;
 import com.blog_application.filter.JwtTokenValidatorFilter;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
