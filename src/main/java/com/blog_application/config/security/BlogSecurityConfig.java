@@ -1,7 +1,7 @@
 package com.blog_application.config.security;
 
 import com.blog_application.exception.BlogAccessDeniedHandler;
-import com.blog_application.exception.BlogBasicAuthenticationEntryPoint;
+import com.blog_application.exception.BlogAuthenticationEntryPoint;
 import com.blog_application.filter.JwtTokenGeneratorFilter;
 import com.blog_application.filter.JwtTokenValidatorFilter;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
@@ -21,7 +21,6 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -94,8 +93,11 @@ public class BlogSecurityConfig {
                 .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**","/api/v1/auth/login").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());
-        http.httpBasic(hbc -> hbc.authenticationEntryPoint(new BlogBasicAuthenticationEntryPoint()));
-        http.exceptionHandling(ehc -> ehc.accessDeniedHandler(new BlogAccessDeniedHandler()));
+        http.httpBasic(withDefaults());
+        http.exceptionHandling(ehc -> {
+            ehc.accessDeniedHandler(new BlogAccessDeniedHandler());
+            ehc.authenticationEntryPoint(new BlogAuthenticationEntryPoint());
+        });
         return http.build();
     }
 

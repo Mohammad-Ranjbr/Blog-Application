@@ -10,6 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -100,6 +101,18 @@ public class GlobalExceptionHandler {
                 HttpStatus.UNAUTHORIZED.value(),
                 accessDeniedException.getMessage(),
                 accessDeniedException.getMessage(),
+                false,
+                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
+        );
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ErrorResponse> badCredentialsExceptionHandler(BadCredentialsException badCredentialsException, HttpServletRequest request){
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.UNAUTHORIZED.value(),
+                badCredentialsException.getMessage(),
+                request.getRequestURI(),
                 false,
                 timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
         );

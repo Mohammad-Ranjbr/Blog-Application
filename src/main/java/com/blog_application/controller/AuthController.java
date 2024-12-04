@@ -33,7 +33,7 @@ public class AuthController {
         Authentication authentication = UsernamePasswordAuthenticationToken.unauthenticated(loginRequest.username(),
                 loginRequest.password());
         Authentication authenticationResponse = authenticationManager.authenticate(authentication);
-        if(null != authenticationResponse && authenticationResponse.isAuthenticated()) {
+        if(authenticationResponse != null && authenticationResponse.isAuthenticated()) {
             if (null != env) {
                 String secret = env.getProperty(ApplicationConstants.JWT_SECRET_KEY,
                         ApplicationConstants.JWT_SECRET_DEFAULT_VALUE);
