@@ -1,11 +1,14 @@
 package com.blog_application.filter;
 
+import com.blog_application.exception.JwtException;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.utils.TimeUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -50,21 +53,19 @@ public class JwtTokenValidatorFilter extends OncePerRequestFilter {
                         SecurityContextHolder.getContext().setAuthentication(authentication);
                     }
                 }
-            } catch (ExpiredJwtException expiredJwtException){
-                // A special mechanism is required to send handled errors from OncePerRequestFilter to generic handlers such as GlobalExceptionHandler,
-                // because exceptions that occur in the filter are not passed to controllers or handlers by Spring by default.
-                TimeUtils timeUtils = new TimeUtils();
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.setContentType("application/json;charset=UTF-8");
-                String jsonResponse = String.format(
-                        "{\"timestamp\": \"%s\", \"status\": %d, \"error\": \"%s\", \"message\": \"%s\", \"path\": \"%s\"}",
-                        timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT),
-                        HttpStatus.UNAUTHORIZED.value(),
-                        HttpStatus.UNAUTHORIZED.getReasonPhrase(),
-                        "Token expired",
-                        request.getRequestURI()
-                );
-                response.getWriter().write(jsonResponse);
+            }
+            // A special mechanism is required to send handled errors from OncePerRequestFilter to generic handlers such as GlobalExceptionHandler,
+            // because exceptions that occur in the filter are not passed to controllers or handlers by Spring by default.
+            catch (ExpiredJwtException expiredJwtException){
+                JwtException.handle(expiredJwtException, request, response, "Token expired");
+                return;
+            }
+            catch (MalformedJwtException  malformedJwtException){
+                JwtException.handle(malformedJwtException, request, response, "Malformed JWT token");
+                return;
+            }
+            catch (SignatureException signatureException){
+                JwtException.handle(signatureException, request, response, "Invalid JWT signature");
                 return;
             }
             catch (Exception exception){
