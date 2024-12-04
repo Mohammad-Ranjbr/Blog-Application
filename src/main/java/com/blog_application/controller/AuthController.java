@@ -43,7 +43,7 @@ public class AuthController {
                         .claim("authorities", authenticationResponse.getAuthorities().stream().map(
                                 GrantedAuthority::getAuthority).collect(Collectors.joining(",")))
                         .issuedAt(new java.util.Date())
-                        .expiration(new java.util.Date((new java.util.Date()).getTime() + 600000))
+                        .expiration(new java.util.Date((new java.util.Date()).getTime() + 86400000))
                         .signWith(secretKey).compact();
             }
         }

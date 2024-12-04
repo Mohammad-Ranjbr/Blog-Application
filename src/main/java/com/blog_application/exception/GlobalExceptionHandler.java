@@ -4,7 +4,9 @@ import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.utils.TimeUtils;
 import com.blog_application.util.extractors.UriResourceExtractor;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -22,16 +24,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class GlobalExceptionHandler {
 
     private final TimeUtils timeUtils;
     private final UriResourceExtractor uriResourceExtractor;
-
-    @Autowired
-    public GlobalExceptionHandler(TimeUtils timeUtils,UriResourceExtractor uriResourceExtractor){
-        this.timeUtils = timeUtils;
-        this.uriResourceExtractor = uriResourceExtractor;
-    }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> resourceNotfoundExceptionHandler(ResourceNotFoundException resourceNotFoundException){
@@ -93,18 +90,6 @@ public class GlobalExceptionHandler {
                 timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<ErrorResponse> accessDeniedExceptionHandler(AccessDeniedException accessDeniedException){
-        ErrorResponse errorResponse = new ErrorResponse(
-                HttpStatus.UNAUTHORIZED.value(),
-                accessDeniedException.getMessage(),
-                accessDeniedException.getMessage(),
-                false,
-                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
-        );
-        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(BadCredentialsException.class)

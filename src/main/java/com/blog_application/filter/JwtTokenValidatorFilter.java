@@ -1,14 +1,20 @@
 package com.blog_application.filter;
 
 import com.blog_application.util.constants.ApplicationConstants;
+import com.blog_application.util.utils.TimeUtils;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,12 +25,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.AccessDeniedException;
 
 public class JwtTokenValidatorFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
+            throws ServletException, IOException{
 
         String jwt = request.getHeader(ApplicationConstants.JWT_HEADER);
         if(jwt != null){
@@ -43,7 +50,24 @@ public class JwtTokenValidatorFilter extends OncePerRequestFilter {
                         SecurityContextHolder.getContext().setAuthentication(authentication);
                     }
                 }
-            } catch (Exception exception){
+            } catch (ExpiredJwtException expiredJwtException){
+                // A special mechanism is required to send handled errors from OncePerRequestFilter to generic handlers such as GlobalExceptionHandler,
+                // because exceptions that occur in the filter are not passed to controllers or handlers by Spring by default.
+                TimeUtils timeUtils = new TimeUtils();
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.setContentType("application/json;charset=UTF-8");
+                String jsonResponse = String.format(
+                        "{\"timestamp\": \"%s\", \"status\": %d, \"error\": \"%s\", \"message\": \"%s\", \"path\": \"%s\"}",
+                        timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT),
+                        HttpStatus.UNAUTHORIZED.value(),
+                        HttpStatus.UNAUTHORIZED.getReasonPhrase(),
+                        "Token expired",
+                        request.getRequestURI()
+                );
+                response.getWriter().write(jsonResponse);
+                return;
+            }
+            catch (Exception exception){
                 throw new BadCredentialsException("Invalid token.");
             }
         }
