@@ -112,7 +112,8 @@ public class UserServiceImpl implements UserService {
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
         User user = this.fetchUserById(userId);
-        userRepository.delete(user);
+        user.setSoftDelete(true);
+        userRepository.save(user);
         logger.info("User with ID {} deleted successfully",user.getId());
     }
 

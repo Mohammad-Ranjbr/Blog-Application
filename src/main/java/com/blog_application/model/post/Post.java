@@ -42,7 +42,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     // When orphanRemoval = true is set, if a child is removed from the parent collection,
     // JPA automatically removes that child from the database as well. This behavior is called "orphan removal".
     // newArrayList<>() : Because of the cascade="all-delete-orphan" setting you need to make sure that collections are properly updated and orphaned entities are properly deleted.
