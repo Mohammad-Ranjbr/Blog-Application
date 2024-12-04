@@ -4,10 +4,8 @@ import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
 import com.blog_application.util.utils.TimeUtils;
 import com.blog_application.util.extractors.UriResourceExtractor;
-import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -102,6 +100,18 @@ public class GlobalExceptionHandler {
                 timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorResponse> accessDeniedExceptionHandler(AccessDeniedException accessDeniedException, HttpServletRequest request){
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.FORBIDDEN.value(),
+                accessDeniedException.getMessage(),
+                request.getRequestURI(),
+                false,
+                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
+        );
+        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
     }
 
 }

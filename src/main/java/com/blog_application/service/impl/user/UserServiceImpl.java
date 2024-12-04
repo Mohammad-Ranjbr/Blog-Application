@@ -28,9 +28,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.AccessDeniedException;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -104,13 +107,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void deleteUserById(UUID userId) {
+    public void deleteUserById(UUID userId) throws AccessDeniedException {
         //Lambda Expression : Passing a function as an argument to another function
         //orElseThrow is a method that takes a Supplier as an argument. Supplier is a functional interface that accepts no parameters and returns a result. Here, the expected result is an exception.
         //Consumer is a functional interface in Java that takes an input and returns no result. Consumer is typically used for operations that take a parameter and return nothing (such as a print operation).
         //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         logger.info("Deleting user with ID : {}",userId);
+        String loggedInUsername = authentication.getName();
+        UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInUsername);
+        if(!userId.equals(loggedInUserId)){
+            logger.warn("Unauthorized attempt to delete another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only delete your own account.");
+        }
         User user = this.fetchUserById(userId);
         user.setSoftDelete(true);
         userRepository.save(user);

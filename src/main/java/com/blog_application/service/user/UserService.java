@@ -8,12 +8,13 @@ import com.blog_application.dto.user.UserUpdateDto;
 import com.blog_application.model.user.User;
 import com.blog_application.util.responses.PaginatedResponse;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 import java.util.UUID;
 
 public interface UserService {
 
-    void deleteUserById(UUID userId);
+    void deleteUserById(UUID userId) throws AccessDeniedException;
     User fetchUserById(UUID userId);
     UserGetDto getUserById(UUID userId);
     void savePost(UUID userId,Long postId);

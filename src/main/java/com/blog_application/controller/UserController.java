@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 import java.util.UUID;
 
@@ -64,7 +65,7 @@ public class UserController {
     //DELETE Mapping-Delete User
     @DeleteMapping("/{id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("id") UUID userId){
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("id") UUID userId) throws AccessDeniedException {
         logger.info("Received request to delete user with ID : {}",userId);
         userService.deleteUserById(userId);
         logger.info("Returning response for delete user with ID : {}",userId);
