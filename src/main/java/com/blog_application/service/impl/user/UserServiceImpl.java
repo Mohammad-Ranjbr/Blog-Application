@@ -115,8 +115,8 @@ public class UserServiceImpl implements UserService {
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         logger.info("Deleting user with ID : {}",userId);
-        String loggedInUsername = authentication.getName();
-        UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInUsername);
+        String loggedInEmail = authentication.getName();
+        UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInEmail);
         if(!userId.equals(loggedInUserId)){
             logger.warn("Unauthorized attempt to delete another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
             throw new AccessDeniedException("You can only delete your own account.");
@@ -275,8 +275,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) {
+    public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) throws AccessDeniedException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         logger.info("Updating user with ID : {}",userId);
+        String loggedInEmail = authentication.getName();
+        UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInEmail);
+        if(!userId.equals(loggedInUserId)) {
+            logger.warn("Unauthorized attempt to update another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only update your own account.");
+        }
         User updatedUser = userRepository.findById(userId).map(user -> {
             user.setName(userUpdateDto.getName());
             user.setEmail(userUpdateDto.getEmail());

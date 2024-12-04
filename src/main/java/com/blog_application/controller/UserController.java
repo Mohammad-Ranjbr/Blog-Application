@@ -55,7 +55,7 @@ public class UserController {
     //PUT Mapping-Update User
     @PutMapping("/{id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<UserGetDto> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") UUID userId){
+    public ResponseEntity<UserGetDto> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") UUID userId) throws AccessDeniedException {
         logger.info("Received request to update user with ID : {}",userId);
         UserGetDto updatedUser = userService.updateUser(userUpdateDto,userId);
         logger.info("Returning response for updated user with ID : {}",userId);
