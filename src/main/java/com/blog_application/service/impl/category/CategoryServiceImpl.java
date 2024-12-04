@@ -8,6 +8,7 @@ import com.blog_application.dto.category.CategoryUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.category.Category;
 import com.blog_application.repository.category.CategoryRepository;
+import com.blog_application.repository.post.PostRepository;
 import com.blog_application.service.category.CategoryService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
@@ -28,12 +29,14 @@ import java.util.function.Consumer;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
+    private final PostRepository postRepository;
     private final CategoryMapper categoryMapper;
     private final CategoryRepository categoryRepository;
     private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     @Autowired
-    public CategoryServiceImpl(CategoryRepository categoryRepository,CategoryMapper categoryMapper){
+    public CategoryServiceImpl(CategoryRepository categoryRepository,CategoryMapper categoryMapper, PostRepository postRepository){
+        this.postRepository = postRepository;
         this.categoryMapper = categoryMapper;
         this.categoryRepository = categoryRepository;
     }
@@ -72,6 +75,20 @@ public class CategoryServiceImpl implements CategoryService {
         optionalCategory.ifPresent(printCategoryDetails);
         logger.info("Category found with ID : {}",categoryId);
         return categoryMapper.toCategoryGetDto(category);
+    }
+
+    @Override
+    public Category getCategoryByTitle(String title) {
+        logger.info("Fetching category with Title : {}",title);
+        Category category = categoryRepository.findByTitle(title).orElseThrow(() -> {
+            logger.warn("Category with Title {} not found, Get category operation not performed",title);
+            return new ResourceNotFoundException("Category","Title",String.valueOf(title),"Get Category operation not performed");
+        });
+        Optional<Category> optionalCategory = categoryRepository.findByTitle(title);
+        Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
+        optionalCategory.ifPresent(printCategoryDetails);
+        logger.info("Category found with ID : {}",title);
+        return category;
     }
 
     @Override
@@ -137,6 +154,8 @@ public class CategoryServiceImpl implements CategoryService {
             logger.warn("Category with ID {} not found, Delete category operation not performed",categoryId);
             return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Delete Category not performed");
         });
+        Category defaultCategory = getCategoryByTitle("Uncategorized");
+        postRepository.updateCategoryForPosts(defaultCategory.getId(), categoryId);
         logger.info("Category with ID {} deleted successfully",categoryId);
         categoryRepository.delete(category);
     }

@@ -4,11 +4,13 @@ import com.blog_application.dto.category.CategoryBasicInfoDto;
 import com.blog_application.dto.category.CategoryCreateDto;
 import com.blog_application.dto.category.CategoryGetDto;
 import com.blog_application.dto.category.CategoryUpdateDto;
+import com.blog_application.model.category.Category;
 import com.blog_application.util.responses.PaginatedResponse;
 
 public interface CategoryService {
 
     void deleteCategory(Long categoryId);
+    Category getCategoryByTitle(String title);
     CategoryGetDto getCategoryById(Long categoryId);
     CategoryGetDto createCategory(CategoryCreateDto categoryDto);
     CategoryBasicInfoDto getCategoryBasicInfoById(Long categoryId);
