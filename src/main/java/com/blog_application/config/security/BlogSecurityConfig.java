@@ -82,15 +82,14 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "api/v1/tags/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/tags/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/tags/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "api/v1/users/{id}").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/v1/users/register").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users/{user_id}/save_post/{post_id}").authenticated()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users/{user_id}/follow/{follow_user_id}").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.OPTIONS, "api/v1/users/**").permitAll()
                 .requestMatchers("/api/v1/auth/basic-authentication").authenticated()
-                .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**","/api/v1/auth/login").permitAll()
+                .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**","/api/v1/auth/login"
+                        , "/api/v1/users/register", "api/v1/users/{id}").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());
         http.httpBasic(withDefaults());

@@ -50,9 +50,9 @@ public class User {
     private String phoneNumber;
     @CreationTimestamp
     @Column(updatable = false)
-    private LocalDateTime creationDate;
+    private LocalDateTime createdAt;
     @UpdateTimestamp
-    private LocalDateTime updatedDate;
+    private LocalDateTime updatedAt;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<CommentReaction> commentReactions = new ArrayList<>();
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
@@ -96,6 +96,8 @@ public class User {
                 inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles = new HashSet<>();
 
+    private boolean softDelete;
+
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.
 
@@ -110,8 +112,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", userName='" + userName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", creationDate=" + creationDate +
-                ", updatedDate=" + updatedDate +
+                ", creationDate=" + createdAt +
+                ", updatedDate=" + updatedAt +
                 '}';
     }
 

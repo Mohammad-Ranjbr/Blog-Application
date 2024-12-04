@@ -106,25 +106,4 @@ public class CategoryController {
         return new ResponseEntity<>(categoryBasicInfoDtos,HttpStatus.OK);
     }
 
-    //OPTIONS Mapping for all categories
-    @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> optionsForAllCategories(){
-        logger.info("Received OPTIONS request for all categories");
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(ApplicationConstants.HEADER_ALLOW,"GET,POST,OPTIONS");
-        logger.info("Returning response with allowed methods for all categories");
-        return new ResponseEntity<>(headers,HttpStatus.OK);
-    }
-
-    //OPTIONS Mapping fo single category
-    @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> optionsForSingleCategory(@PathVariable("id") Long categoryId){
-        logger.info("Received OPTIONS request for category with ID : {}", categoryId);
-        ResponseEntity<?> response = ResponseEntity.ok()
-                .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
-                .build();
-        logger.info("Returning response with allowed methods for category with ID : {}", categoryId);
-        return response;
-    }
-
 }

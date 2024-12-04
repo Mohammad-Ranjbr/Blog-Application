@@ -110,27 +110,6 @@ public class UserController {
         return new ResponseEntity<>(userBasicInfoDtos,HttpStatus.OK);
     }
 
-    //OPTIONS Mapping for all users
-    @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> optionsForAllUsers(){
-        logger.info("Received OPTIONS request for all users");
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(ApplicationConstants.HEADER_ALLOW,"GET,POST,OPTIONS");
-        logger.info("Returning response with allowed methods for all users");
-        return new ResponseEntity<>(headers,HttpStatus.OK);
-    }
-
-    //OPTIONS Mapping for single user by ID
-    @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> optionsForSingleUser(@PathVariable("id") UUID userId){
-        logger.info("Received OPTIONS request for user with ID : {}", userId);
-        ResponseEntity<?> response = ResponseEntity.ok()
-                .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
-                .build();
-        logger.info("Returning response with allowed methods for user with ID : {}", userId);
-        return response;
-    }
-
     //POST Mapping - Save Post By User
     @PostMapping("/{user_id}/save_post/{post_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")

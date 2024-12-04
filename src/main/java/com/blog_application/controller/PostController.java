@@ -162,27 +162,6 @@ public class PostController {
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
 
-    //OPTIONS Mapping for all posts
-    @RequestMapping(value = "/",method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> optionsForAllPosts(){
-        logger.info("Received OPTIONS request for all posts");
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(ApplicationConstants.HEADER_ALLOW,"GET,POST,OPTIONS");
-        logger.info("Returning response with allowed methods for all posts");
-        return new ResponseEntity<>(headers,HttpStatus.OK);
-    }
-
-    //OPTIONS Mapping fo single post
-    @RequestMapping(value = "/{id}",method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> optionsForSinglePost(@PathVariable("id") Long postId){
-        logger.info("Received OPTIONS request for post with ID : {}", postId);
-        ResponseEntity<?> response = ResponseEntity.ok()
-                .allow(HttpMethod.GET,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.OPTIONS)
-                .build();
-        logger.info("Returning response with allowed methods for post with ID : {}", postId);
-        return response;
-    }
-
     @PostMapping("/like")
     @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PostGetDto> likePost(@RequestBody PostReactionRequestDto requestDto){

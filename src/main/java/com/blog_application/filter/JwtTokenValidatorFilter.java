@@ -56,16 +56,8 @@ public class JwtTokenValidatorFilter extends OncePerRequestFilter {
             }
             // A special mechanism is required to send handled errors from OncePerRequestFilter to generic handlers such as GlobalExceptionHandler,
             // because exceptions that occur in the filter are not passed to controllers or handlers by Spring by default.
-            catch (ExpiredJwtException expiredJwtException){
-                JwtException.handle(expiredJwtException, request, response, "Token expired");
-                return;
-            }
-            catch (MalformedJwtException  malformedJwtException){
-                JwtException.handle(malformedJwtException, request, response, "Malformed JWT token");
-                return;
-            }
-            catch (SignatureException signatureException){
-                JwtException.handle(signatureException, request, response, "Invalid JWT signature");
+            catch (ExpiredJwtException | MalformedJwtException | SignatureException expiredJwtException){
+                JwtException.handle(expiredJwtException, request, response);
                 return;
             }
             catch (Exception exception){
