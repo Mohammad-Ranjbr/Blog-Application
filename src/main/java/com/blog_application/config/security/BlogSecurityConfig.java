@@ -71,7 +71,7 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "api/v1/comments/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/comments/**").authenticated()
                 .requestMatchers(HttpMethod.GET, "api/v1/posts/user/{userId}", "api/v1/posts/category/{categoryId}"
-                        , "api/v1/posts/", "api/vq/posts/{id}", "api/vq/posts/search/{keyword}").authenticated()
+                        , "api/v1/posts/", "api/v1/posts/{id}", "api/v1/posts/search/{keyword}", "api/v1/posts/search2/{keyword}").authenticated()
                 .requestMatchers(HttpMethod.POST,"api/v1/posts/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/posts/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/posts/**").authenticated()

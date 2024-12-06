@@ -268,17 +268,22 @@ public class PostServiceImpl implements PostService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Post> postPage = postRepository.findByTitleContaining(keyword,pageable);
+        try{
+            Page<Post> postPage = postRepository.findByTitleContaining(keyword,pageable);
 
-        List<Post> posts = postPage.getContent();
-        List<PostGetDto> postGetDtoList = posts.stream()
-                .map(postMapper::toPostGetDto)
-                .toList();
+            List<Post> posts = postPage.getContent();
+            List<PostGetDto> postGetDtoList = posts.stream()
+                    .map(postMapper::toPostGetDto)
+                    .toList();
 
-        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
-                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
-        logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
-        return paginatedResponse;
+            PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                    postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+            logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while search post with query method. Keyword: {}, Error: {}", keyword, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
