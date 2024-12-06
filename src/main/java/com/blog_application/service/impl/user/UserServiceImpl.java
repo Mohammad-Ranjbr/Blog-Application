@@ -140,14 +140,15 @@ public class UserServiceImpl implements UserService {
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
         UUID loggedInUserId = this.getLoggedInUserId();
-        if(!userId.equals(loggedInUserId)){
+        if(userId.equals(loggedInUserId) || this.isAdmin()){
+            User user = this.fetchUserById(userId);
+            user.setSoftDelete(true);
+            userRepository.save(user);
+            logger.info("User with ID {} deleted successfully",user.getId());
+        } else {
             logger.warn("Unauthorized attempt to delete another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
             throw new AccessDeniedException("You can only delete your own account.");
         }
-        User user = this.fetchUserById(userId);
-        user.setSoftDelete(true);
-        userRepository.save(user);
-        logger.info("User with ID {} deleted successfully",user.getId());
     }
 
     @Override
@@ -301,25 +302,26 @@ public class UserServiceImpl implements UserService {
     public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) throws AccessDeniedException {
         logger.info("Updating user with ID : {}",userId);
         UUID loggedInUserId = this.getLoggedInUserId();
-        if(!userId.equals(loggedInUserId)) {
+        if(userId.equals(loggedInUserId) || this.isAdmin()) {
+            User updatedUser = userRepository.findById(userId).map(user -> {
+                user.setName(userUpdateDto.getName());
+                user.setEmail(userUpdateDto.getEmail());
+                user.setAbout(userUpdateDto.getAbout());
+                user.setGender(userUpdateDto.getGender());
+                user.setUserName(userUpdateDto.getUserName());
+                user.setPhoneNumber(userUpdateDto.getPhoneNumber());
+                User savedUser = userRepository.save(user);
+                logger.info("User with ID {} updated successfully",userId);
+                return savedUser;
+            }).orElseThrow(() -> {
+                logger.warn("User with ID {} not found, Updated user operation not performed", userId);
+                return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
+            });
+            return userMapper.toUserGetDto(updatedUser);
+        } else {
             logger.warn("Unauthorized attempt to update another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
             throw new AccessDeniedException("You can only update your own account.");
         }
-        User updatedUser = userRepository.findById(userId).map(user -> {
-            user.setName(userUpdateDto.getName());
-            user.setEmail(userUpdateDto.getEmail());
-            user.setAbout(userUpdateDto.getAbout());
-            user.setGender(userUpdateDto.getGender());
-            user.setUserName(userUpdateDto.getUserName());
-            user.setPhoneNumber(userUpdateDto.getPhoneNumber());
-            User savedUser = userRepository.save(user);
-            logger.info("User with ID {} updated successfully",userId);
-            return savedUser;
-        }).orElseThrow(() -> {
-            logger.warn("User with ID {} not found, Updated user operation not performed", userId);
-            return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
-        });
-        return userMapper.toUserGetDto(updatedUser);
     }
 
     @Override
@@ -327,6 +329,13 @@ public class UserServiceImpl implements UserService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String loggedInEmail = authentication.getName();
         return userRepository.getUserIdByEmail(loggedInEmail);
+    }
+
+    @Override
+    public boolean isAdmin(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getAuthorities().stream()
+                .anyMatch((authority) -> authority.getAuthority().equals("ROLE_ADMIN"));
     }
 
 }

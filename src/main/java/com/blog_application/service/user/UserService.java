@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public interface UserService {
 
+    boolean isAdmin();
     UUID getLoggedInUserId();
     void deleteUserById(UUID userId) throws AccessDeniedException;
     User fetchUserById(UUID userId);
