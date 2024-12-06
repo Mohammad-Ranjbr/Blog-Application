@@ -84,7 +84,8 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.PATCH, "api/v1/users/{id}/status").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.GET, "api/v1/users/{user_id}/followers", "api/v1/users/{user_id}/following", "api/v1/users/saved/{user_id}").authenticated()
-                .requestMatchers(HttpMethod.GET, "api/v1/users/", "api/v1/users/basic-info/{id}", "api/v1/users/basic-info/").permitAll()
+                .requestMatchers(HttpMethod.GET, "api/v1/users/", "api/v1/users/basic-info/").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET, "api/v1/users/basic-info/{id}").permitAll()
                 .requestMatchers("/api/v1/auth/basic-authentication").authenticated()
                 .requestMatchers("api/v1/notices/","api/v1/contacts/","/error", "/swagger-ui/**", "/v3/api-docs/**","/api/v1/auth/login"
                         , "/api/v1/users/register", "api/v1/users/{id}").permitAll()

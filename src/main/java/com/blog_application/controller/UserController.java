@@ -71,6 +71,7 @@ public class UserController {
 
     //GET Mapping-Get All Users
     @GetMapping("/")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PaginatedResponse<UserGetDto>> getAllUsers(
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
@@ -94,6 +95,7 @@ public class UserController {
 
     //GET Mapping-Get All User Basic Info
     @GetMapping("/basic-info/")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PaginatedResponse<UserBasicInfoDto>> getAllUserBasicInfo(
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
