@@ -85,6 +85,7 @@ public class PostController {
 
     //GET Mapping-Get All Posts
     @GetMapping("/")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Get All Posts Rest Api", description = "Get All Post Rest Api is used to fetch all the posts from the database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<PaginatedResponse<PostGetDto>> getAllPosts(
@@ -101,6 +102,7 @@ public class PostController {
 
     //GET Mapping-Get Post By ID
     @GetMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Get Post Rest Api", description = "Get Post By Id Rest Api is used to get single post from database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<PostGetDto> getPostById(@PathVariable("id") Long postId){
@@ -137,6 +139,7 @@ public class PostController {
 
     //GET Mapping-Search Post
     @GetMapping("/search/{keyword}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PaginatedResponse<PostGetDto>> searchPostByTitle(@PathVariable("keyword") String title,
               @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
               @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,

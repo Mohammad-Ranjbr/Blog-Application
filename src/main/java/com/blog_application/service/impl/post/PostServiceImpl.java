@@ -136,15 +136,20 @@ public class PostServiceImpl implements PostService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Post> postPage = postRepository.findAll(pageable);
+        try{
+            Page<Post> postPage = postRepository.findAll(pageable);
 
-        List<Post> posts = postPage.getContent();
-        List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
+            List<Post> posts = postPage.getContent();
+            List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
 
-        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
-                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
-        logger.info("Total posts found : {}",postPage.getTotalElements());
-        return paginatedResponse;
+            PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                    postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+            logger.info("Total posts found : {}",postPage.getTotalElements());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get all posts. Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -239,17 +244,22 @@ public class PostServiceImpl implements PostService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Post> postPage = postRepository.findAllByCategory(category,pageable);
+        try{
+            Page<Post> postPage = postRepository.findAllByCategory(category,pageable);
 
-        List<Post> posts = postPage.getContent();
-        List<PostGetDto> postGetDtoList = posts.stream()
-                        .map(postMapper::toPostGetDto)
-                .toList();
+            List<Post> posts = postPage.getContent();
+            List<PostGetDto> postGetDtoList = posts.stream()
+                    .map(postMapper::toPostGetDto)
+                    .toList();
 
-        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
-                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
-        logger.info("Total posts found for category with ID {} : {}",categoryId,posts.size());
-        return paginatedResponse;
+            PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                    postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+            logger.info("Total posts found for category with ID {} : {}",categoryId,posts.size());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get posts by category. Category ID: {}, Error: {}", categoryId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -277,17 +287,22 @@ public class PostServiceImpl implements PostService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Post> postPage = postRepository.searchByTitle("%" + keyword + "%",pageable);
+        try{
+            Page<Post> postPage = postRepository.searchByTitle("%" + keyword + "%",pageable);
 
-        List<Post> posts = postPage.getContent();
-        List<PostGetDto> postGetDtoList = posts.stream()
-                .map(postMapper::toPostGetDto)
-                .toList();
+            List<Post> posts = postPage.getContent();
+            List<PostGetDto> postGetDtoList = posts.stream()
+                    .map(postMapper::toPostGetDto)
+                    .toList();
 
-        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
-                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
-        logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
-        return paginatedResponse;
+            PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                    postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+            logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while search post with keyword: {}, Error: {}", keyword, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     private void schedulePost(Post schedulePost, LocalDateTime scheduledTime) {
