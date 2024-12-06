@@ -70,7 +70,7 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.POST,"api/v1/comments/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/comments/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/comments/**").authenticated()
-                .requestMatchers(HttpMethod.GET, "api/v1/posts/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "api/v1/posts/user/{userId}").authenticated()
                 .requestMatchers(HttpMethod.POST,"api/v1/posts/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/posts/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/posts/**").authenticated()

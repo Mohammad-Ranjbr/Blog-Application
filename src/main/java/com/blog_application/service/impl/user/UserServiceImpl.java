@@ -306,11 +306,16 @@ public class UserServiceImpl implements UserService {
     public List<PostGetDto> getSavedPostsByUser(UUID userId) {
         logger.info("Fetching saved posts for user with ID: {}", userId);
         User user = this.fetchUserById(userId);
-        List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
-        logger.info("Fetched {} saved posts for user with ID: {}", savedPosts.size(), userId);
-        return savedPosts.stream()
-                .map(postMapper::toPostGetDto)
-                .collect(Collectors.toList());
+        try{
+            List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
+            logger.info("Fetched {} saved posts for user with ID: {}", savedPosts.size(), userId);
+            return savedPosts.stream()
+                    .map(postMapper::toPostGetDto)
+                    .collect(Collectors.toList());
+        } catch (Exception exception){
+            logger.error("Error occurred while get saved post for user. User ID: {} , Error: {}", userId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -319,17 +324,22 @@ public class UserServiceImpl implements UserService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<User> userPage = userRepository.findAll(pageable);
+        try{
+            Page<User> userPage = userRepository.findAll(pageable);
 
-        List<User> users = userPage.getContent();
-        List<UserBasicInfoDto> userGetDtoList = users.stream()
-                .map(userMapper::toUserBasicInfoDto) //Method Reference
-                .toList();
+            List<User> users = userPage.getContent();
+            List<UserBasicInfoDto> userGetDtoList = users.stream()
+                    .map(userMapper::toUserBasicInfoDto) //Method Reference
+                    .toList();
 
-        PaginatedResponse<UserBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
-                userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
-        logger.info("Total user basic info found : {}",users.size());
-        return paginatedResponse;
+            PaginatedResponse<UserBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
+                    userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
+            logger.info("Total user basic info found : {}",users.size());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get all basic user info, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override

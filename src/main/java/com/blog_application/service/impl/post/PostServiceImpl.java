@@ -214,17 +214,22 @@ public class PostServiceImpl implements PostService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Post> postPage = postRepository.findAllByUser(user,pageable);
+        try{
+            Page<Post> postPage = postRepository.findAllByUser(user,pageable);
 
-        List<Post> posts = postPage.getContent();
-        List<PostGetDto> postGetDtoList = posts.stream()
-                .map(postMapper::toPostGetDto)
-                .toList();
+            List<Post> posts = postPage.getContent();
+            List<PostGetDto> postGetDtoList = posts.stream()
+                    .map(postMapper::toPostGetDto)
+                    .toList();
 
-        PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
-                postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
-        logger.info("Total posts found for user with ID {} : {}",userId,posts.size());
-        return paginatedResponse;
+            PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
+                    postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
+            logger.info("Total posts found for user with ID {} : {}",userId,posts.size());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get posts for user. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
