@@ -10,9 +10,9 @@ import com.blog_application.model.post.Post;
 import com.blog_application.model.role.Role;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.post.PostRepository;
-import com.blog_application.repository.role.RoleRepository;
 import com.blog_application.repository.user.UserRepository;
 import com.blog_application.service.post.PostService;
+import com.blog_application.service.role.RoleService;
 import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
@@ -41,19 +41,19 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final PostService postService;
+    private final RoleService roleService;
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
     private final PostRepository postRepository;
     private final PasswordEncoder passwordEncoder;
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, RoleRepository roleRepository
+    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, RoleService roleService
             ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository,PasswordEncoder passwordEncoder){
         this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.postService = postService;
-        this.roleRepository = roleRepository;
+        this.roleService = roleService;
         this.userRepository = userRepository;
         this.postRepository = postRepository;
         this.passwordEncoder = passwordEncoder;
@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
             logger.warn("User with Email {} already exists, Register user operation not performed", userCreateDto.getEmail());
             throw  new ResourceAlreadyExistsException("User","Email",String.valueOf(userCreateDto.getEmail()),"Register User operation not performed");
         }
-        Role userRole = roleRepository.findByName("ROLE_USER").get();
+        Role userRole = roleService.getRoleByName("ROLE_USER");
         String hashPassword = passwordEncoder.encode(userCreateDto.getPassword());
         User user = userMapper.toEntity(userCreateDto);
         user.setPassword(hashPassword);
