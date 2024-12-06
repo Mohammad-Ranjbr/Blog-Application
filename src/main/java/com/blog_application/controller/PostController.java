@@ -55,6 +55,7 @@ public class PostController {
 
     //GET Mapping-Get All Posts By User
     @GetMapping("/user/{userId}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PaginatedResponse<PostGetDto>> getPostsByUser(@PathVariable("userId") UUID userId,
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
@@ -69,6 +70,7 @@ public class PostController {
 
     //GET Mapping-Get All Posts By Category
     @GetMapping("/category/{categoryId}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PaginatedResponse<PostGetDto>> getPostsByCategory(@PathVariable("categoryId") Long categoryId,
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
