@@ -19,5 +19,7 @@ public class UserGetDto extends UserBasicInfoDto{
     private int followingCount;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private boolean isActive;
+    private boolean softDelete;
 
 }

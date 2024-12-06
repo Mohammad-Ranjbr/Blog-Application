@@ -131,6 +131,7 @@ public class UserController {
 
     //GET Mapping - Get User Saved Posts
     @GetMapping("/saved/{user_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<List<PostGetDto>> getSavedPostsByUser(@PathVariable("user_id") UUID userId){
         logger.info("Received request to get saved posts for user with ID: {}", userId);
         List<PostGetDto> savedPosts = userService.getSavedPostsByUser(userId);
@@ -160,6 +161,7 @@ public class UserController {
 
     //GET Mapping - Get User Followers
     @GetMapping("/{user_id}/followers")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<List<UserGetDto>> getFollowers(@PathVariable("user_id") UUID userId){
         logger.info("Received request to get followers for user with ID: {}", userId);
         List<UserGetDto> followers = userService.getFollowers(userId);
@@ -169,6 +171,7 @@ public class UserController {
 
     //GET Mapping - Get User Following
     @GetMapping("/{user_id}/following")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<List<UserGetDto>> getFollowing(@PathVariable("user_id") UUID userId){
         logger.info("Received request to get following users for user with ID: {}", userId);
         List<UserGetDto> following = userService.getFollowing(userId);
