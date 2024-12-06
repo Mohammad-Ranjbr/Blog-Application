@@ -102,20 +102,36 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostGetDto updatePost(PostUpdateDto postUpdateDto, Long postId) {
+    public PostGetDto updatePost(PostUpdateDto postUpdateDto, Long postId) throws AccessDeniedException {
         logger.info("Updating post with ID : {}",postId);
-        Post updatedPost = postRepository.findById(postId).map(post -> {
-            post.setTitle(postUpdateDto.getTitle());
-            post.setContent(postUpdateDto.getContent());
-            post.setImageName(postUpdateDto.getImageName());
-            Post savedPost = postRepository.save(post);
-            logger.info("Post with ID {} updated successfully",postId);
-            return savedPost;
-        }).orElseThrow(() -> {
-            logger.warn("Post with ID {} not found, Update post operation not performed",postId);
-            return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Update Post operation not performed");
-        });
-        return postMapper.toPostGetDto(updatedPost);
+
+        UUID userId = postUpdateDto.getUserId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+        Category newCategory = categoryMapper.toEntity(categoryService.getCategoryById(postUpdateDto.getCategoryId()));
+
+        if(!loggedInUserId.equals(postUpdateDto.getUserId())){
+            logger.warn("Unauthorized attempt to update a post in another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only update own posts in your own account.");
+        }
+
+        try {
+            Post updatedPost = postRepository.findById(postId).map(post -> {
+                post.setCategory(newCategory);
+                post.setTitle(postUpdateDto.getTitle());
+                post.setContent(postUpdateDto.getContent());
+                post.setImageName(postUpdateDto.getImageName());
+                Post savedPost = postRepository.save(post);
+                logger.info("Post with ID {} updated successfully",postId);
+                return savedPost;
+            }).orElseThrow(() -> {
+                logger.warn("Post with ID {} not found, Update post operation not performed",postId);
+                return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Update Post operation not performed");
+            });
+            return postMapper.toPostGetDto(updatedPost);
+        } catch (Exception exception){
+            logger.error("Error occurred while updating post. User ID: {}, Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override

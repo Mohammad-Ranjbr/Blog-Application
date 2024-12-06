@@ -130,7 +130,7 @@ public class PostController {
     @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Update Post Rest Api", description = "Update Post Rest Api is used to update a particular post in the database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
-    public ResponseEntity<PostGetDto> updatePost(@Valid @RequestBody PostUpdateDto postUpdateDto, @PathVariable("id") Long postId){
+    public ResponseEntity<PostGetDto> updatePost(@Valid @RequestBody PostUpdateDto postUpdateDto, @PathVariable("id") Long postId) throws AccessDeniedException {
         logger.info("Received request to update post with ID : {}", postId);
         PostGetDto updatedPost = postService.updatePost(postUpdateDto,postId);
         logger.info("Returning response for updated post with ID : {}", postId);

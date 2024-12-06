@@ -14,7 +14,7 @@ public interface PostService {
 
     void deletePost(Long post_id);
     PostGetDto getPostById(Long postId);
-    PostGetDto updatePost(PostUpdateDto postDto, Long postId);
+    PostGetDto updatePost(PostUpdateDto postDto, Long postId) throws AccessDeniedException;
     void removeTagsFromPost(Long postId,List<Long> tagIdsToRemove );
     PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagNames);
     PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws AccessDeniedException;
