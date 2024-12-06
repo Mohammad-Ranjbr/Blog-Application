@@ -1,10 +1,7 @@
 package com.blog_application.service.user;
 
 import com.blog_application.dto.post.PostGetDto;
-import com.blog_application.dto.user.UserBasicInfoDto;
-import com.blog_application.dto.user.UserCreateDto;
-import com.blog_application.dto.user.UserGetDto;
-import com.blog_application.dto.user.UserUpdateDto;
+import com.blog_application.dto.user.*;
 import com.blog_application.model.user.User;
 import com.blog_application.util.responses.PaginatedResponse;
 
@@ -26,6 +23,7 @@ public interface UserService {
     List<PostGetDto> getSavedPostsByUser(UUID userId);
     UserBasicInfoDto getUserBasicInfoById(UUID userId);
     UserGetDto createUser(UserCreateDto userCreateDto);
+    void updateUserStatus(UUID userId, UserStatusUpdateDTO userStatusUpdateDTO);
     UserGetDto updateUser(UserUpdateDto userUpdateDto,UUID userId) throws AccessDeniedException;
     PaginatedResponse<UserGetDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir);
     PaginatedResponse<UserBasicInfoDto> getAllBasicUserInfo(int pageNumber, int pageSize, String sortBy, String sortDir);

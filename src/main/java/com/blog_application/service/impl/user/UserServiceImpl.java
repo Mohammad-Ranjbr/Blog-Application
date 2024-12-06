@@ -3,10 +3,7 @@ package com.blog_application.service.impl.user;
 import com.blog_application.config.mapper.post.PostMapper;
 import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.post.PostGetDto;
-import com.blog_application.dto.user.UserBasicInfoDto;
-import com.blog_application.dto.user.UserCreateDto;
-import com.blog_application.dto.user.UserGetDto;
-import com.blog_application.dto.user.UserUpdateDto;
+import com.blog_application.dto.user.*;
 import com.blog_application.exception.ResourceAlreadyExistsException;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.post.Post;
@@ -103,6 +100,34 @@ public class UserServiceImpl implements UserService {
             logger.info("User created successfully with email : {}",savedUser.getEmail());
         }
         return userMapper.toUserGetDto(savedUser);
+    }
+
+    @Override
+    @Transactional
+    public void updateUserStatus(UUID userId, UserStatusUpdateDTO userStatusUpdateDTO) {
+        logger.info("Start updating user status. User ID: {}, New Status: {}", userId, userStatusUpdateDTO.isActive());
+        if(!userStatusUpdateDTO.isActive()){
+            try {
+                User activeUser = this.fetchUserById(userId);
+                userRepository.updateUserStatusById(false, activeUser.getId());
+                logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, false);
+            } catch (Exception exception){
+                logger.error("Error occurred while updating user status. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
+                throw exception;
+            }
+        } else {
+            try{
+                User inActiveUser = userRepository.findInactiveUserById(userId).orElseThrow(() -> {
+                    logger.warn("User with ID {} not found, Get user operation not performed", userId);
+                    return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
+                });
+                userRepository.updateUserStatusById(true, inActiveUser.getId());
+                logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, true);
+            } catch (Exception exception){
+                logger.error("Error occurred while updating user status. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
+                throw exception;
+            }
+        }
     }
 
     @Override

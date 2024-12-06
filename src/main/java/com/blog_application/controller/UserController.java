@@ -1,10 +1,7 @@
 package com.blog_application.controller;
 
 import com.blog_application.dto.post.PostGetDto;
-import com.blog_application.dto.user.UserBasicInfoDto;
-import com.blog_application.dto.user.UserCreateDto;
-import com.blog_application.dto.user.UserGetDto;
-import com.blog_application.dto.user.UserUpdateDto;
+import com.blog_application.dto.user.*;
 import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.ApiResponse;
 import com.blog_application.util.constants.ApplicationConstants;
@@ -177,6 +174,15 @@ public class UserController {
         List<UserGetDto> following = userService.getFollowing(userId);
         logger.info("Returning {} following users for user with ID: {}", following.size(), userId);
         return new ResponseEntity<>(following,HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}/status")
+    @SecurityRequirement(name = "Jwt Token Authentication")
+    public ResponseEntity<ApiResponse> updateUserStatus(@PathVariable("id") UUID userId, @RequestBody UserStatusUpdateDTO userStatusUpdateDTO){
+        logger.info("Received request to update user status. User ID: {}, New Status: {}", userId, userStatusUpdateDTO.isActive());
+        userService.updateUserStatus(userId, userStatusUpdateDTO);
+        logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, userStatusUpdateDTO.isActive());
+        return new ResponseEntity<>(new ApiResponse("User status updated successfully", true), HttpStatus.OK);
     }
 
 }

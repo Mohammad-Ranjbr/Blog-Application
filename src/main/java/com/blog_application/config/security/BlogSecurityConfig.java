@@ -82,6 +82,7 @@ public class BlogSecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/v1/users/{user_id}/follow/{follow_user_id}").authenticated()
                 .requestMatchers(HttpMethod.PUT, "api/v1/users/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "api/v1/users/**").authenticated()
+                .requestMatchers(HttpMethod.PATCH, "api/v1/users/{id}/status").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.GET, "api/v1/users/{user_id}/followers", "api/v1/users/{user_id}/following", "api/v1/users/saved/{user_id}").authenticated()
                 .requestMatchers(HttpMethod.GET, "api/v1/users/", "api/v1/users/basic-info/{id}", "api/v1/users/basic-info/").permitAll()
                 .requestMatchers("/api/v1/auth/basic-authentication").authenticated()
