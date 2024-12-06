@@ -138,10 +138,8 @@ public class UserServiceImpl implements UserService {
         //Consumer is a functional interface in Java that takes an input and returns no result. Consumer is typically used for operations that take a parameter and return nothing (such as a print operation).
         //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         logger.info("Deleting user with ID : {}",userId);
-        String loggedInEmail = authentication.getName();
-        UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInEmail);
+        UUID loggedInUserId = this.getLoggedInUserId();
         if(!userId.equals(loggedInUserId)){
             logger.warn("Unauthorized attempt to delete another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
             throw new AccessDeniedException("You can only delete your own account.");
@@ -301,10 +299,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) throws AccessDeniedException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         logger.info("Updating user with ID : {}",userId);
-        String loggedInEmail = authentication.getName();
-        UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInEmail);
+        UUID loggedInUserId = this.getLoggedInUserId();
         if(!userId.equals(loggedInUserId)) {
             logger.warn("Unauthorized attempt to update another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
             throw new AccessDeniedException("You can only update your own account.");
@@ -324,6 +320,13 @@ public class UserServiceImpl implements UserService {
             return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
         });
         return userMapper.toUserGetDto(updatedUser);
+    }
+
+    @Override
+    public UUID getLoggedInUserId(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String loggedInEmail = authentication.getName();
+        return userRepository.getUserIdByEmail(loggedInEmail);
     }
 
 }
