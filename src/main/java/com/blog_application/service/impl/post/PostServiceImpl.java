@@ -30,6 +30,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.AccessDeniedException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -66,11 +67,17 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) {
+    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws AccessDeniedException {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
 
         User user = userMapper.toEntity(userService.getUserById(userId));
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
+
+        UUID loggedInUserId = userService.getLoggedInUserId();
+        if(!loggedInUserId.equals(user.getId())){
+            logger.warn("Unauthorized attempt to create a post in another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only create posts in your own account.");
+        }
 
         Post post = postMapper.toEntity(postCreateDto);
         post.setUser(user);
