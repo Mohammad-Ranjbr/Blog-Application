@@ -105,11 +105,16 @@ public class PostServiceImpl implements PostService {
     public PostGetDto updatePost(PostUpdateDto postUpdateDto, Long postId) throws AccessDeniedException {
         logger.info("Updating post with ID : {}",postId);
 
-        UUID userId = postUpdateDto.getUserId();
+        Post p = postRepository.findById(postId).orElseThrow(() -> {
+            logger.warn("Post with ID {} not found, Get post operation not performed",postId);
+            return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
+        });
+
+        UUID userId = p.getUser().getId();
         UUID loggedInUserId = userService.getLoggedInUserId();
         Category newCategory = categoryMapper.toEntity(categoryService.getCategoryById(postUpdateDto.getCategoryId()));
 
-        if(!loggedInUserId.equals(postUpdateDto.getUserId())){
+        if(!loggedInUserId.equals(userId)){
             logger.warn("Unauthorized attempt to update a post in another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
             throw new AccessDeniedException("You can only update own posts in your own account.");
         }

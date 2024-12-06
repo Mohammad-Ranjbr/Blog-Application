@@ -12,7 +12,6 @@ import java.util.UUID;
 public class PostUpdateDto extends PostCreateDto{
 
     private String imageName;
-    private UUID userId;
     private Long categoryId;
 
 }
