@@ -79,20 +79,25 @@ public class PostServiceImpl implements PostService {
             throw new AccessDeniedException("You can only create posts in your own account.");
         }
 
-        Post post = postMapper.toEntity(postCreateDto);
-        post.setUser(user);
-        post.setCategory(category);
-        post.setImageName("default.png");
+       try{
+           Post post = postMapper.toEntity(postCreateDto);
+           post.setUser(user);
+           post.setCategory(category);
+           post.setImageName("default.png");
 
-        if (postCreateDto.getScheduledTime() != null && postCreateDto.getScheduledTime().isAfter(LocalDateTime.now())) { // The time is after now
-            schedulePost(post, postCreateDto.getScheduledTime());
-            logger.info("Post scheduled successfully with title : {} at {}", postCreateDto.getTitle(), postCreateDto.getScheduledTime());
-            return postMapper.toPostGetDto(post);
-        } else {
-            Post savedPost = postRepository.save(post);
-            logger.info("Post created successfully with title : {}", postCreateDto.getTitle());
-            return postMapper.toPostGetDto(savedPost);
-        }
+           if (postCreateDto.getScheduledTime() != null && postCreateDto.getScheduledTime().isAfter(LocalDateTime.now())) { // The time is after now
+               schedulePost(post, postCreateDto.getScheduledTime());
+               logger.info("Post scheduled successfully with title : {} at {}", postCreateDto.getTitle(), postCreateDto.getScheduledTime());
+               return postMapper.toPostGetDto(post);
+           } else {
+               Post savedPost = postRepository.save(post);
+               logger.info("Post created successfully with title : {}", postCreateDto.getTitle());
+               return postMapper.toPostGetDto(savedPost);
+           }
+       } catch (Exception exception){
+           logger.error("Error occurred while creating post. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
+           throw exception;
+       }
     }
 
     @Override

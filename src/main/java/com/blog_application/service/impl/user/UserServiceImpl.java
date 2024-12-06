@@ -65,16 +65,21 @@ public class UserServiceImpl implements UserService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<User> userPage = userRepository.findAll(pageable);
+        try{
+            Page<User> userPage = userRepository.findAll(pageable);
 
-        List<User> users = userPage.getContent();
-        List<UserGetDto> userGetDtoList = users.stream()
-                        .map(userMapper::toUserGetDto) //Method Reference
-                                .toList();
-        PaginatedResponse<UserGetDto> paginatedResponse = new PaginatedResponse<>(
-                userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
-        logger.info("Total users found : {}",users.size());
-        return paginatedResponse;
+            List<User> users = userPage.getContent();
+            List<UserGetDto> userGetDtoList = users.stream()
+                    .map(userMapper::toUserGetDto) //Method Reference
+                    .toList();
+            PaginatedResponse<UserGetDto> paginatedResponse = new PaginatedResponse<>(
+                    userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
+            logger.info("Total users found : {}",users.size());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get all users, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -88,18 +93,23 @@ public class UserServiceImpl implements UserService {
             logger.warn("User with Email {} already exists, Register user operation not performed", userCreateDto.getEmail());
             throw  new ResourceAlreadyExistsException("User","Email",String.valueOf(userCreateDto.getEmail()),"Register User operation not performed");
         }
-        Role userRole = roleService.getRoleByName("ROLE_USER");
-        String hashPassword = passwordEncoder.encode(userCreateDto.getPassword());
-        User user = userMapper.toEntity(userCreateDto);
-        user.setPassword(hashPassword);
-        user.setRoles(Set.of(userRole));
-        user.setSoftDelete(false);
-        User savedUser = userRepository.save(user);
-        if(savedUser.getId() != null){
-            System.out.println(savedUser);
-            logger.info("User created successfully with email : {}",savedUser.getEmail());
+        try {
+            Role userRole = roleService.getRoleByName("ROLE_USER");
+            String hashPassword = passwordEncoder.encode(userCreateDto.getPassword());
+            User user = userMapper.toEntity(userCreateDto);
+            user.setPassword(hashPassword);
+            user.setRoles(Set.of(userRole));
+            user.setSoftDelete(false);
+            User savedUser = userRepository.save(user);
+            if(savedUser.getId() != null){
+                System.out.println(savedUser);
+                logger.info("User created successfully with email : {}",savedUser.getEmail());
+            }
+            return userMapper.toUserGetDto(savedUser);
+        } catch (Exception exception){
+            logger.error("Error occurred while creating user, Error: {}", exception.getMessage(), exception);
+            throw exception;
         }
-        return userMapper.toUserGetDto(savedUser);
     }
 
     @Override
@@ -140,15 +150,20 @@ public class UserServiceImpl implements UserService {
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
         UUID loggedInUserId = this.getLoggedInUserId();
-        if(userId.equals(loggedInUserId) || this.isAdmin()){
-            User user = this.fetchUserById(userId);
-            user.setSoftDelete(true);
-            userRepository.save(user);
-            logger.info("User with ID {} deleted successfully",user.getId());
-        } else {
-            logger.warn("Unauthorized attempt to delete another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
-            throw new AccessDeniedException("You can only delete your own account.");
-        }
+       try{
+           if(userId.equals(loggedInUserId) || this.isAdmin()){
+               User user = this.fetchUserById(userId);
+               user.setSoftDelete(true);
+               userRepository.save(user);
+               logger.info("User with ID {} deleted successfully",user.getId());
+           } else {
+               logger.warn("Unauthorized attempt to delete another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+               throw new AccessDeniedException("You can only delete your own account.");
+           }
+       } catch (Exception exception){
+           logger.error("Error occurred while deleting user. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
+           throw exception;
+       }
     }
 
     @Override
@@ -180,44 +195,64 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void savePost(UUID userId, Long postId) {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
-        User user = this.fetchUserById(userId);
-        Post post = postMapper.toEntity(postService.getPostById(postId));
-        post.getSavedByUsers().add(user);
-        postRepository.save(post);
-        logger.info("Post with ID: {} saved successfully for user with ID: {}", postId, userId);
+        try {
+            User user = this.fetchUserById(userId);
+            Post post = postMapper.toEntity(postService.getPostById(postId));
+            post.getSavedByUsers().add(user);
+            postRepository.save(post);
+            logger.info("Post with ID: {} saved successfully for user with ID: {}", postId, userId);
+        } catch (Exception exception){
+            logger.error("Error occurred while saving the post by the user. User ID: {} ,Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
     @Transactional
     public void unSavePost(UUID userId, Long postId) {
         logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
-        User user = this.fetchUserById(userId);
-        Post post = postMapper.toEntity(postService.getPostById(postId));
-        post.getSavedByUsers().remove(user);
-        postRepository.save(post);
-        logger.info("Post with ID: {} unsaved successfully for user with ID: {}", postId, userId);
+        try {
+            User user = this.fetchUserById(userId);
+            Post post = postMapper.toEntity(postService.getPostById(postId));
+            post.getSavedByUsers().remove(user);
+            postRepository.save(post);
+            logger.info("Post with ID: {} unsaved successfully for user with ID: {}", postId, userId);
+        } catch (Exception exception){
+            logger.error("Error occurred while unsaved the post by the user. User ID: {} ,Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
     public List<UserGetDto> getFollowers(UUID userId) {
         logger.info("Fetching followers for user with ID: {}", userId);
-        User user = this.fetchUserById(userId);
-        List<UserGetDto> followers = user.getFollowers().stream()
-                .map(userMapper::toUserGetDto)
-                .collect(Collectors.toList());
-        logger.info("Retrieved {} followers for user with ID: {}", followers.size(), userId);
-        return followers;
+        try {
+            User user = this.fetchUserById(userId);
+            List<UserGetDto> followers = user.getFollowers().stream()
+                    .map(userMapper::toUserGetDto)
+                    .collect(Collectors.toList());
+            logger.info("Retrieved {} followers for user with ID: {}", followers.size(), userId);
+            return followers;
+        } catch (Exception exception){
+            logger.error("Error occurred while get followers for user. User ID: {} , Error: {}", userId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
     public List<UserGetDto> getFollowing(UUID userId) {
         logger.info("Fetching users followed by user with ID: {}", userId);
-        User user = this.fetchUserById(userId);
-        List<UserGetDto> followingUsers = user.getFollowing().stream()
-                .map(userMapper::toUserGetDto)
-                .collect(Collectors.toList());
-        logger.info("Retrieved {} users followed by user with ID: {}", followingUsers.size(), userId);
-        return followingUsers;
+        try{
+            User user = this.fetchUserById(userId);
+            List<UserGetDto> followingUsers = user.getFollowing().stream()
+                    .map(userMapper::toUserGetDto)
+                    .collect(Collectors.toList());
+            logger.info("Retrieved {} users followed by user with ID: {}", followingUsers.size(), userId);
+            return followingUsers;
+        } catch (Exception exception){
+            logger.error("Error occurred while get following for user. User ID: {} , Error: {}", userId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -227,16 +262,21 @@ public class UserServiceImpl implements UserService {
         User user = this.fetchUserById(userId);
         User followUser = this.fetchUserById(followUserId);
 
-        if(!user.getFollowing().contains(followUser)){
-            user.getFollowing().add(followUser);
-            followUser.getFollowers().add(user);
-            user.setFollowingCount(user.getFollowingCount() + 1);
-            followUser.setFollowersCount(followUser.getFollowersCount() + 1);
-            userRepository.save(user);
-            userRepository.save(followUser);
-            logger.info("User with ID: {} successfully followed user with ID: {}", userId, followUserId);
-        } else {
-            logger.warn("User with ID: {} already follows user with ID: {}", userId, followUserId);
+        try {
+            if(!user.getFollowing().contains(followUser)){
+                user.getFollowing().add(followUser);
+                followUser.getFollowers().add(user);
+                user.setFollowingCount(user.getFollowingCount() + 1);
+                followUser.setFollowersCount(followUser.getFollowersCount() + 1);
+                userRepository.save(user);
+                userRepository.save(followUser);
+                logger.info("User with ID: {} successfully followed user with ID: {}", userId, followUserId);
+            } else {
+                logger.warn("User with ID: {} already follows user with ID: {}", userId, followUserId);
+            }
+        } catch (Exception exception){
+            logger.error("Error occurred while follow {} by {}, Error: {}", followUser, userId, exception.getMessage(), exception);
+            throw exception;
         }
     }
 
@@ -247,14 +287,19 @@ public class UserServiceImpl implements UserService {
         User user = this.fetchUserById(userId);
         User unfollowUser = this.fetchUserById(unfollowUserId);
 
-        user.getFollowing().remove(unfollowUser);
-        unfollowUser.getFollowers().remove(user);
-        user.setFollowingCount(user.getFollowingCount() - 1);
-        unfollowUser.setFollowersCount(unfollowUser.getFollowersCount() - 1);
+        try {
+            user.getFollowing().remove(unfollowUser);
+            unfollowUser.getFollowers().remove(user);
+            user.setFollowingCount(user.getFollowingCount() - 1);
+            unfollowUser.setFollowersCount(unfollowUser.getFollowersCount() - 1);
 
-        userRepository.save(user);
-        userRepository.save(unfollowUser);
-        logger.info("User with ID: {} successfully unfollowed user with ID: {}", userId, unfollowUserId);
+            userRepository.save(user);
+            userRepository.save(unfollowUser);
+            logger.info("User with ID: {} successfully unfollowed user with ID: {}", userId, unfollowUserId);
+        } catch (Exception exception){
+            logger.error("Error occurred while unfollow {} by {}, Error: {}", unfollowUser, userId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -302,25 +347,30 @@ public class UserServiceImpl implements UserService {
     public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) throws AccessDeniedException {
         logger.info("Updating user with ID : {}",userId);
         UUID loggedInUserId = this.getLoggedInUserId();
-        if(userId.equals(loggedInUserId) || this.isAdmin()) {
-            User updatedUser = userRepository.findById(userId).map(user -> {
-                user.setName(userUpdateDto.getName());
-                user.setEmail(userUpdateDto.getEmail());
-                user.setAbout(userUpdateDto.getAbout());
-                user.setGender(userUpdateDto.getGender());
-                user.setUserName(userUpdateDto.getUserName());
-                user.setPhoneNumber(userUpdateDto.getPhoneNumber());
-                User savedUser = userRepository.save(user);
-                logger.info("User with ID {} updated successfully",userId);
-                return savedUser;
-            }).orElseThrow(() -> {
-                logger.warn("User with ID {} not found, Updated user operation not performed", userId);
-                return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
-            });
-            return userMapper.toUserGetDto(updatedUser);
-        } else {
-            logger.warn("Unauthorized attempt to update another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
-            throw new AccessDeniedException("You can only update your own account.");
+        try{
+            if(userId.equals(loggedInUserId) || this.isAdmin()) {
+                User updatedUser = userRepository.findById(userId).map(user -> {
+                    user.setName(userUpdateDto.getName());
+                    user.setEmail(userUpdateDto.getEmail());
+                    user.setAbout(userUpdateDto.getAbout());
+                    user.setGender(userUpdateDto.getGender());
+                    user.setUserName(userUpdateDto.getUserName());
+                    user.setPhoneNumber(userUpdateDto.getPhoneNumber());
+                    User savedUser = userRepository.save(user);
+                    logger.info("User with ID {} updated successfully",userId);
+                    return savedUser;
+                }).orElseThrow(() -> {
+                    logger.warn("User with ID {} not found, Updated user operation not performed", userId);
+                    return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
+                });
+                return userMapper.toUserGetDto(updatedUser);
+            } else {
+                logger.warn("Unauthorized attempt to update another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+                throw new AccessDeniedException("You can only update your own account.");
+            }
+        } catch (Exception exception){
+            logger.error("Error occurred while updating user, Error: {}", exception.getMessage(), exception);
+            throw exception;
         }
     }
 
