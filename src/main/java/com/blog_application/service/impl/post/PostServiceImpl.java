@@ -186,7 +186,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) {
+    public PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) throws AccessDeniedException {
         logger.info("Adding tags to post with ID: {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
 
@@ -194,43 +194,70 @@ public class PostServiceImpl implements PostService {
                 .map(Tag::getName)
                 .toList());
 
-        for (TagCreateDto tagCreateDto : tagCreateDtos) {
-            logger.info("Processing tag: {}", tagCreateDto.getName());
-            // Using orElseGet instead of orElse causes the new Tag object to be created only when needed
-            // (when the tag is not found). orElse is always called, even if the value in Optional is present
-            Tag tag = tagRepository.findByName(tagCreateDto.getName()).orElseGet(() ->
-                new Tag(tagCreateDto.getName(),
-                        (tagCreateDto.getDescription()).isEmpty() ? tagCreateDto.getName().concat("  ").concat("Description") : tagCreateDto.getDescription())
-            );
-            // Check if the tag is already associated with the post
-            if (!existingTagNames.contains(tag.getName())) {
-                post.getTags().add(tag);
-                existingTagNames.add(tag.getName()); // Update the list of tag names
-                logger.info("Tag ({}) added to post", tag.getName());
-            } else {
-                logger.warn("Tag ({}) is already associated with post", tag.getName());
-            }
+        UUID userId = post.getUser().getId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        if(!userId.equals(loggedInUserId)){
+            logger.warn("Unauthorized attempt to add tags to a post owned by another user. Logged-in user: {}, Post owner: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only add tags to posts that you own.");
         }
 
-        // Because of CascadeType.PERSIST and CascadeType.MERGE, there is no need
-        // to save tags manually This operation also automatically saves the tags
-        Post savedPost = postRepository.save(post);
-        logger.info("Post with ID {} with tags saved", postId);
-        return postMapper.toPostGetDto(savedPost);
+        try{
+            for (TagCreateDto tagCreateDto : tagCreateDtos) {
+                logger.info("Processing tag: {}", tagCreateDto.getName());
+                // Using orElseGet instead of orElse causes the new Tag object to be created only when needed
+                // (when the tag is not found). orElse is always called, even if the value in Optional is present
+                Tag tag = tagRepository.findByName(tagCreateDto.getName()).orElseGet(() ->
+                        new Tag(tagCreateDto.getName(),
+                                (tagCreateDto.getDescription()).isEmpty() ? tagCreateDto.getName().concat("  ").concat("Description") : tagCreateDto.getDescription())
+                );
+                // Check if the tag is already associated with the post
+                if (!existingTagNames.contains(tag.getName())) {
+                    post.getTags().add(tag);
+                    existingTagNames.add(tag.getName()); // Update the list of tag names
+                    logger.info("Tag ({}) added to post", tag.getName());
+                } else {
+                    logger.warn("Tag ({}) is already associated with post", tag.getName());
+                }
+            }
+
+            // Because of CascadeType.PERSIST and CascadeType.MERGE, there is no need
+            // to save tags manually This operation also automatically saves the tags
+            Post savedPost = postRepository.save(post);
+            logger.info("Post with ID {} with tags saved", postId);
+            return postMapper.toPostGetDto(savedPost);
+        } catch (Exception exception){
+            logger.error("An error occurred while adding tags to post with ID {}. Error: {}", postId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
     @Transactional
-    public void removeTagsFromPost(Long postId, List<Long> tagIdsToRemove) {
+    public void removeTagsFromPost(Long postId, List<Long> tagIdsToRemove) throws AccessDeniedException {
         logger.info("Removing tags from post with ID {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
-        List<Tag> tagsToRemove = post.getTags().stream()
-                .filter(tag -> tagIdsToRemove.contains(tag.getId()))
-                .toList();
-        logger.info("Tags to remove: {}", tagsToRemove);
-        post.getTags().removeAll(tagsToRemove);
-        postRepository.save(post);
-        logger.info("Tags removed successfully from post with ID {}", postId);
+
+        UUID userId = post.getUser().getId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        if(!userId.equals(loggedInUserId)){
+            logger.warn("Unauthorized attempt to remove tags from a post owned by another user. Logged-in user: {}, Post owner: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only remove tags from posts that you own.");
+        }
+
+        try {
+            List<Tag> tagsToRemove = post.getTags().stream()
+                    .filter(tag -> tagIdsToRemove.contains(tag.getId()))
+                    .toList();
+            logger.info("Tags to remove: {}", tagsToRemove);
+            post.getTags().removeAll(tagsToRemove);
+            postRepository.save(post);
+            logger.info("Tags removed successfully from post with ID {}", postId);
+        } catch (Exception exception){
+            logger.error("An error occurred while removing tags from post with ID {}. Error: {}", postId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override

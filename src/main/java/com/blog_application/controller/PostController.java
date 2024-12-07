@@ -182,7 +182,7 @@ public class PostController {
 
     @PostMapping("/{post_id}/tags")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<PostGetDto> addTagToPost(@PathVariable("post_id") Long postId,@RequestBody List<TagCreateDto> tagCreateDtos){
+    public ResponseEntity<PostGetDto> addTagToPost(@PathVariable("post_id") Long postId,@RequestBody List<TagCreateDto> tagCreateDtos) throws AccessDeniedException {
         logger.info("Received request to add tags to post with ID: {}", postId);
         PostGetDto postGetDto = postService.addTagToPost(postId,tagCreateDtos);
         logger.info("Tags added successfully to post with ID: {}", postId);
@@ -191,7 +191,7 @@ public class PostController {
 
     @DeleteMapping("/{post_id}/tags")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> removeTagsFromPost(@PathVariable("post_id") Long postId,@RequestBody List<Long> tagIds){
+    public ResponseEntity<ApiResponse> removeTagsFromPost(@PathVariable("post_id") Long postId,@RequestBody List<Long> tagIds) throws AccessDeniedException {
         logger.info("Received request to remove tags from post with ID: {}", postId);
         postService.removeTagsFromPost(postId,tagIds);
         logger.info("Tags removed successfully from post with ID: {}", postId);

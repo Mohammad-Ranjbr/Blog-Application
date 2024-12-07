@@ -15,8 +15,8 @@ public interface PostService {
     void deletePost(Long post_id);
     PostGetDto getPostById(Long postId);
     PostGetDto updatePost(PostUpdateDto postDto, Long postId) throws AccessDeniedException;
-    void removeTagsFromPost(Long postId,List<Long> tagIdsToRemove );
-    PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagNames);
+    void removeTagsFromPost(Long postId,List<Long> tagIdsToRemove ) throws AccessDeniedException;
+    PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagNames) throws AccessDeniedException;
     PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws AccessDeniedException;
     PaginatedResponse<PostGetDto> getAllPosts(int pageNumber, int pageSize, String sortBy, String sortDir);
     PaginatedResponse<PostGetDto> searchPosts(String keyword, int pageNumber, int pageSize, String sortBy, String sortDir);
