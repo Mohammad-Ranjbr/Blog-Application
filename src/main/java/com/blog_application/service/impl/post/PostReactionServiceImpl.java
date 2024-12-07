@@ -18,7 +18,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class PostReactionServiceImpl implements PostReactionService {
@@ -43,37 +45,50 @@ public class PostReactionServiceImpl implements PostReactionService {
     }
     @Override
     @Transactional
-    public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) {
+    public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException {
         logger.info("Starting like post...");
         User user = userMapper.toEntity(userService.getUserById(postReactionRequestDto.getUserId()));
         Post post = postMapper.toEntity(postService.getPostById(postReactionRequestDto.getPostId()));
         Optional<PostReaction> existing = postReactionRepository.findByUserAndPost(user,post);
 
-        PostReaction postReaction;
-        if(existing.isPresent()){
-            postReaction = existing.get();
-            if(postReaction.isLike() == postReactionRequestDto.isLike()){
-                // If the action is the same, remove the like
-                postReactionRepository.delete(postReaction);
-                logger.info("Like removed for user {} on post {}", user.getId(), post.getId());
-            }
-        } else {
-            if (postReactionRequestDto.isLike()){
-                postReaction = new PostReaction();
-                postReaction.setUser(user);
-                postReaction.setPost(post);
-                postReaction.setLike(true);
-                postReactionRepository.save(postReaction);
-                logger.info("New Like added for user {} on post {}", user.getId(), post.getId());
-            }
+        UUID userId = user.getId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        if(!loggedInUserId.equals(userId)){
+            logger.warn("Unauthorized attempt to add a reaction to a post on behalf of another user. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only add reactions to posts on behalf of your own account.");
         }
 
-        int likeCount = postReactionRepository.countLikByPost(post);
-        post.setLikes(likeCount);
-        postRepository.save(post);
+        try{
+            PostReaction postReaction;
+            if(existing.isPresent()){
+                postReaction = existing.get();
+                if(postReaction.isLike() == postReactionRequestDto.isLike()){
+                    // If the action is the same, remove the like
+                    postReactionRepository.delete(postReaction);
+                    logger.info("Like removed for user {} on post {}", user.getId(), post.getId());
+                }
+            } else {
+                if (postReactionRequestDto.isLike()){
+                    postReaction = new PostReaction();
+                    postReaction.setUser(user);
+                    postReaction.setPost(post);
+                    postReaction.setLike(true);
+                    postReactionRepository.save(postReaction);
+                    logger.info("New Like added for user {} on post {}", user.getId(), post.getId());
+                }
+            }
 
-        logger.info("like Post finished.");
-        return postMapper.toPostGetDto(post);
+            int likeCount = postReactionRepository.countLikByPost(post);
+            post.setLikes(likeCount);
+            postRepository.save(post);
+
+            logger.info("like Post finished.");
+            return postMapper.toPostGetDto(post);
+        } catch (Exception exception){
+            logger.error("Error occurred while like post {} by user  {}, Error: {}", postReactionRequestDto.getPostId(), postReactionRequestDto.getUserId(), exception.getMessage(), exception);
+            throw exception;
+        }
     }
     
 }

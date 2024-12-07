@@ -169,7 +169,7 @@ public class PostController {
 
     @PostMapping("/like")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<PostGetDto> likePost(@RequestBody PostReactionRequestDto requestDto){
+    public ResponseEntity<PostGetDto> likePost(@RequestBody PostReactionRequestDto requestDto) throws AccessDeniedException {
         logger.info("Received like request for User {} on Post {}", requestDto.getUserId(), requestDto.getPostId());
         PostGetDto postGetDto = postReactionService.likePost(requestDto);
         if(postGetDto == null){

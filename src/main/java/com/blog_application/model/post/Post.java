@@ -49,7 +49,7 @@ public class Post {
     private User user;
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
-    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<PostReaction> postReactions = new ArrayList<>();
     private int likes;
     // CascadeType.PERSIST: When a new entity is added to the database (EntityManager.persist is called), the related entities are automatically added.
