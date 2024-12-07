@@ -41,6 +41,7 @@ public class TagController {
 
     //GET Mapping-Get Tag Basic Info By ID
     @GetMapping("/basic-info/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<TagBasicInfoDto> getTagBasicInfoById(@PathVariable("id") Long tagId){
         logger.info("Received request to get tag basic info with ID : {}",tagId);
         TagBasicInfoDto tagBasicInfoDto = tagService.getTagBasicInfoById(tagId);
@@ -50,6 +51,7 @@ public class TagController {
 
     //GET Mapping-Get Tag By ID
     @GetMapping("/id/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<TagGetDto> getTagById(@PathVariable("id") Long tagId){
         logger.info("Received request to get tag with ID : {}",tagId);
         TagGetDto tagGetDto = tagService.getTagById(tagId);
@@ -79,6 +81,7 @@ public class TagController {
 
     //GET Mapping-Get All Categories
     @GetMapping("/")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PaginatedResponse<TagGetDto>> getAllTags(
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
@@ -93,6 +96,7 @@ public class TagController {
 
     //GET Mapping-Get All Tag Basic Info
     @GetMapping ("/basic-info/")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<PaginatedResponse<TagBasicInfoDto>> getAllBasicInfo(
             @RequestParam(value = ApplicationConstants.PAGE_NUMBER,defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNumber,
             @RequestParam(value = ApplicationConstants.PAGE_SIZE,defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
@@ -108,6 +112,7 @@ public class TagController {
 
     //GET Mapping-Get Tag By Name
     @GetMapping("/name/{name}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<TagGetDto> getTagByName(@PathVariable("name") String tagName){
         logger.info("Received request to get tag with Name : {}",tagName);
         TagGetDto tagGetDto = tagService.getTagByName(tagName);

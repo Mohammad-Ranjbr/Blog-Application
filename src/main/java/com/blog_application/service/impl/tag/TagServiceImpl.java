@@ -83,9 +83,14 @@ public class TagServiceImpl implements TagService {
     public TagGetDto createTag(TagCreateDto tagCreateDto) {
         logger.info("Creating tag with name : {}",tagCreateDto.getName());
         Tag tag = tagMapper.toEntity(tagCreateDto);
-        Tag savedTag = tagRepository.save(tag);
-        logger.info("Tag created successfully with name : {}",savedTag.getName());
-        return tagMapper.toTagGetDto(savedTag);
+        try {
+            Tag savedTag = tagRepository.save(tag);
+            logger.info("Tag created successfully with name : {}",savedTag.getName());
+            return tagMapper.toTagGetDto(savedTag);
+        } catch (Exception exception){
+            logger.error("Error occurred while creating tag. Tag Name: {}, Error: {}", tagCreateDto.getName(), exception.getMessage(), exception);
+           throw exception;
+        }
     }
 
     @Override
