@@ -110,17 +110,22 @@ public class TagServiceImpl implements TagService {
     @Transactional
     public TagGetDto updateTag(TagUpdateDto tagUpdateDto, Long tagId) {
         logger.info("Updating tag with ID : {}",tagId);
-        Tag updatedTag = tagRepository.findById(tagId).map(tag -> {
-            tag.setName(tagUpdateDto.getName());
-            tag.setDescription(tagUpdateDto.getDescription());
-            Tag savedTag =  tagRepository.save(tag);
-            logger.info("Tag with ID {} updated successfully",tagId);
-            return savedTag;
-        }).orElseThrow(() -> {
-            logger.warn("Tag with ID {} not found, Update tag operation not performed",tagId);
-            return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Update Tag operation not performed");
-        });
-        return tagMapper.toTagGetDto(updatedTag);
+        try{
+            Tag updatedTag = tagRepository.findById(tagId).map(tag -> {
+                tag.setName(tagUpdateDto.getName());
+                tag.setDescription(tagUpdateDto.getDescription());
+                Tag savedTag =  tagRepository.save(tag);
+                logger.info("Tag with ID {} updated successfully",tagId);
+                return savedTag;
+            }).orElseThrow(() -> {
+                logger.warn("Tag with ID {} not found, Update tag operation not performed",tagId);
+                return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Update Tag operation not performed");
+            });
+            return tagMapper.toTagGetDto(updatedTag);
+        } catch (Exception exception){
+            logger.error("Error occurred while updating tag, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -129,19 +134,24 @@ public class TagServiceImpl implements TagService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Tag> tagPage = tagRepository.findAll(pageable);
+        try {
+            Page<Tag> tagPage = tagRepository.findAll(pageable);
 
-        List<Tag> tags = tagPage.getContent();
-        List<TagGetDto> tagGetDtoList = tags.stream()
-                .map(tagMapper::toTagGetDto)
-                .toList();
+            List<Tag> tags = tagPage.getContent();
+            List<TagGetDto> tagGetDtoList = tags.stream()
+                    .map(tagMapper::toTagGetDto)
+                    .toList();
 
-        PaginatedResponse<TagGetDto> paginatedResponse = new PaginatedResponse<>(
-                tagGetDtoList,tagPage.getSize(),tagPage.getNumber(),tagPage.getTotalPages(),tagPage.getTotalElements(),tagPage.isLast()
-        );
+            PaginatedResponse<TagGetDto> paginatedResponse = new PaginatedResponse<>(
+                    tagGetDtoList,tagPage.getSize(),tagPage.getNumber(),tagPage.getTotalPages(),tagPage.getTotalElements(),tagPage.isLast()
+            );
 
-        logger.info("Total tags found : {}",tags.size());
-        return  paginatedResponse;
+            logger.info("Total tags found : {}",tags.size());
+            return  paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get all tags , Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -150,19 +160,24 @@ public class TagServiceImpl implements TagService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Tag> tagPage =  tagRepository.findAll(pageable);
+        try{
+            Page<Tag> tagPage =  tagRepository.findAll(pageable);
 
-        List<Tag> tags = tagPage.getContent();
-        List<TagBasicInfoDto> tagBasicInfoDtoList = tags.stream()
-                .map(tagMapper::toTagBasicInfoDto)
-                .toList();
+            List<Tag> tags = tagPage.getContent();
+            List<TagBasicInfoDto> tagBasicInfoDtoList = tags.stream()
+                    .map(tagMapper::toTagBasicInfoDto)
+                    .toList();
 
-        PaginatedResponse<TagBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
-                tagBasicInfoDtoList,tagPage.getSize(),tagPage.getNumber(),tagPage.getTotalPages(),tagPage.getTotalElements(),tagPage.isLast()
-        );
+            PaginatedResponse<TagBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
+                    tagBasicInfoDtoList,tagPage.getSize(),tagPage.getNumber(),tagPage.getTotalPages(),tagPage.getTotalElements(),tagPage.isLast()
+            );
 
-        logger.info("Total category basic info found : {}",tags.size());
-        return paginatedResponse;
+            logger.info("Total category basic info found : {}",tags.size());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get all basic tags info, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
 }
