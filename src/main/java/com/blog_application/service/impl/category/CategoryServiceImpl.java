@@ -154,10 +154,15 @@ public class CategoryServiceImpl implements CategoryService {
             logger.warn("Category with ID {} not found, Delete category operation not performed",categoryId);
             return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Delete Category not performed");
         });
-        Category defaultCategory = getCategoryByTitle("Uncategorized");
-        postRepository.updateCategoryForPosts(defaultCategory.getId(), categoryId);
-        logger.info("Category with ID {} deleted successfully",categoryId);
-        categoryRepository.delete(category);
+        try {
+            Category defaultCategory = getCategoryByTitle("Uncategorized");
+            postRepository.updateCategoryForPosts(defaultCategory.getId(), categoryId);
+            categoryRepository.delete(category);
+            logger.info("Category with ID {} deleted successfully",categoryId);
+        } catch (Exception exception){
+            logger.error("Error occurred while deleting category. Category ID: {}, Error: {}", categoryId, exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
 }
