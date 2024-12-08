@@ -47,7 +47,7 @@ public class CommentController {
     //DELETE Mapping-Delete Comment
     @DeleteMapping("/{id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> deleteComment(@PathVariable("id") Long commentId){
+    public ResponseEntity<ApiResponse> deleteComment(@PathVariable("id") Long commentId) throws AccessDeniedException {
         logger.info("Received request to delete comment with ID : {}",commentId);
         commentService.deleteComment(commentId);
         logger.info("Returning response for delete comment with ID : {}",commentId);
@@ -56,6 +56,7 @@ public class CommentController {
 
     //GET Mapping-Get comment by ID
     @GetMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<CommentGetDto> getCommentById(@PathVariable("id") Long commentId){
         logger.info("Received request to get comment with ID : {}",commentId);
         CommentGetDto commentGetDto = commentService.getCommentById(commentId);
@@ -65,6 +66,7 @@ public class CommentController {
 
     //GET Mapping-Get comment by Post ID
     @GetMapping("/post/{post_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<List<CommentGetDto>> getCommentsByPostId(@PathVariable("post_id") Long postId){
         logger.info("Received request to fetch comments for post with ID : {}", postId);
         List<CommentGetDto> commentGetDtos = commentService.getCommentsByPostId(postId);
@@ -74,6 +76,7 @@ public class CommentController {
 
     //GET Mapping-Get comment by Parent ID
     @GetMapping("/parent/{parent_id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<List<CommentGetDto>> getCommentsByParentId(@PathVariable("parent_id") Long parentId){
         logger.info("Received request to fetch comments for parent comment with ID: {}", parentId);
         List<CommentGetDto> commentGetDtos = commentService.getCommentsByParentId(parentId);

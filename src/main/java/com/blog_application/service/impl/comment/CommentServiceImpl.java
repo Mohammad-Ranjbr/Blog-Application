@@ -86,14 +86,28 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    public void deleteComment(Long commentId) {
+    public void deleteComment(Long commentId) throws AccessDeniedException {
         logger.info("Deleting comment with ID : {}",commentId);
         Comment comment = commentRepository.findById(commentId).orElseThrow(() -> {
             logger.warn("Comment with ID {} not found, Delete comment operation not performed",commentId);
             return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Delete Comment operation not performed");
         });
-        commentRepository.delete(comment);
-        logger.info("Comment with ID : {} deleted successfully",commentId);
+
+        UUID userId = comment.getUser().getId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        try{
+            if(userId.equals(loggedInUserId) || userService.isAdmin()){
+                commentRepository.delete(comment);
+                logger.info("Comment with ID : {} deleted successfully",commentId);
+            } else {
+                logger.warn("Unauthorized attempt to delete a comment. Logged-in user: {}, Comment owner: {}", loggedInUserId, userId);
+                throw new AccessDeniedException("Only the comment owner or an admin can delete this comment.");
+            }
+        } catch (Exception exception){
+            logger.error("Error occurred while removing comment, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     // getCommentById don't need @Transactional because they don't make any changes to the database and just retrieve the data.

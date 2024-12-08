@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface CommentService {
 
-    void deleteComment(Long commentId);
+    void deleteComment(Long commentId) throws AccessDeniedException;
     CommentGetDto getCommentById(Long commentId);
     List<CommentGetDto> getCommentsByPostId(Long postId);
     List<CommentGetDto> getCommentsByParentId(Long parentId);

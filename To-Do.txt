@@ -35,8 +35,8 @@
 35- Upload post image
 36- Unit and Integration test -
 37- Send Email
-38- Login
-39- Register
+38- Login ✅
+39- Register ✅
 40- Forget Password
 41- upload excel file to database
 42- Response
@@ -50,10 +50,13 @@
 50- Remove Child Comments in Response -
 51- Schedule Post With Redis
 52- Schedule Post With Quartz Scheduler
-53- Logic for active user
+53- Logic for active user ✅
 54- Login log
 55- Handle duplicate key value in code
-56- add category to update post
-57- use try catch block
+56- add category to update post ✅
+57- use try catch block ✅
+58- Where we don't need the entire object, we just need to check whether that object exists or not, otherwise we don't need to fetch the entire object.
+59- Edit GetCommentByPostId
+60- Pagination for comment
 
 ✅	❌
