@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -50,23 +51,37 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) {
+    public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) throws AccessDeniedException {
         logger.info("Creating comment with content : {}",commentCreateDto.getContent());
         Post post = postMapper.toEntity(postService.getPostById(postId));
         User user = userMapper.toEntity(userService.getUserById(userId));
-        Comment comment = commentMapper.toEntity(commentCreateDto);
-        comment.setPost(post);
-        comment.setUser(user);
-        if(commentCreateDto.getParent() != null){
-            Comment parentComment = commentRepository.findById(commentCreateDto.getParent()).orElseThrow(() ->{
-                logger.warn("Parent comment with ID {} not found",commentCreateDto.getParent());
-                return new ResourceNotFoundException("Comment","ID",String.valueOf(commentCreateDto.getParent()),"Parent comment not found");
-            });
-            parentComment.addReply(comment);
+
+        UUID user_id = user.getId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        if(!user_id.equals(loggedInUserId)){
+            logger.warn("Unauthorized attempt to add a comment to another user's post. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only add comments to posts using your own account.");
         }
-        Comment savedComment = commentRepository.save(comment);
-        logger.info("Comment created successfully with content : {}",commentCreateDto.getContent());
-        return commentMapper.toCommentGetDto(savedComment);
+
+        try {
+            Comment comment = commentMapper.toEntity(commentCreateDto);
+            comment.setPost(post);
+            comment.setUser(user);
+            if(commentCreateDto.getParent() != null){
+                Comment parentComment = commentRepository.findById(commentCreateDto.getParent()).orElseThrow(() ->{
+                    logger.warn("Parent comment with ID {} not found",commentCreateDto.getParent());
+                    return new ResourceNotFoundException("Comment","ID",String.valueOf(commentCreateDto.getParent()),"Parent comment not found");
+                });
+                parentComment.addReply(comment);
+            }
+            Comment savedComment = commentRepository.save(comment);
+            logger.info("Comment created successfully with content : {}",commentCreateDto.getContent());
+            return commentMapper.toCommentGetDto(savedComment);
+        } catch (Exception exception){
+            logger.error("Error occurred while creating comment, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override

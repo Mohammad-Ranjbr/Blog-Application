@@ -4,6 +4,7 @@ import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,6 +15,6 @@ public interface CommentService {
     List<CommentGetDto> getCommentsByPostId(Long postId);
     List<CommentGetDto> getCommentsByParentId(Long parentId);
     CommentGetDto updateComment(CommentUpdateDto commentUpdateDto, Long commentId);
-    CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId);
+    CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) throws AccessDeniedException;
 
 }

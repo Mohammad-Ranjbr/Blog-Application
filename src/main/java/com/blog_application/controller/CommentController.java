@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,7 +37,7 @@ public class CommentController {
     //POST Mapping-Create Comment
     @PostMapping("/post/{post_id}/user/{user_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<CommentGetDto> createComment(@Valid @RequestBody CommentCreateDto commentCreateDto, @PathVariable("post_id") Long postId,@PathVariable("user_id") UUID userId){
+    public ResponseEntity<CommentGetDto> createComment(@Valid @RequestBody CommentCreateDto commentCreateDto, @PathVariable("post_id") Long postId,@PathVariable("user_id") UUID userId) throws AccessDeniedException {
         logger.info("Received request to create comment with content: {}",commentCreateDto.getContent());
         CommentGetDto createdComment = commentService.createComment(commentCreateDto,postId,userId);
         logger.info("Returning response for comment creation with content : {}",commentCreateDto.getContent());
