@@ -45,9 +45,14 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryGetDto createCategory(CategoryCreateDto categoryCreateDto) {
         logger.info("Creating category with title : {}",categoryCreateDto.getTitle());
         Category category = categoryMapper.toEntity(categoryCreateDto);
-        Category savedCategory = categoryRepository.save(category);
-        logger.info("Category created successfully with title : {}",savedCategory.getTitle());
-        return categoryMapper.toCategoryGetDto(savedCategory);
+        try {
+            Category savedCategory = categoryRepository.save(category);
+            logger.info("Category created successfully with title : {}",savedCategory.getTitle());
+            return categoryMapper.toCategoryGetDto(savedCategory);
+        } catch (Exception exception){
+            logger.error("Error occurred while creating category, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -96,35 +101,45 @@ public class CategoryServiceImpl implements CategoryService {
         logger.info("Fetching all category basic info");
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
-        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Category> categoryPage = categoryRepository.findAll(pageable);
+        try{
+            Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+            Page<Category> categoryPage = categoryRepository.findAll(pageable);
 
-        List<Category> categories = categoryPage.getContent();
-        List<CategoryBasicInfoDto> categoryGetDtoList = categories.stream()
-                .map(categoryMapper::toCategoryBasicInfoDto)
-                .toList();
+            List<Category> categories = categoryPage.getContent();
+            List<CategoryBasicInfoDto> categoryGetDtoList = categories.stream()
+                    .map(categoryMapper::toCategoryBasicInfoDto)
+                    .toList();
 
-        PaginatedResponse<CategoryBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
-                categoryGetDtoList,categoryPage.getSize(),categoryPage.getNumber(),categoryPage.getTotalPages(),categoryPage.getTotalElements(),categoryPage.isLast());
-        logger.info("Total category basic info found : {}",categories.size());
-        return paginatedResponse;
+            PaginatedResponse<CategoryBasicInfoDto> paginatedResponse = new PaginatedResponse<>(
+                    categoryGetDtoList,categoryPage.getSize(),categoryPage.getNumber(),categoryPage.getTotalPages(),categoryPage.getTotalElements(),categoryPage.isLast());
+            logger.info("Total category basic info found : {}",categories.size());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get all basic category info, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
     @Transactional
     public CategoryGetDto updateCategory(CategoryUpdateDto categoryUpdateDto, Long categoryId) {
         logger.info("Updating category with ID : {}",categoryId);
-        Category updatedCategory = categoryRepository.findById(categoryId).map(category -> {
-            category.setTitle(categoryUpdateDto.getTitle());
-            category.setDescription(categoryUpdateDto.getDescription());
-            Category savedCategory = categoryRepository.save(category);
-            logger.info("Category with ID {} updated successfully",categoryId);
-            return savedCategory;
-        }).orElseThrow(() -> {
-            logger.warn("Category with ID {} not found, Update category operation not performed",categoryId);
-            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Update Category not performed");
-        });
-        return categoryMapper.toCategoryGetDto(updatedCategory);
+        try{
+            Category updatedCategory = categoryRepository.findById(categoryId).map(category -> {
+                category.setTitle(categoryUpdateDto.getTitle());
+                category.setDescription(categoryUpdateDto.getDescription());
+                Category savedCategory = categoryRepository.save(category);
+                logger.info("Category with ID {} updated successfully",categoryId);
+                return savedCategory;
+            }).orElseThrow(() -> {
+                logger.warn("Category with ID {} not found, Update category operation not performed",categoryId);
+                return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Update Category not performed");
+            });
+            return categoryMapper.toCategoryGetDto(updatedCategory);
+        } catch (Exception exception){
+            logger.error("Error occurred while updating category, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
@@ -133,17 +148,22 @@ public class CategoryServiceImpl implements CategoryService {
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
-        Page<Category> categoryPage = categoryRepository.findAll(pageable);
+        try {
+            Page<Category> categoryPage = categoryRepository.findAll(pageable);
 
-        List<Category> categories = categoryPage.getContent();
-        List<CategoryGetDto> categoryGetDtoList = categories.stream()
-                .map(categoryMapper::toCategoryGetDto)
-                .toList();
+            List<Category> categories = categoryPage.getContent();
+            List<CategoryGetDto> categoryGetDtoList = categories.stream()
+                    .map(categoryMapper::toCategoryGetDto)
+                    .toList();
 
-        PaginatedResponse<CategoryGetDto> paginatedResponse = new PaginatedResponse<>(
-                categoryGetDtoList,categoryPage.getSize(),categoryPage.getNumber(),categoryPage.getTotalPages(),categoryPage.getTotalElements(),categoryPage.isLast());
-        logger.info("Total categories found : {}",categories.size());
-        return paginatedResponse;
+            PaginatedResponse<CategoryGetDto> paginatedResponse = new PaginatedResponse<>(
+                    categoryGetDtoList,categoryPage.getSize(),categoryPage.getNumber(),categoryPage.getTotalPages(),categoryPage.getTotalElements(),categoryPage.isLast());
+            logger.info("Total categories found : {}",categories.size());
+            return paginatedResponse;
+        } catch (Exception exception){
+            logger.error("Error occurred while get all categories info, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     @Override
