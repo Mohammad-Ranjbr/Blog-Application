@@ -6,7 +6,9 @@ import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.dto.tag.TagGetDto;
 import com.blog_application.dto.tag.TagUpdateDto;
 import com.blog_application.exception.ResourceNotFoundException;
+import com.blog_application.model.post.Post;
 import com.blog_application.model.tag.Tag;
+import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.tag.TagService;
 import com.blog_application.util.responses.PaginatedResponse;
@@ -30,12 +32,14 @@ public class TagServiceImpl implements TagService {
 
     private final TagMapper tagMapper;
     private final TagRepository tagRepository;
+    private final PostRepository postRepository;
     private static final Logger logger = LoggerFactory.getLogger(TagServiceImpl.class);
 
     @Autowired
-    public TagServiceImpl(TagMapper tagMapper, TagRepository tagRepository){
+    public TagServiceImpl(TagMapper tagMapper, TagRepository tagRepository, PostRepository postRepository){
         this.tagMapper = tagMapper;
         this.tagRepository = tagRepository;
+        this.postRepository = postRepository;
     }
 
     @Override
@@ -46,8 +50,18 @@ public class TagServiceImpl implements TagService {
             logger.warn("Tag with ID {} not found, Delete Tag operation not performed",tagId);
            return new ResourceNotFoundException("Tag","ID",String.valueOf(tagId),"Delete Tag operation not performed");
         });
-        logger.info("Tag with ID {} deleted successfully",tagId);
-        tagRepository.delete(tag);
+
+       try {
+           List<Post> postsWithTag = tag.getPosts();
+           postsWithTag.forEach(post -> post.getTags().remove(tag));
+           postRepository.saveAll(postsWithTag);
+
+           logger.info("Tag with ID {} deleted successfully",tagId);
+           tagRepository.delete(tag);
+       } catch (Exception exception){
+           logger.error("Error occurred while deleting tag. Tag ID: {}, Error: {}", tagId, exception.getMessage(), exception);
+           throw exception;
+       }
     }
 
     @Override
