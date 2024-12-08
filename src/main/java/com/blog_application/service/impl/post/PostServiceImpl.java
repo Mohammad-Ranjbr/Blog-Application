@@ -141,14 +141,29 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public void deletePost(Long postId) {
+    public void deletePost(Long postId) throws AccessDeniedException {
         logger.info("Deleting post with ID : {}",postId);
         Post post = postRepository.findById(postId).orElseThrow(() -> {
             logger.warn("Post with ID {} not found, Delete post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Delete Post operation not performed");
         });
-        postRepository.delete(post);
-        logger.info("Post with ID {} deleted successfully",postId);
+
+        UUID userId = post.getUser().getId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        try {
+            if(userId.equals(loggedInUserId) || userService.isAdmin()){
+                postRepository.delete(post);
+                logger.info("Post with ID {} deleted successfully",postId);
+            } else {
+                logger.warn("Unauthorized attempt to delete a post. Logged-in user: {}, Post owner: {}", loggedInUserId, userId);
+                throw new AccessDeniedException("You can only delete posts that you have created or if you are an admin.");
+            }
+        } catch (Exception exception){
+            logger.error("Error occurred while removing post.  Post ID: {}, Error: {}", postId, exception.getMessage(), exception);
+            throw exception;
+        }
+
     }
 
     @Override

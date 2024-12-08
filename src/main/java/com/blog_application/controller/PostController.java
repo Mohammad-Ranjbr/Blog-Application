@@ -118,7 +118,7 @@ public class PostController {
     @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Delete Post Rest Api", description = "Delete Post Rest Api is used to delete a particular post from the database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
-    public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long postId){
+    public ResponseEntity<ApiResponse> deletePost(@PathVariable("id") Long postId) throws AccessDeniedException {
         logger.info("Received request to delete post with ID : {}", postId);
         postService.deletePost(postId);
         logger.info("Returning response for delete post with ID : {}", postId);

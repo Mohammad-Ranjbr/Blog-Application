@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public interface PostService {
 
-    void deletePost(Long post_id);
+    void deletePost(Long post_id) throws AccessDeniedException;
     PostGetDto getPostById(Long postId);
     PostGetDto updatePost(PostUpdateDto postDto, Long postId) throws AccessDeniedException;
     void removeTagsFromPost(Long postId,List<Long> tagIdsToRemove ) throws AccessDeniedException;
