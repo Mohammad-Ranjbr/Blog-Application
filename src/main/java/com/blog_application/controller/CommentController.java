@@ -96,7 +96,7 @@ public class CommentController {
 
     @PostMapping("/like-dislike")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<CommentGetDto> likeDislikeComment(@RequestBody CommentReactionRequestDto requestDto){
+    public ResponseEntity<CommentGetDto> likeDislikeComment(@RequestBody CommentReactionRequestDto requestDto) throws AccessDeniedException {
         logger.info("Received like/dislike request for User {} on Comment {}", requestDto.getUserId(), requestDto.getCommentId());
         CommentGetDto commentGetDto = commentReactionService.likeDislikeComment(requestDto);
         if (commentGetDto == null) {

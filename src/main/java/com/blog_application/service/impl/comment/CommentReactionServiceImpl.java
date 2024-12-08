@@ -18,7 +18,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CommentReactionServiceImpl implements CommentReactionService {
@@ -40,9 +42,10 @@ public class CommentReactionServiceImpl implements CommentReactionService {
         this.commentRepository = commentRepository;
         this.commentReactionRepository = commentReactionRepository;
     }
+
     @Override
     @Transactional
-    public CommentGetDto likeDislikeComment(CommentReactionRequestDto requestDTO) {
+    public CommentGetDto likeDislikeComment(CommentReactionRequestDto requestDTO) throws AccessDeniedException {
         logger.info("Starting like/Dislike Comment...");
         User user = userMapper.toEntity(userService.getUserById(requestDTO.getUserId()));
         Comment comment = commentRepository.findById(requestDTO.getCommentId()).orElseThrow(() -> {
@@ -51,37 +54,50 @@ public class CommentReactionServiceImpl implements CommentReactionService {
         });
         Optional<CommentReaction> existing  = commentReactionRepository.findByUserAndComment(user,comment);
 
-        CommentReaction commentReaction;
-        if(existing .isPresent()){
-            commentReaction = existing.get();
-            if(commentReaction.isLike() == requestDTO.isLike()){
-                // If the action is the same, remove the like/dislike
-                commentReactionRepository.delete(commentReaction);
-                logger.info("Like/Dislike removed for user {} on comment {}", user.getId(), comment.getId());
-            } else {
-                // If the action is different, update the like/dislike
-                commentReaction.setLike(requestDTO.isLike());
-                commentReactionRepository.save(commentReaction);
-                logger.info("Like/Dislike updated for user {} on comment {}", user.getId(), comment.getId());
-            }
-        } else {
-            // If not liked or disliked, add a new like/dislike
-            commentReaction = new CommentReaction();
-            commentReaction.setUser(user);
-            commentReaction.setComment(comment);
-            commentReaction.setLike(requestDTO.isLike());
-            commentReactionRepository.save(commentReaction);
-            logger.info("New Like/Dislike added for user {} on comment {}", user.getId(), comment.getId());
+        UUID userId = requestDTO.getUserId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        if(!userId.equals(loggedInUserId)){
+            logger.warn("Unauthorized attempt to react to a comment using another user's account. Logged-in user: {}, Target comment owner: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only react to comments using your own account.");
         }
 
-        int likeCount = commentReactionRepository.countLikesByComment(comment);
-        int dislikeCount = commentReactionRepository.countDislikesByComment(comment);
-        comment.setLikes(likeCount);
-        comment.setDislikes(dislikeCount);
-        commentRepository.save(comment);
-        
-        logger.info("likeDislikeComment finished.");
-        return commentMapper.toCommentGetDto(comment);
+        try {
+            CommentReaction commentReaction;
+            if(existing .isPresent()){
+                commentReaction = existing.get();
+                if(commentReaction.isLike() == requestDTO.isLike()){
+                    // If the action is the same, remove the like/dislike
+                    commentReactionRepository.delete(commentReaction);
+                    logger.info("Like/Dislike removed for user {} on comment {}", user.getId(), comment.getId());
+                } else {
+                    // If the action is different, update the like/dislike
+                    commentReaction.setLike(requestDTO.isLike());
+                    commentReactionRepository.save(commentReaction);
+                    logger.info("Like/Dislike updated for user {} on comment {}", user.getId(), comment.getId());
+                }
+            } else {
+                // If not liked or disliked, add a new like/dislike
+                commentReaction = new CommentReaction();
+                commentReaction.setUser(user);
+                commentReaction.setComment(comment);
+                commentReaction.setLike(requestDTO.isLike());
+                commentReactionRepository.save(commentReaction);
+                logger.info("New Like/Dislike added for user {} on comment {}", user.getId(), comment.getId());
+            }
+
+            int likeCount = commentReactionRepository.countLikesByComment(comment);
+            int dislikeCount = commentReactionRepository.countDislikesByComment(comment);
+            comment.setLikes(likeCount);
+            comment.setDislikes(dislikeCount);
+            commentRepository.save(comment);
+
+            logger.info("likeDislikeComment finished.");
+            return commentMapper.toCommentGetDto(comment);
+        } catch (Exception exception){
+            logger.error("Error while adding a reaction to the comment. Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
 }
