@@ -84,7 +84,7 @@ public class CommentController {
     //PUT Mapping-Update comment
     @PutMapping("/{id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<CommentGetDto> updateComment(@Valid @RequestBody CommentUpdateDto commentUpdateDto, @PathVariable("id") Long commentId){
+    public ResponseEntity<CommentGetDto> updateComment(@Valid @RequestBody CommentUpdateDto commentUpdateDto, @PathVariable("id") Long commentId) throws AccessDeniedException {
         logger.info("Received request to update comment with ID : {}",commentId);
         CommentGetDto updatedComment = commentService.updateComment(commentUpdateDto,commentId);
         logger.info("Returning response for update comment with ID : {}",commentId);

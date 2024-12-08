@@ -146,18 +146,33 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    public CommentGetDto updateComment(CommentUpdateDto commentUpdateDto, Long commentId) {
+    public CommentGetDto updateComment(CommentUpdateDto commentUpdateDto, Long commentId) throws AccessDeniedException {
         logger.info("Updating comment with ID : {}",commentId);
-        Comment updatedComment = commentRepository.findById(commentId).map(comment -> {
-            comment.setContent(commentUpdateDto.getContent());
-            Comment savedComment = commentRepository.save(comment);
-            logger.info("Comment with ID {} updated successfully",commentId);
-            return savedComment;
-        }).orElseThrow(() -> {
-            logger.warn("Comment with ID {} not found, Delete comment operation not performed",commentId);
-            return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Delete Comment operation not performed");
-        });
-        return commentMapper.toCommentGetDto(updatedComment);
+        Comment commentInDb = commentMapper.toEntity(this.getCommentById(commentId));
+
+        UUID userId = commentInDb.getUser().getId();
+        UUID loggedInUserId = userService.getLoggedInUserId();
+
+        if(!userId.equals(loggedInUserId)){
+            logger.warn("Unauthorized attempt to edit another user's comment. Logged-in user: {}, Comment owner: {}", loggedInUserId, userId);
+            throw new AccessDeniedException("You can only edit comments that you have created.");
+        }
+
+        try {
+            Comment updatedComment = commentRepository.findById(commentId).map(comment -> {
+                comment.setContent(commentUpdateDto.getContent());
+                Comment savedComment = commentRepository.save(comment);
+                logger.info("Comment with ID {} updated successfully",commentId);
+                return savedComment;
+            }).orElseThrow(() -> {
+                logger.warn("Comment with ID {} not found, Delete comment operation not performed",commentId);
+                return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Delete Comment operation not performed");
+            });
+            return commentMapper.toCommentGetDto(updatedComment);
+        } catch (Exception exception){
+            logger.error("Error occurred while updating comment, Error: {}", exception.getMessage(), exception);
+            throw exception;
+        }
     }
 
     // @Transactional Annotation in Java programming language is mainly used to manage transactions at the method level.
