@@ -56,11 +56,8 @@ public class CommentServiceImpl implements CommentService {
         Post post = postMapper.toEntity(postService.getPostById(postId));
         User user = userMapper.toEntity(userService.getUserById(userId));
 
-        UUID user_id = user.getId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-
-        if(!user_id.equals(loggedInUserId)){
-            logger.warn("Unauthorized attempt to add a comment to another user's post. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(user.getId())){
+            logger.warn("Unauthorized attempt to add a comment to another user's post.");
             throw new AccessDeniedException("You can only add comments to posts using your own account.");
         }
 
@@ -164,11 +161,8 @@ public class CommentServiceImpl implements CommentService {
         logger.info("Updating comment with ID : {}",commentId);
         Comment commentInDb = commentMapper.toEntity(this.getCommentById(commentId));
 
-        UUID userId = commentInDb.getUser().getId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-
-        if(!userId.equals(loggedInUserId)){
-            logger.warn("Unauthorized attempt to edit another user's comment. Logged-in user: {}, Comment owner: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(commentInDb.getUser().getId())){
+            logger.warn("Unauthorized attempt to edit another user's comment.");
             throw new AccessDeniedException("You can only edit comments that you have created.");
         }
 
