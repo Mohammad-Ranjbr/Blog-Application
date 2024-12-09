@@ -90,14 +90,14 @@ public class CommentServiceImpl implements CommentService {
             return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Delete Comment operation not performed");
         });
 
-        if(userService.isLoggedInUserMatching(comment.getUser().getId()) && !userService.isAdmin()){
-            logger.warn("Unauthorized attempt to delete a comment.");
-                throw new AccessDeniedException("Only the comment owner or an admin can delete this comment.");
-        }
-
         try{
-            commentRepository.delete(comment);
-            logger.info("Comment with ID : {} deleted successfully",commentId);
+            if(!userService.isLoggedInUserMatching(comment.getUser().getId()) || userService.isAdmin()) {
+                commentRepository.delete(comment);
+                logger.info("Comment with ID : {} deleted successfully", commentId);
+            } else {
+                logger.warn("Unauthorized attempt to delete a comment.");
+                throw new AccessDeniedException("Only the comment owner or an admin can delete this comment.");
+            }
         } catch (Exception exception){
             logger.error("Error occurred while removing comment, Error: {}", exception.getMessage(), exception);
             throw exception;

@@ -154,16 +154,16 @@ public class UserServiceImpl implements UserService {
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
 
-        if(isLoggedInUserMatching(userId) && !isAdmin()){
-            logger.warn("Unauthorized attempt to delete another user's account. ");
-            throw new AccessDeniedException("You can only delete your own account or if you're an admin.");
-        }
-
        try{
+           if(!this.isLoggedInUserMatching(userId) || this.isAdmin()) {
                User user = this.fetchUserById(userId);
                user.setSoftDelete(true);
                userRepository.save(user);
-               logger.info("User with ID {} deleted successfully",user.getId());
+               logger.info("User with ID {} deleted successfully", user.getId());
+           } else {
+               logger.warn("Unauthorized attempt to delete another user's account. ");
+               throw new AccessDeniedException("You can only delete your own account or if you're an admin.");
+           }
        } catch (Exception exception) {
            logger.error("Unexpected error occurred while deleting user. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
            throw exception;
