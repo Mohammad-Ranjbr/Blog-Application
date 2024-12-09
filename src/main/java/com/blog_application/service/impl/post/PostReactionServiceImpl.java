@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class PostReactionServiceImpl implements PostReactionService {
@@ -51,11 +50,8 @@ public class PostReactionServiceImpl implements PostReactionService {
         Post post = postMapper.toEntity(postService.getPostById(postReactionRequestDto.getPostId()));
         Optional<PostReaction> existing = postReactionRepository.findByUserAndPost(user,post);
 
-        UUID userId = user.getId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-
-        if(!loggedInUserId.equals(userId)){
-            logger.warn("Unauthorized attempt to add a reaction to a post on behalf of another user. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(user.getId())){
+            logger.warn("Unauthorized attempt to add a reaction to a post on behalf of another user. ");
             throw new AccessDeniedException("You can only add reactions to posts on behalf of your own account.");
         }
 
