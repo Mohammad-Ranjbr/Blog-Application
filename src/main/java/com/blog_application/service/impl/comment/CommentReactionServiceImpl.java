@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class CommentReactionServiceImpl implements CommentReactionService {
@@ -54,11 +53,8 @@ public class CommentReactionServiceImpl implements CommentReactionService {
         });
         Optional<CommentReaction> existing  = commentReactionRepository.findByUserAndComment(user,comment);
 
-        UUID userId = requestDTO.getUserId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-
-        if(!userId.equals(loggedInUserId)){
-            logger.warn("Unauthorized attempt to react to a comment using another user's account. Logged-in user: {}, Target comment owner: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(requestDTO.getUserId())){
+            logger.warn("Unauthorized attempt to react to a comment using another user's account.");
             throw new AccessDeniedException("You can only react to comments using your own account.");
         }
 
