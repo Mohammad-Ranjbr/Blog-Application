@@ -133,7 +133,7 @@ public class UserController {
     //GET Mapping - Get User Saved Posts
     @GetMapping("/saved/{user_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<List<PostGetDto>> getSavedPostsByUser(@PathVariable("user_id") UUID userId){
+    public ResponseEntity<List<PostGetDto>> getSavedPostsByUser(@PathVariable("user_id") UUID userId) throws AccessDeniedException {
         logger.info("Received request to get saved posts for user with ID: {}", userId);
         List<PostGetDto> savedPosts = userService.getSavedPostsByUser(userId);
         logger.info("Returning response {} saved posts for user with ID: {}", savedPosts.size(), userId);

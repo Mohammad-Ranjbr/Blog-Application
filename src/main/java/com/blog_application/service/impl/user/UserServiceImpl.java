@@ -154,7 +154,7 @@ public class UserServiceImpl implements UserService {
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
 
-        if(!isLoggedInUserMatching(userId) && !isAdmin()){
+        if(isLoggedInUserMatching(userId) && !isAdmin()){
             logger.warn("Unauthorized attempt to delete another user's account. ");
             throw new AccessDeniedException("You can only delete your own account or if you're an admin.");
         }
@@ -202,7 +202,7 @@ public class UserServiceImpl implements UserService {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
 
         User user = this.fetchUserById(userId);
-        if(!isLoggedInUserMatching(userId)){
+        if(isLoggedInUserMatching(userId)){
             logger.warn("Unauthorized attempt to save the post from another user.");
             throw new AccessDeniedException("You can only save a post on your own behalf.");
         }
@@ -224,7 +224,7 @@ public class UserServiceImpl implements UserService {
         logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
 
         User user = this.fetchUserById(userId);
-        if(!isLoggedInUserMatching(userId)){
+        if(isLoggedInUserMatching(userId)){
             logger.warn("Unauthorized attempt to unsave the post from another user.");
             throw new AccessDeniedException("You can only unsave a post on your own behalf.");
         }
@@ -279,7 +279,7 @@ public class UserServiceImpl implements UserService {
         User user = this.fetchUserById(userId);
         User followUser = this.fetchUserById(followUserId);
 
-        if(!isLoggedInUserMatching(userId)){
+        if(isLoggedInUserMatching(userId)){
             logger.warn("Unauthorized attempt to follow another user with a different account.");
             throw new AccessDeniedException("You can only follow users with your own account.");
         }
@@ -309,7 +309,7 @@ public class UserServiceImpl implements UserService {
         User user = this.fetchUserById(userId);
         User unfollowUser = this.fetchUserById(unfollowUserId);
 
-        if(!isLoggedInUserMatching(userId)){
+        if(isLoggedInUserMatching(userId)){
             logger.warn("Unauthorized attempt to unfollow another user with a different account.");
             throw new AccessDeniedException("You can only unfollow users with your own account.");
         }
@@ -330,9 +330,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<PostGetDto> getSavedPostsByUser(UUID userId) {
+    public List<PostGetDto> getSavedPostsByUser(UUID userId) throws AccessDeniedException {
         logger.info("Fetching saved posts for user with ID: {}", userId);
         User user = this.fetchUserById(userId);
+
+        if(isLoggedInUserMatching(userId)){
+            logger.warn("Unauthorized attempt to view saved posts of another user.");
+            throw new AccessDeniedException("You can only view your own saved posts.");
+        }
+
         try{
             List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
             logger.info("Fetched {} saved posts for user with ID: {}", savedPosts.size(), userId);
@@ -383,28 +389,28 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) throws AccessDeniedException {
         logger.info("Updating user with ID : {}",userId);
-        UUID loggedInUserId = this.getLoggedInUserId();
+
+        if(isLoggedInUserMatching(userId) && !isAdmin()){
+            logger.warn("Unauthorized attempt to update another user's account.");
+            throw new AccessDeniedException("You can only update your own account.");
+        }
+
         try{
-            if(userId.equals(loggedInUserId) || this.isAdmin()) {
-                User updatedUser = userRepository.findById(userId).map(user -> {
-                    user.setName(userUpdateDto.getName());
-                    user.setEmail(userUpdateDto.getEmail());
-                    user.setAbout(userUpdateDto.getAbout());
-                    user.setGender(userUpdateDto.getGender());
-                    user.setUserName(userUpdateDto.getUserName());
-                    user.setPhoneNumber(userUpdateDto.getPhoneNumber());
-                    User savedUser = userRepository.save(user);
-                    logger.info("User with ID {} updated successfully",userId);
-                    return savedUser;
-                }).orElseThrow(() -> {
-                    logger.warn("User with ID {} not found, Updated user operation not performed", userId);
-                    return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
-                });
-                return userMapper.toUserGetDto(updatedUser);
-            } else {
-                logger.warn("Unauthorized attempt to update another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
-                throw new AccessDeniedException("You can only update your own account.");
-            }
+            User updatedUser = userRepository.findById(userId).map(user -> {
+                user.setName(userUpdateDto.getName());
+                user.setEmail(userUpdateDto.getEmail());
+                user.setAbout(userUpdateDto.getAbout());
+                user.setGender(userUpdateDto.getGender());
+                user.setUserName(userUpdateDto.getUserName());
+                user.setPhoneNumber(userUpdateDto.getPhoneNumber());
+                User savedUser = userRepository.save(user);
+                logger.info("User with ID {} updated successfully",userId);
+                return savedUser;
+            }).orElseThrow(() -> {
+                logger.warn("User with ID {} not found, Updated user operation not performed", userId);
+                return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
+            });
+            return userMapper.toUserGetDto(updatedUser);
         } catch (Exception exception){
             logger.error("Error occurred while updating user, Error: {}", exception.getMessage(), exception);
             throw exception;
@@ -423,7 +429,7 @@ public class UserServiceImpl implements UserService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String loggedInUserEmail = authentication.getName();
         UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInUserEmail);
-        return loggedInUserId.equals(userId);
+        return !loggedInUserId.equals(userId);
     }
 
     @Override
