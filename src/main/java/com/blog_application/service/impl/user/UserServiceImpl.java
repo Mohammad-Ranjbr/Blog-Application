@@ -34,7 +34,6 @@ import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Service
@@ -78,10 +77,10 @@ public class UserServiceImpl implements UserService {
                     userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
             logger.info("Total users found : {}",users.size());
             return paginatedResponse;
-        } catch (DataAccessException dae) { // This exception is specific to Spring and covers all database-related errors.
+        } catch (DataAccessException dataAccessException) { // This exception is specific to Spring and covers all database-related errors.
             // Handle database-specific exceptions
-            logger.error("Database error in getAllUsers: {}", dae.getMessage(), dae);
-            throw new ServiceException("Failed to fetch all users from database", dae);
+            logger.error("Database error in getAllUsers: {}", dataAccessException.getMessage(), dataAccessException);
+            throw new ServiceException("Failed to fetch all users from database", dataAccessException);
         }
         catch (Exception exception){
             logger.error("Unexpected error in getAllUsers: {}", exception.getMessage(), exception);
@@ -121,12 +120,12 @@ public class UserServiceImpl implements UserService {
                 logger.info("User created successfully with email : {}",savedUser.getEmail());
             }
             return userMapper.toUserGetDto(savedUser);
-        } catch (DataAccessException dae) {
-            logger.error("Database error occurred while creating user: {}", dae.getMessage(), dae);
-            throw new ServiceException("Database error while creating user", dae);
-        } catch (Exception ex) {
-            logger.error("Unexpected error occurred while creating user: {}", ex.getMessage(), ex);
-            throw new ServiceException("Unexpected error occurred while creating user", ex);
+        } catch (DataAccessException dataAccessException) {
+            logger.error("Database error occurred while creating user: {}", dataAccessException.getMessage(), dataAccessException);
+            throw new ServiceException("Database error while creating user", dataAccessException);
+        } catch (Exception exception) {
+            logger.error("Unexpected error occurred while creating user: {}", exception.getMessage(), exception);
+            throw new ServiceException("Unexpected error occurred while creating user", exception);
         }
     }
 
@@ -153,12 +152,12 @@ public class UserServiceImpl implements UserService {
                 userRepository.updateUserStatusById(true, inActiveUser.getId());
                 logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, true);
             }
-        } catch (DataAccessException ex) {
-            logger.error("Database error occurred while updating user status. User ID: {}, Error: {}", userId, ex.getMessage());
-            throw new ServiceException("Database error while updating user status.", ex);
-        } catch (Exception ex) {
-            logger.error("Unexpected error occurred while updating user status. User ID: {}, Error: {}", userId, ex.getMessage());
-            throw new ServiceException("Unexpected error occurred while updating user status.", ex);
+        } catch (DataAccessException dataAccessException) {
+            logger.error("Database error occurred while updating user status. User ID: {}, Error: {}", userId, dataAccessException.getMessage());
+            throw new ServiceException("Database error while updating user status.", dataAccessException);
+        } catch (Exception exception) {
+            logger.error("Unexpected error occurred while updating user status. User ID: {}, Error: {}", userId, exception.getMessage());
+            throw new ServiceException("Unexpected error occurred while updating user status.", exception);
         }
     }
 
@@ -181,14 +180,23 @@ public class UserServiceImpl implements UserService {
                user.setSoftDelete(true);
                userRepository.save(user);
                logger.info("User with ID {} deleted successfully",user.getId());
-       } catch (DataAccessException ex) {
-           logger.error("Database error while deleting user with ID: {}", userId, ex);
-           throw new ServiceException("Failed to delete user due to a database issue.", ex);
-       } catch (Exception ex) {
-           logger.error("Unexpected error occurred while deleting user. User ID: {}, Error: {}", userId, ex.getMessage(), ex);
-           throw new ServiceException("Unexpected error while deleting user.", ex);
+       } catch (DataAccessException dataAccessException) {
+           logger.error("Database error while deleting user with ID: {}", userId, dataAccessException);
+           throw new ServiceException("Failed to delete user due to a database issue.", dataAccessException);
+       } catch (Exception exception) {
+           logger.error("Unexpected error occurred while deleting user. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
+           throw new ServiceException("Unexpected error while deleting user.", exception);
        }
     }
+
+    //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
+    //This class is a container that may contain a value (which is present) or no value (which is empty).
+    //Optional is a powerful tool for handling null values and makes code safer and more readable.
+    //Correct use of Optional can help prevent NullPointerException and improve code readability and maintainability.
+    //With Optional, you can easily check if a value exists and take the appropriate action.
+    //Optional<User> optionalUser = userRepository.findById(userId);
+    //Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
+    //optionalUser.ifPresent(printUserDetails);
 
     @Override
     public User fetchUserById(UUID userId) {
@@ -197,14 +205,6 @@ public class UserServiceImpl implements UserService {
             logger.warn("User with ID {} not found, Get user operation not performed", userId);
             return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
         });
-        //Optional is a class that is used to prevent direct use of null and reduce problems related to NullPointerException.
-        //This class is a container that may contain a value (which is present) or no value (which is empty).
-        //Optional is a powerful tool for handling null values and makes code safer and more readable.
-        //Correct use of Optional can help prevent NullPointerException and improve code readability and maintainability.
-        //With Optional, you can easily check if a value exists and take the appropriate action.
-        Optional<User> optionalUser = userRepository.findById(userId);
-        Consumer<User> printUserDetails = foundUser -> System.out.println("User Found : " + foundUser);
-        optionalUser.ifPresent(printUserDetails);
         logger.info("User found with ID : {}",user.getId());
         return user;
     }
@@ -360,9 +360,12 @@ public class UserServiceImpl implements UserService {
                     userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
             logger.info("Total user basic info found : {}",users.size());
             return paginatedResponse;
-        } catch (Exception exception){
-            logger.error("Error occurred while get all basic user info, Error: {}", exception.getMessage(), exception);
-            throw exception;
+        } catch (DataAccessException dataAccessException) {
+            logger.error("Database error occurred while fetching user basic info: {}", dataAccessException.getMessage(), dataAccessException);
+            throw new ServiceException("Database error while fetching user basic info.", dataAccessException);
+        } catch (Exception exception) {
+            logger.error("Error occurred while fetching all basic user info: {}", exception.getMessage(), exception);
+            throw new ServiceException("Unexpected error occurred while fetching user basic info.", exception);
         }
     }
 

@@ -42,6 +42,7 @@ public class UserController {
 
     //GET Mapping-Get User By ID
     @GetMapping("/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<UserGetDto> getUserById(@PathVariable("id") UUID userId){
         logger.info("Received request to get user with ID : {}",userId);
         UserGetDto userGetDto = userService.getUserById(userId);
@@ -86,6 +87,7 @@ public class UserController {
 
     //GET Mapping-Get User Basic Info By ID
     @GetMapping("/basic-info/{id}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<UserBasicInfoDto> getUserBasicInfo(@PathVariable("id") UUID userId){
         logger.info("Received request to get user basic info with ID : {}",userId);
         UserBasicInfoDto userBasicInfoDto = userService.getUserBasicInfoById(userId);
