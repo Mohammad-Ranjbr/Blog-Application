@@ -17,7 +17,6 @@ import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
 import jakarta.transaction.Transactional;
-import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,12 +77,8 @@ public class UserServiceImpl implements UserService {
             return paginatedResponse;
         } catch (Exception exception){
             logger.error("Unexpected error in getAllUsers: {}", exception.getMessage(), exception);
-            throw new ServiceException("Unexpected error occurred while fetching users", exception);
+            throw exception;
         }
-        // Exception
-        // Because it is so general, it is not possible to determine exactly where the error occurred or why.
-        // Excessive use of Exception makes the code ambiguous and makes it difficult to identify specific errors.
-        // ServiceException is a custom exception that is usually defined for errors that occur at the service layer. This class is specifically designed for better error handling and detection.
     }
 
     @Override
@@ -116,7 +111,7 @@ public class UserServiceImpl implements UserService {
             return userMapper.toUserGetDto(savedUser);
         } catch (Exception exception) {
             logger.error("Unexpected error occurred while creating user: {}", exception.getMessage(), exception);
-            throw new ServiceException("Unexpected error occurred while creating user", exception);
+            throw exception;
         }
     }
 
@@ -145,7 +140,7 @@ public class UserServiceImpl implements UserService {
             }
         } catch (Exception exception) {
             logger.error("Unexpected error occurred while updating user status. User ID: {}, Error: {}", userId, exception.getMessage());
-            throw new ServiceException("Unexpected error occurred while updating user status.", exception);
+            throw exception;
         }
     }
 
@@ -171,7 +166,7 @@ public class UserServiceImpl implements UserService {
                logger.info("User with ID {} deleted successfully",user.getId());
        } catch (Exception exception) {
            logger.error("Unexpected error occurred while deleting user. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
-           throw new ServiceException("Unexpected error while deleting user.", exception);
+           throw exception;
        }
     }
 
@@ -207,10 +202,9 @@ public class UserServiceImpl implements UserService {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
 
         User user = this.fetchUserById(userId);
-
         if(!isLoggedInUserMatching(userId)){
             logger.warn("Unauthorized attempt to save the post from another user.");
-            throw new AccessDeniedException("You can only save a post on your own behalf..");
+            throw new AccessDeniedException("You can only save a post on your own behalf.");
         }
 
         try {
@@ -226,10 +220,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void unSavePost(UUID userId, Long postId) {
+    public void unSavePost(UUID userId, Long postId) throws AccessDeniedException {
         logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
+
+        User user = this.fetchUserById(userId);
+        if(!isLoggedInUserMatching(userId)){
+            logger.warn("Unauthorized attempt to unsave the post from another user.");
+            throw new AccessDeniedException("You can only unsave a post on your own behalf.");
+        }
+
         try {
-            User user = this.fetchUserById(userId);
             Post post = postMapper.toEntity(postService.getPostById(postId));
             post.getSavedByUsers().remove(user);
             postRepository.save(post);
@@ -355,7 +355,7 @@ public class UserServiceImpl implements UserService {
             return paginatedResponse;
         } catch (Exception exception) {
             logger.error("Error occurred while fetching all basic user info: {}", exception.getMessage(), exception);
-            throw new ServiceException("Unexpected error occurred while fetching user basic info.", exception);
+            throw exception;
         }
     }
 
