@@ -274,10 +274,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void followUser(UUID userId, UUID followUserId) {
+    public void followUser(UUID userId, UUID followUserId) throws AccessDeniedException {
         logger.info("Attempting to follow user with ID: {} for user with ID: {}", followUserId, userId);
         User user = this.fetchUserById(userId);
         User followUser = this.fetchUserById(followUserId);
+
+        if(!isLoggedInUserMatching(userId)){
+            logger.warn("Unauthorized attempt to follow another user with a different account.");
+            throw new AccessDeniedException("You can only follow users with your own account.");
+        }
 
         try {
             if(!user.getFollowing().contains(followUser)){
@@ -299,10 +304,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void unfollowUser(UUID userId, UUID unfollowUserId) {
+    public void unfollowUser(UUID userId, UUID unfollowUserId) throws AccessDeniedException {
         logger.info("Attempting to unfollow user with ID: {} for user with ID: {}", unfollowUserId, userId);
         User user = this.fetchUserById(userId);
         User unfollowUser = this.fetchUserById(unfollowUserId);
+
+        if(!isLoggedInUserMatching(userId)){
+            logger.warn("Unauthorized attempt to unfollow another user with a different account.");
+            throw new AccessDeniedException("You can only unfollow users with your own account.");
+        }
 
         try {
             user.getFollowing().remove(unfollowUser);

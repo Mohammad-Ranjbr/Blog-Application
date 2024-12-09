@@ -143,7 +143,7 @@ public class UserController {
     //POST Mapping - Follow User
     @PostMapping("/{user_id}/follow/{follow_user_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> followUser(@PathVariable("user_id") UUID userId, @PathVariable("follow_user_id") UUID followUserId){
+    public ResponseEntity<ApiResponse> followUser(@PathVariable("user_id") UUID userId, @PathVariable("follow_user_id") UUID followUserId) throws AccessDeniedException {
         logger.info("Received request for user with ID: {} to follow user with ID: {}", userId, followUserId);
         userService.followUser(userId,followUserId);
         logger.info("User with ID: {} followed user with ID: {} successfully", userId, followUserId);
@@ -153,7 +153,7 @@ public class UserController {
     //DELETE Mapping - Unfollow User
     @DeleteMapping("/{user_id}/unfollow/{unfollow_user_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> unfollowUser(@PathVariable("user_id") UUID userId,@PathVariable("unfollow_user_id") UUID unfollowUserId){
+    public ResponseEntity<ApiResponse> unfollowUser(@PathVariable("user_id") UUID userId,@PathVariable("unfollow_user_id") UUID unfollowUserId) throws AccessDeniedException {
         logger.info("Received request for user with ID: {} to unfollow user with ID: {}", userId, unfollowUserId);
         userService.unfollowUser(userId,unfollowUserId);
         logger.info("User with ID: {} unfollowed user with ID: {} successfully", userId, unfollowUserId);
