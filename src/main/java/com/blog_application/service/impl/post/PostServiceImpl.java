@@ -73,9 +73,8 @@ public class PostServiceImpl implements PostService {
         User user = userMapper.toEntity(userService.getUserById(userId));
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
 
-        UUID loggedInUserId = userService.getLoggedInUserId();
-        if(!loggedInUserId.equals(user.getId())){
-            logger.warn("Unauthorized attempt to create a post in another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(user.getId())){
+            logger.warn("Unauthorized attempt to create a post in another user's account.");
             throw new AccessDeniedException("You can only create posts in your own account.");
         }
 
@@ -110,12 +109,15 @@ public class PostServiceImpl implements PostService {
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
 
-        UUID userId = p.getUser().getId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-        Category newCategory = categoryMapper.toEntity(categoryService.getCategoryById(postUpdateDto.getCategoryId()));
+        Category newCategory;
+        if(postUpdateDto.getCategoryId() != null){
+            newCategory = categoryMapper.toEntity(categoryService.getCategoryById(postUpdateDto.getCategoryId()));
+        } else {
+            newCategory = p.getCategory();
+        }
 
-        if(!loggedInUserId.equals(userId)){
-            logger.warn("Unauthorized attempt to update a post in another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(p.getUser().getId())){
+            logger.warn("Unauthorized attempt to update a post in another user's account. ");
             throw new AccessDeniedException("You can only update own posts in your own account.");
         }
 
@@ -134,7 +136,7 @@ public class PostServiceImpl implements PostService {
             });
             return postMapper.toPostGetDto(updatedPost);
         } catch (Exception exception){
-            logger.error("Error occurred while updating post. User ID: {}, Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
+            logger.error("Error occurred while updating post. Post ID: {}, Error: {}", postId, exception.getMessage(), exception);
             throw exception;
         }
     }

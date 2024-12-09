@@ -56,5 +56,6 @@
 56- add category to update post ✅
 57- use try catch block ✅
 58- Pagination for comment
+59- Checking for user presence in comment and post services and returning comments and posts from active users
 
 ✅	❌
