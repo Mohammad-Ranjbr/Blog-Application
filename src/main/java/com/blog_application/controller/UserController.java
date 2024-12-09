@@ -180,7 +180,7 @@ public class UserController {
 
     @PatchMapping("/{id}/status")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> updateUserStatus(@PathVariable("id") UUID userId, @RequestBody UserStatusUpdateDTO userStatusUpdateDTO){
+    public ResponseEntity<ApiResponse> updateUserStatus(@PathVariable("id") UUID userId, @RequestBody UserStatusUpdateDTO userStatusUpdateDTO) throws AccessDeniedException {
         logger.info("Received request to update user status. User ID: {}, New Status: {}", userId, userStatusUpdateDTO.isActive());
         userService.updateUserStatus(userId, userStatusUpdateDTO);
         logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, userStatusUpdateDTO.isActive());

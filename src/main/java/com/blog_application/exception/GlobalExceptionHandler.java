@@ -6,6 +6,8 @@ import com.blog_application.util.utils.TimeUtils;
 import com.blog_application.util.extractors.UriResourceExtractor;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.service.spi.ServiceException;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -112,6 +114,30 @@ public class GlobalExceptionHandler {
                 timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(ServiceException.class)
+    public ResponseEntity<ErrorResponse> serviceExceptionHandler(ServiceException serviceException, HttpServletRequest request){
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.BAD_REQUEST.value(),
+                serviceException.getMessage(),
+                request.getRequestURI(),
+                false,
+                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
+        );
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(DataAccessException.class)
+    public ResponseEntity<ErrorResponse> dataAccessExceptionHandler(DataAccessException dataAccessException){
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                dataAccessException.getMessage(),
+                "Database Error!",
+                false,
+                timeUtils.getCurrentTimeAsString(ApplicationConstants.DATE_TIME_FORMAT)
+        );
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

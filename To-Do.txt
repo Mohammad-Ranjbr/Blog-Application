@@ -55,7 +55,6 @@
 55- Handle duplicate key value in code
 56- add category to update post ✅
 57- use try catch block ✅
-58- Where we don't need the entire object, we just need to check whether that object exists or not, otherwise we don't need to fetch the entire object *
-59- Pagination for comment
+58- Pagination for comment
 
 ✅	❌

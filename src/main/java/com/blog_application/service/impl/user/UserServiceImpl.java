@@ -17,10 +17,12 @@ import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
 import com.blog_application.util.utils.SortHelper;
 import jakarta.transaction.Transactional;
+import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -76,23 +78,36 @@ public class UserServiceImpl implements UserService {
                     userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
             logger.info("Total users found : {}",users.size());
             return paginatedResponse;
-        } catch (Exception exception){
-            logger.error("Error occurred while get all users, Error: {}", exception.getMessage(), exception);
-            throw exception;
+        } catch (DataAccessException dae) { // This exception is specific to Spring and covers all database-related errors.
+            // Handle database-specific exceptions
+            logger.error("Database error in getAllUsers: {}", dae.getMessage(), dae);
+            throw new ServiceException("Failed to fetch all users from database", dae);
         }
+        catch (Exception exception){
+            logger.error("Unexpected error in getAllUsers: {}", exception.getMessage(), exception);
+            throw new ServiceException("Unexpected error occurred while fetching users", exception);
+        }
+        // Exception
+        // Because it is so general, it is not possible to determine exactly where the error occurred or why.
+        // Excessive use of Exception makes the code ambiguous and makes it difficult to identify specific errors.
+        // ServiceException is a custom exception that is usually defined for errors that occur at the service layer. This class is specifically designed for better error handling and detection.
     }
 
     @Override
     @Transactional
     public UserGetDto createUser(UserCreateDto userCreateDto) {
         logger.info("Creating user with username : {}",userCreateDto.getUserName());
+
         if(userRepository.existsByUserName(userCreateDto.getUserName())){
             logger.warn("User with Username {} already exists, Register user operation not performed", userCreateDto.getUserName());
             throw  new ResourceAlreadyExistsException("User","Username",String.valueOf(userCreateDto.getUserName()),"Register User operation not performed");
-        } else if (userRepository.existsByEmail(userCreateDto.getEmail())) {
+        }
+
+        if (userRepository.existsByEmail(userCreateDto.getEmail())) {
             logger.warn("User with Email {} already exists, Register user operation not performed", userCreateDto.getEmail());
             throw  new ResourceAlreadyExistsException("User","Email",String.valueOf(userCreateDto.getEmail()),"Register User operation not performed");
         }
+
         try {
             Role userRole = roleService.getRoleByName("ROLE_USER");
             String hashPassword = passwordEncoder.encode(userCreateDto.getPassword());
@@ -106,37 +121,44 @@ public class UserServiceImpl implements UserService {
                 logger.info("User created successfully with email : {}",savedUser.getEmail());
             }
             return userMapper.toUserGetDto(savedUser);
-        } catch (Exception exception){
-            logger.error("Error occurred while creating user, Error: {}", exception.getMessage(), exception);
-            throw exception;
+        } catch (DataAccessException dae) {
+            logger.error("Database error occurred while creating user: {}", dae.getMessage(), dae);
+            throw new ServiceException("Database error while creating user", dae);
+        } catch (Exception ex) {
+            logger.error("Unexpected error occurred while creating user: {}", ex.getMessage(), ex);
+            throw new ServiceException("Unexpected error occurred while creating user", ex);
         }
     }
 
     @Override
     @Transactional
-    public void updateUserStatus(UUID userId, UserStatusUpdateDTO userStatusUpdateDTO) {
+    public void updateUserStatus(UUID userId, UserStatusUpdateDTO userStatusUpdateDTO) throws AccessDeniedException {
         logger.info("Start updating user status. User ID: {}, New Status: {}", userId, userStatusUpdateDTO.isActive());
-        if(!userStatusUpdateDTO.isActive()){
-            try {
+
+        if(!isAdmin()){
+            logger.warn("Unauthorized attempt to update user status. Only admins can update the status of users.");
+            throw new AccessDeniedException("Only admins can activate or deactivate users.");
+        }
+
+        try {
+            if(!userStatusUpdateDTO.isActive()){
                 User activeUser = this.fetchUserById(userId);
                 userRepository.updateUserStatusById(false, activeUser.getId());
                 logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, false);
-            } catch (Exception exception){
-                logger.error("Error occurred while updating user status. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
-                throw exception;
-            }
-        } else {
-            try{
+            } else {
                 User inActiveUser = userRepository.findInactiveUserById(userId).orElseThrow(() -> {
                     logger.warn("User with ID {} not found, Get user operation not performed", userId);
                     return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Get User operation not performed");
                 });
                 userRepository.updateUserStatusById(true, inActiveUser.getId());
                 logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, true);
-            } catch (Exception exception){
-                logger.error("Error occurred while updating user status. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
-                throw exception;
             }
+        } catch (DataAccessException ex) {
+            logger.error("Database error occurred while updating user status. User ID: {}, Error: {}", userId, ex.getMessage());
+            throw new ServiceException("Database error while updating user status.", ex);
+        } catch (Exception ex) {
+            logger.error("Unexpected error occurred while updating user status. User ID: {}, Error: {}", userId, ex.getMessage());
+            throw new ServiceException("Unexpected error occurred while updating user status.", ex);
         }
     }
 
@@ -149,20 +171,22 @@ public class UserServiceImpl implements UserService {
         //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
-        UUID loggedInUserId = this.getLoggedInUserId();
+        if(!isLoggedInUserMatching(userId) && !isAdmin()){
+            logger.warn("Unauthorized attempt to delete another user's account. ");
+            throw new AccessDeniedException("You can only delete your own account or if you're an admin.");
+        }
+
        try{
-           if(userId.equals(loggedInUserId) || this.isAdmin()){
                User user = this.fetchUserById(userId);
                user.setSoftDelete(true);
                userRepository.save(user);
                logger.info("User with ID {} deleted successfully",user.getId());
-           } else {
-               logger.warn("Unauthorized attempt to delete another user's account. Logged-in user: {}, Target user: {}", loggedInUserId, userId);
-               throw new AccessDeniedException("You can only delete your own account.");
-           }
-       } catch (Exception exception){
-           logger.error("Error occurred while deleting user. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
-           throw exception;
+       } catch (DataAccessException ex) {
+           logger.error("Database error while deleting user with ID: {}", userId, ex);
+           throw new ServiceException("Failed to delete user due to a database issue.", ex);
+       } catch (Exception ex) {
+           logger.error("Unexpected error occurred while deleting user. User ID: {}, Error: {}", userId, ex.getMessage(), ex);
+           throw new ServiceException("Unexpected error while deleting user.", ex);
        }
     }
 
@@ -389,6 +413,14 @@ public class UserServiceImpl implements UserService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String loggedInEmail = authentication.getName();
         return userRepository.getUserIdByEmail(loggedInEmail);
+    }
+
+    @Override
+    public boolean isLoggedInUserMatching(UUID userId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String loggedInUserEmail = authentication.getName();
+        UUID loggedInUserId = userRepository.getUserIdByEmail(loggedInUserEmail);
+        return loggedInUserId.equals(userId);
     }
 
     @Override

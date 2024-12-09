@@ -20,12 +20,13 @@ public interface UserService {
     void unSavePost(UUID userId,Long postId);
     List<UserGetDto> getFollowers(UUID userId);
     List<UserGetDto> getFollowing(UUID userId);
+    boolean isLoggedInUserMatching(UUID userId);
     void followUser(UUID userId,UUID followUserId);
     void unfollowUser(UUID userId,UUID unfollowUserId);
     List<PostGetDto> getSavedPostsByUser(UUID userId);
     UserBasicInfoDto getUserBasicInfoById(UUID userId);
     UserGetDto createUser(UserCreateDto userCreateDto);
-    void updateUserStatus(UUID userId, UserStatusUpdateDTO userStatusUpdateDTO);
+    void updateUserStatus(UUID userId, UserStatusUpdateDTO userStatusUpdateDTO) throws AccessDeniedException;
     UserGetDto updateUser(UserUpdateDto userUpdateDto,UUID userId) throws AccessDeniedException;
     PaginatedResponse<UserGetDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir);
     PaginatedResponse<UserBasicInfoDto> getAllBasicUserInfo(int pageNumber, int pageSize, String sortBy, String sortDir);
