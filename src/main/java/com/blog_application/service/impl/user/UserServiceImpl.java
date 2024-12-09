@@ -22,7 +22,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -77,12 +76,7 @@ public class UserServiceImpl implements UserService {
                     userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
             logger.info("Total users found : {}",users.size());
             return paginatedResponse;
-        } catch (DataAccessException dataAccessException) { // This exception is specific to Spring and covers all database-related errors.
-            // Handle database-specific exceptions
-            logger.error("Database error in getAllUsers: {}", dataAccessException.getMessage(), dataAccessException);
-            throw new ServiceException("Failed to fetch all users from database", dataAccessException);
-        }
-        catch (Exception exception){
+        } catch (Exception exception){
             logger.error("Unexpected error in getAllUsers: {}", exception.getMessage(), exception);
             throw new ServiceException("Unexpected error occurred while fetching users", exception);
         }
@@ -120,9 +114,6 @@ public class UserServiceImpl implements UserService {
                 logger.info("User created successfully with email : {}",savedUser.getEmail());
             }
             return userMapper.toUserGetDto(savedUser);
-        } catch (DataAccessException dataAccessException) {
-            logger.error("Database error occurred while creating user: {}", dataAccessException.getMessage(), dataAccessException);
-            throw new ServiceException("Database error while creating user", dataAccessException);
         } catch (Exception exception) {
             logger.error("Unexpected error occurred while creating user: {}", exception.getMessage(), exception);
             throw new ServiceException("Unexpected error occurred while creating user", exception);
@@ -152,9 +143,6 @@ public class UserServiceImpl implements UserService {
                 userRepository.updateUserStatusById(true, inActiveUser.getId());
                 logger.info("User status updated successfully. User ID: {}, New Status: {}", userId, true);
             }
-        } catch (DataAccessException dataAccessException) {
-            logger.error("Database error occurred while updating user status. User ID: {}, Error: {}", userId, dataAccessException.getMessage());
-            throw new ServiceException("Database error while updating user status.", dataAccessException);
         } catch (Exception exception) {
             logger.error("Unexpected error occurred while updating user status. User ID: {}, Error: {}", userId, exception.getMessage());
             throw new ServiceException("Unexpected error occurred while updating user status.", exception);
@@ -170,6 +158,7 @@ public class UserServiceImpl implements UserService {
         //To use Consumer you must be sure that you want to perform an operation on an object and do not need to return a value.
         //For example, orElseThrow, which requires a Supplier, cannot use Consumer because its purpose is to create and return an exception.
         logger.info("Deleting user with ID : {}",userId);
+
         if(!isLoggedInUserMatching(userId) && !isAdmin()){
             logger.warn("Unauthorized attempt to delete another user's account. ");
             throw new AccessDeniedException("You can only delete your own account or if you're an admin.");
@@ -180,9 +169,6 @@ public class UserServiceImpl implements UserService {
                user.setSoftDelete(true);
                userRepository.save(user);
                logger.info("User with ID {} deleted successfully",user.getId());
-       } catch (DataAccessException dataAccessException) {
-           logger.error("Database error while deleting user with ID: {}", userId, dataAccessException);
-           throw new ServiceException("Failed to delete user due to a database issue.", dataAccessException);
        } catch (Exception exception) {
            logger.error("Unexpected error occurred while deleting user. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
            throw new ServiceException("Unexpected error while deleting user.", exception);
@@ -217,10 +203,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void savePost(UUID userId, Long postId) {
+    public void savePost(UUID userId, Long postId) throws AccessDeniedException {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
+
+        User user = this.fetchUserById(userId);
+
+        if(!isLoggedInUserMatching(userId)){
+            logger.warn("Unauthorized attempt to save the post from another user.");
+            throw new AccessDeniedException("You can only save a post on your own behalf..");
+        }
+
         try {
-            User user = this.fetchUserById(userId);
             Post post = postMapper.toEntity(postService.getPostById(postId));
             post.getSavedByUsers().add(user);
             postRepository.save(post);
@@ -360,9 +353,6 @@ public class UserServiceImpl implements UserService {
                     userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
             logger.info("Total user basic info found : {}",users.size());
             return paginatedResponse;
-        } catch (DataAccessException dataAccessException) {
-            logger.error("Database error occurred while fetching user basic info: {}", dataAccessException.getMessage(), dataAccessException);
-            throw new ServiceException("Database error while fetching user basic info.", dataAccessException);
         } catch (Exception exception) {
             logger.error("Error occurred while fetching all basic user info: {}", exception.getMessage(), exception);
             throw new ServiceException("Unexpected error occurred while fetching user basic info.", exception);
