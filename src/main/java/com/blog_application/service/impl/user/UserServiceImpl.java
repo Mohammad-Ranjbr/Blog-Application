@@ -418,13 +418,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UUID getLoggedInUserId(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String loggedInEmail = authentication.getName();
-        return userRepository.getUserIdByEmail(loggedInEmail);
-    }
-
-    @Override
     public boolean isLoggedInUserMatching(UUID userId) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String loggedInUserEmail = authentication.getName();

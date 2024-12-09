@@ -150,15 +150,12 @@ public class PostServiceImpl implements PostService {
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Delete Post operation not performed");
         });
 
-        UUID userId = post.getUser().getId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-
         try {
-            if(userId.equals(loggedInUserId) || userService.isAdmin()){
+            if(!userService.isLoggedInUserMatching(post.getUser().getId()) || userService.isAdmin()){
                 postRepository.delete(post);
                 logger.info("Post with ID {} deleted successfully",postId);
             } else {
-                logger.warn("Unauthorized attempt to delete a post. Logged-in user: {}, Post owner: {}", loggedInUserId, userId);
+                logger.warn("Unauthorized attempt to delete a post. ");
                 throw new AccessDeniedException("You can only delete posts that you have created or if you are an admin.");
             }
         } catch (Exception exception){
@@ -211,11 +208,8 @@ public class PostServiceImpl implements PostService {
                 .map(Tag::getName)
                 .toList());
 
-        UUID userId = post.getUser().getId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-
-        if(!userId.equals(loggedInUserId)){
-            logger.warn("Unauthorized attempt to add tags to a post owned by another user. Logged-in user: {}, Post owner: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(post.getUser().getId())){
+            logger.warn("Unauthorized attempt to add tags to a post owned by another user.");
             throw new AccessDeniedException("You can only add tags to posts that you own.");
         }
 
@@ -255,11 +249,8 @@ public class PostServiceImpl implements PostService {
         logger.info("Removing tags from post with ID {}", postId);
         Post post = postMapper.toEntity(this.getPostById(postId));
 
-        UUID userId = post.getUser().getId();
-        UUID loggedInUserId = userService.getLoggedInUserId();
-
-        if(!userId.equals(loggedInUserId)){
-            logger.warn("Unauthorized attempt to remove tags from a post owned by another user. Logged-in user: {}, Post owner: {}", loggedInUserId, userId);
+        if(userService.isLoggedInUserMatching(post.getUser().getId())){
+            logger.warn("Unauthorized attempt to remove tags from a post owned by another user.");
             throw new AccessDeniedException("You can only remove tags from posts that you own.");
         }
 
