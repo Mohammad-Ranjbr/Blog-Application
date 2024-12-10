@@ -754,3 +754,654 @@ org.springframework.security.access.AccessDeniedException: Access Denied
 2024-12-10T13:47:17.644+03:30  INFO 65178 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-10T13:47:17.645+03:30  INFO 65178 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
 2024-12-10T13:47:17.655+03:30  INFO 65178 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-12-10T14:02:32.162+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 66267 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:02:32.164+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:02:32.232+03:30  INFO 66267 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-10T14:02:32.235+03:30  INFO 66267 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-10T14:02:33.029+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:02:33.092+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:02:33.498+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:02:33.507+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:02:33.507+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:02:33.540+03:30  INFO 66267 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:02:33.540+03:30  INFO 66267 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1305 ms
+2024-12-10T14:02:33.651+03:30  INFO 66267 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:02:33.683+03:30  INFO 66267 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-10T14:02:33.704+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:02:33.894+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:02:33.911+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-10T14:02:34.082+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64af03b8
+2024-12-10T14:02:34.083+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-10T14:02:34.101+03:30  WARN 66267 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:02:34.939+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:02:35.073+03:30  INFO 66267 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:02:35.466+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-10T14:02:36.548+03:30  WARN 66267 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:02:36.572+03:30 TRACE 66267 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@71554983}
+2024-12-10T14:02:36.573+03:30  INFO 66267 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:02:36.574+03:30  WARN 66267 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:02:36.834+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:02:36.840+03:30 DEBUG 66267 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:02:37.140+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:02:37.196+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:02:37.208+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.39 seconds (process running for 5.911)
+2024-12-10T14:02:58.270+03:30  INFO 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-10T14:02:58.270+03:30  INFO 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-10T14:02:58.271+03:30  INFO 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-10T14:02:58.282+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@1931988f, org.springframework.security.web.access.channel.ChannelProcessingFilter@1468cb1a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11d5691e, org.springframework.security.web.context.SecurityContextHolderFilter@337a3459, org.springframework.security.web.header.HeaderWriterFilter@4132772, org.springframework.web.filter.CorsFilter@6062202f, org.springframework.security.web.authentication.logout.LogoutFilter@4e227e98, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5f5a6022, com.blog_application.filter.JwtTokenValidatorFilter@32a9200f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1dbe4334, com.blog_application.filter.JwtTokenGeneratorFilter@27493335, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4129617, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20fdb4bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1dee335b, org.springframework.security.web.session.SessionManagementFilter@357ea9a7, org.springframework.security.web.access.ExceptionTranslationFilter@f0602b6, org.springframework.security.web.access.intercept.AuthorizationFilter@188a52d9]] (1/1)
+2024-12-10T14:02:58.283+03:30 DEBUG 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/posts/upload-image
+2024-12-10T14:02:58.283+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-10T14:02:58.297+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-10T14:02:58.298+03:30 DEBUG 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [POST /api/v1/posts/upload-image]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-10T14:02:58.298+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-10T14:02:58.299+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-10T14:02:58.300+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-10T14:02:58.301+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-10T14:02:58.302+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-10T14:02:58.302+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-10T14:02:58.303+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-10T14:02:58.303+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-10T14:02:58.303+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-10T14:02:58.370+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-10T14:02:58.371+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-10T14:02:58.371+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-10T14:02:58.371+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-10T14:02:58.371+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-10T14:02:58.371+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-10T14:02:58.372+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-10T14:02:58.372+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-10T14:02:58.373+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=ََََََmohammadd@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2024-12-10T14:02:58.373+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2024-12-10T14:02:58.373+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-10T14:02:58.373+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-10T14:02:58.374+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/v1/posts/upload-image
+2024-12-10T14:02:58.375+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/v1/posts/upload-image using org.springframework.security.authorization.AuthenticatedAuthorizationManager@61921c90
+2024-12-10T14:02:58.375+03:30 DEBUG 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/posts/upload-image
+2024-12-10T14:02:58.404+03:30  INFO 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to upload image: Magnetostrictive actuators3.jpeg
+2024-12-10T14:02:58.564+03:30  INFO 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Image uploaded successfully: Magnetostrictive actuators3.jpeg
+2024-12-10T14:02:58.612+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-10T14:04:01.247+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@1931988f, org.springframework.security.web.access.channel.ChannelProcessingFilter@1468cb1a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11d5691e, org.springframework.security.web.context.SecurityContextHolderFilter@337a3459, org.springframework.security.web.header.HeaderWriterFilter@4132772, org.springframework.web.filter.CorsFilter@6062202f, org.springframework.security.web.authentication.logout.LogoutFilter@4e227e98, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5f5a6022, com.blog_application.filter.JwtTokenValidatorFilter@32a9200f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1dbe4334, com.blog_application.filter.JwtTokenGeneratorFilter@27493335, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4129617, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20fdb4bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1dee335b, org.springframework.security.web.session.SessionManagementFilter@357ea9a7, org.springframework.security.web.access.ExceptionTranslationFilter@f0602b6, org.springframework.security.web.access.intercept.AuthorizationFilter@188a52d9]] (1/1)
+2024-12-10T14:04:01.247+03:30 DEBUG 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/posts/download-image/b9b13a03-6ddc-42ca-87b1-a650f1a88ae5-Magnetostrictive actuators3.jpeg
+2024-12-10T14:04:01.247+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-10T14:04:01.247+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-10T14:04:01.247+03:30 DEBUG 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /api/v1/posts/download-image/b9b13a03-6ddc-42ca-87b1-a650f1a88ae5-Magnetostrictive actuators3.jpeg]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-10T14:04:01.247+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-10T14:04:01.247+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-10T14:04:01.247+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-10T14:04:01.248+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-10T14:04:01.248+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-10T14:04:01.248+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-10T14:04:01.248+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-10T14:04:01.248+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-10T14:04:01.248+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=b@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN]]
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-10T14:04:01.249+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/v1/posts/download-image/b9b13a03-6ddc-42ca-87b1-a650f1a88ae5-Magnetostrictive actuators3.jpeg
+2024-12-10T14:04:01.250+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/v1/posts/download-image/b9b13a03-6ddc-42ca-87b1-a650f1a88ae5-Magnetostrictive actuators3.jpeg using org.springframework.security.authorization.AuthenticatedAuthorizationManager@75142170
+2024-12-10T14:04:01.250+03:30 DEBUG 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/posts/download-image/b9b13a03-6ddc-42ca-87b1-a650f1a88ae5-Magnetostrictive actuators3.jpeg
+2024-12-10T14:04:01.282+03:30 TRACE 66267 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-10T14:18:13.579+03:30  INFO 66267 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-12-10T14:18:13.594+03:30  INFO 66267 --- [blog-application] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:18:13.597+03:30  INFO 66267 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-10T14:18:13.615+03:30  INFO 66267 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-10T14:18:13.807+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 66267 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:18:13.808+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:18:14.043+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:18:14.075+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:18:14.225+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:18:14.226+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:18:14.226+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:18:14.241+03:30  INFO 66267 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:18:14.241+03:30  INFO 66267 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 431 ms
+2024-12-10T14:18:14.297+03:30  INFO 66267 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:18:14.299+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:18:14.307+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:18:14.308+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-12-10T14:18:14.332+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@61d1c4ff
+2024-12-10T14:18:14.332+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-12-10T14:18:14.335+03:30  WARN 66267 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:18:14.480+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:18:14.590+03:30  INFO 66267 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:18:14.789+03:30  WARN 66267 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'postController': Resolution of declared constructors on bean Class [com.blog_application.controller.PostController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@17d29337] failed
+2024-12-10T14:18:14.789+03:30  INFO 66267 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:18:14.790+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-12-10T14:18:14.836+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-12-10T14:18:14.836+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-10T14:18:14.843+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-10T14:18:14.858+03:30 ERROR 66267 --- [blog-application] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'postController': Resolution of declared constructors on bean Class [com.blog_application.controller.PostController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@17d29337] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1314) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1209) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.3.jar:3.3.3]
+	at com.blog_application.BlogApplication.main(BlogApplication.java:16) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.3.jar:3.3.3]
+Caused by: java.lang.NoClassDefFoundError: com/blog_application/service/impl/minio/MinioService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3373) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2555) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.blog_application.service.impl.minio.MinioService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:467) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.3.jar:3.3.3]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[na:na]
+	... 27 common frames omitted
+
+2024-12-10T14:20:11.570+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 66267 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:20:11.570+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:20:11.753+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:20:11.759+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2024-12-10T14:20:11.860+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:20:11.862+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:20:11.862+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:20:11.872+03:30  INFO 66267 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:20:11.873+03:30  INFO 66267 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 302 ms
+2024-12-10T14:20:11.920+03:30  INFO 66267 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:20:11.922+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:20:11.929+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:20:11.931+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-12-10T14:20:11.960+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@32e20311
+2024-12-10T14:20:11.960+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-12-10T14:20:11.963+03:30  WARN 66267 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:20:11.978+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:20:11.978+03:30  INFO 66267 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:20:12.023+03:30  WARN 66267 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:20:12.031+03:30 TRACE 66267 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@32836430}
+2024-12-10T14:20:12.035+03:30  WARN 66267 --- [blog-application] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d9c4884a-70f7-443c-a168-eaa35a258314
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-12-10T14:20:12.040+03:30  INFO 66267 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-12-10T14:20:12.128+03:30 DEBUG 66267 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, DefaultLoginPageGeneratingFilter, DefaultLogoutPageGeneratingFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:20:12.253+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:20:12.266+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:20:12.273+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 0.731 seconds (process running for 1060.976)
+2024-12-10T14:20:12.358+03:30  INFO 66267 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-12-10T14:20:15.875+03:30  INFO 66267 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 100 class path changes (100 additions, 0 deletions, 0 modifications)
+2024-12-10T14:20:15.881+03:30  INFO 66267 --- [blog-application] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:20:15.882+03:30  INFO 66267 --- [blog-application] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-12-10T14:20:15.894+03:30  INFO 66267 --- [blog-application] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-12-10T14:20:15.998+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 66267 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:20:15.999+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:20:16.178+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:20:16.197+03:30  INFO 66267 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:20:16.286+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:20:16.287+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:20:16.294+03:30  INFO 66267 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:20:16.301+03:30  INFO 66267 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:20:16.301+03:30  INFO 66267 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 301 ms
+2024-12-10T14:20:16.344+03:30  INFO 66267 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:20:16.345+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:20:16.350+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:20:16.351+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-12-10T14:20:16.375+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@653b3e3d
+2024-12-10T14:20:16.375+03:30  INFO 66267 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-12-10T14:20:16.378+03:30  WARN 66267 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:20:16.522+03:30  INFO 66267 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:20:16.628+03:30  INFO 66267 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:20:16.884+03:30  WARN 66267 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:20:16.890+03:30 TRACE 66267 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@242c3b8b}
+2024-12-10T14:20:16.891+03:30  INFO 66267 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:20:16.891+03:30  WARN 66267 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:20:16.975+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:20:16.977+03:30 DEBUG 66267 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:20:17.036+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:20:17.048+03:30  INFO 66267 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:20:17.053+03:30  INFO 66267 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 1.071 seconds (process running for 1065.756)
+2024-12-10T14:20:17.127+03:30  INFO 66267 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) found beans of type 'org.springframework.security.authentication.AuthenticationManager' authenticationManager and found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' blogUserDetailsService and found beans of type 'org.springframework.security.authentication.AuthenticationProvider' blogUsernamePasswordAuthenticationProvider (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+         - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-12-10T14:20:49.255+03:30  INFO 66267 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:20:49.255+03:30  INFO 66267 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-12-10T14:20:49.276+03:30  INFO 66267 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-12-10T14:20:52.792+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 67823 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:20:52.798+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:20:52.838+03:30  INFO 67823 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-10T14:20:52.839+03:30  INFO 67823 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-10T14:20:53.954+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:20:54.027+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:20:54.529+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:20:54.540+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:20:54.540+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:20:54.577+03:30  INFO 67823 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:20:54.578+03:30  INFO 67823 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1739 ms
+2024-12-10T14:20:54.720+03:30  INFO 67823 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:20:54.761+03:30  INFO 67823 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-10T14:20:54.787+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:20:54.992+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:20:55.012+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-10T14:20:55.196+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5421b2e2
+2024-12-10T14:20:55.198+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-10T14:20:55.222+03:30  WARN 67823 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:20:56.234+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:20:56.425+03:30  INFO 67823 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:20:56.840+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-10T14:20:57.796+03:30  WARN 67823 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:20:57.811+03:30 TRACE 67823 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@6d9c5073}
+2024-12-10T14:20:57.813+03:30  INFO 67823 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:20:57.813+03:30  WARN 67823 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:20:58.035+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:20:58.040+03:30 DEBUG 67823 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:20:58.255+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:20:58.296+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:20:58.304+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 6.031 seconds (process running for 6.581)
+2024-12-10T14:21:01.997+03:30  INFO 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-10T14:21:01.998+03:30  INFO 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-10T14:21:02.000+03:30  INFO 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-12-10T14:21:02.012+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@6bcc8bf2, org.springframework.security.web.access.channel.ChannelProcessingFilter@2c3c7e3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7618b982, org.springframework.security.web.context.SecurityContextHolderFilter@40aa260e, org.springframework.security.web.header.HeaderWriterFilter@7c0d6402, org.springframework.web.filter.CorsFilter@730fc9f6, org.springframework.security.web.authentication.logout.LogoutFilter@dd2ea48, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4689edb6, com.blog_application.filter.JwtTokenValidatorFilter@19421493, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5c94e20a, com.blog_application.filter.JwtTokenGeneratorFilter@165e8f52, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@741f352a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e6b850b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25b9f0b2, org.springframework.security.web.session.SessionManagementFilter@196c6268, org.springframework.security.web.access.ExceptionTranslationFilter@3e9a2c5d, org.springframework.security.web.access.intercept.AuthorizationFilter@c76fa09]] (1/1)
+2024-12-10T14:21:02.012+03:30 DEBUG 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/posts/upload-image
+2024-12-10T14:21:02.013+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-10T14:21:02.013+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-10T14:21:02.014+03:30 DEBUG 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [POST /api/v1/posts/upload-image]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-10T14:21:02.014+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-10T14:21:02.015+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-10T14:21:02.016+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-10T14:21:02.017+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-10T14:21:02.018+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-10T14:21:02.018+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-10T14:21:02.018+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-10T14:21:02.018+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-10T14:21:02.018+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-10T14:21:02.109+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-10T14:21:02.110+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-10T14:21:02.110+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-10T14:21:02.110+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-10T14:21:02.110+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-10T14:21:02.110+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-10T14:21:02.111+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-10T14:21:02.111+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-10T14:21:02.112+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=ََََََmohammadd@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2024-12-10T14:21:02.112+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2024-12-10T14:21:02.112+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-10T14:21:02.112+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-10T14:21:02.112+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/v1/posts/upload-image
+2024-12-10T14:21:02.113+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/v1/posts/upload-image using org.springframework.security.authorization.AuthenticatedAuthorizationManager@533662bd
+2024-12-10T14:21:02.118+03:30 DEBUG 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/posts/upload-image
+2024-12-10T14:21:02.146+03:30  INFO 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.PostController            : Received request to upload image: Magnetostrictive actuators3.jpeg
+2024-12-10T14:21:02.323+03:30  INFO 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.PostController            : Image uploaded successfully: Magnetostrictive actuators3.jpeg
+2024-12-10T14:21:02.353+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@6bcc8bf2, org.springframework.security.web.access.channel.ChannelProcessingFilter@2c3c7e3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7618b982, org.springframework.security.web.context.SecurityContextHolderFilter@40aa260e, org.springframework.security.web.header.HeaderWriterFilter@7c0d6402, org.springframework.web.filter.CorsFilter@730fc9f6, org.springframework.security.web.authentication.logout.LogoutFilter@dd2ea48, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4689edb6, com.blog_application.filter.JwtTokenValidatorFilter@19421493, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5c94e20a, com.blog_application.filter.JwtTokenGeneratorFilter@165e8f52, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@741f352a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e6b850b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25b9f0b2, org.springframework.security.web.session.SessionManagementFilter@196c6268, org.springframework.security.web.access.ExceptionTranslationFilter@3e9a2c5d, org.springframework.security.web.access.intercept.AuthorizationFilter@c76fa09]] (1/1)
+2024-12-10T14:21:36.320+03:30 DEBUG 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/posts/download-image/1a043485-69d6-4db7-86ce-6580881c2636.jpeg
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-10T14:21:36.320+03:30 DEBUG 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /api/v1/posts/download-image/1a043485-69d6-4db7-86ce-6580881c2636.jpeg]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-10T14:21:36.320+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-10T14:21:36.321+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-10T14:21:36.321+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-10T14:21:36.321+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-10T14:21:36.321+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-10T14:21:36.321+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=b@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN]]
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-10T14:21:36.322+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/v1/posts/download-image/1a043485-69d6-4db7-86ce-6580881c2636.jpeg
+2024-12-10T14:21:36.324+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/v1/posts/download-image/1a043485-69d6-4db7-86ce-6580881c2636.jpeg using org.springframework.security.authorization.AuthenticatedAuthorizationManager@75ac4fc
+2024-12-10T14:21:36.324+03:30 DEBUG 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/posts/download-image/1a043485-69d6-4db7-86ce-6580881c2636.jpeg
+2024-12-10T14:21:36.357+03:30 TRACE 67823 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-10T14:23:33.016+03:30  INFO 67823 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-12-10T14:23:33.025+03:30  INFO 67823 --- [blog-application] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:33.027+03:30  INFO 67823 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-10T14:23:33.042+03:30  INFO 67823 --- [blog-application] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-10T14:23:33.182+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 67823 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:23:33.182+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:23:33.398+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:23:33.436+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:23:33.564+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:23:33.565+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:23:33.565+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:23:33.572+03:30  INFO 67823 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:23:33.572+03:30  INFO 67823 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 388 ms
+2024-12-10T14:23:33.613+03:30  INFO 67823 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:23:33.615+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:23:33.621+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:23:33.622+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-12-10T14:23:33.646+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@c162bfe
+2024-12-10T14:23:33.646+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-12-10T14:23:33.648+03:30  WARN 67823 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:23:33.879+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:23:34.025+03:30  INFO 67823 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:34.402+03:30  WARN 67823 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:23:34.421+03:30 TRACE 67823 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@4009dd84}
+2024-12-10T14:23:34.425+03:30  INFO 67823 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:23:34.426+03:30  WARN 67823 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:23:34.563+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:23:34.566+03:30 DEBUG 67823 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:23:34.663+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:23:34.712+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:23:34.717+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 1.578 seconds (process running for 162.994)
+2024-12-10T14:23:34.802+03:30  INFO 67823 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-10T14:23:36.069+03:30  INFO 67823 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-12-10T14:23:36.075+03:30  INFO 67823 --- [blog-application] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:36.076+03:30  INFO 67823 --- [blog-application] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-12-10T14:23:36.092+03:30  INFO 67823 --- [blog-application] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-12-10T14:23:36.177+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 67823 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:23:36.177+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:23:36.315+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:23:36.333+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:23:36.418+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:23:36.419+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:23:36.419+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:23:36.427+03:30  INFO 67823 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:23:36.427+03:30  INFO 67823 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 249 ms
+2024-12-10T14:23:36.461+03:30  INFO 67823 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:23:36.463+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:23:36.467+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:23:36.467+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-12-10T14:23:36.490+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@7c8bc3a1
+2024-12-10T14:23:36.490+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-12-10T14:23:36.492+03:30  WARN 67823 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:23:36.626+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:23:36.760+03:30  INFO 67823 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:36.980+03:30  WARN 67823 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:23:36.986+03:30 TRACE 67823 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@1e0adcec}
+2024-12-10T14:23:36.986+03:30  INFO 67823 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:23:36.986+03:30  WARN 67823 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:23:37.056+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:23:37.058+03:30 DEBUG 67823 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:23:37.122+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:23:37.135+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:23:37.140+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 0.981 seconds (process running for 165.416)
+2024-12-10T14:23:37.214+03:30  INFO 67823 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-10T14:23:39.931+03:30  INFO 67823 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-10T14:23:39.935+03:30  INFO 67823 --- [blog-application] [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:39.936+03:30  INFO 67823 --- [blog-application] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-12-10T14:23:39.945+03:30  INFO 67823 --- [blog-application] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-12-10T14:23:40.006+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 67823 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:23:40.006+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:23:40.140+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:23:40.157+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:23:40.232+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:23:40.232+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:23:40.233+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:23:40.239+03:30  INFO 67823 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:23:40.239+03:30  INFO 67823 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 232 ms
+2024-12-10T14:23:40.271+03:30  INFO 67823 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:23:40.273+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:23:40.277+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:23:40.278+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-12-10T14:23:40.299+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@41573e89
+2024-12-10T14:23:40.300+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-12-10T14:23:40.302+03:30  WARN 67823 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:23:40.423+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:23:40.536+03:30  INFO 67823 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:40.755+03:30  WARN 67823 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:23:40.761+03:30 TRACE 67823 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@6c954c7e}
+2024-12-10T14:23:40.761+03:30  INFO 67823 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:23:40.761+03:30  WARN 67823 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:23:40.821+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:23:40.824+03:30 DEBUG 67823 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:23:40.885+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:23:40.903+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:23:40.908+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 0.917 seconds (process running for 169.185)
+2024-12-10T14:23:40.982+03:30  INFO 67823 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-10T14:23:57.324+03:30  INFO 67823 --- [blog-application] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-12-10T14:23:57.333+03:30  INFO 67823 --- [blog-application] [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:57.334+03:30  INFO 67823 --- [blog-application] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-12-10T14:23:57.347+03:30  INFO 67823 --- [blog-application] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-12-10T14:23:57.439+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 67823 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:23:57.439+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:23:57.600+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:23:57.622+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:23:57.726+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:23:57.728+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:23:57.728+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:23:57.736+03:30  INFO 67823 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:23:57.736+03:30  INFO 67823 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 296 ms
+2024-12-10T14:23:57.784+03:30  INFO 67823 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:23:57.786+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:23:57.794+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:23:57.794+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-12-10T14:23:57.820+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@51ec6560
+2024-12-10T14:23:57.821+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-12-10T14:23:57.823+03:30  WARN 67823 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:23:57.978+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:23:58.071+03:30  INFO 67823 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:58.228+03:30  WARN 67823 --- [blog-application] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'postController' defined in file [/home/pc1/Documents/Projects/Blog-Application/target/classes/com/blog_application/controller/PostController.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'com.blog_application.service.impl.minio.MinioService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-12-10T14:23:58.229+03:30  INFO 67823 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:23:58.229+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-12-10T14:23:58.271+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-12-10T14:23:58.271+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-10T14:23:58.277+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-10T14:23:58.291+03:30 ERROR 67823 --- [blog-application] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in com.blog_application.controller.PostController required a bean of type 'com.blog_application.service.impl.minio.MinioService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.blog_application.service.impl.minio.MinioService' in your configuration.
+
+2024-12-10T14:23:59.713+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 67823 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:23:59.713+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:23:59.846+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:23:59.863+03:30  INFO 67823 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:23:59.939+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:23:59.940+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:23:59.941+03:30  INFO 67823 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:23:59.947+03:30  INFO 67823 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:23:59.947+03:30  INFO 67823 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 233 ms
+2024-12-10T14:23:59.979+03:30  INFO 67823 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:23:59.980+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:23:59.984+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:23:59.985+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-12-10T14:24:00.006+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@3007f940
+2024-12-10T14:24:00.007+03:30  INFO 67823 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-12-10T14:24:00.009+03:30  WARN 67823 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:24:00.107+03:30  INFO 67823 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:24:00.229+03:30  INFO 67823 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:24:00.442+03:30  WARN 67823 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:24:00.448+03:30 TRACE 67823 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@4a106273}
+2024-12-10T14:24:00.448+03:30  INFO 67823 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:24:00.448+03:30  WARN 67823 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:24:00.511+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:24:00.514+03:30 DEBUG 67823 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:24:00.584+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:24:00.597+03:30  INFO 67823 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:24:00.601+03:30  INFO 67823 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 0.902 seconds (process running for 188.878)
+2024-12-10T14:24:00.675+03:30  INFO 67823 --- [blog-application] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-10T14:24:31.454+03:30  INFO 67823 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:24:31.456+03:30  INFO 67823 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-12-10T14:24:31.482+03:30  INFO 67823 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2024-12-10T14:24:34.844+03:30  INFO 68653 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.12 with PID 68653 (/home/pc1/Documents/Projects/Blog-Application/target/classes started by pc1 in /home/pc1/Documents/Projects/Blog-Application)
+2024-12-10T14:24:34.846+03:30  INFO 68653 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-10T14:24:34.889+03:30  INFO 68653 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-10T14:24:34.890+03:30  INFO 68653 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-10T14:24:35.832+03:30  INFO 68653 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-10T14:24:35.893+03:30  INFO 68653 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 10 JPA repository interfaces.
+2024-12-10T14:24:36.290+03:30  INFO 68653 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-10T14:24:36.298+03:30  INFO 68653 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-10T14:24:36.298+03:30  INFO 68653 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-10T14:24:36.327+03:30  INFO 68653 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-10T14:24:36.327+03:30  INFO 68653 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1437 ms
+2024-12-10T14:24:36.438+03:30  INFO 68653 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10T14:24:36.470+03:30  INFO 68653 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-10T14:24:36.508+03:30  INFO 68653 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-10T14:24:36.704+03:30  INFO 68653 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-10T14:24:36.723+03:30  INFO 68653 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-10T14:24:36.895+03:30  INFO 68653 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7545559b
+2024-12-10T14:24:36.896+03:30  INFO 68653 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-10T14:24:36.916+03:30  WARN 68653 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-10T14:24:37.811+03:30  INFO 68653 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10T14:24:37.957+03:30  INFO 68653 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-10T14:24:38.339+03:30  INFO 68653 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-10T14:24:39.218+03:30  WARN 68653 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-10T14:24:39.232+03:30 TRACE 68653 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@51235b6b}
+2024-12-10T14:24:39.233+03:30  INFO 68653 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-10T14:24:39.233+03:30  WARN 68653 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-10T14:24:39.456+03:30  INFO 68653 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-10T14:24:39.462+03:30 DEBUG 68653 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-10T14:24:39.660+03:30  INFO 68653 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-10T14:24:39.695+03:30  INFO 68653 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-10T14:24:39.705+03:30  INFO 68653 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 5.159 seconds (process running for 5.691)
+2024-12-10T14:24:45.221+03:30  INFO 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-10T14:24:45.223+03:30  INFO 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-10T14:24:45.224+03:30  INFO 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-10T14:24:45.236+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@26f7e36c, org.springframework.security.web.access.channel.ChannelProcessingFilter@6b606502, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63350939, org.springframework.security.web.context.SecurityContextHolderFilter@29fdfdde, org.springframework.security.web.header.HeaderWriterFilter@2754cc66, org.springframework.web.filter.CorsFilter@5b685ae0, org.springframework.security.web.authentication.logout.LogoutFilter@1538f5fc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@188a52d9, com.blog_application.filter.JwtTokenValidatorFilter@220aaf87, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1eeb1c6a, com.blog_application.filter.JwtTokenGeneratorFilter@3b7fd429, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@73099000, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42c79846, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70486ebe, org.springframework.security.web.session.SessionManagementFilter@a5219e9, org.springframework.security.web.access.ExceptionTranslationFilter@b40b1e8, org.springframework.security.web.access.intercept.AuthorizationFilter@3ca2d7c]] (1/1)
+2024-12-10T14:24:45.237+03:30 DEBUG 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/posts/upload-image
+2024-12-10T14:24:45.238+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-10T14:24:45.238+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-10T14:24:45.238+03:30 DEBUG 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [POST /api/v1/posts/upload-image]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-10T14:24:45.239+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-10T14:24:45.240+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-10T14:24:45.241+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-10T14:24:45.242+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-10T14:24:45.243+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-10T14:24:45.243+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-10T14:24:45.243+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-10T14:24:45.243+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-10T14:24:45.243+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-10T14:24:45.319+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-10T14:24:45.319+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-10T14:24:45.319+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-10T14:24:45.319+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-10T14:24:45.320+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-10T14:24:45.320+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-10T14:24:45.321+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-10T14:24:45.321+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-10T14:24:45.322+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=ََََََmohammadd@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2024-12-10T14:24:45.322+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2024-12-10T14:24:45.322+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-10T14:24:45.322+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-10T14:24:45.323+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/v1/posts/upload-image
+2024-12-10T14:24:45.324+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/v1/posts/upload-image using org.springframework.security.authorization.AuthenticatedAuthorizationManager@49efbf9a
+2024-12-10T14:24:45.324+03:30 DEBUG 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/posts/upload-image
+2024-12-10T14:24:45.354+03:30  INFO 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Received request to upload image: Magnetostrictive actuators3.jpeg
+2024-12-10T14:24:45.354+03:30  INFO 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.minio.MinioService      : Received request to upload image: Magnetostrictive actuators3.jpeg
+2024-12-10T14:24:45.610+03:30  INFO 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.minio.MinioService      : Image uploaded successfully. Filename: f6dc5a0f-4740-439c-aeec-cdb0836eb243.jpeg
+2024-12-10T14:24:45.610+03:30  INFO 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.PostController            : Image uploaded successfully: Magnetostrictive actuators3.jpeg
+2024-12-10T14:24:45.652+03:30 TRACE 68653 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]

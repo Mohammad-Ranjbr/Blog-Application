@@ -27,6 +27,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.AccessDeniedException;
 import java.util.List;
@@ -207,18 +208,11 @@ public class PostController {
     }
 
     @PostMapping("/upload-image")
-    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
-        try {
-            String url = minioService.uploadFile(
-                    file.getOriginalFilename(),
-                    file.getInputStream(),
-                    file.getSize(),
-                    file.getContentType()
-            );
-            return ResponseEntity.ok(url);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error uploading image");
-        }
+    public ResponseEntity<ApiResponse> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
+        logger.info("Received request to upload image: {}", file.getOriginalFilename());
+        String url = minioService.uploadFile(file);
+         logger.info("Image uploaded successfully: {}", file.getOriginalFilename());
+         return new ResponseEntity<>(new ApiResponse(url, true), HttpStatus.OK);
     }
 
     @GetMapping("/download-image/{filename}")
