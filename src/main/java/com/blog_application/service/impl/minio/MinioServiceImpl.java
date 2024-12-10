@@ -1,5 +1,6 @@
 package com.blog_application.service.impl.minio;
 
+import com.blog_application.service.minio.MinioService;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,17 +19,15 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Service
-public class MinioService {
+public class MinioServiceImpl implements MinioService {
 
-    @Value("${minio.endpoint}")
-    private String endpoint;
     @Value("${minio.bucket-name}")
     private String bucketName;
     private final S3Client s3Client;
-    private final static Logger logger = LoggerFactory.getLogger(MinioService.class);
+    private final static Logger logger = LoggerFactory.getLogger(MinioServiceImpl.class);
 
     @Autowired
-    public MinioService(S3Client s3Client){
+    public MinioServiceImpl(S3Client s3Client){
         this.s3Client = s3Client;
     }
 
@@ -46,7 +45,7 @@ public class MinioService {
 
             s3Client.putObject(request, RequestBody.fromInputStream(multipartFile.getInputStream(), multipartFile.getSize()));
             logger.info("Image uploaded successfully. Filename: {}", randomImageName);
-            return endpoint + "/" + bucketName + "/" + randomImageName;
+            return randomImageName;
         } catch (Exception exception){
             logger.error("Error occurred while uploading image. Filename: {}, Error: {}", multipartFile.getOriginalFilename(), exception.getMessage(), exception);
             throw exception;
