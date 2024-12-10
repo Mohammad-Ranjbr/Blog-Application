@@ -210,23 +210,28 @@ public class PostController {
     @PostMapping("/upload-image")
     public ResponseEntity<ApiResponse> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
         logger.info("Received request to upload image: {}", file.getOriginalFilename());
-        String url = minioService.uploadFile(file);
-         logger.info("Image uploaded successfully: {}", file.getOriginalFilename());
-         return new ResponseEntity<>(new ApiResponse(url, true), HttpStatus.OK);
+        if(!file.isEmpty()){
+            String url = minioService.uploadFile(file);
+            logger.info("Image uploaded successfully: {}", file.getOriginalFilename());
+            return new ResponseEntity<>(new ApiResponse(url, true), HttpStatus.OK);
+        } else {
+            logger.warn("Failed to upload image: file is empty.");
+            return new ResponseEntity<>(new ApiResponse("File must not be empty. Please upload a valid file.", false), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/download-image/{filename}")
     public ResponseEntity<InputStreamResource> downloadImage(@PathVariable String filename) {
+        logger.info("Received request to download image: {}", filename);
         try {
             InputStream inputStream = minioService.downloadFile(filename);
-
-            InputStreamResource resource = new InputStreamResource(inputStream);
 
             return ResponseEntity.ok()
                     .contentType(MediaType.IMAGE_JPEG)
                     .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
-                    .body(resource);
-        } catch (Exception e) {
+                    .body(new InputStreamResource(inputStream));
+        } catch (Exception exception) {
+            logger.error("Error occurred while downloading image: {}, Error: {}", filename, exception.getMessage(), exception);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }

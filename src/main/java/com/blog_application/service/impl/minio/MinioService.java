@@ -54,11 +54,20 @@ public class MinioService {
     }
 
     public InputStream downloadFile(String fileName){
-        GetObjectRequest request = GetObjectRequest.builder()
-                .bucket(bucketName)
-                .key(fileName)
-                .build();
-        return s3Client.getObject(request);
+        logger.info("Initiating download for file: {}", fileName);
+        try {
+            GetObjectRequest request = GetObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(fileName)
+                    .build();
+
+            InputStream inputStream = s3Client.getObject(request);
+            logger.info("File downloaded successfully: {}", fileName);
+            return inputStream;
+        } catch (Exception exception){
+            logger.error("Error occurred while downloading file: {}, Error: {}", fileName, exception.getMessage(), exception);
+            throw new RuntimeException("Error downloading file", exception);
+        }
     }
 
 }
