@@ -5,6 +5,7 @@ import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
 import com.blog_application.dto.tag.TagCreateDto;
+import com.blog_application.service.impl.minio.MinioService;
 import com.blog_application.service.post.PostReactionService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.util.responses.ApiResponse;
@@ -21,6 +22,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.AccessDeniedException;
 import java.util.List;
@@ -32,12 +34,14 @@ import java.util.UUID;
 public class PostController {
 
     private final PostService postService;
+    private final MinioService minioService;
     private final PostReactionService postReactionService;
     private final static Logger logger = LoggerFactory.getLogger(PostController.class);
 
     @Autowired
-    public PostController(PostService postService,PostReactionService postReactionService){
+    public PostController(PostService postService,PostReactionService postReactionService, MinioService minioService){
         this.postService = postService;
+        this.minioService = minioService;
         this.postReactionService = postReactionService;
     }
 
@@ -196,6 +200,21 @@ public class PostController {
         postService.removeTagsFromPost(postId,tagIds);
         logger.info("Tags removed successfully from post with ID: {}", postId);
         return new ResponseEntity<>(new ApiResponse("Tags Deleted From Post Successfully",true),HttpStatus.OK);
+    }
+
+    @PostMapping("/upload-image")
+    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
+        try {
+            String url = minioService.uploadFile(
+                    file.getOriginalFilename(),
+                    file.getInputStream(),
+                    file.getSize(),
+                    file.getContentType()
+            );
+            return ResponseEntity.ok(url);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error uploading image");
+        }
     }
 
 }
