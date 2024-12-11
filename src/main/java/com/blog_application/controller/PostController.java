@@ -5,7 +5,6 @@ import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
 import com.blog_application.dto.tag.TagCreateDto;
-import com.blog_application.service.minio.MinioService;
 import com.blog_application.service.post.PostReactionService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.util.responses.ApiResponse;
@@ -18,16 +17,12 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.AccessDeniedException;
 import java.util.List;
 import java.util.UUID;
@@ -38,14 +33,12 @@ import java.util.UUID;
 public class PostController {
 
     private final PostService postService;
-    private final MinioService minioService;
     private final PostReactionService postReactionService;
     private final static Logger logger = LoggerFactory.getLogger(PostController.class);
 
     @Autowired
-    public PostController(PostService postService,PostReactionService postReactionService, MinioService minioService){
+    public PostController(PostService postService,PostReactionService postReactionService){
         this.postService = postService;
-        this.minioService = minioService;
         this.postReactionService = postReactionService;
     }
 
@@ -205,23 +198,6 @@ public class PostController {
         postService.removeTagsFromPost(postId,tagIds);
         logger.info("Tags removed successfully from post with ID: {}", postId);
         return new ResponseEntity<>(new ApiResponse("Tags Deleted From Post Successfully",true),HttpStatus.OK);
-    }
-
-    @GetMapping("/download-image/{filename}")
-    @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<InputStreamResource> downloadImage(@PathVariable String filename) {
-        logger.info("Received request to download image: {}", filename);
-        try {
-            InputStream inputStream = minioService.downloadFile(filename, null);
-
-            return ResponseEntity.ok()
-                    .contentType(MediaType.IMAGE_JPEG)
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
-                    .body(new InputStreamResource(inputStream));
-        } catch (Exception exception) {
-            logger.error("Error occurred while downloading image: {}, Error: {}", filename, exception.getMessage(), exception);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
     }
 
 }
