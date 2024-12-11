@@ -16,6 +16,7 @@ import com.blog_application.model.user.User;
 import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.category.CategoryService;
+import com.blog_application.service.minio.MinioService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
@@ -24,12 +25,15 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -43,9 +47,12 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class PostServiceImpl implements PostService {
 
+    @Value("${post.default.image}")
+    private String postDefaultPage;
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
+    private final MinioService minioService;
     private final TagRepository tagRepository;
     private final CategoryMapper categoryMapper;
     private final PostRepository postRepository;
@@ -54,10 +61,12 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService,
-                           CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,TagRepository tagRepository){
+                           CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,
+                           TagRepository tagRepository, MinioService minioService){
         this.userMapper = userMapper;
         this.postMapper =  postMapper;
         this.userService = userService;
+        this.minioService = minioService;
         this.tagRepository = tagRepository;
         this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
@@ -67,7 +76,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws AccessDeniedException {
+    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId, MultipartFile postImageFile) throws IOException {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
 
         User user = userMapper.toEntity(userService.getUserById(userId));
@@ -82,7 +91,16 @@ public class PostServiceImpl implements PostService {
            Post post = postMapper.toEntity(postCreateDto);
            post.setUser(user);
            post.setCategory(category);
-           post.setImageName("default.png");
+
+           if (postImageFile != null && !postImageFile.isEmpty()) {
+               logger.info("Uploading image for post: {}", postCreateDto.getTitle());
+               String uploadedImageUrl = minioService.uploadFile(postImageFile);
+               post.setImageName(uploadedImageUrl);
+               logger.info("Image uploaded successfully for post: {}", postCreateDto.getTitle());
+           } else {
+               logger.info("No image provided, using default image for post: {}", postCreateDto.getTitle());
+               post.setImageName(postDefaultPage);
+           }
 
            if (postCreateDto.getScheduledTime() != null && postCreateDto.getScheduledTime().isAfter(LocalDateTime.now())) { // The time is after now
                schedulePost(post, postCreateDto.getScheduledTime());

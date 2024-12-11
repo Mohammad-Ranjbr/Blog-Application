@@ -5,7 +5,7 @@ import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
 import com.blog_application.dto.tag.TagCreateDto;
-import com.blog_application.service.impl.minio.MinioService;
+import com.blog_application.service.minio.MinioService;
 import com.blog_application.service.post.PostReactionService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.util.responses.ApiResponse;
@@ -55,9 +55,10 @@ public class PostController {
     @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Create Post Rest Api", description = "Create Post Rest Api is used save post into database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201",description = "Http Status 201 CREATED")
-    public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId, @PathVariable("categoryId") Long categoryId) throws AccessDeniedException {
+    public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId,
+                                                 @PathVariable("categoryId") Long categoryId, @RequestParam("file") MultipartFile postImageFile) throws IOException {
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
-        PostGetDto createdPost = postService.createPost(postCreateDto,userId,categoryId);
+        PostGetDto createdPost = postService.createPost(postCreateDto, userId, categoryId, postImageFile);
         logger.info("Returning response for post creation with title: {}", createdPost.getTitle());
         return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
     }
@@ -208,25 +209,32 @@ public class PostController {
     }
 
     @PostMapping("/upload-image")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<ApiResponse> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
         logger.info("Received request to upload image: {}", file.getOriginalFilename());
-        String url = minioService.uploadFile(file);
-         logger.info("Image uploaded successfully: {}", file.getOriginalFilename());
-         return new ResponseEntity<>(new ApiResponse(url, true), HttpStatus.OK);
+        if(!file.isEmpty()){
+            String url = minioService.uploadFile(file);
+            logger.info("Image uploaded successfully: {}", file.getOriginalFilename());
+            return new ResponseEntity<>(new ApiResponse(url, true), HttpStatus.OK);
+        } else {
+            logger.warn("Failed to upload image: file is empty.");
+            return new ResponseEntity<>(new ApiResponse("File must not be empty. Please upload a valid file.", false), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/download-image/{filename}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<InputStreamResource> downloadImage(@PathVariable String filename) {
+        logger.info("Received request to download image: {}", filename);
         try {
             InputStream inputStream = minioService.downloadFile(filename);
-
-            InputStreamResource resource = new InputStreamResource(inputStream);
 
             return ResponseEntity.ok()
                     .contentType(MediaType.IMAGE_JPEG)
                     .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
-                    .body(resource);
-        } catch (Exception e) {
+                    .body(new InputStreamResource(inputStream));
+        } catch (Exception exception) {
+            logger.error("Error occurred while downloading image: {}, Error: {}", filename, exception.getMessage(), exception);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
