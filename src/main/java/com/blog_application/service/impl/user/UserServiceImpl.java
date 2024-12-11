@@ -2,6 +2,7 @@ package com.blog_application.service.impl.user;
 
 import com.blog_application.config.mapper.post.PostMapper;
 import com.blog_application.config.mapper.user.UserMapper;
+import com.blog_application.dto.image.ImageData;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.user.*;
 import com.blog_application.exception.ResourceAlreadyExistsException;
@@ -11,6 +12,7 @@ import com.blog_application.model.role.Role;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.user.UserRepository;
+import com.blog_application.service.image.ImageService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.role.RoleService;
 import com.blog_application.service.user.UserService;
@@ -20,6 +22,7 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,6 +33,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -37,10 +41,15 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Value("${user.default-image}")
+    private String userDefaultPage;
+    @Value("${minio.user-bucket-name}")
+    private String userImagesBucket;
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final PostService postService;
     private final RoleService roleService;
+    private final ImageService imageService;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
     private final PasswordEncoder passwordEncoder;
@@ -48,11 +57,13 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, RoleService roleService
-            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository,PasswordEncoder passwordEncoder){
+            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository,PasswordEncoder passwordEncoder,
+                           ImageService imageService){
         this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.postService = postService;
         this.roleService = roleService;
+        this.imageService = imageService;
         this.userRepository = userRepository;
         this.postRepository = postRepository;
         this.passwordEncoder = passwordEncoder;
@@ -83,7 +94,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserGetDto createUser(UserCreateDto userCreateDto) {
+    public UserGetDto createUser(UserCreateDto userCreateDto) throws IOException {
         logger.info("Creating user with username : {}",userCreateDto.getUserName());
 
         if(userRepository.existsByUserName(userCreateDto.getUserName())){
@@ -103,6 +114,17 @@ public class UserServiceImpl implements UserService {
             user.setPassword(hashPassword);
             user.setRoles(Set.of(userRole));
             user.setSoftDelete(false);
+
+            String imageUrl;
+            ImageData imageData = userCreateDto.getImageData();
+            if (imageData.base64Content() != null && !imageData.base64Content().isEmpty())  {
+                imageUrl = imageService.uploadImage(imageData, userImagesBucket);
+                logger.info("Image uploaded successfully for post: {}", userCreateDto.getEmail());
+            } else {
+                imageUrl = userDefaultPage;
+            }
+            user.setImageName(imageUrl);
+
             User savedUser = userRepository.save(user);
             if(savedUser.getId() != null){
                 System.out.println(savedUser);

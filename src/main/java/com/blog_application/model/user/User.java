@@ -97,6 +97,7 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
     private boolean softDelete;
+    private String imageName;
 
     //When we want to fetch the user, it also fetches the user's posts and comments from the database and tries
     //to print it with the toString method, which becomes a loop and causes stack overflow.

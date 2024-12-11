@@ -21,5 +21,6 @@ public class UserGetDto extends UserBasicInfoDto{
     private LocalDateTime updatedAt;
     private boolean isActive;
     private boolean softDelete;
+    private String imageName;
 
 }
