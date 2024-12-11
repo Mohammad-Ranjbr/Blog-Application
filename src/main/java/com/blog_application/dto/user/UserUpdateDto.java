@@ -1,5 +1,6 @@
 package com.blog_application.dto.user;
 
+import com.blog_application.dto.image.ImageData;
 import com.blog_application.util.constants.ApplicationConstants;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
@@ -38,5 +39,7 @@ public class UserUpdateDto {
     @NotBlank(message = "Phone number is mandatory")
     @Pattern(regexp = ApplicationConstants.PHONE_PATTERN_REGEX, message = "Phone number must be 11 digits and start with 09")
     private String phoneNumber;
+
+    private ImageData imageData;
 
 }

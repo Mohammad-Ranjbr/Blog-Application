@@ -426,6 +426,20 @@ public class UserServiceImpl implements UserService {
                 user.setUserName(userUpdateDto.getUserName());
                 user.setPhoneNumber(userUpdateDto.getPhoneNumber());
                 User savedUser = userRepository.save(user);
+
+                String imageUrl;
+                ImageData imageData = userUpdateDto.getImageData();
+                if (imageData.base64Content() != null && !imageData.base64Content().isEmpty())  {
+                    try {
+                        imageUrl = imageService.uploadImage(imageData, userImagesBucket);
+                    } catch (IOException exception) {
+                        logger.error("Error occurred while updating user profile image, Error: {}", exception.getMessage(), exception);
+                        throw new RuntimeException(exception);
+                    }
+                    user.setImageName(imageUrl);
+                    logger.info("Image uploaded successfully for post: {}", userUpdateDto.getEmail());
+                }
+
                 logger.info("User with ID {} updated successfully",userId);
                 return savedUser;
             }).orElseThrow(() -> {
