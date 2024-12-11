@@ -6,8 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.InputStream;
+import java.util.Base64;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -36,35 +35,37 @@ public class ImageController {
 
     @GetMapping("/posts/image/{filename}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<InputStreamResource> downloadPostImage(@PathVariable String filename) {
+    public ResponseEntity<String> downloadPostImage(@PathVariable String filename) {
         logger.info("Received request to download post image: {}", filename);
         try {
             InputStream inputStream = minioService.downloadFile(postImagesBucket, filename);
+            byte[] imageBytes = inputStream.readAllBytes();
+            String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 
             return ResponseEntity.ok()
-                    .contentType(MediaType.IMAGE_JPEG)
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
-                    .body(new InputStreamResource(inputStream));
+                    .contentType(MediaType.TEXT_PLAIN)
+                    .body(base64Image);
         } catch (Exception exception) {
-            logger.error("Error occurred while downloading post image: {}, Error: {}", filename, exception.getMessage(), exception);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            logger.error("Error occurred while downloading user image: {}, Error: {}", filename, exception.getMessage(), exception);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error downloading image");
         }
     }
 
     @GetMapping("/users/image/{filename}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<InputStreamResource> downloadUserImage(@PathVariable String filename) {
+    public ResponseEntity<String> downloadUserImage(@PathVariable String filename) {
         logger.info("Received request to download user image: {}", filename);
         try {
             InputStream inputStream = minioService.downloadFile(userImagesBucket, filename);
+            byte[] imageBytes = inputStream.readAllBytes();
+            String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 
             return ResponseEntity.ok()
-                    .contentType(MediaType.IMAGE_JPEG)
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
-                    .body(new InputStreamResource(inputStream));
+                    .contentType(MediaType.TEXT_PLAIN)
+                    .body(base64Image);
         } catch (Exception exception) {
             logger.error("Error occurred while downloading user image: {}, Error: {}", filename, exception.getMessage(), exception);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error downloading image");
         }
     }
 
