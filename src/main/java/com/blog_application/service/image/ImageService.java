@@ -6,6 +6,6 @@ import java.io.IOException;
 
 public interface ImageService {
 
-    String uploadImage(ImageData imageData) throws IOException;
+    String uploadImage(ImageData imageData, String bucketName) throws IOException;
 
 }

@@ -23,13 +23,13 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public String uploadImage(ImageData imageData) throws IOException {
+    public String uploadImage(ImageData imageData, String bucketName) throws IOException {
         if (imageData != null && imageData.base64Content() != null && !imageData.base64Content().isEmpty()) {
             byte[] decodedBytes = Base64.getDecoder().decode(imageData.base64Content());
             InputStream imageInputStream = new ByteArrayInputStream(decodedBytes);
 
             String fileName = UUID.randomUUID().toString().concat(".").concat(imageData.format());
-            return minioService.uploadFile(fileName, imageInputStream, (long) decodedBytes.length, imageData.format());
+            return minioService.uploadFile(bucketName, fileName, imageInputStream, (long) decodedBytes.length, imageData.format());
         } else {
             return null;
         }

@@ -47,8 +47,10 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class PostServiceImpl implements PostService {
 
-    @Value("${post.default.image}")
+    @Value("${post.default-image}")
     private String postDefaultPage;
+    @Value("${minio.post-bucket-name}")
+    private String postImagesBucket;
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
@@ -94,8 +96,8 @@ public class PostServiceImpl implements PostService {
 
            String imageUrl;
            ImageData imageData = postCreateDto.getImageData();
-           if (imageData != null) {
-               imageUrl = imageService.uploadImage(imageData);
+           if (imageData.base64Content() != null && !imageData.base64Content().isEmpty())  {
+               imageUrl = imageService.uploadImage(imageData, postImagesBucket);
                logger.info("Image uploaded successfully for post: {}", postCreateDto.getTitle());
            } else {
                imageUrl = postDefaultPage;
