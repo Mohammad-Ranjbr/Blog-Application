@@ -146,8 +146,20 @@ public class PostServiceImpl implements PostService {
                 post.setCategory(newCategory);
                 post.setTitle(postUpdateDto.getTitle());
                 post.setContent(postUpdateDto.getContent());
-                post.setImageName(postUpdateDto.getImageName());
                 Post savedPost = postRepository.save(post);
+
+                String imageUrl;
+                ImageData imageData = postUpdateDto.getImageData();
+                if (imageData.base64Content() != null && !imageData.base64Content().isEmpty())  {
+                    try {
+                        imageUrl = imageService.uploadImage(imageData, postImagesBucket);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    post.setImageName(imageUrl);
+                    logger.info("Image uploaded successfully for post: {}", postUpdateDto.getTitle());
+                }
+
                 logger.info("Post with ID {} updated successfully",postId);
                 return savedPost;
             }).orElseThrow(() -> {

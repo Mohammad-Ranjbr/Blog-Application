@@ -9,7 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PostUpdateDto extends PostCreateDto{
 
-    private String imageName;
     private Long categoryId;
 
 }
