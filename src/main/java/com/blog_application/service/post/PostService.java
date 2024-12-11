@@ -19,7 +19,7 @@ public interface PostService {
     PostGetDto updatePost(PostUpdateDto postDto, Long postId) throws AccessDeniedException;
     void removeTagsFromPost(Long postId,List<Long> tagIdsToRemove ) throws AccessDeniedException;
     PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagNames) throws AccessDeniedException;
-    PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId,  MultipartFile postImageFile) throws IOException;
+    PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws IOException;
     PaginatedResponse<PostGetDto> getAllPosts(int pageNumber, int pageSize, String sortBy, String sortDir);
     PaginatedResponse<PostGetDto> searchPosts(String keyword, int pageNumber, int pageSize, String sortBy, String sortDir);
     PaginatedResponse<PostGetDto> getPostsByUser(UUID userId, int pageNumber, int pageSize, String sortBy, String sortDir);

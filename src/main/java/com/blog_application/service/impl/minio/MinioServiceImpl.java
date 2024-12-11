@@ -31,24 +31,21 @@ public class MinioServiceImpl implements MinioService {
         this.s3Client = s3Client;
     }
 
-    public String uploadFile(MultipartFile multipartFile) throws IOException {
-        logger.info("Received request to upload image: {}", multipartFile.getOriginalFilename());
+    public String uploadFile(String fileName, InputStream inputStream, Long contentLength, String contentType) throws IOException {
+        logger.info("Received request to upload image: {}", fileName);
+
+        PutObjectRequest request = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(fileName)
+                .contentType(contentType)
+                .build();
 
         try {
-            String fileExtension = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
-            String randomImageName = UUID.randomUUID().toString().concat(".").concat(Objects.requireNonNull(fileExtension));
-            PutObjectRequest request = PutObjectRequest.builder()
-                    .bucket(bucketName)
-                    .key(randomImageName)
-                    .contentType(multipartFile.getContentType())
-                    .build();
-
-            s3Client.putObject(request, RequestBody.fromInputStream(multipartFile.getInputStream(), multipartFile.getSize()));
-            logger.info("Image uploaded successfully. Filename: {}", randomImageName);
-            return randomImageName;
-        } catch (Exception exception){
-            logger.error("Error occurred while uploading image. Filename: {}, Error: {}", multipartFile.getOriginalFilename(), exception.getMessage(), exception);
-            throw exception;
+            s3Client.putObject(request, RequestBody.fromInputStream(inputStream, contentLength));
+            return fileName;
+        } catch (Exception exception) {
+            logger.error("Error occurred while uploading file. Filename: {}, Error: {}", fileName, exception.getMessage(), exception);
+            throw new RuntimeException("File upload failed", exception);
         }
     }
 

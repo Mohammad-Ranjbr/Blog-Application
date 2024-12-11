@@ -1,5 +1,6 @@
 package com.blog_application.dto.post;
 
+import com.blog_application.dto.image.ImageData;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -22,5 +23,6 @@ public class PostCreateDto {
     private String content;
 
     private LocalDateTime scheduledTime;
+    private ImageData imageData;
 
 }

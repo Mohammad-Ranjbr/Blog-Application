@@ -4,6 +4,7 @@ import com.blog_application.config.mapper.category.CategoryMapper;
 import com.blog_application.config.mapper.post.PostMapper;
 
 import com.blog_application.config.mapper.user.UserMapper;
+import com.blog_application.dto.image.ImageData;
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
@@ -31,13 +32,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.AccessDeniedException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Executors;
@@ -76,7 +79,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId, MultipartFile postImageFile) throws IOException {
+    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws IOException {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
 
         User user = userMapper.toEntity(userService.getUserById(userId));
@@ -92,15 +95,22 @@ public class PostServiceImpl implements PostService {
            post.setUser(user);
            post.setCategory(category);
 
-           if (postImageFile != null && !postImageFile.isEmpty()) {
+           String imageUrl;
+           ImageData imageData = postCreateDto.getImageData();
+           if (imageData != null && imageData.base64Content() != null && !imageData.base64Content().isEmpty()) {
                logger.info("Uploading image for post: {}", postCreateDto.getTitle());
-               String uploadedImageUrl = minioService.uploadFile(postImageFile);
-               post.setImageName(uploadedImageUrl);
+
+               byte[] decodedBytes = Base64.getDecoder().decode(imageData.base64Content());
+               InputStream imageInputStream = new ByteArrayInputStream(decodedBytes);
+
+               String fileName = UUID.randomUUID().toString().concat(".").concat(imageData.format());
+               imageUrl = minioService.uploadFile(fileName, imageInputStream, (long) decodedBytes.length, imageData.format());
                logger.info("Image uploaded successfully for post: {}", postCreateDto.getTitle());
            } else {
                logger.info("No image provided, using default image for post: {}", postCreateDto.getTitle());
-               post.setImageName(postDefaultPage);
+               imageUrl = postDefaultPage;
            }
+           post.setImageName(imageUrl);
 
            if (postCreateDto.getScheduledTime() != null && postCreateDto.getScheduledTime().isAfter(LocalDateTime.now())) { // The time is after now
                schedulePost(post, postCreateDto.getScheduledTime());

@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 public interface MinioService {
 
-    String uploadFile(MultipartFile multipartFile)  throws IOException;
+    String uploadFile(String fileName, InputStream inputStream, Long contentLength, String contentType)  throws IOException;
     InputStream downloadFile(String fileName);
 
 }

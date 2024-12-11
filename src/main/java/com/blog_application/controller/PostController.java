@@ -56,9 +56,9 @@ public class PostController {
     @Operation(summary = "Create Post Rest Api", description = "Create Post Rest Api is used save post into database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201",description = "Http Status 201 CREATED")
     public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId,
-                                                 @PathVariable("categoryId") Long categoryId, @RequestParam("file") MultipartFile postImageFile) throws IOException {
+                                                 @PathVariable("categoryId") Long categoryId) throws IOException {
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
-        PostGetDto createdPost = postService.createPost(postCreateDto, userId, categoryId, postImageFile);
+        PostGetDto createdPost = postService.createPost(postCreateDto, userId, categoryId);
         logger.info("Returning response for post creation with title: {}", createdPost.getTitle());
         return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
     }
@@ -208,19 +208,19 @@ public class PostController {
         return new ResponseEntity<>(new ApiResponse("Tags Deleted From Post Successfully",true),HttpStatus.OK);
     }
 
-    @PostMapping("/upload-image")
-    @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
-        logger.info("Received request to upload image: {}", file.getOriginalFilename());
-        if(!file.isEmpty()){
-            String url = minioService.uploadFile(file);
-            logger.info("Image uploaded successfully: {}", file.getOriginalFilename());
-            return new ResponseEntity<>(new ApiResponse(url, true), HttpStatus.OK);
-        } else {
-            logger.warn("Failed to upload image: file is empty.");
-            return new ResponseEntity<>(new ApiResponse("File must not be empty. Please upload a valid file.", false), HttpStatus.BAD_REQUEST);
-        }
-    }
+//    @PostMapping("/upload-image")
+//    @SecurityRequirement(name = "Jwt Token Authentication")
+//    public ResponseEntity<ApiResponse> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
+//        logger.info("Received request to upload image: {}", file.getOriginalFilename());
+//        if(!file.isEmpty()){
+//            String url = minioService.uploadFile(file);
+//            logger.info("Image uploaded successfully: {}", file.getOriginalFilename());
+//            return new ResponseEntity<>(new ApiResponse(url, true), HttpStatus.OK);
+//        } else {
+//            logger.warn("Failed to upload image: file is empty.");
+//            return new ResponseEntity<>(new ApiResponse("File must not be empty. Please upload a valid file.", false), HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
     @GetMapping("/download-image/{filename}")
     @SecurityRequirement(name = "Jwt Token Authentication")
