@@ -1,22 +1,17 @@
 package com.blog_application.service.impl.minio;
 
 import com.blog_application.service.minio.MinioService;
-import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.Objects;
-import java.util.UUID;
 
 @Service
 public class MinioServiceImpl implements MinioService {
@@ -31,7 +26,7 @@ public class MinioServiceImpl implements MinioService {
         this.s3Client = s3Client;
     }
 
-    public String uploadFile(String fileName, InputStream inputStream, Long contentLength, String contentType) throws IOException {
+    public String uploadFile(String fileName, InputStream inputStream, Long contentLength, String contentType) {
         logger.info("Received request to upload image: {}", fileName);
 
         PutObjectRequest request = PutObjectRequest.builder()

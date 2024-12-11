@@ -17,7 +17,7 @@ import com.blog_application.model.user.User;
 import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.category.CategoryService;
-import com.blog_application.service.minio.MinioService;
+import com.blog_application.service.image.ImageService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
@@ -33,14 +33,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.AccessDeniedException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Executors;
@@ -55,7 +52,7 @@ public class PostServiceImpl implements PostService {
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
-    private final MinioService minioService;
+    private final ImageService imageService;
     private final TagRepository tagRepository;
     private final CategoryMapper categoryMapper;
     private final PostRepository postRepository;
@@ -65,11 +62,11 @@ public class PostServiceImpl implements PostService {
     @Autowired
     public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService,
                            CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,
-                           TagRepository tagRepository, MinioService minioService){
+                           TagRepository tagRepository, ImageService imageService){
         this.userMapper = userMapper;
         this.postMapper =  postMapper;
         this.userService = userService;
-        this.minioService = minioService;
+        this.imageService = imageService;
         this.tagRepository = tagRepository;
         this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
@@ -97,17 +94,10 @@ public class PostServiceImpl implements PostService {
 
            String imageUrl;
            ImageData imageData = postCreateDto.getImageData();
-           if (imageData != null && imageData.base64Content() != null && !imageData.base64Content().isEmpty()) {
-               logger.info("Uploading image for post: {}", postCreateDto.getTitle());
-
-               byte[] decodedBytes = Base64.getDecoder().decode(imageData.base64Content());
-               InputStream imageInputStream = new ByteArrayInputStream(decodedBytes);
-
-               String fileName = UUID.randomUUID().toString().concat(".").concat(imageData.format());
-               imageUrl = minioService.uploadFile(fileName, imageInputStream, (long) decodedBytes.length, imageData.format());
+           if (imageData != null) {
+               imageUrl = imageService.uploadImage(imageData);
                logger.info("Image uploaded successfully for post: {}", postCreateDto.getTitle());
            } else {
-               logger.info("No image provided, using default image for post: {}", postCreateDto.getTitle());
                imageUrl = postDefaultPage;
            }
            post.setImageName(imageUrl);
