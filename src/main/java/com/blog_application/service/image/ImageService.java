@@ -7,5 +7,6 @@ import java.io.IOException;
 public interface ImageService {
 
     String uploadImage(ImageData imageData, String bucketName) throws IOException;
+    String downloadImage(String fileName, String bucketName);
 
 }
