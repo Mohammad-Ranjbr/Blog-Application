@@ -14,6 +14,7 @@ import com.blog_application.model.category.Category;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.tag.Tag;
 import com.blog_application.model.user.User;
+import com.blog_application.repository.post.PostReactionRepository;
 import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.category.CategoryService;
@@ -31,6 +32,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -59,12 +62,13 @@ public class PostServiceImpl implements PostService {
     private final CategoryMapper categoryMapper;
     private final PostRepository postRepository;
     private final CategoryService categoryService;
+    private final PostReactionRepository postReactionRepository;
     private final static Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
 
     @Autowired
     public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService,
                            CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,
-                           TagRepository tagRepository, ImageService imageService){
+                           TagRepository tagRepository, ImageService imageService, PostReactionRepository postReactionRepository){
         this.userMapper = userMapper;
         this.postMapper =  postMapper;
         this.userService = userService;
@@ -73,6 +77,7 @@ public class PostServiceImpl implements PostService {
         this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
         this.categoryService = categoryService;
+        this.postReactionRepository = postReactionRepository;
     }
 
 
@@ -226,6 +231,9 @@ public class PostServiceImpl implements PostService {
             logger.warn("Post with ID {} not found, Get post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String loggedInUserEmail = authentication.getName();
+        System.out.println("AAAAAAAAAAAAAAA : " + postReactionRepository.isLikedByUser(postId, loggedInUserEmail));
         logger.info("Post found with ID : {}",postId);
         return postMapper.toPostGetDto(post);
     }

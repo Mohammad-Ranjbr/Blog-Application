@@ -27,5 +27,7 @@ public class PostGetDto {
     private List<CommentGetDto> comments;
     private List<TagBasicInfoDto> tags;
     private int likes;
+    private boolean isLikedByCurrentUser;
+    private boolean isSavedByCurrentUser;
 
 }
