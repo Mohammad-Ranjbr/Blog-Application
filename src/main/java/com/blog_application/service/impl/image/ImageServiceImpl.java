@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.rmi.RemoteException;
 import java.util.Base64;
 import java.util.UUID;
 
@@ -27,14 +28,15 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public String uploadImage(ImageData imageData, String bucketName) throws IOException {
-        if (imageData != null && imageData.base64Content() != null && !imageData.base64Content().isEmpty()) {
+        try {
             byte[] decodedBytes = Base64.getDecoder().decode(imageData.base64Content());
             InputStream imageInputStream = new ByteArrayInputStream(decodedBytes);
 
             String fileName = UUID.randomUUID().toString().concat(".").concat(imageData.format());
             return minioService.uploadFile(bucketName, fileName, imageInputStream, (long) decodedBytes.length, imageData.format());
-        } else {
-            return null;
+        } catch (Exception exception){
+            logger.error("Error occurred while uploading image as Base64, Error: {}", exception.getMessage(), exception);
+            throw new RemoteException("Error uploading image as Base64", exception);
         }
     }
 

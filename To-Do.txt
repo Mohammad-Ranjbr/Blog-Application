@@ -32,7 +32,7 @@
 32- User set and HashSet
 33- Handle InvalidDataAccessApiUsageException ✅
 34- Handle duplicate key value error in response ✅
-35- Upload post image *
+35- Upload post image ✅
 36- Unit and Integration test
 37- Send Email
 38- Login ✅
