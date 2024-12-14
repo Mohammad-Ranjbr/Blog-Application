@@ -233,8 +233,7 @@ public class PostServiceImpl implements PostService {
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
         PostGetDto postGetDto = postMapper.toPostGetDto(post);
-        boolean isLiked = postReactionService.checkIfLikedByCurrentUser(postId, userService.loggedInUserEmail());
-        postGetDto.setLikedByCurrentUser(isLiked);
+        this.updatePostInteractionStatus(postGetDto, postId, userService.loggedInUserEmail());
         return postGetDto;
     }
 
@@ -412,6 +411,26 @@ public class PostServiceImpl implements PostService {
             logger.error("Error occurred while search post with keyword: {}, Error: {}", keyword, exception.getMessage(), exception);
             throw exception;
         }
+    }
+
+    @Override
+    public boolean checkIfSavedByCurrentUser(Long postId, String userEmail) {
+        return postRepository.existSavedByCurrentUser(postId, userEmail);
+    }
+
+    @Override
+    public void updateSavedStatusForPosts(List<PostGetDto> postGetDtos, String userEmail) {
+        logger.info("Updating saved status for posts for user {}", userEmail);
+        List<Long> savedPostIds = postRepository.findSavedPostIdsByUser(userEmail);
+        System.out.println(savedPostIds);
+        postGetDtos.forEach(post -> post.setSavedByCurrentUser(savedPostIds.contains(post.getId())));
+    }
+
+    @Override
+    public void updatePostInteractionStatus(PostGetDto postGetDto, Long postId, String userEmail) {
+        boolean isLiked = postReactionService.checkIfLikedByCurrentUser(postId, userEmail);
+        postGetDto.setSavedByCurrentUser(this.checkIfSavedByCurrentUser(postId, userEmail));
+        postGetDto.setLikedByCurrentUser(isLiked);
     }
 
     private void schedulePost(Post schedulePost, LocalDateTime scheduledTime) {
