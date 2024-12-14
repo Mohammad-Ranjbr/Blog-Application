@@ -144,11 +144,11 @@ public class UserController {
     //POST Mapping - Follow User
     @PostMapping("/{user_id}/follow/{follow_user_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> followUser(@PathVariable("user_id") UUID userId, @PathVariable("follow_user_id") UUID followUserId) throws AccessDeniedException {
+    public ResponseEntity<UserGetDto> followUser(@PathVariable("user_id") UUID userId, @PathVariable("follow_user_id") UUID followUserId) throws AccessDeniedException {
         logger.info("Received request for user with ID: {} to follow user with ID: {}", userId, followUserId);
-        userService.followUser(userId,followUserId);
+        UserGetDto userGetDto = userService.followUser(userId,followUserId);
         logger.info("User with ID: {} followed user with ID: {} successfully", userId, followUserId);
-        return new ResponseEntity<>(new ApiResponse("Followed user successfully",true),HttpStatus.OK);
+        return new ResponseEntity<>(userGetDto, HttpStatus.OK);
     }
 
     //DELETE Mapping - Unfollow User

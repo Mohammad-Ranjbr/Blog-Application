@@ -22,7 +22,7 @@ public interface UserService {
     List<UserGetDto> getFollowers(UUID userId);
     List<UserGetDto> getFollowing(UUID userId);
     boolean isLoggedInUserMatching(UUID userId);
-    void followUser(UUID userId,UUID followUserId) throws AccessDeniedException;
+    UserGetDto followUser(UUID userId,UUID followUserId) throws AccessDeniedException;
     void unfollowUser(UUID userId,UUID unfollowUserId) throws AccessDeniedException;
     List<PostGetDto> getSavedPostsByUser(UUID userId) throws AccessDeniedException;
     UserBasicInfoDto getUserBasicInfoById(UUID userId);

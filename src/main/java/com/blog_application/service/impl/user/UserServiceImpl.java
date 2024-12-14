@@ -312,7 +312,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void followUser(UUID userId, UUID followUserId) throws AccessDeniedException {
+    public UserGetDto followUser(UUID userId, UUID followUserId) throws AccessDeniedException {
         logger.info("Attempting to follow user with ID: {} for user with ID: {}", followUserId, userId);
         User user = this.fetchUserById(userId);
         User followUser = this.fetchUserById(followUserId);
@@ -322,6 +322,7 @@ public class UserServiceImpl implements UserService {
             throw new AccessDeniedException("You can only follow users with your own account.");
         }
 
+        UserGetDto followUserGetDto;
         try {
             if(!user.getFollowing().contains(followUser)){
                 user.getFollowing().add(followUser);
@@ -329,11 +330,15 @@ public class UserServiceImpl implements UserService {
                 user.setFollowingCount(user.getFollowingCount() + 1);
                 followUser.setFollowersCount(followUser.getFollowersCount() + 1);
                 userRepository.save(user);
-                userRepository.save(followUser);
+                followUserGetDto = userMapper.toUserGetDto(userRepository.save(followUser));
+                followUserGetDto.setFollowedByCurrentUser(true);
                 logger.info("User with ID: {} successfully followed user with ID: {}", userId, followUserId);
             } else {
                 logger.warn("User with ID: {} already follows user with ID: {}", userId, followUserId);
+                followUserGetDto = userMapper.toUserGetDto(followUser);
+                followUserGetDto.setFollowedByCurrentUser(true);
             }
+            return followUserGetDto;
         } catch (Exception exception){
             logger.error("Error occurred while follow {} by {}, Error: {}", followUser, userId, exception.getMessage(), exception);
             throw exception;
