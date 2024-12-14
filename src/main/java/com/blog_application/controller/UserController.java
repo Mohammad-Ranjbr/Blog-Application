@@ -114,11 +114,11 @@ public class UserController {
     //POST Mapping - Save Post By User
     @PostMapping("/{user_id}/save_post/{post_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> savePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId) throws AccessDeniedException {
+    public ResponseEntity<PostGetDto> savePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId) throws AccessDeniedException {
         logger.info("Received request to save post with ID: {} for user with ID: {}", postId, userId);
-        userService.savePost(userId,postId);
+        PostGetDto postDto = userService.savePost(userId,postId);
         logger.info("Returning response with post ID: {} saved successfully for user with ID: {}", postId, userId);
-        return new ResponseEntity<>(new ApiResponse("Post saved successfully",true),HttpStatus.OK);
+        return new ResponseEntity<>(postDto,HttpStatus.OK);
     }
 
     //DELETE Mapping - UnSave Post By User

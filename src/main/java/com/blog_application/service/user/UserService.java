@@ -17,7 +17,7 @@ public interface UserService {
     void deleteUserById(UUID userId) throws AccessDeniedException;
     User fetchUserById(UUID userId);
     UserGetDto getUserById(UUID userId);
-    void savePost(UUID userId,Long postId) throws AccessDeniedException;
+    PostGetDto savePost(UUID userId,Long postId) throws AccessDeniedException;
     void unSavePost(UUID userId,Long postId) throws AccessDeniedException;
     List<UserGetDto> getFollowers(UUID userId);
     List<UserGetDto> getFollowing(UUID userId);

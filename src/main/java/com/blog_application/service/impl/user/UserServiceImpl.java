@@ -220,7 +220,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void savePost(UUID userId, Long postId) throws AccessDeniedException {
+    public PostGetDto savePost(UUID userId, Long postId) throws AccessDeniedException {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
 
         User user = this.fetchUserById(userId);
@@ -232,8 +232,10 @@ public class UserServiceImpl implements UserService {
         try {
             Post post = postMapper.toEntity(postService.getPostById(postId));
             post.getSavedByUsers().add(user);
-            postRepository.save(post);
+            PostGetDto postGetDto = postMapper.toPostGetDto(postRepository.save(post));
+            postService.updatePostInteractionStatus(postGetDto, postId, this.loggedInUserEmail());
             logger.info("Post with ID: {} saved successfully for user with ID: {}", postId, userId);
+            return postGetDto;
         } catch (Exception exception){
             logger.error("Error occurred while saving the post by the user. User ID: {} ,Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
             throw exception;
@@ -364,9 +366,11 @@ public class UserServiceImpl implements UserService {
         try{
             List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
             logger.info("Fetched {} saved posts for user with ID: {}", savedPosts.size(), userId);
-            return savedPosts.stream()
+            List<PostGetDto> postGetDtoList =  savedPosts.stream()
                     .map(postMapper::toPostGetDto)
                     .collect(Collectors.toList());
+            postService.updatePostsInteractionStatus(postGetDtoList, this.loggedInUserEmail());
+            return postGetDtoList;
         } catch (Exception exception){
             logger.error("Error occurred while get saved post for user. User ID: {} , Error: {}", userId, exception.getMessage(), exception);
             throw exception;
