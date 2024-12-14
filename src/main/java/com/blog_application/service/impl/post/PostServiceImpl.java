@@ -323,6 +323,8 @@ public class PostServiceImpl implements PostService {
                     .map(postMapper::toPostGetDto)
                     .toList();
 
+            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
             logger.info("Total posts found for user with ID {} : {}",userId,posts.size());
@@ -348,6 +350,8 @@ public class PostServiceImpl implements PostService {
                     .map(postMapper::toPostGetDto)
                     .toList();
 
+            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
             logger.info("Total posts found for category with ID {} : {}",categoryId,posts.size());
@@ -372,6 +376,8 @@ public class PostServiceImpl implements PostService {
                     .map(postMapper::toPostGetDto)
                     .toList();
 
+            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
             logger.info("Fetched {} posts for keyword: {}", posts.size(), keyword);
@@ -395,6 +401,8 @@ public class PostServiceImpl implements PostService {
             List<PostGetDto> postGetDtoList = posts.stream()
                     .map(postMapper::toPostGetDto)
                     .toList();
+
+            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
 
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
