@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -19,5 +20,7 @@ public interface PostReactionRepository extends JpaRepository<PostReaction,Long>
     int countLikByPost(@Param("post") Post post);
     @Query("SELECT CASE WHEN (COUNT(pr) > 0) THEN true ELSE false END FROM PostReaction pr WHERE pr.post.id = :post_id AND pr.user.email = :user_email")
     boolean existsLikeByPostIdAndUserEmail(@Param("post_id") Long postId, @Param("user_email") String email);
+    @Query("SELECT pr.post.id FROM PostReaction pr WHERE pr.user.email = :user_email AND pr.isLike = true")
+    List<Long> findLikedPostIdsByUserEmail(@Param("user_email") String userEmail);
 
 }

@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -90,6 +91,13 @@ public class PostReactionServiceImpl implements PostReactionService {
             logger.error("Error occurred while like post {} by user  {}, Error: {}", postReactionRequestDto.getPostId(), postReactionRequestDto.getUserId(), exception.getMessage(), exception);
             throw exception;
         }
+    }
+
+    @Override
+    public void updateLikedStatusForPosts(List<PostGetDto> postGetDtos, String userEmail) {
+        logger.info("Updating liked status for posts for user {}", userEmail);
+        List<Long> likedPostIds = postReactionRepository.findLikedPostIdsByUserEmail(userEmail);
+        postGetDtos.forEach(post -> post.setLikedByCurrentUser(likedPostIds.contains(post.getId())));
     }
 
     @Override

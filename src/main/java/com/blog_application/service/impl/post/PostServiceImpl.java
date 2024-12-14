@@ -213,6 +213,8 @@ public class PostServiceImpl implements PostService {
             List<Post> posts = postPage.getContent();
             List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
 
+            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
             logger.info("Total posts found : {}",postPage.getTotalElements());
