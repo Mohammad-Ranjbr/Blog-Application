@@ -31,7 +31,8 @@ public interface PostRepository extends JpaRepository<Post,Long> {
     @Modifying
     @Query("UPDATE Post p SET p.category.id = :defaultCategoryId WHERE p.category.id = :categoryId")
     void updateCategoryForPosts(@Param("defaultCategoryId") Long defaultCategoryId, @Param("categoryId") Long categoryId);
-    @Query(value = "SELECT p.id FROM posts p JOIN user_saved_posts usp ON p.id = usp.post_id JOIN users u ON usp.user_id = u.id WHERE u.email = :user_email", nativeQuery = true)
+    //@Query(value = "SELECT p.id FROM posts p JOIN user_saved_posts usp ON p.id = usp.post_id JOIN users u ON usp.user_id = u.id WHERE u.email = :user_email", nativeQuery = true)
+    @Query(value = "SELECT usp.post_id FROM user_saved_posts usp JOIN users u ON usp.user_id = u.id AND u.email = :user_email", nativeQuery = true)
     List<Long> findSavedPostIdsByUser(@Param("user_email") String userEmail);
     @Query(value = "SELECT CASE WHEN COUNT(usp) > 0 THEN true ELSE false END FROM" +
             " user_saved_posts usp JOIN users u ON usp.user_id = u.id WHERE usp.post_id = :post_id AND u.email = :user_email", nativeQuery = true)
