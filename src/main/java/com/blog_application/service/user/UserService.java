@@ -18,7 +18,7 @@ public interface UserService {
     User fetchUserById(UUID userId);
     UserGetDto getUserById(UUID userId);
     PostGetDto savePost(UUID userId,Long postId) throws AccessDeniedException;
-    void unSavePost(UUID userId,Long postId) throws AccessDeniedException;
+    PostGetDto unSavePost(UUID userId,Long postId) throws AccessDeniedException;
     List<UserGetDto> getFollowers(UUID userId);
     List<UserGetDto> getFollowing(UUID userId);
     boolean isLoggedInUserMatching(UUID userId);

@@ -244,7 +244,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void unSavePost(UUID userId, Long postId) throws AccessDeniedException {
+    public PostGetDto unSavePost(UUID userId, Long postId) throws AccessDeniedException {
         logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
 
         User user = this.fetchUserById(userId);
@@ -256,8 +256,10 @@ public class UserServiceImpl implements UserService {
         try {
             Post post = postMapper.toEntity(postService.getPostById(postId));
             post.getSavedByUsers().remove(user);
-            postRepository.save(post);
+            PostGetDto postGetDto = postMapper.toPostGetDto(postRepository.save(post));
+            postService.updatePostInteractionStatus(postGetDto, postId, this.loggedInUserEmail());
             logger.info("Post with ID: {} unsaved successfully for user with ID: {}", postId, userId);
+            return postGetDto;
         } catch (Exception exception){
             logger.error("Error occurred while unsaved the post by the user. User ID: {} ,Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
             throw exception;

@@ -124,11 +124,11 @@ public class UserController {
     //DELETE Mapping - UnSave Post By User
     @DeleteMapping("/{user_id}/unsave_post/{post_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> unSavePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId) throws AccessDeniedException {
+    public ResponseEntity<PostGetDto> unSavePost(@PathVariable("user_id") UUID userId, @PathVariable("post_id") Long postId) throws AccessDeniedException {
         logger.info("Received request to unsave post with ID: {} for user with ID: {}", postId, userId);
-        userService.unSavePost(userId,postId);
+        PostGetDto postDto = userService.unSavePost(userId,postId);
         logger.info("Returning response with post ID: {} unsaved successfully for user with ID: {}", postId, userId);
-        return new ResponseEntity<>(new ApiResponse("post unsaved successfully",true),HttpStatus.OK);
+        return new ResponseEntity<>(postDto,HttpStatus.OK);
     }
 
     //GET Mapping - Get User Saved Posts
