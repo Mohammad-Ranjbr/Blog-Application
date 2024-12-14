@@ -32,8 +32,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -231,11 +229,11 @@ public class PostServiceImpl implements PostService {
             logger.warn("Post with ID {} not found, Get post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String loggedInUserEmail = authentication.getName();
-        System.out.println("AAAAAAAAAAAAAAA : " + postReactionRepository.isLikedByUser(postId, loggedInUserEmail));
-        logger.info("Post found with ID : {}",postId);
-        return postMapper.toPostGetDto(post);
+        PostGetDto postGetDto = postMapper.toPostGetDto(post);
+        if(postReactionRepository.isLikedByUser(postId, userService.loggedInUserEmail())){
+            postGetDto.setLikedByCurrentUser(true);
+        }
+        return postGetDto;
     }
 
     @Override
