@@ -22,5 +22,6 @@ public class UserGetDto extends UserBasicInfoDto{
     private boolean isActive;
     private boolean softDelete;
     private String imageName;
+    private boolean isFollowedByCurrentUser;
 
 }

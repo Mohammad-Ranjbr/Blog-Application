@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -30,5 +31,7 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     void updateUserStatusById(@Param("isActive") boolean isActive, UUID userId);
     @Query("SELECT u From User u WHERE u.id = :id AND u.isActive = false")
     Optional<User> findInactiveUserById(@Param("id") UUID userid);
+    @Query(value = "SELECT uf.user_id FROM user_followers uf JOIN users u ON uf.follower_id = u.id AND u.email = :user_email", nativeQuery = true)
+    List<UUID> findFollowedUserIdsByUser(@Param("user_email") String email);
 
 }
