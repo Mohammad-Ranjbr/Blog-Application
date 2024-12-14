@@ -154,11 +154,11 @@ public class UserController {
     //DELETE Mapping - Unfollow User
     @DeleteMapping("/{user_id}/unfollow/{unfollow_user_id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<ApiResponse> unfollowUser(@PathVariable("user_id") UUID userId,@PathVariable("unfollow_user_id") UUID unfollowUserId) throws AccessDeniedException {
+    public ResponseEntity<UserGetDto> unfollowUser(@PathVariable("user_id") UUID userId,@PathVariable("unfollow_user_id") UUID unfollowUserId) throws AccessDeniedException {
         logger.info("Received request for user with ID: {} to unfollow user with ID: {}", userId, unfollowUserId);
-        userService.unfollowUser(userId,unfollowUserId);
+        UserGetDto userGetDto = userService.unfollowUser(userId,unfollowUserId);
         logger.info("User with ID: {} unfollowed user with ID: {} successfully", userId, unfollowUserId);
-        return new ResponseEntity<>(new ApiResponse("Unfollowed user successfully",true),HttpStatus.OK);
+        return new ResponseEntity<>(userGetDto, HttpStatus.OK);
     }
 
     //GET Mapping - Get User Followers

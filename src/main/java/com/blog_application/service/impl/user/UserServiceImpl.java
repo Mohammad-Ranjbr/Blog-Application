@@ -347,7 +347,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void unfollowUser(UUID userId, UUID unfollowUserId) throws AccessDeniedException {
+    public UserGetDto unfollowUser(UUID userId, UUID unfollowUserId) throws AccessDeniedException {
         logger.info("Attempting to unfollow user with ID: {} for user with ID: {}", unfollowUserId, userId);
         User user = this.fetchUserById(userId);
         User unfollowUser = this.fetchUserById(unfollowUserId);
@@ -357,6 +357,7 @@ public class UserServiceImpl implements UserService {
             throw new AccessDeniedException("You can only unfollow users with your own account.");
         }
 
+        UserGetDto unfollowUserGetDto;
         try {
             user.getFollowing().remove(unfollowUser);
             unfollowUser.getFollowers().remove(user);
@@ -364,8 +365,10 @@ public class UserServiceImpl implements UserService {
             unfollowUser.setFollowersCount(unfollowUser.getFollowersCount() - 1);
 
             userRepository.save(user);
-            userRepository.save(unfollowUser);
+            unfollowUserGetDto = userMapper.toUserGetDto(userRepository.save(unfollowUser));
+            unfollowUserGetDto.setFollowedByCurrentUser(false);
             logger.info("User with ID: {} successfully unfollowed user with ID: {}", userId, unfollowUserId);
+            return unfollowUserGetDto;
         } catch (Exception exception){
             logger.error("Error occurred while unfollow {} by {}, Error: {}", unfollowUser, userId, exception.getMessage(), exception);
             throw exception;
