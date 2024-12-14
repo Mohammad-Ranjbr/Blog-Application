@@ -213,7 +213,7 @@ public class PostServiceImpl implements PostService {
             List<Post> posts = postPage.getContent();
             List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
 
-            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+            this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
@@ -322,7 +322,7 @@ public class PostServiceImpl implements PostService {
                     .map(postMapper::toPostGetDto)
                     .toList();
 
-            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+            this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
@@ -349,7 +349,7 @@ public class PostServiceImpl implements PostService {
                     .map(postMapper::toPostGetDto)
                     .toList();
 
-            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+            this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
@@ -375,7 +375,7 @@ public class PostServiceImpl implements PostService {
                     .map(postMapper::toPostGetDto)
                     .toList();
 
-            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+            this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
@@ -401,7 +401,7 @@ public class PostServiceImpl implements PostService {
                     .map(postMapper::toPostGetDto)
                     .toList();
 
-            postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+            this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
             PaginatedResponse<PostGetDto> paginatedResponse = new PaginatedResponse<>(
                     postGetDtoList,postPage.getSize(),postPage.getNumber(),postPage.getTotalPages(),postPage.getTotalElements(),postPage.isLast());
@@ -431,6 +431,12 @@ public class PostServiceImpl implements PostService {
         boolean isLiked = postReactionService.checkIfLikedByCurrentUser(postId, userEmail);
         postGetDto.setSavedByCurrentUser(this.checkIfSavedByCurrentUser(postId, userEmail));
         postGetDto.setLikedByCurrentUser(isLiked);
+    }
+
+    @Override
+    public void updatePostsInteractionStatus(List<PostGetDto> postGetDtoList, String userEmail) {
+        postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
+        this.updateSavedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
     }
 
     private void schedulePost(Post schedulePost, LocalDateTime scheduledTime) {
