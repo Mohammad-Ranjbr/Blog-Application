@@ -33,5 +33,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     Optional<User> findInactiveUserById(@Param("id") UUID userid);
     @Query(value = "SELECT uf.user_id FROM user_followers uf JOIN users u ON uf.follower_id = u.id AND u.email = :user_email", nativeQuery = true)
     List<UUID> findFollowedUserIdsByUser(@Param("user_email") String email);
+    @Query(value = "SELECT CASE WHEN COUNT(uf) > 0 THEN true ELSE false END FROM " +
+            "user_followers uf JOIN users u ON uf.follower_id = u.id WHERE u.email = :user_email AND uf.user_id = :user_id", nativeQuery = true)
+    boolean existFollowedByCurrentUser(@Param("user_id") UUID userId, @Param("user_email") String userEmail);
 
 }

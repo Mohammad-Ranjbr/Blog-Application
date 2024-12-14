@@ -215,7 +215,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserGetDto getUserById(UUID userId) {
         User user = this.fetchUserById(userId);
-        return userMapper.toUserGetDto(user);
+        UserGetDto userGetDto = userMapper.toUserGetDto(user);
+        boolean isFollowed = userRepository.existFollowedByCurrentUser(userId, this.loggedInUserEmail());
+        userGetDto.setFollowedByCurrentUser(isFollowed);
+        return  userGetDto;
     }
 
     @Override
