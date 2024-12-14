@@ -57,6 +57,7 @@ public class PostReactionServiceImpl implements PostReactionService {
         }
 
         try{
+            boolean isLiked = false;
             PostReaction postReaction;
             if(existing.isPresent()){
                 postReaction = existing.get();
@@ -72,6 +73,7 @@ public class PostReactionServiceImpl implements PostReactionService {
                     postReaction.setPost(post);
                     postReaction.setLike(true);
                     postReactionRepository.save(postReaction);
+                    isLiked = true;
                     logger.info("New Like added for user {} on post {}", user.getId(), post.getId());
                 }
             }
@@ -81,7 +83,9 @@ public class PostReactionServiceImpl implements PostReactionService {
             postRepository.save(post);
 
             logger.info("like Post finished.");
-            return postMapper.toPostGetDto(post);
+            PostGetDto postGetDto = postMapper.toPostGetDto(post);
+            postGetDto.setLikedByCurrentUser(isLiked);
+            return postGetDto;
         } catch (Exception exception){
             logger.error("Error occurred while like post {} by user  {}, Error: {}", postReactionRequestDto.getPostId(), postReactionRequestDto.getUserId(), exception.getMessage(), exception);
             throw exception;
