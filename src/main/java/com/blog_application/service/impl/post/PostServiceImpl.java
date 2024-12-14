@@ -422,7 +422,6 @@ public class PostServiceImpl implements PostService {
     public void updateSavedStatusForPosts(List<PostGetDto> postGetDtos, String userEmail) {
         logger.info("Updating saved status for posts for user {}", userEmail);
         List<Long> savedPostIds = postRepository.findSavedPostIdsByUser(userEmail);
-        System.out.println(savedPostIds);
         postGetDtos.forEach(post -> post.setSavedByCurrentUser(savedPostIds.contains(post.getId())));
     }
 

@@ -82,6 +82,9 @@ public class UserServiceImpl implements UserService {
             List<UserGetDto> userGetDtoList = users.stream()
                     .map(userMapper::toUserGetDto) //Method Reference
                     .toList();
+
+            this.updateFollowedStatusForUsers(userGetDtoList, this.loggedInUserEmail());
+
             PaginatedResponse<UserGetDto> paginatedResponse = new PaginatedResponse<>(
                     userGetDtoList,userPage.getSize(),userPage.getNumber(),userPage.getTotalPages(),userPage.getTotalElements(),userPage.isLast());
             logger.info("Total users found : {}",users.size());
@@ -277,6 +280,9 @@ public class UserServiceImpl implements UserService {
             List<UserGetDto> followers = user.getFollowers().stream()
                     .map(userMapper::toUserGetDto)
                     .collect(Collectors.toList());
+
+            this.updateFollowedStatusForUsers(followers, this.loggedInUserEmail());
+
             logger.info("Retrieved {} followers for user with ID: {}", followers.size(), userId);
             return followers;
         } catch (Exception exception){
@@ -293,6 +299,9 @@ public class UserServiceImpl implements UserService {
             List<UserGetDto> followingUsers = user.getFollowing().stream()
                     .map(userMapper::toUserGetDto)
                     .collect(Collectors.toList());
+
+            this.updateFollowedStatusForUsers(followingUsers, this.loggedInUserEmail());
+
             logger.info("Retrieved {} users followed by user with ID: {}", followingUsers.size(), userId);
             return followingUsers;
         } catch (Exception exception){
@@ -481,6 +490,13 @@ public class UserServiceImpl implements UserService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication.getAuthorities().stream()
                 .anyMatch((authority) -> authority.getAuthority().equals("ROLE_ADMIN"));
+    }
+
+    @Override
+    public void updateFollowedStatusForUsers(List<UserGetDto> userGetDtoList, String userEmail){
+        logger.info("Updating followed status for users for the logged-in user with email: {}", userEmail);
+        List<UUID> followedUserIds = userRepository.findFollowedUserIdsByUser(userEmail);
+        userGetDtoList.forEach(user -> user.setFollowedByCurrentUser(followedUserIds.contains(user.getId())));
     }
 
 }
