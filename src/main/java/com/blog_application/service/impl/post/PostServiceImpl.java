@@ -14,11 +14,11 @@ import com.blog_application.model.category.Category;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.tag.Tag;
 import com.blog_application.model.user.User;
-import com.blog_application.repository.post.PostReactionRepository;
 import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.service.category.CategoryService;
 import com.blog_application.service.image.ImageService;
+import com.blog_application.service.post.PostReactionService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
 import com.blog_application.util.responses.PaginatedResponse;
@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -60,13 +61,13 @@ public class PostServiceImpl implements PostService {
     private final CategoryMapper categoryMapper;
     private final PostRepository postRepository;
     private final CategoryService categoryService;
-    private final PostReactionRepository postReactionRepository;
+    private final PostReactionService postReactionService;
     private final static Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
 
     @Autowired
     public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService,
                            CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,
-                           TagRepository tagRepository, ImageService imageService, PostReactionRepository postReactionRepository){
+                           TagRepository tagRepository, ImageService imageService, @Lazy PostReactionService postReactionService){
         this.userMapper = userMapper;
         this.postMapper =  postMapper;
         this.userService = userService;
@@ -75,7 +76,7 @@ public class PostServiceImpl implements PostService {
         this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
         this.categoryService = categoryService;
-        this.postReactionRepository = postReactionRepository;
+        this.postReactionService = postReactionService;
     }
 
 
@@ -230,9 +231,8 @@ public class PostServiceImpl implements PostService {
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
         PostGetDto postGetDto = postMapper.toPostGetDto(post);
-        if(postReactionRepository.isLikedByUser(postId, userService.loggedInUserEmail())){
-            postGetDto.setLikedByCurrentUser(true);
-        }
+        boolean isLiked = postReactionService.checkIfLikedByCurrentUser(postId, userService.loggedInUserEmail());
+        postGetDto.setLikedByCurrentUser(isLiked);
         return postGetDto;
     }
 

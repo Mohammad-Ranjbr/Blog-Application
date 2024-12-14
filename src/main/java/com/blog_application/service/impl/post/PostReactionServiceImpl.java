@@ -42,6 +42,7 @@ public class PostReactionServiceImpl implements PostReactionService {
         this.postRepository = postRepository;
         this.postReactionRepository = postReactionRepository;
     }
+
     @Override
     @Transactional
     public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException {
@@ -85,6 +86,11 @@ public class PostReactionServiceImpl implements PostReactionService {
             logger.error("Error occurred while like post {} by user  {}, Error: {}", postReactionRequestDto.getPostId(), postReactionRequestDto.getUserId(), exception.getMessage(), exception);
             throw exception;
         }
+    }
+
+    @Override
+    public boolean checkIfLikedByCurrentUser(Long postId, String userEmail) {
+        return postReactionRepository.existsLikeByPostIdAndUserEmail(postId, userEmail);
     }
     
 }

@@ -7,6 +7,7 @@ import java.nio.file.AccessDeniedException;
 
 public interface PostReactionService {
 
+    boolean checkIfLikedByCurrentUser(Long postId, String userEmail);
     PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException;
 
 }
