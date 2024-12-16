@@ -216,6 +216,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User fetchUserByEmail(String userEmail) {
+        logger.info("Fetching user with Email : {}", userEmail);
+        User user = userRepository.findByEmail(userEmail).orElseThrow(() -> {
+            logger.warn("User with Email {} not found, Get user operation not performed", userEmail);
+            return new ResourceNotFoundException("User","Email",String.valueOf(userEmail),"Get User operation not performed");
+        });
+        logger.info("User found with Email : {}",user.getId());
+        return user;
+    }
+
+    @Override
     public UserGetDto getUserById(UUID userId) {
         User user = this.fetchUserById(userId);
         UserGetDto userGetDto = userMapper.toUserGetDto(user);

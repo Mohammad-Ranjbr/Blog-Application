@@ -16,6 +16,7 @@ public interface UserService {
     String loggedInUserEmail();
     void deleteUserById(UUID userId) throws AccessDeniedException;
     User fetchUserById(UUID userId);
+    User fetchUserByEmail(String userEmail);
     UserGetDto getUserById(UUID userId);
     PostGetDto savePost(UUID userId,Long postId) throws AccessDeniedException;
     PostGetDto unSavePost(UUID userId,Long postId) throws AccessDeniedException;
