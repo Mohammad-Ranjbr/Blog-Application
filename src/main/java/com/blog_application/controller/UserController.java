@@ -46,7 +46,7 @@ public class UserController {
     @SecurityRequirement(name = "Jwt Token Authentication")
     public ResponseEntity<UserGetDto> getUserById(@PathVariable("id") UUID userId){
         logger.info("Received request to get user with ID : {}",userId);
-        UserGetDto userGetDto = userService.getUserById(userId);
+        UserGetDto userGetDto = userService.getUserWithImage(userId);
         logger.info("Returning response for get user with ID : {}",userGetDto.getId());
         return new ResponseEntity<>(userGetDto,HttpStatus.OK);
     }

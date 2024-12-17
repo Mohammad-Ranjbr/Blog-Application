@@ -18,6 +18,7 @@ public interface UserService {
     User fetchUserById(UUID userId);
     User fetchUserByEmail(String userEmail);
     UserGetDto getUserById(UUID userId);
+    UserGetDto getUserWithImage(UUID userId);
     PostGetDto savePost(UUID userId,Long postId) throws AccessDeniedException;
     PostGetDto unSavePost(UUID userId,Long postId) throws AccessDeniedException;
     List<UserGetDto> getFollowers(UUID userId);

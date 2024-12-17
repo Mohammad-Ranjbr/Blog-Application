@@ -226,13 +226,26 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    private UserGetDto mapUserToDto(User user) {
+        UserGetDto userGetDto = userMapper.toUserGetDto(user);
+        boolean isFollowed = userRepository.existFollowedByCurrentUser(user.getId(), this.loggedInUserEmail());
+        userGetDto.setFollowedByCurrentUser(isFollowed);
+        return userGetDto;
+    }
+
     @Override
     public UserGetDto getUserById(UUID userId) {
         User user = this.fetchUserById(userId);
-        UserGetDto userGetDto = userMapper.toUserGetDto(user);
-        boolean isFollowed = userRepository.existFollowedByCurrentUser(userId, this.loggedInUserEmail());
-        userGetDto.setFollowedByCurrentUser(isFollowed);
-        return  userGetDto;
+        return mapUserToDto(user);
+    }
+
+    @Override
+    public UserGetDto getUserWithImage(UUID userId){
+        User user = this.fetchUserById(userId);
+        UserGetDto userGetDto = mapUserToDto(user);
+        String userImage = imageService.downloadImage(user.getImageName(), userImagesBucket);
+        userGetDto.setImage(userImage);
+        return userGetDto;
     }
 
     @Override

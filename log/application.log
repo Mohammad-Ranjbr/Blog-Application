@@ -652,3 +652,949 @@
 2024-12-17T20:02:39.944+03:30  INFO 13720 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-17T20:02:39.948+03:30  INFO 13720 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-17T20:02:39.959+03:30  INFO 13720 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-17T20:15:19.739+03:30  INFO 18276 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Starting BlogApplication using Java 17.0.10 with PID 18276 (E:\Projects\blog-application\target\classes started by Mohammad in E:\Projects\blog-application)
+2024-12-17T20:15:19.742+03:30  INFO 18276 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-17T20:15:19.801+03:30  INFO 18276 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-17T20:15:19.801+03:30  INFO 18276 --- [blog-application] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-17T20:15:20.721+03:30  INFO 18276 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-17T20:15:20.816+03:30  INFO 18276 --- [blog-application] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 10 JPA repository interfaces.
+2024-12-17T20:15:21.394+03:30  INFO 18276 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-12-17T20:15:21.407+03:30  INFO 18276 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-17T20:15:21.407+03:30  INFO 18276 --- [blog-application] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-12-17T20:15:21.477+03:30  INFO 18276 --- [blog-application] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-17T20:15:21.478+03:30  INFO 18276 --- [blog-application] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1676 ms
+2024-12-17T20:15:21.658+03:30  INFO 18276 --- [blog-application] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-17T20:15:21.710+03:30  INFO 18276 --- [blog-application] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-17T20:15:21.741+03:30  INFO 18276 --- [blog-application] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-17T20:15:22.048+03:30  INFO 18276 --- [blog-application] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-17T20:15:22.072+03:30  INFO 18276 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-17T20:15:22.235+03:30  INFO 18276 --- [blog-application] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@710c3f16
+2024-12-17T20:15:22.237+03:30  INFO 18276 --- [blog-application] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-17T20:15:22.283+03:30  WARN 18276 --- [blog-application] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-17T20:15:23.464+03:30  INFO 18276 --- [blog-application] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-17T20:15:23.713+03:30  INFO 18276 --- [blog-application] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-17T20:15:24.495+03:30  INFO 18276 --- [blog-application] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-17T20:15:25.987+03:30  WARN 18276 --- [blog-application] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-17T20:15:26.007+03:30 TRACE 18276 --- [blog-application] [restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {blogApplication=com.blog_application.BlogApplication$$SpringCGLIB$$0@73537035}
+2024-12-17T20:15:26.010+03:30  INFO 18276 --- [blog-application] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name blogUsernamePasswordAuthenticationProvider
+2024-12-17T20:15:26.011+03:30  WARN 18276 --- [blog-application] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-12-17T20:15:26.343+03:30  INFO 18276 --- [blog-application] [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-12-17T20:15:26.349+03:30 DEBUG 18276 --- [blog-application] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, JwtTokenValidatorFilter, BasicAuthenticationFilter, JwtTokenGeneratorFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-12-17T20:15:26.668+03:30  INFO 18276 --- [blog-application] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-17T20:15:26.721+03:30  INFO 18276 --- [blog-application] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-12-17T20:15:26.735+03:30  INFO 18276 --- [blog-application] [restartedMain] com.blog_application.BlogApplication     : Started BlogApplication in 7.42 seconds (process running for 8.172)
+2024-12-17T20:15:35.910+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-17T20:15:35.919+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-17T20:15:35.923+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-12-17T20:15:35.960+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:15:35.971+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:15:35.972+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:15:35.972+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:15:35.972+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:15:35.976+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:15:35.976+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:15:35.976+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:15:35.976+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:15:35.987+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:15:35.989+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:15:35.989+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:15:35.989+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:15:35.989+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:15:36.223+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:15:36.223+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:15:36.234+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:15:36.234+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:15:36.234+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:15:36.234+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:15:36.234+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:15:36.234+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:15:36.240+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=h@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2024-12-17T20:15:36.240+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2024-12-17T20:15:36.240+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:15:36.240+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:15:36.240+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:15:36.240+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda using org.springframework.security.authorization.AuthenticatedAuthorizationManager@4fcbfee9
+2024-12-17T20:15:36.240+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:15:36.290+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.controller.UserController            : Received request to get user with ID : 66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:15:36.290+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.user.UserServiceImpl    : Fetching user with ID : 66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:15:36.556+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.user.UserServiceImpl    : User found with ID : 66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:15:36.640+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.minio.MinioServiceImpl  : Initiating download for file: user-default.jpg
+2024-12-17T20:15:37.597+03:30 ERROR 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.minio.MinioServiceImpl  : Error occurred while downloading file: user-default.jpg, Error: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+
+software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.setLastException(RetryableStageHelper.java:223) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:83) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:56) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:80) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:60) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:42) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:48) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:31) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:193) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:171) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$0(BaseSyncClientHandler.java:68) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:179) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:62) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:52) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:63) ~[aws-core-2.20.50.jar:na]
+	at software.amazon.awssdk.services.s3.DefaultS3Client.getObject(DefaultS3Client.java:4481) ~[s3-2.20.50.jar:na]
+	at software.amazon.awssdk.services.s3.S3Client.getObject(S3Client.java:7873) ~[s3-2.20.50.jar:na]
+	at com.blog_application.service.impl.minio.MinioServiceImpl.downloadFile(MinioServiceImpl.java:52) ~[classes/:na]
+	at com.blog_application.service.impl.image.ImageServiceImpl.downloadImage(ImageServiceImpl.java:46) ~[classes/:na]
+	at com.blog_application.service.impl.user.UserServiceImpl.getUserWithImage(UserServiceImpl.java:244) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716) ~[spring-aop-6.1.12.jar:6.1.12]
+	at com.blog_application.service.impl.user.UserServiceImpl$$SpringCGLIB$$0.getUserWithImage(<generated>) ~[classes/:na]
+	at com.blog_application.controller.UserController.getUserById(UserController.java:49) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:181) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at com.blog_application.filter.JwtTokenValidatorFilter.doFilterInternal(JwtTokenValidatorFilter.java:61) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.channel.ChannelProcessingFilter.doFilter(ChannelProcessingFilter.java:133) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 1 failure: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 2 failure: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 3 failure: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86) ~[apache-client-2.20.50.jar:na]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.13.jar:4.5.13]
+	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:63) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:77) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:56) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:39) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:73) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:42) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:78) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:40) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:50) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:81) ~[sdk-core-2.20.50.jar:na]
+	... 144 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 172 common frames omitted
+
+2024-12-17T20:15:37.625+03:30 ERROR 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] c.b.service.impl.image.ImageServiceImpl  : Error occurred while downloading image as Base64: user-default.jpg, Error: Error downloading file
+
+java.lang.RuntimeException: Error downloading file
+	at com.blog_application.service.impl.minio.MinioServiceImpl.downloadFile(MinioServiceImpl.java:57) ~[classes/:na]
+	at com.blog_application.service.impl.image.ImageServiceImpl.downloadImage(ImageServiceImpl.java:46) ~[classes/:na]
+	at com.blog_application.service.impl.user.UserServiceImpl.getUserWithImage(UserServiceImpl.java:244) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716) ~[spring-aop-6.1.12.jar:6.1.12]
+	at com.blog_application.service.impl.user.UserServiceImpl$$SpringCGLIB$$0.getUserWithImage(<generated>) ~[classes/:na]
+	at com.blog_application.controller.UserController.getUserById(UserController.java:49) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:181) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at com.blog_application.filter.JwtTokenValidatorFilter.doFilterInternal(JwtTokenValidatorFilter.java:61) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.channel.ChannelProcessingFilter.doFilter(ChannelProcessingFilter.java:133) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.setLastException(RetryableStageHelper.java:223) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:83) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:56) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:80) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:60) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:42) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:48) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:31) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:193) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:171) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$0(BaseSyncClientHandler.java:68) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:179) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:62) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:52) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:63) ~[aws-core-2.20.50.jar:na]
+	at software.amazon.awssdk.services.s3.DefaultS3Client.getObject(DefaultS3Client.java:4481) ~[s3-2.20.50.jar:na]
+	at software.amazon.awssdk.services.s3.S3Client.getObject(S3Client.java:7873) ~[s3-2.20.50.jar:na]
+	at com.blog_application.service.impl.minio.MinioServiceImpl.downloadFile(MinioServiceImpl.java:52) ~[classes/:na]
+	... 120 common frames omitted
+	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 1 failure: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 2 failure: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 3 failure: Unable to execute HTTP request: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:9000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86) ~[apache-client-2.20.50.jar:na]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.13.jar:4.5.13]
+	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:63) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:77) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:56) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:39) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:73) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:42) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:78) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:40) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:50) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:81) ~[sdk-core-2.20.50.jar:na]
+	... 144 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 172 common frames omitted
+
+2024-12-17T20:15:37.642+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:15:37.642+03:30 ERROR 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Error downloading image as Base64] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86) ~[apache-client-2.20.50.jar:na]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.13.jar:4.5.13]
+	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228) ~[apache-client-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:63) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:77) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:56) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:39) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:73) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:42) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:78) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:40) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:50) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:81) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage.execute(RetryableStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:56) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:36) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:80) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:60) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:42) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:48) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:31) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:193) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:171) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$0(BaseSyncClientHandler.java:68) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:179) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:62) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:52) ~[sdk-core-2.20.50.jar:na]
+	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:63) ~[aws-core-2.20.50.jar:na]
+	at software.amazon.awssdk.services.s3.DefaultS3Client.getObject(DefaultS3Client.java:4481) ~[s3-2.20.50.jar:na]
+	at software.amazon.awssdk.services.s3.S3Client.getObject(S3Client.java:7873) ~[s3-2.20.50.jar:na]
+	at com.blog_application.service.impl.minio.MinioServiceImpl.downloadFile(MinioServiceImpl.java:52) ~[classes/:na]
+	at com.blog_application.service.impl.image.ImageServiceImpl.downloadImage(ImageServiceImpl.java:46) ~[classes/:na]
+	at com.blog_application.service.impl.user.UserServiceImpl.getUserWithImage(UserServiceImpl.java:244) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716) ~[spring-aop-6.1.12.jar:6.1.12]
+	at com.blog_application.service.impl.user.UserServiceImpl$$SpringCGLIB$$0.getUserWithImage(<generated>) ~[classes/:na]
+	at com.blog_application.controller.UserController.getUserById(UserController.java:49) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:181) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at com.blog_application.filter.JwtTokenValidatorFilter.doFilterInternal(JwtTokenValidatorFilter.java:61) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.channel.ChannelProcessingFilter.doFilter(ChannelProcessingFilter.java:133) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:15:37.689+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /error
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:15:37.689+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /error]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Authorizing GET /error
+2024-12-17T20:15:37.689+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /error using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:15:37.689+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /error
+2024-12-17T20:15:37.806+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:15:37.806+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:02.589+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:02.589+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:02.589+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=h@gmail.com, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:16:02.604+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda using org.springframework.security.authorization.AuthenticatedAuthorizationManager@4fcbfee9
+2024-12-17T20:16:02.604+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/users/66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:16:02.604+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.UserController            : Received request to get user with ID : 66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:16:02.604+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.user.UserServiceImpl    : Fetching user with ID : 66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:16:02.623+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.user.UserServiceImpl    : User found with ID : 66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:16:02.627+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.minio.MinioServiceImpl  : Initiating download for file: user-default.jpg
+2024-12-17T20:16:02.772+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.service.impl.minio.MinioServiceImpl  : File downloaded successfully: user-default.jpg
+2024-12-17T20:16:02.775+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] c.b.controller.UserController            : Returning response for get user with ID : 66e5ab6e-8f44-4f55-b65d-2a10e43f8cda
+2024-12-17T20:16:02.817+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-2] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:46.526+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:46.526+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.html
+2024-12-17T20:16:46.526+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:46.526+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:46.526+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /swagger-ui/index.html]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:46.526+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:46.526+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:46.532+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:46.532+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:46.533+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:46.533+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:46.533+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:46.533+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:46.533+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:46.533+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:46.535+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:46.535+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:46.536+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:46.536+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:46.536+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:46.536+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:46.536+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:46.537+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:46.538+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:46.539+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:46.540+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] estMatcherDelegatingAuthorizationManager : Authorizing GET /swagger-ui/index.html
+2024-12-17T20:16:46.542+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /swagger-ui/index.html using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:46.543+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.html
+2024-12-17T20:16:46.573+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-5] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:46.588+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui.css
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:46.588+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /swagger-ui/swagger-ui.css]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:46.588+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:46.595+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:46.595+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:46.596+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:46.596+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:46.596+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:46.596+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:46.596+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Authorizing GET /swagger-ui/swagger-ui.css
+2024-12-17T20:16:46.597+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /swagger-ui/swagger-ui.css using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:46.597+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui.css
+2024-12-17T20:16:46.597+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:46.606+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.css
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:46.606+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /swagger-ui/index.css]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Authorizing GET /swagger-ui/index.css
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /swagger-ui/index.css using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:46.606+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.css
+2024-12-17T20:16:46.606+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-3] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:46.621+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:46.621+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-bundle.js
+2024-12-17T20:16:46.621+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:46.621+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:46.621+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /swagger-ui/swagger-ui-bundle.js]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:46.621+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] estMatcherDelegatingAuthorizationManager : Authorizing GET /swagger-ui/swagger-ui-bundle.js
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /swagger-ui/swagger-ui-bundle.js using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:46.623+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-bundle.js
+2024-12-17T20:16:46.623+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-9] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:46.671+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:46.671+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2024-12-17T20:16:46.671+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:46.671+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:46.671+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /swagger-ui/swagger-ui-standalone-preset.js]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:46.671+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:46.671+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:46.684+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:46.684+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] estMatcherDelegatingAuthorizationManager : Authorizing GET /swagger-ui/swagger-ui-standalone-preset.js
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /swagger-ui/swagger-ui-standalone-preset.js using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:46.685+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2024-12-17T20:16:46.685+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-7] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:46.705+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:46.708+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-initializer.js
+2024-12-17T20:16:46.708+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:46.708+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:46.709+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /swagger-ui/swagger-initializer.js]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:46.710+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] estMatcherDelegatingAuthorizationManager : Authorizing GET /swagger-ui/swagger-initializer.js
+2024-12-17T20:16:46.711+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /swagger-ui/swagger-initializer.js using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:46.711+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-initializer.js
+2024-12-17T20:16:46.730+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-4] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:47.091+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs/swagger-config
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:47.091+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /v3/api-docs/swagger-config]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] estMatcherDelegatingAuthorizationManager : Authorizing GET /v3/api-docs/swagger-config
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /v3/api-docs/swagger-config using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:47.091+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs/swagger-config
+2024-12-17T20:16:47.091+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-8] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@454319ff, org.springframework.security.web.access.channel.ChannelProcessingFilter@7714bcb1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79636f4c, org.springframework.security.web.context.SecurityContextHolderFilter@7425ca1f, org.springframework.security.web.header.HeaderWriterFilter@5c513698, org.springframework.web.filter.CorsFilter@19e79fee, org.springframework.security.web.authentication.logout.LogoutFilter@4042686e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddcdd29, com.blog_application.filter.JwtTokenValidatorFilter@2a205028, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e2eabb, com.blog_application.filter.JwtTokenGeneratorFilter@77712872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21137e9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ffee837, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158a30df, org.springframework.security.web.session.SessionManagementFilter@5663ce4, org.springframework.security.web.access.ExceptionTranslationFilter@2c4532a1, org.springframework.security.web.access.intercept.AuthorizationFilter@119ffc2d]] (1/1)
+2024-12-17T20:16:47.122+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking ChannelProcessingFilter (2/17)
+2024-12-17T20:16:47.122+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.s.w.a.c.ChannelProcessingFilter      : Request: filter invocation [GET /v3/api-docs]; ConfigAttributes: [REQUIRES_INSECURE_CHANNEL]
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (3/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (4/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (5/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking CorsFilter (6/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (7/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (8/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking JwtTokenValidatorFilter (9/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking BasicAuthenticationFilter (10/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.s.w.a.www.BasicAuthenticationFilter  : Did not process authentication request since failed to find username and password in Basic Authorization header
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking JwtTokenGeneratorFilter (11/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (12/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (13/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (14/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (15/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (16/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (17/17)
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] estMatcherDelegatingAuthorizationManager : Authorizing GET /v3/api-docs
+2024-12-17T20:16:47.122+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /v3/api-docs using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1610/0x000002651dc017d0@66729db0
+2024-12-17T20:16:47.122+03:30 DEBUG 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs
+2024-12-17T20:16:48.529+03:30  INFO 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1387 ms
+2024-12-17T20:16:48.598+03:30 TRACE 18276 --- [blog-application] [http-nio-127.0.0.1-8082-exec-6] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2024-12-17T20:17:32.104+03:30  INFO 18276 --- [blog-application] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-17T20:17:32.120+03:30  INFO 18276 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-17T20:17:32.120+03:30  INFO 18276 --- [blog-application] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
