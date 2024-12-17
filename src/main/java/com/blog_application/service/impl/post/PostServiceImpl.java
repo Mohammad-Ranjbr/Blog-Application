@@ -16,6 +16,7 @@ import com.blog_application.model.tag.Tag;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.tag.TagRepository;
+import com.blog_application.repository.user.UserRepository;
 import com.blog_application.service.category.CategoryService;
 import com.blog_application.service.image.ImageService;
 import com.blog_application.service.post.PostReactionService;
@@ -59,13 +60,14 @@ public class PostServiceImpl implements PostService {
     private final ImageService imageService;
     private final TagRepository tagRepository;
     private final CategoryMapper categoryMapper;
+    private final UserRepository userRepository;
     private final PostRepository postRepository;
     private final CategoryService categoryService;
     private final PostReactionService postReactionService;
     private final static Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
 
     @Autowired
-    public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService,
+    public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService, UserRepository userRepository,
                            CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,
                            TagRepository tagRepository, ImageService imageService, @Lazy PostReactionService postReactionService){
         this.userMapper = userMapper;
@@ -75,6 +77,7 @@ public class PostServiceImpl implements PostService {
         this.tagRepository = tagRepository;
         this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
+        this.userRepository = userRepository;
         this.categoryService = categoryService;
         this.postReactionService = postReactionService;
     }
@@ -109,11 +112,13 @@ public class PostServiceImpl implements PostService {
            post.setImageName(imageUrl);
 
            if (postCreateDto.getScheduledTime() != null && postCreateDto.getScheduledTime().isAfter(LocalDateTime.now())) { // The time is after now
-               schedulePost(post, postCreateDto.getScheduledTime());
+               schedulePost(post, postCreateDto.getScheduledTime(), user);
                logger.info("Post scheduled successfully with title : {} at {}", postCreateDto.getTitle(), postCreateDto.getScheduledTime());
                return postMapper.toPostGetDto(post);
            } else {
                Post savedPost = postRepository.save(post);
+               user.setPostsCount(user.getPostsCount() + 1);
+               userRepository.save(user);
                logger.info("Post created successfully with title : {}", postCreateDto.getTitle());
                return postMapper.toPostGetDto(savedPost);
            }
@@ -185,10 +190,13 @@ public class PostServiceImpl implements PostService {
             logger.warn("Post with ID {} not found, Delete post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Delete Post operation not performed");
         });
+        User user = userMapper.toEntity(userService.getUserById(post.getUser().getId()));
 
         try {
             if(!userService.isLoggedInUserMatching(post.getUser().getId()) || userService.isAdmin()){
                 postRepository.delete(post);
+                user.setPostsCount(user.getPostsCount() - 1);
+                userRepository.save(user);
                 logger.info("Post with ID {} deleted successfully",postId);
             } else {
                 logger.warn("Unauthorized attempt to delete a post. ");
@@ -438,7 +446,7 @@ public class PostServiceImpl implements PostService {
         this.updateSavedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
     }
 
-    private void schedulePost(Post schedulePost, LocalDateTime scheduledTime) {
+    private void schedulePost(Post schedulePost, LocalDateTime scheduledTime, User user) {
         // This method creates a ScheduledExecutorService instance with a single thread. This thread is responsible for scheduling and executing specified tasks.
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
@@ -449,6 +457,8 @@ public class PostServiceImpl implements PostService {
         // TimeUnit.MILLISECONDS: The unit of delay time, which is milliseconds here.
         scheduler.schedule(() -> {
             postRepository.save(schedulePost);
+            user.setPostsCount(user.getPostsCount() + 1);
+            userRepository.save(user);
             logger.info("Notification: Scheduled post with title '{}' has been saved successfully.", schedulePost.getTitle());}, delay, TimeUnit.MILLISECONDS);
         scheduler.shutdown();
     }

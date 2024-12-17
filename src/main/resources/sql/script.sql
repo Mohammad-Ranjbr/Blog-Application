@@ -5,3 +5,4 @@ INSERT  INTO authorities VALUES ('memol','admin');
 
 ALTER TABLE users ADD COLUMN role VARCHAR(255) ;
 ALTER TABLE users add column image_name VARCHAR(255);
+ALTER TABLE users ADD COLUMN posts_count INTEGER DEFAULT 0;

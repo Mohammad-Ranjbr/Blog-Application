@@ -87,6 +87,7 @@ public class User {
 
     private int followersCount = 0;
     private int followingCount = 0;
+    private int postsCount = 0;
 
     private boolean isActive = true;
 
