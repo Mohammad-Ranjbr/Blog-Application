@@ -14,6 +14,7 @@ public interface UserService {
 
     boolean isAdmin();
     String loggedInUserEmail();
+    List<UserGetDto> suggestUsers();
     void deleteUserById(UUID userId) throws AccessDeniedException;
     User fetchUserById(UUID userId);
     User fetchUserByEmail(String userEmail);

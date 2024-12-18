@@ -542,6 +542,35 @@ public class UserServiceImpl implements UserService {
         return authentication.getName();
     }
 
+    public UUID loggedInUserId() {
+        return fetchUserByEmail(this.loggedInUserEmail()).getId();
+    }
+
+    @Override
+    public List<UserGetDto> suggestUsers() {
+        logger.info("Fetching suggested users for current user with ID: {}", this.loggedInUserId());
+        try{
+            List<User> suggestedUsers = userRepository.findSuggestedUsers(this.loggedInUserId());
+
+            List<UserGetDto> suggestedUsersList = suggestedUsers.stream()
+                    .map(user -> {
+                        UserGetDto userGetDto = userMapper.toUserGetDto(user);
+                        String userImage = imageService.downloadImage(user.getImageName(), userImagesBucket);
+                        userGetDto.setImage(userImage);
+                        return userGetDto;
+                    })
+                    .collect(Collectors.toList());
+
+            this.updateFollowedStatusForUsers(suggestedUsersList, this.loggedInUserEmail());
+
+            logger.info("Retrieved {} suggested users for user with ID: {}", suggestedUsersList.size(), this.loggedInUserId());
+            return suggestedUsersList;
+        } catch (Exception exception){
+            logger.error("Error occurred while fetching suggested users for current user with ID: {}. Error: {}", this.loggedInUserId(), exception.getMessage(), exception);
+            throw exception;
+        }
+    }
+
     @Override
     public boolean isLoggedInUserMatching(UUID userId) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

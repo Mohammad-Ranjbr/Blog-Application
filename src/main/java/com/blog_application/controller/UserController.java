@@ -199,4 +199,13 @@ public class UserController {
         return new ResponseEntity<>(userBasicInfoDtoList, HttpStatus.OK);
     }
 
+    @GetMapping("/suggestions")
+    @SecurityRequirement(name = "Jwt Token Authentication")
+    public ResponseEntity<List<UserGetDto>> suggestUsers() {
+        logger.info("Received request to fetch suggested users for current user.");
+        List<UserGetDto> suggestedUsers = userService.suggestUsers();
+        logger.info("Returning response with {} suggested users.", suggestedUsers.size());
+        return new ResponseEntity<>(suggestedUsers, HttpStatus.OK);
+    }
+
 }
