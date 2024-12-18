@@ -219,7 +219,7 @@ public class PostServiceImpl implements PostService {
             Page<Post> postPage = postRepository.findAll(pageable);
 
             List<Post> posts = postPage.getContent();
-            List<PostGetDto> postGetDtoList = posts.stream().map(postMapper::toPostGetDto).toList();
+            List<PostGetDto> postGetDtoList = convertPostsToPostDtos(posts);
 
             this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
@@ -334,9 +334,7 @@ public class PostServiceImpl implements PostService {
             Page<Post> postPage = postRepository.findAllByUser(user,pageable);
 
             List<Post> posts = postPage.getContent();
-            List<PostGetDto> postGetDtoList = posts.stream()
-                    .map(postMapper::toPostGetDto)
-                    .toList();
+            List<PostGetDto> postGetDtoList = convertPostsToPostDtos(posts);
 
             this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
@@ -361,9 +359,7 @@ public class PostServiceImpl implements PostService {
             Page<Post> postPage = postRepository.findAllByCategory(category,pageable);
 
             List<Post> posts = postPage.getContent();
-            List<PostGetDto> postGetDtoList = posts.stream()
-                    .map(postMapper::toPostGetDto)
-                    .toList();
+            List<PostGetDto> postGetDtoList = convertPostsToPostDtos(posts);
 
             this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
@@ -387,9 +383,7 @@ public class PostServiceImpl implements PostService {
             Page<Post> postPage = postRepository.findByTitleContaining(keyword,pageable);
 
             List<Post> posts = postPage.getContent();
-            List<PostGetDto> postGetDtoList = posts.stream()
-                    .map(postMapper::toPostGetDto)
-                    .toList();
+            List<PostGetDto> postGetDtoList =convertPostsToPostDtos(posts);
 
             this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
@@ -413,9 +407,7 @@ public class PostServiceImpl implements PostService {
             Page<Post> postPage = postRepository.searchByTitle("%" + keyword + "%",pageable);
 
             List<Post> posts = postPage.getContent();
-            List<PostGetDto> postGetDtoList = posts.stream()
-                    .map(postMapper::toPostGetDto)
-                    .toList();
+            List<PostGetDto> postGetDtoList = convertPostsToPostDtos(posts);
 
             this.updatePostsInteractionStatus(postGetDtoList, userService.loggedInUserEmail());
 
@@ -453,6 +445,18 @@ public class PostServiceImpl implements PostService {
         postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
         this.updateSavedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
     }
+
+    public List<PostGetDto> convertPostsToPostDtos(List<Post> posts){
+        return  posts.stream()
+                .map(post -> {
+                    PostGetDto postGetDto = postMapper.toPostGetDto(post);
+                    String postImage = imageService.downloadImage(postGetDto.getImageName(), postImagesBucket);
+                    postGetDto.setImage(postImage);
+                    return postGetDto;
+                })
+                .toList();
+    }
+
 
     private void schedulePost(Post schedulePost, LocalDateTime scheduledTime, User user) {
         // This method creates a ScheduledExecutorService instance with a single thread. This thread is responsible for scheduling and executing specified tasks.
