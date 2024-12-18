@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserGetDto createUser(UserCreateDto userCreateDto) throws IOException {
+    public void createUser(UserCreateDto userCreateDto) throws IOException {
         logger.info("Creating user with username : {}",userCreateDto.getUserName());
 
         if(userRepository.existsByUserName(userCreateDto.getUserName())){
@@ -117,23 +117,12 @@ public class UserServiceImpl implements UserService {
             user.setPassword(hashPassword);
             user.setRoles(Set.of(userRole));
             user.setSoftDelete(false);
-
-            String imageUrl;
-            ImageData imageData = userCreateDto.getImageData();
-            if (imageData.base64Content() != null && !imageData.base64Content().isEmpty())  {
-                imageUrl = imageService.uploadImage(imageData, userImagesBucket);
-                logger.info("Image uploaded successfully for post: {}", userCreateDto.getEmail());
-            } else {
-                imageUrl = userDefaultPage;
-            }
-            user.setImageName(imageUrl);
-
+            user.setImageName(userDefaultPage);
             User savedUser = userRepository.save(user);
             if(savedUser.getId() != null){
                 System.out.println(savedUser);
                 logger.info("User created successfully with email : {}",savedUser.getEmail());
             }
-            return userMapper.toUserGetDto(savedUser);
         } catch (Exception exception) {
             logger.error("Unexpected error occurred while creating user: {}", exception.getMessage(), exception);
             throw exception;
@@ -482,23 +471,9 @@ public class UserServiceImpl implements UserService {
                 user.setName(userUpdateDto.getName());
                 user.setEmail(userUpdateDto.getEmail());
                 user.setAbout(userUpdateDto.getAbout());
-                user.setGender(userUpdateDto.getGender());
                 user.setUserName(userUpdateDto.getUserName());
                 user.setPhoneNumber(userUpdateDto.getPhoneNumber());
                 User savedUser = userRepository.save(user);
-
-                String imageUrl;
-                ImageData imageData = userUpdateDto.getImageData();
-                if (imageData.base64Content() != null && !imageData.base64Content().isEmpty())  {
-                    try {
-                        imageUrl = imageService.uploadImage(imageData, userImagesBucket);
-                    } catch (IOException exception) {
-                        logger.error("Error occurred while updating user profile image, Error: {}", exception.getMessage(), exception);
-                        throw new RuntimeException(exception);
-                    }
-                    user.setImageName(imageUrl);
-                    logger.info("Image uploaded successfully for post: {}", userUpdateDto.getEmail());
-                }
 
                 logger.info("User with ID {} updated successfully",userId);
                 return savedUser;

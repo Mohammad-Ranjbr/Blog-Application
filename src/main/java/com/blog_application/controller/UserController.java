@@ -34,11 +34,11 @@ public class UserController {
 
     //POST Mapping-Create User
     @PostMapping("/register")
-    public ResponseEntity<UserGetDto> createUser(@Valid @RequestBody UserCreateDto userCreateDto) throws IOException {
+    public ResponseEntity<ApiResponse> createUser(@Valid @RequestBody UserCreateDto userCreateDto) throws IOException {
         logger.info("Received request to create user with email : {}", userCreateDto.getEmail());
-        UserGetDto createdUser = this.userService.createUser(userCreateDto);
-        logger.info("Returning response for user creation with email : {}", createdUser.getEmail());
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+        userService.createUser(userCreateDto);
+        logger.info("Returning response for user creation with email : {}", userCreateDto.getEmail());
+        return new ResponseEntity<>(new ApiResponse("User Created Successfully", true), HttpStatus.CREATED);
     }
 
     //GET Mapping-Get User By ID

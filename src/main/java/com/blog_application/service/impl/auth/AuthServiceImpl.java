@@ -50,7 +50,6 @@ public class AuthServiceImpl implements AuthService {
                         .claim("id", user.getId())
                         .claim("name", user.getName())
                         .claim("about", user.getAbout())
-                        .claim("gender", user.getGender())
                         .claim("phoneNumber", user.getPhoneNumber())
                         .claim("createdAt", user.getCreatedAt().toString())
                         .claim("updatedAt", user.getUpdatedAt().toString())

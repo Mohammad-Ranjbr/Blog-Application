@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 public class UserGetDto extends UserBasicInfoDto{
 
     private String about;
-    private String gender;
     private String userName;
     private String phoneNumber;
     private int followersCount;

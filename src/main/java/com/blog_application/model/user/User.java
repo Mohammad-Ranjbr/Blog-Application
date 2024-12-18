@@ -41,7 +41,6 @@ public class User {
     @Column(unique = true)
     private String email;
     private String about;
-    private String gender;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @Column(unique = true)
@@ -110,7 +109,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", about='" + about + '\'' +
-                ", gender='" + gender + '\'' +
                 ", password='" + password + '\'' +
                 ", userName='" + userName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

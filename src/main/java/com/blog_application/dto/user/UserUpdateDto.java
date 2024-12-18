@@ -29,9 +29,6 @@ public class UserUpdateDto {
     @Size(max = 200, message = "About must be less than 200 characters")
     private String about;
 
-    @NotBlank(message = "Gender is mandatory")
-    private String gender;
-
     @NotBlank(message = "Username is mandatory")
     @Size(min = 5, max = 50, message = "Username must be between 5 and 50 characters")
     private String userName;
@@ -39,7 +36,5 @@ public class UserUpdateDto {
     @NotBlank(message = "Phone number is mandatory")
     @Pattern(regexp = ApplicationConstants.PHONE_PATTERN_REGEX, message = "Phone number must be 11 digits and start with 09")
     private String phoneNumber;
-
-    private ImageData imageData;
 
 }
