@@ -19,7 +19,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -109,14 +108,13 @@ public class PostController {
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")
     public ResponseEntity<PostGetDto> getPostById(@PathVariable("id") Long postId){
         logger.info("Received request to fetch post with ID : {}", postId);
-        PostGetDto postDto = postService.getPostById(postId);
+        PostGetDto postDto = postService.getPostByIdWithImage(postId);
         logger.info("Returning response for post with ID : {}", postId);
         return new ResponseEntity<>(postDto,HttpStatus.OK);
     }
 
     //DELETE Mapping-Delete Post
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Delete Post Rest Api", description = "Delete Post Rest Api is used to delete a particular post from the database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "Http Status 201 SUCCESS")

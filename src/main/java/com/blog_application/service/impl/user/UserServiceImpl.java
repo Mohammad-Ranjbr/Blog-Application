@@ -302,7 +302,12 @@ public class UserServiceImpl implements UserService {
         try {
             User user = this.fetchUserById(userId);
             List<UserGetDto> followers = user.getFollowers().stream()
-                    .map(userMapper::toUserGetDto)
+                    .map(follower -> {
+                        UserGetDto userGetDto = userMapper.toUserGetDto(follower);
+                        String userImage = imageService.downloadImage(userGetDto.getImageName(), userImagesBucket);
+                        userGetDto.setImage(userImage);
+                        return userGetDto;
+                    })
                     .collect(Collectors.toList());
 
             this.updateFollowedStatusForUsers(followers, this.loggedInUserEmail());
@@ -321,7 +326,12 @@ public class UserServiceImpl implements UserService {
         try{
             User user = this.fetchUserById(userId);
             List<UserGetDto> followingUsers = user.getFollowing().stream()
-                    .map(userMapper::toUserGetDto)
+                    .map(following -> {
+                        UserGetDto userGetDto = userMapper.toUserGetDto(following);
+                        String userImage = imageService.downloadImage(userGetDto.getImageName(), userImagesBucket);
+                        userGetDto.setImage(userImage);
+                        return userGetDto;
+                    })
                     .collect(Collectors.toList());
 
             this.updateFollowedStatusForUsers(followingUsers, this.loggedInUserEmail());

@@ -240,8 +240,16 @@ public class PostServiceImpl implements PostService {
             logger.warn("Post with ID {} not found, Get post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
-        PostGetDto postGetDto = postMapper.toPostGetDto(post);
+        return postMapper.toPostGetDto(post);
+    }
+
+    @Override
+    public PostGetDto getPostByIdWithImage(Long postId) {
+        logger.info("Fetching post with ID : {}",postId);
+        PostGetDto postGetDto = this.getPostById(postId);
         this.updatePostInteractionStatus(postGetDto, postId, userService.loggedInUserEmail());
+        String postImage = imageService.downloadImage(postGetDto.getImageName(), postImagesBucket);
+        postGetDto.setImage(postImage);
         return postGetDto;
     }
 

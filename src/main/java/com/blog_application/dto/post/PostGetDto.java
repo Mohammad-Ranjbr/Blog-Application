@@ -20,6 +20,7 @@ public class PostGetDto {
     private String title;
     private String content;
     private String imageName;
+    private String image;
     private LocalDateTime creationDate;
     private LocalDateTime updatedDate;
     private CategoryBasicInfoDto category;
