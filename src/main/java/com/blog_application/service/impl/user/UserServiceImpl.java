@@ -514,6 +514,29 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserBasicInfoDto> searchUsersByUsernameOrName(String keyword) {
+        logger.info("Fetching users followed by user with Username or Name: {}", keyword);
+        try{
+            List<User> users = this.userRepository.findAllByUserNameOrNameLike(keyword);
+
+            List<UserBasicInfoDto> foundUsers = users.stream()
+                    .map(user -> {
+                        UserBasicInfoDto userBasicInfoDto = userMapper.toUserBasicInfoDto(user);
+                        String userImage = imageService.downloadImage(user.getImageName(), userImagesBucket);
+                        userBasicInfoDto.setImage(userImage);
+                        return userBasicInfoDto;
+                    })
+                    .collect(Collectors.toList());
+
+            logger.info("Retrieved {} users followed by user with Username and Name: {}", foundUsers.size(), keyword);
+            return foundUsers;
+        } catch (Exception exception){
+            logger.error("Error occurred while get following for user. User Username or Name: {} Error: {}", keyword, exception.getMessage(), exception);
+            throw exception;
+        }
+    }
+
+    @Override
     public String loggedInUserEmail() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication.getName();

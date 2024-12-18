@@ -16,5 +16,7 @@ public class UserBasicInfoDto {
     private UUID id;
     private String name;
     private String email;
+    private String userName;
+    private String image;
 
 }

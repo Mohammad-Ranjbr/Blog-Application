@@ -24,8 +24,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     UUID getUserIdByEmail(@Param("email") String email);
     @Query("SELECT u FROM User u WHERE u.email = :email AND  u.isActive = true AND u.softDelete = false")
     Optional<User> findByEmail(@Param("email") String email);
-    @Query("SELECT u FROM User u  WHERE (u.userName = :username or u.email = :email) AND u.isActive = true AND u.softDelete = false")
-    Optional<User> findByUserNameOrEmail(@Param("username") String username, @Param("email") String email);
+    @Query("SELECT u FROM User u WHERE (u.userName LIKE %:keyword% OR u.email LIKE %:keyword%) AND u.isActive = true AND u.softDelete = false")
+    List<User> findAllByUserNameOrNameLike(@Param("keyword") String keyword);
     @Modifying
     @Query("UPDATE User u SET u.isActive = :isActive WHERE u.id = :userId")
     void updateUserStatusById(@Param("isActive") boolean isActive, UUID userId);

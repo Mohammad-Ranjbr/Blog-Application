@@ -190,4 +190,13 @@ public class UserController {
         return new ResponseEntity<>(new ApiResponse("User status updated successfully", true), HttpStatus.OK);
     }
 
+    @GetMapping("/search/{keyword}")
+    @SecurityRequirement(name = "Jwt Token Authentication")
+    public ResponseEntity<List<UserBasicInfoDto>> searchUserWithUsernameOrName(@PathVariable("keyword") String keyword){
+        logger.info("Received request to search users by username or name : {}", keyword);
+        List<UserBasicInfoDto> userBasicInfoDtoList = userService.searchUsersByUsernameOrName(keyword);
+        logger.info("Returning response for search users by username or name : {}", keyword);
+        return new ResponseEntity<>(userBasicInfoDtoList, HttpStatus.OK);
+    }
+
 }
