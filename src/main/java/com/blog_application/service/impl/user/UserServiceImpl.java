@@ -236,7 +236,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserGetDto getUserById(UUID userId) {
         User user = this.fetchUserById(userId);
-        return mapUserToDto(user);
+        return userMapper.toUserGetDto(user);
     }
 
     @Override
