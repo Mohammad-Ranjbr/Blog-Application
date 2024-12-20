@@ -1,5 +1,6 @@
 package com.blog_application.service.user;
 
+import com.blog_application.dto.image.ImageData;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.user.*;
 import com.blog_application.model.user.User;
@@ -26,6 +27,7 @@ public interface UserService {
     List<UserGetDto> getFollowers(UUID userId);
     List<UserGetDto> getFollowing(UUID userId);
     boolean isLoggedInUserMatching(UUID userId);
+    void setUserProfile(ImageData imageData, UUID userId) throws IOException;
     UserGetDto followUser(UUID userId,UUID followUserId) throws AccessDeniedException;
     UserGetDto unfollowUser(UUID userId,UUID unfollowUserId) throws AccessDeniedException;
     List<PostGetDto> getSavedPostsByUser(UUID userId) throws AccessDeniedException;

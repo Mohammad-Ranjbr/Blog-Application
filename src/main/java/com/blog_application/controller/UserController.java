@@ -1,5 +1,6 @@
 package com.blog_application.controller;
 
+import com.blog_application.dto.image.ImageData;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.user.*;
 import com.blog_application.service.user.UserService;
@@ -206,6 +207,15 @@ public class UserController {
         List<UserGetDto> suggestedUsers = userService.suggestUsers();
         logger.info("Returning response with {} suggested users.", suggestedUsers.size());
         return new ResponseEntity<>(suggestedUsers, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}/profile-image")
+    @SecurityRequirement(name = "Jwt Token Authentication")
+    public ResponseEntity<ApiResponse> setUserProfileImage(@PathVariable("id") UUID userId, @RequestBody ImageData imageData) throws IOException {
+        logger.info("Received request to update profile image. User ID: {}", userId);
+        userService.setUserProfile(imageData, userId);
+        logger.info("Profile image updated successfully for User ID: {}", userId);
+        return new ResponseEntity<>(new ApiResponse("Profile image updated successfully", true), HttpStatus.OK);
     }
 
 }

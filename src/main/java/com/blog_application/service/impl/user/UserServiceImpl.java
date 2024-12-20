@@ -512,16 +512,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String loggedInUserEmail() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication.getName();
-    }
-
-    public UUID loggedInUserId() {
-        return fetchUserByEmail(this.loggedInUserEmail()).getId();
-    }
-
-    @Override
     public List<UserGetDto> suggestUsers() {
         logger.info("Fetching suggested users for current user with ID: {}", this.loggedInUserId());
         try{
@@ -544,6 +534,42 @@ public class UserServiceImpl implements UserService {
             logger.error("Error occurred while fetching suggested users for current user with ID: {}. Error: {}", this.loggedInUserId(), exception.getMessage(), exception);
             throw exception;
         }
+    }
+
+    @Override
+    public void setUserProfile(ImageData imageData, UUID userId) throws IOException {
+        logger.info("Starting to set profile image for user with ID: {}", userId);
+        String imageUrl;
+        User user = this.fetchUserById(userId);
+
+        if(isLoggedInUserMatching(userId)){
+            logger.warn("Unauthorized attempt by user with ID: {} to set profile image for another user's account.", userId);
+            throw new AccessDeniedException("You can only set profile image for your own account.");
+        }
+
+        try{
+            if(imageData.base64Content() != null && !imageData.base64Content().isEmpty()){
+                imageUrl = imageService.uploadImage(imageData, userImagesBucket);
+                user.setImageName(imageUrl);
+                userRepository.save(user);
+            } else {
+                logger.warn("No image content provided for user with ID: {}", userId);
+            }
+            logger.info("Profile image updated successfully for user with ID: {}", userId);
+        } catch (Exception exception){
+            logger.error("Error occurred while set profile image for user: {}, Error: {}", userId, exception.getMessage(), exception);
+            throw exception;
+        }
+    }
+
+    @Override
+    public String loggedInUserEmail() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
+    }
+
+    public UUID loggedInUserId() {
+        return fetchUserByEmail(this.loggedInUserEmail()).getId();
     }
 
     @Override
