@@ -422,6 +422,23 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<PostGetDto> getHomePosts(){
+        logger.info("Starting to fetch home posts for the logged-in user.");
+        try {
+            UUID userId = userService.loggedInUserId();
+            String userEmail = userService.loggedInUserEmail();
+            List<Post> posts = postRepository.findHomePosts(userId);
+            List<PostGetDto> postGetDtoList = convertPostsToPostDtos(posts);
+            this.updatePostsInteractionStatus(postGetDtoList, userEmail);
+            logger.info("Fetched {} posts for user ID: {}", posts.size(), userId);
+            return postGetDtoList;
+        } catch (Exception exception){
+            logger.error("An error occurred while fetching home posts: {}", exception.getMessage(), exception);
+            throw exception;
+        }
+    }
+
+    @Override
     public boolean checkIfSavedByCurrentUser(Long postId, String userEmail) {
         return postRepository.existSavedByCurrentUser(postId, userEmail);
     }

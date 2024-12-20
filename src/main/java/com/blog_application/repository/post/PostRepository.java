@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post,Long> {
@@ -39,5 +40,9 @@ public interface PostRepository extends JpaRepository<Post,Long> {
     @Query(value = "SELECT CASE WHEN COUNT(usp) > 0 THEN true ELSE false END FROM" +
             " user_saved_posts usp JOIN users u ON usp.user_id = u.id WHERE usp.post_id = :post_id AND u.email = :user_email", nativeQuery = true)
     boolean existSavedByCurrentUser(@Param("post_id") Long postId, @Param("user_email") String userEmail);
+
+    @Query(value = "SELECT p.* FROM posts p JOIN user_followers uf ON p.user_id = uf.user_id " +
+            "WHERE uf.follower_id = :current_user_id ORDER BY p.creation_date DESC", nativeQuery = true)
+    List<Post> findHomePosts(@Param("current_user_id") UUID currentUserId);
 
 }

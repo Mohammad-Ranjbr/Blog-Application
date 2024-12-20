@@ -198,4 +198,13 @@ public class PostController {
         return new ResponseEntity<>(new ApiResponse("Tags Deleted From Post Successfully",true),HttpStatus.OK);
     }
 
+    @GetMapping("/home-posts")
+    @SecurityRequirement(name = "Jwt Token Authentication")
+    public ResponseEntity<List<PostGetDto>> getHomePosts(){
+        logger.info("Received request to fetch home posts for the logged-in user.");
+        List<PostGetDto> postGetDtoList = postService.getHomePosts();
+        logger.info("Returning response home posts to the client");
+        return new ResponseEntity<>(postGetDtoList, HttpStatus.OK);
+    }
+
 }

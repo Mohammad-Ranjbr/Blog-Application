@@ -13,6 +13,7 @@ import java.util.UUID;
 
 public interface PostService {
 
+    List<PostGetDto> getHomePosts();
     PostGetDto getPostById(Long postId);
     PostGetDto getPostByIdWithImage(Long postId);
     void deletePost(Long post_id) throws AccessDeniedException;

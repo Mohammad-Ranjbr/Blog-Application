@@ -568,6 +568,7 @@ public class UserServiceImpl implements UserService {
         return authentication.getName();
     }
 
+    @Override
     public UUID loggedInUserId() {
         return fetchUserByEmail(this.loggedInUserEmail()).getId();
     }

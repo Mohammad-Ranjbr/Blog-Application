@@ -14,6 +14,7 @@ import java.util.UUID;
 public interface UserService {
 
     boolean isAdmin();
+    UUID loggedInUserId();
     String loggedInUserEmail();
     List<UserGetDto> suggestUsers();
     void deleteUserById(UUID userId) throws AccessDeniedException;
