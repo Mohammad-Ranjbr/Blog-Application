@@ -430,10 +430,27 @@ public class PostServiceImpl implements PostService {
             List<Post> posts = postRepository.findHomePosts(userId);
             List<PostGetDto> postGetDtoList = convertPostsToPostDtos(posts);
             this.updatePostsInteractionStatus(postGetDtoList, userEmail);
-            logger.info("Fetched {} posts for user ID: {}", posts.size(), userId);
+            logger.info("Fetched {} home posts for user ID: {}", posts.size(), userId);
             return postGetDtoList;
         } catch (Exception exception){
             logger.error("An error occurred while fetching home posts: {}", exception.getMessage(), exception);
+            throw exception;
+        }
+    }
+
+    @Override
+    public List<PostGetDto> getExplorePosts() {
+        logger.info("Starting to fetch explore posts for the logged-in user.");
+        try {
+            UUID userId = userService.loggedInUserId();
+            String userEmail = userService.loggedInUserEmail();
+            List<Post> posts = postRepository.findExplorePosts(userId);
+            List<PostGetDto> postGetDtoList = convertPostsToPostDtos(posts);
+            this.updatePostsInteractionStatus(postGetDtoList, userEmail);
+            logger.info("Fetched {} explore posts for user ID: {}", posts.size(), userId);
+            return postGetDtoList;
+        } catch (Exception exception){
+            logger.error("An error occurred while fetching explore posts: {}", exception.getMessage(), exception);
             throw exception;
         }
     }

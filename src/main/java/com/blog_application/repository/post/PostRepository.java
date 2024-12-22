@@ -45,4 +45,7 @@ public interface PostRepository extends JpaRepository<Post,Long> {
             "WHERE uf.follower_id = :current_user_id ORDER BY p.creation_date DESC", nativeQuery = true)
     List<Post> findHomePosts(@Param("current_user_id") UUID currentUserId);
 
+    @Query("SELECT p FROM Post p WHERE p.user.id != :current_user_id")
+    List<Post> findExplorePosts(@Param("current_user_id") UUID currentUserId);
+
 }

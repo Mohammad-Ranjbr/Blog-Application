@@ -207,4 +207,13 @@ public class PostController {
         return new ResponseEntity<>(postGetDtoList, HttpStatus.OK);
     }
 
+    @GetMapping("/explore-posts")
+    @SecurityRequirement(name = "Jwt Token Authentication")
+    public ResponseEntity<List<PostGetDto>> getExplorePosts(){
+        logger.info("Received request to fetch home posts for the logged-in user.");
+        List<PostGetDto> postGetDtoList = postService.getExplorePosts();
+        logger.info("Returning response home posts to the client");
+        return new ResponseEntity<>(postGetDtoList, HttpStatus.OK);
+    }
+
 }
