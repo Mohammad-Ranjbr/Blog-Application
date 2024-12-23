@@ -2,7 +2,6 @@ package com.blog_application.service.impl.comment;
 
 import com.blog_application.config.mapper.comment.CommentMapper;
 import com.blog_application.config.mapper.post.PostMapper;
-import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
@@ -30,7 +29,6 @@ import java.util.function.Consumer;
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
     private final PostService postService;
@@ -39,9 +37,8 @@ public class CommentServiceImpl implements CommentService {
     private final static Logger logger = LoggerFactory.getLogger(CommentServiceImpl.class);
 
     @Autowired
-    public CommentServiceImpl(CommentMapper commentMapper,PostService postService,UserMapper userMapper,
+    public CommentServiceImpl(CommentMapper commentMapper,PostService postService,
                               CommentRepository commentRepository,PostMapper postMapper,UserService userService){
-        this.userMapper = userMapper;
         this.postMapper = postMapper;
         this.userService = userService;
         this.postService = postService;
@@ -54,7 +51,7 @@ public class CommentServiceImpl implements CommentService {
     public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) throws AccessDeniedException {
         logger.info("Creating comment with content : {}",commentCreateDto.getContent());
         Post post = postMapper.toEntity(postService.getPostById(postId));
-        User user = userMapper.toEntity(userService.getUserById(userId));
+        User user = userService.fetchUserById(userId);
 
         if(userService.isLoggedInUserMatching(user.getId())){
             logger.warn("Unauthorized attempt to add a comment to another user's post.");

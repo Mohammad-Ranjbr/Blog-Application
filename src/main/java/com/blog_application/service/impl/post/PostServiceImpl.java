@@ -3,7 +3,6 @@ package com.blog_application.service.impl.post;
 import com.blog_application.config.mapper.category.CategoryMapper;
 import com.blog_application.config.mapper.post.PostMapper;
 
-import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.image.ImageData;
 import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
@@ -56,7 +55,6 @@ public class PostServiceImpl implements PostService {
     private String postImagesBucket;
     @Value("${minio.user-bucket-name}")
     private String userImagesBucket;
-    private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
     private final ImageService imageService;
@@ -69,10 +67,9 @@ public class PostServiceImpl implements PostService {
     private final static Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
 
     @Autowired
-    public PostServiceImpl(PostMapper postMapper,PostRepository postRepository,UserService userService, UserRepository userRepository,
-                           CategoryService categoryService,UserMapper userMapper,CategoryMapper categoryMapper,
+    public PostServiceImpl(PostMapper postMapper, PostRepository postRepository,UserService userService,
+                           CategoryService categoryService, CategoryMapper categoryMapper, UserRepository userRepository,
                            TagRepository tagRepository, ImageService imageService, @Lazy PostReactionService postReactionService){
-        this.userMapper = userMapper;
         this.postMapper =  postMapper;
         this.userService = userService;
         this.imageService = imageService;
@@ -90,7 +87,7 @@ public class PostServiceImpl implements PostService {
     public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws IOException {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
 
-        User user = userMapper.toEntity(userService.getUserById(userId));
+        User user = userService.fetchUserById(userId);
         Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
 
         if(userService.isLoggedInUserMatching(user.getId())){
@@ -192,7 +189,7 @@ public class PostServiceImpl implements PostService {
             logger.warn("Post with ID {} not found, Delete post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Delete Post operation not performed");
         });
-        User user = userMapper.toEntity(userService.getUserById(post.getUser().getId()));
+        User user = userService.fetchUserById(post.getUser().getId());
 
         try {
             if(!userService.isLoggedInUserMatching(post.getUser().getId()) || userService.isAdmin()){
@@ -330,7 +327,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public PaginatedResponse<PostGetDto> getPostsByUser(UUID userId, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts for User with ID : {}",userId);
-        User user = userMapper.toEntity(userService.getUserById(userId));
+        User user = userService.fetchUserById(userId);
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);

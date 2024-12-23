@@ -1,7 +1,6 @@
 package com.blog_application.service.impl.comment;
 
 import com.blog_application.config.mapper.comment.CommentMapper;
-import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.reaction.CommentReactionRequestDto;
 import com.blog_application.exception.ResourceNotFoundException;
@@ -24,7 +23,6 @@ import java.util.Optional;
 @Service
 public class CommentReactionServiceImpl implements CommentReactionService {
 
-    private final UserMapper userMapper;
     private final UserService userService;
     private final CommentMapper commentMapper;
     private final CommentRepository commentRepository;
@@ -33,9 +31,8 @@ public class CommentReactionServiceImpl implements CommentReactionService {
     private static final Logger logger = LoggerFactory.getLogger(CommentReactionServiceImpl.class);
 
     @Autowired
-    public CommentReactionServiceImpl(UserService userService, CommentReactionRepository commentReactionRepository,
-                                      UserMapper userMapper, CommentRepository commentRepository, CommentMapper commentMapper){
-        this.userMapper = userMapper;
+    public CommentReactionServiceImpl(UserService userService, CommentReactionRepository commentReactionRepository
+                                     , CommentRepository commentRepository, CommentMapper commentMapper){
         this.userService  =userService;
         this.commentMapper = commentMapper;
         this.commentRepository = commentRepository;
@@ -46,7 +43,7 @@ public class CommentReactionServiceImpl implements CommentReactionService {
     @Transactional
     public CommentGetDto likeDislikeComment(CommentReactionRequestDto requestDTO) throws AccessDeniedException {
         logger.info("Starting like/Dislike Comment...");
-        User user = userMapper.toEntity(userService.getUserById(requestDTO.getUserId()));
+        User user = userService.fetchUserById(requestDTO.getUserId());
         Comment comment = commentRepository.findById(requestDTO.getCommentId()).orElseThrow(() -> {
             logger.warn("Comment with ID {} not found, Get comment operation not performed",requestDTO.getCommentId());
             return new ResourceNotFoundException("Comment","ID",String.valueOf(requestDTO.getCommentId()),"Get Comment operation not performed");

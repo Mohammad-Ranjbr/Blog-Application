@@ -5,7 +5,6 @@ import com.blog_application.model.comment.CommentReaction;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.post.PostReaction;
 import com.blog_application.model.role.Role;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,7 +40,6 @@ public class User {
     @Column(unique = true)
     private String email;
     private String about;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @Column(unique = true)
     private String userName;

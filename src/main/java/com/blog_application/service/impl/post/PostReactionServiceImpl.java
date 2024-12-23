@@ -1,7 +1,6 @@
 package com.blog_application.service.impl.post;
 
 import com.blog_application.config.mapper.post.PostMapper;
-import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
 import com.blog_application.model.post.Post;
@@ -26,7 +25,6 @@ import java.util.Optional;
 public class PostReactionServiceImpl implements PostReactionService {
 
     private final PostMapper postMapper;
-    private final UserMapper userMapper;
     private final UserService userService;
     private final PostService postService;
     private final PostRepository postRepository;
@@ -34,10 +32,9 @@ public class PostReactionServiceImpl implements PostReactionService {
     private final static Logger logger = LoggerFactory.getLogger(PostReactionServiceImpl.class);
 
     @Autowired
-    public PostReactionServiceImpl(PostMapper postMapper, UserMapper userMapper, UserService userService, PostService postService,
-                                   PostRepository postRepository , PostReactionRepository postReactionRepository){
+    public PostReactionServiceImpl(PostMapper postMapper, UserService userService, PostService postService,
+                                   PostRepository postRepository, PostReactionRepository postReactionRepository){
         this.postMapper = postMapper;
-        this.userMapper = userMapper;
         this.userService = userService;
         this.postService = postService;
         this.postRepository = postRepository;
@@ -48,7 +45,7 @@ public class PostReactionServiceImpl implements PostReactionService {
     @Transactional
     public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException {
         logger.info("Starting like post...");
-        User user = userMapper.toEntity(userService.getUserById(postReactionRequestDto.getUserId()));
+        User user = userService.fetchUserById(postReactionRequestDto.getUserId());
         Post post = postMapper.toEntity(postService.getPostById(postReactionRequestDto.getPostId()));
         Optional<PostReaction> existing = postReactionRepository.findByUserAndPost(user,post);
 
