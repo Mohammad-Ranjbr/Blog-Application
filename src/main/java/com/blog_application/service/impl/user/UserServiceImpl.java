@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void createUser(UserCreateDto userCreateDto) throws IOException {
+    public void createUser(UserCreateDto userCreateDto){
         logger.info("Creating user with username : {}",userCreateDto.getUserName());
 
         if(userRepository.existsByUserName(userCreateDto.getUserName())){
