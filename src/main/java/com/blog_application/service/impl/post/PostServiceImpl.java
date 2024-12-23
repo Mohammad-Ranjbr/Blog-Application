@@ -54,6 +54,8 @@ public class PostServiceImpl implements PostService {
     private String postDefaultPage;
     @Value("${minio.post-bucket-name}")
     private String postImagesBucket;
+    @Value("${minio.user-bucket-name}")
+    private String userImagesBucket;
     private final UserMapper userMapper;
     private final PostMapper postMapper;
     private final UserService userService;
@@ -249,7 +251,9 @@ public class PostServiceImpl implements PostService {
         PostGetDto postGetDto = this.getPostById(postId);
         this.updatePostInteractionStatus(postGetDto, postId, userService.loggedInUserEmail());
         String postImage = imageService.downloadImage(postGetDto.getImageName(), postImagesBucket);
+        String userImage = imageService.downloadImage(postGetDto.getUser().getImage(), userImagesBucket);
         postGetDto.setImage(postImage);
+        postGetDto.getUser().setImage(userImage);
         return postGetDto;
     }
 
@@ -464,7 +468,11 @@ public class PostServiceImpl implements PostService {
     public void updateSavedStatusForPosts(List<PostGetDto> postGetDtos, String userEmail) {
         logger.info("Updating saved status for posts for user {}", userEmail);
         List<Long> savedPostIds = postRepository.findSavedPostIdsByUser(userEmail);
-        postGetDtos.forEach(post -> post.setSavedByCurrentUser(savedPostIds.contains(post.getId())));
+        postGetDtos.forEach(post -> {
+            post.setSavedByCurrentUser(savedPostIds.contains(post.getId()));
+            String userImage = imageService.downloadImage(post.getUser().getImage(), userImagesBucket);
+            post.getUser().setImage(userImage);
+        });
     }
 
     @Override
