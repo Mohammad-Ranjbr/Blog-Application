@@ -1,6 +1,5 @@
 package com.blog_application.service.impl.post;
 
-import com.blog_application.config.mapper.category.CategoryMapper;
 import com.blog_application.config.mapper.post.PostMapper;
 
 import com.blog_application.dto.image.ImageData;
@@ -59,7 +58,6 @@ public class PostServiceImpl implements PostService {
     private final UserService userService;
     private final ImageService imageService;
     private final TagRepository tagRepository;
-    private final CategoryMapper categoryMapper;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
     private final CategoryService categoryService;
@@ -68,13 +66,12 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     public PostServiceImpl(PostMapper postMapper, PostRepository postRepository,UserService userService,
-                           CategoryService categoryService, CategoryMapper categoryMapper, UserRepository userRepository,
+                           CategoryService categoryService, UserRepository userRepository,
                            TagRepository tagRepository, ImageService imageService, @Lazy PostReactionService postReactionService){
         this.postMapper =  postMapper;
         this.userService = userService;
         this.imageService = imageService;
         this.tagRepository = tagRepository;
-        this.categoryMapper = categoryMapper;
         this.postRepository = postRepository;
         this.userRepository = userRepository;
         this.categoryService = categoryService;
@@ -88,7 +85,7 @@ public class PostServiceImpl implements PostService {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
 
         User user = userService.fetchUserById(userId);
-        Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
+        Category category = categoryService.getCategoryById(categoryId);
 
         if(userService.isLoggedInUserMatching(user.getId())){
             logger.warn("Unauthorized attempt to create a post in another user's account.");
@@ -139,7 +136,7 @@ public class PostServiceImpl implements PostService {
 
         Category newCategory;
         if(postUpdateDto.getCategoryId() != null){
-            newCategory = categoryMapper.toEntity(categoryService.getCategoryById(postUpdateDto.getCategoryId()));
+            newCategory = categoryService.getCategoryById(postUpdateDto.getCategoryId());
         } else {
             newCategory = p.getCategory();
         }
@@ -233,19 +230,18 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostGetDto getPostById(Long postId) {
+    public Post getPostById(Long postId) {
         logger.info("Fetching post with ID : {}",postId);
-        Post post = postRepository.findById(postId).orElseThrow(() -> {
+        return  postRepository.findById(postId).orElseThrow(() -> {
             logger.warn("Post with ID {} not found, Get post operation not performed",postId);
             return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Get Post operation not performed");
         });
-        return postMapper.toPostGetDto(post);
     }
 
     @Override
     public PostGetDto getPostByIdWithImage(Long postId) {
         logger.info("Fetching post with ID : {}",postId);
-        PostGetDto postGetDto = this.getPostById(postId);
+        PostGetDto postGetDto = postMapper.toPostGetDto(getPostById(postId));
         this.updatePostInteractionStatus(postGetDto, postId, userService.loggedInUserEmail());
         String postImage = imageService.downloadImage(postGetDto.getImageName(), postImagesBucket);
         String userImage = imageService.downloadImage(postGetDto.getUser().getImage(), userImagesBucket);
@@ -258,7 +254,7 @@ public class PostServiceImpl implements PostService {
     @Transactional
     public PostGetDto addTagToPost(Long postId, List<TagCreateDto> tagCreateDtos) throws AccessDeniedException {
         logger.info("Adding tags to post with ID: {}", postId);
-        Post post = postMapper.toEntity(this.getPostById(postId));
+        Post post = this.getPostById(postId);
 
         List<String> existingTagNames = new ArrayList<>(post.getTags().stream()
                 .map(Tag::getName)
@@ -303,7 +299,7 @@ public class PostServiceImpl implements PostService {
     @Transactional
     public void removeTagsFromPost(Long postId, List<Long> tagIdsToRemove) throws AccessDeniedException {
         logger.info("Removing tags from post with ID {}", postId);
-        Post post = postMapper.toEntity(this.getPostById(postId));
+        Post post = this.getPostById(postId);
 
         if(userService.isLoggedInUserMatching(post.getUser().getId())){
             logger.warn("Unauthorized attempt to remove tags from a post owned by another user.");
@@ -352,7 +348,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public PaginatedResponse<PostGetDto> getPostsByCategory(Long categoryId, int pageNumber, int pageSize, String sortBy, String sortDir) {
         logger.info("Fetching posts for Category with ID : {}",categoryId);
-        Category category = categoryMapper.toEntity(categoryService.getCategoryById(categoryId));
+        Category category = categoryService.getCategoryById(categoryId);
 
         Sort sort = SortHelper.getSortOrder(sortBy,sortDir);
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);

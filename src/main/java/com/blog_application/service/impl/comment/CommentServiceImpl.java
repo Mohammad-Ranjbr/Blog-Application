@@ -1,7 +1,6 @@
 package com.blog_application.service.impl.comment;
 
 import com.blog_application.config.mapper.comment.CommentMapper;
-import com.blog_application.config.mapper.post.PostMapper;
 import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
@@ -22,14 +21,11 @@ import org.springframework.stereotype.Service;
 import java.nio.file.AccessDeniedException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    private final PostMapper postMapper;
     private final UserService userService;
     private final PostService postService;
     private final CommentMapper commentMapper;
@@ -37,9 +33,8 @@ public class CommentServiceImpl implements CommentService {
     private final static Logger logger = LoggerFactory.getLogger(CommentServiceImpl.class);
 
     @Autowired
-    public CommentServiceImpl(CommentMapper commentMapper,PostService postService,
-                              CommentRepository commentRepository,PostMapper postMapper,UserService userService){
-        this.postMapper = postMapper;
+    public CommentServiceImpl(CommentMapper commentMapper, PostService postService,
+                              CommentRepository commentRepository, UserService userService){
         this.userService = userService;
         this.postService = postService;
         this.commentMapper = commentMapper;
@@ -50,7 +45,7 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     public CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) throws AccessDeniedException {
         logger.info("Creating comment with content : {}",commentCreateDto.getContent());
-        Post post = postMapper.toEntity(postService.getPostById(postId));
+        Post post = postService.getPostById(postId);
         User user = userService.fetchUserById(userId);
 
         if(userService.isLoggedInUserMatching(user.getId())){
@@ -109,17 +104,25 @@ public class CommentServiceImpl implements CommentService {
             logger.warn("Comment with ID {} not found, Get comment operation not performed",commentId);
             return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Get Comment operation not performed");
         });
-        Optional<Comment> optionalComment = commentRepository.findById(commentId);
-        Consumer<Comment> printCommentDetails = foundComment -> System.out.println("Comment Found : "+comment);
-        optionalComment.ifPresent(printCommentDetails);
         logger.info("Comment found with ID : {}",commentId);
         return commentMapper.toCommentGetDto(comment);
     }
 
     @Override
+    public Comment fetchCommentById(Long commentId) {
+        logger.info("Fetching comment with ID : {}",commentId);
+        Comment comment = commentRepository.findById(commentId).orElseThrow(() -> {
+            logger.warn("Comment with ID {} not found, Get comment operation not performed",commentId);
+            return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Get Comment operation not performed");
+        });
+        logger.info("Comment found with ID : {}",commentId);
+        return comment;
+    }
+
+    @Override
     public List<CommentGetDto> getCommentsByPostId(Long postId) {
         logger.info("Fetching comments for post with ID : {}", postId);
-        Post post = postMapper.toEntity(postService.getPostById(postId));
+        Post post = postService.getPostById(postId);
         List<Comment> comments = commentRepository.findByPost(post);
         if(comments.isEmpty()){
             logger.info("No comments found for post with ID : {}", postId);
@@ -153,7 +156,7 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     public CommentGetDto updateComment(CommentUpdateDto commentUpdateDto, Long commentId) throws AccessDeniedException {
         logger.info("Updating comment with ID : {}",commentId);
-        Comment commentInDb = commentMapper.toEntity(this.getCommentById(commentId));
+        Comment commentInDb = this.fetchCommentById(commentId);
 
         if(userService.isLoggedInUserMatching(commentInDb.getUser().getId())){
             logger.warn("Unauthorized attempt to edit another user's comment.");

@@ -46,7 +46,7 @@ public class PostReactionServiceImpl implements PostReactionService {
     public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException {
         logger.info("Starting like post...");
         User user = userService.fetchUserById(postReactionRequestDto.getUserId());
-        Post post = postMapper.toEntity(postService.getPostById(postReactionRequestDto.getPostId()));
+        Post post = postService.getPostById(postReactionRequestDto.getPostId());
         Optional<PostReaction> existing = postReactionRepository.findByUserAndPost(user,post);
 
         if(userService.isLoggedInUserMatching(user.getId())){

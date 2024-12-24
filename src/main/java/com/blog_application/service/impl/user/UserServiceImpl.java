@@ -249,7 +249,7 @@ public class UserServiceImpl implements UserService {
         }
 
         try {
-            Post post = postMapper.toEntity(postService.getPostById(postId));
+            Post post = postService.getPostById(postId);
             post.getSavedByUsers().add(user);
             PostGetDto postGetDto = postMapper.toPostGetDto(postRepository.save(post));
             postService.updatePostInteractionStatus(postGetDto, postId, this.loggedInUserEmail());
@@ -273,7 +273,7 @@ public class UserServiceImpl implements UserService {
         }
 
         try {
-            Post post = postMapper.toEntity(postService.getPostById(postId));
+            Post post = postService.getPostById(postId);
             post.getSavedByUsers().remove(user);
             PostGetDto postGetDto = postMapper.toPostGetDto(postRepository.save(post));
             postService.updatePostInteractionStatus(postGetDto, postId, this.loggedInUserEmail());

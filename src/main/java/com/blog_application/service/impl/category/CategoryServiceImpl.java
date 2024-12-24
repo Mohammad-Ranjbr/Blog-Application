@@ -69,15 +69,23 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryGetDto getCategoryById(Long categoryId) {
+    public Category getCategoryById(Long categoryId) {
         logger.info("Fetching category with ID : {}",categoryId);
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
             logger.warn("Category with ID {} not found, Get category operation not performed",categoryId);
             return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category operation not performed");
         });
-        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
-        Consumer<Category> printCategoryDetails = foundCategory -> System.out.println("Category Found : " + foundCategory);
-        optionalCategory.ifPresent(printCategoryDetails);
+        logger.info("Category found with ID : {}",categoryId);
+        return category;
+    }
+
+    @Override
+    public CategoryGetDto fetchCategoryById(Long categoryId) {
+        logger.info("Fetching category with ID : {}",categoryId);
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> {
+            logger.warn("Category with ID {} not found, Get category operation not performed",categoryId);
+            return new ResourceNotFoundException("Category","ID",String.valueOf(categoryId),"Get Category operation not performed");
+        });
         logger.info("Category found with ID : {}",categoryId);
         return categoryMapper.toCategoryGetDto(category);
     }

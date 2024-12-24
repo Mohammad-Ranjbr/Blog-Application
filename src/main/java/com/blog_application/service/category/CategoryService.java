@@ -11,7 +11,8 @@ public interface CategoryService {
 
     void deleteCategory(Long categoryId);
     Category getCategoryByTitle(String title);
-    CategoryGetDto getCategoryById(Long categoryId);
+    Category getCategoryById(Long categoryId);
+    CategoryGetDto fetchCategoryById(Long categoryId);
     CategoryGetDto createCategory(CategoryCreateDto categoryDto);
     CategoryBasicInfoDto getCategoryBasicInfoById(Long categoryId);
     CategoryGetDto updateCategory(CategoryUpdateDto categoryUpdateDto, Long categoryId);

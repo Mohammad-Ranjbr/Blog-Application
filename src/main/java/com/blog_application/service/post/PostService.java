@@ -4,6 +4,7 @@ import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.dto.tag.TagCreateDto;
+import com.blog_application.model.post.Post;
 import com.blog_application.util.responses.PaginatedResponse;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public interface PostService {
 
     List<PostGetDto> getHomePosts();
     List<PostGetDto> getExplorePosts();
-    PostGetDto getPostById(Long postId);
+    Post getPostById(Long postId);
     PostGetDto getPostByIdWithImage(Long postId);
     void deletePost(Long post_id) throws AccessDeniedException;
     boolean checkIfSavedByCurrentUser(Long postId, String userEmail);
