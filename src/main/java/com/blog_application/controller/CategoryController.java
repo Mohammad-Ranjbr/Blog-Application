@@ -43,7 +43,7 @@ public class CategoryController {
     @GetMapping("/{id}")
     public ResponseEntity<CategoryGetDto> getCategoryById(@PathVariable("id") Long categoryId){
         logger.info("Received request to get category with ID : {}",categoryId);
-        CategoryGetDto categoryGetDto = categoryService.getCategoryById(categoryId);
+        CategoryGetDto categoryGetDto = categoryService.fetchCategoryById(categoryId);
         logger.info("Returning response for get category with ID : {}",categoryId);
         return new ResponseEntity<>(categoryGetDto,HttpStatus.OK);
     }
