@@ -21,6 +21,8 @@ public class CommentGetDto {
     private Long parent;
     private int likes;
     private int dislikes;
+    private boolean isLikedByCurrentUser;
+    private boolean isDislikeByCurrentUser;
     private List<CommentGetDto> replies;
 
 }

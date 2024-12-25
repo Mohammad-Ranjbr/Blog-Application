@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -91,6 +92,27 @@ public class CommentReactionServiceImpl implements CommentReactionService {
             logger.error("Error while adding a reaction to the comment. Error: {}", exception.getMessage(), exception);
             throw exception;
         }
+    }
+
+    @Override
+    public boolean checkIfLikedByCurrentUser(Long commentId, String userEmail) {
+        return commentReactionRepository.existsLikeByCommentIdAndUserEmail(commentId, userEmail);
+    }
+
+    @Override
+    public boolean checkIfDislikedByCurrentUser(Long commentId, String userEmail) {
+        return commentReactionRepository.existsDislikeByCommentIdAndUserEmail(commentId, userEmail);
+    }
+
+    @Override
+    public void updateReactionStatusForComments(List<CommentGetDto> commentGetDtos, String userEmail) {
+        logger.info("Updating reaction status for comments for user {}", userEmail);
+        List<Long> likedCommentIds = commentReactionRepository.findLikedCommentIdsByUserEmail(userEmail);
+        List<Long> dislikedCommentIds = commentReactionRepository.findDislikedCommentIdsByUserEmail(userEmail);
+        commentGetDtos.forEach(comment -> {
+            comment.setLikedByCurrentUser(likedCommentIds.contains(comment.getId()));
+            comment.setDislikeByCurrentUser(dislikedCommentIds.contains(comment.getId()));
+        });
     }
 
 }

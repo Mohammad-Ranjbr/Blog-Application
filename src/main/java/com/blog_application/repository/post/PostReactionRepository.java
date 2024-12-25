@@ -18,8 +18,10 @@ public interface PostReactionRepository extends JpaRepository<PostReaction,Long>
 
     @Query("select count(pr) from PostReaction pr where pr.post = :post and pr.isLike = true")
     int countLikByPost(@Param("post") Post post);
+
     @Query("SELECT CASE WHEN (COUNT(pr) > 0) THEN true ELSE false END FROM PostReaction pr WHERE pr.post.id = :post_id AND pr.user.email = :user_email")
     boolean existsLikeByPostIdAndUserEmail(@Param("post_id") Long postId, @Param("user_email") String email);
+
     @Query("SELECT pr.post.id FROM PostReaction pr WHERE pr.user.email = :user_email AND pr.isLike = true")
     List<Long> findLikedPostIdsByUserEmail(@Param("user_email") String userEmail);
 
