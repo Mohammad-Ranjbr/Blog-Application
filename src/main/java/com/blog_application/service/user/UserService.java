@@ -23,8 +23,8 @@ public interface UserService {
     UserGetDto getUserById(UUID userId);
     UserGetDto getUserWithImage(UUID userId);
     List<UserBasicInfoDto> searchUsersByUsernameOrName(String keyword);
-    PostGetDto savePost(UUID userId,Long postId) throws AccessDeniedException;
-    PostGetDto unSavePost(UUID userId,Long postId) throws AccessDeniedException;
+    void savePost(UUID userId,Long postId) throws AccessDeniedException;
+    void unSavePost(UUID userId,Long postId) throws AccessDeniedException;
     List<UserGetDto> getFollowers(UUID userId);
     List<UserGetDto> getFollowing(UUID userId);
     boolean isLoggedInUserMatching(UUID userId);

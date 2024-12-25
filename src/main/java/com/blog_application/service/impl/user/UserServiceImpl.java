@@ -239,7 +239,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public PostGetDto savePost(UUID userId, Long postId) throws AccessDeniedException {
+    public void savePost(UUID userId, Long postId) throws AccessDeniedException {
         logger.info("Saving post with ID: {} for user with ID: {}", postId, userId);
 
         User user = this.fetchUserById(userId);
@@ -251,10 +251,8 @@ public class UserServiceImpl implements UserService {
         try {
             Post post = postService.getPostById(postId);
             post.getSavedByUsers().add(user);
-            PostGetDto postGetDto = postMapper.toPostGetDto(postRepository.save(post));
-            postService.updatePostInteractionStatus(postGetDto, postId, this.loggedInUserEmail());
+            postRepository.save(post);
             logger.info("Post with ID: {} saved successfully for user with ID: {}", postId, userId);
-            return postGetDto;
         } catch (Exception exception){
             logger.error("Error occurred while saving the post by the user. User ID: {} ,Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
             throw exception;
@@ -263,7 +261,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public PostGetDto unSavePost(UUID userId, Long postId) throws AccessDeniedException {
+    public void unSavePost(UUID userId, Long postId) throws AccessDeniedException {
         logger.info("UnSaving post with ID: {} for user with ID: {}", postId, userId);
 
         User user = this.fetchUserById(userId);
@@ -275,10 +273,8 @@ public class UserServiceImpl implements UserService {
         try {
             Post post = postService.getPostById(postId);
             post.getSavedByUsers().remove(user);
-            PostGetDto postGetDto = postMapper.toPostGetDto(postRepository.save(post));
-            postService.updatePostInteractionStatus(postGetDto, postId, this.loggedInUserEmail());
+            postRepository.save(post);
             logger.info("Post with ID: {} unsaved successfully for user with ID: {}", postId, userId);
-            return postGetDto;
         } catch (Exception exception){
             logger.error("Error occurred while unsaved the post by the user. User ID: {} ,Post ID: {}, Error: {}", userId, postId, exception.getMessage(), exception);
             throw exception;
