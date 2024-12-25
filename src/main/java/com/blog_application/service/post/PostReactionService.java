@@ -10,6 +10,6 @@ public interface PostReactionService {
 
     boolean checkIfLikedByCurrentUser(Long postId, String userEmail);
     void updateLikedStatusForPosts(List<PostGetDto> postGetDtos, String userEmail);
-    PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException;
+    int likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException;
 
 }

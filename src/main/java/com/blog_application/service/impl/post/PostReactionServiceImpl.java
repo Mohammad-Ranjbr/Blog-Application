@@ -1,6 +1,5 @@
 package com.blog_application.service.impl.post;
 
-import com.blog_application.config.mapper.post.PostMapper;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
 import com.blog_application.model.post.Post;
@@ -24,7 +23,6 @@ import java.util.Optional;
 @Service
 public class PostReactionServiceImpl implements PostReactionService {
 
-    private final PostMapper postMapper;
     private final UserService userService;
     private final PostService postService;
     private final PostRepository postRepository;
@@ -32,9 +30,8 @@ public class PostReactionServiceImpl implements PostReactionService {
     private final static Logger logger = LoggerFactory.getLogger(PostReactionServiceImpl.class);
 
     @Autowired
-    public PostReactionServiceImpl(PostMapper postMapper, UserService userService, PostService postService,
+    public PostReactionServiceImpl(UserService userService, PostService postService,
                                    PostRepository postRepository, PostReactionRepository postReactionRepository){
-        this.postMapper = postMapper;
         this.userService = userService;
         this.postService = postService;
         this.postRepository = postRepository;
@@ -43,7 +40,7 @@ public class PostReactionServiceImpl implements PostReactionService {
 
     @Override
     @Transactional
-    public PostGetDto likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException {
+    public int likePost(PostReactionRequestDto postReactionRequestDto) throws AccessDeniedException {
         logger.info("Starting like post...");
         User user = userService.fetchUserById(postReactionRequestDto.getUserId());
         Post post = postService.getPostById(postReactionRequestDto.getPostId());
@@ -55,7 +52,6 @@ public class PostReactionServiceImpl implements PostReactionService {
         }
 
         try{
-            boolean isLiked = false;
             PostReaction postReaction;
             if(existing.isPresent()){
                 postReaction = existing.get();
@@ -71,7 +67,6 @@ public class PostReactionServiceImpl implements PostReactionService {
                     postReaction.setPost(post);
                     postReaction.setLike(true);
                     postReactionRepository.save(postReaction);
-                    isLiked = true;
                     logger.info("New Like added for user {} on post {}", user.getId(), post.getId());
                 }
             }
@@ -81,9 +76,7 @@ public class PostReactionServiceImpl implements PostReactionService {
             postRepository.save(post);
 
             logger.info("like Post finished.");
-            PostGetDto postGetDto = postMapper.toPostGetDto(post);
-            postGetDto.setLikedByCurrentUser(isLiked);
-            return postGetDto;
+            return post.getLikes();
         } catch (Exception exception){
             logger.error("Error occurred while like post {} by user  {}, Error: {}", postReactionRequestDto.getPostId(), postReactionRequestDto.getUserId(), exception.getMessage(), exception);
             throw exception;

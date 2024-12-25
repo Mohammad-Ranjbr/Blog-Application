@@ -4,6 +4,7 @@ import com.blog_application.dto.post.PostCreateDto;
 import com.blog_application.dto.post.PostGetDto;
 import com.blog_application.dto.post.PostUpdateDto;
 import com.blog_application.dto.post.reaction.PostReactionRequestDto;
+import com.blog_application.dto.post.reaction.PostReactionResponseDto;
 import com.blog_application.dto.tag.TagCreateDto;
 import com.blog_application.service.post.PostReactionService;
 import com.blog_application.service.post.PostService;
@@ -169,15 +170,11 @@ public class PostController {
 
     @PostMapping("/like")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<PostGetDto> likePost(@RequestBody PostReactionRequestDto requestDto) throws AccessDeniedException {
+    public ResponseEntity<PostReactionResponseDto> likePost(@RequestBody PostReactionRequestDto requestDto) throws AccessDeniedException {
         logger.info("Received like request for User {} on Post {}", requestDto.getUserId(), requestDto.getPostId());
-        PostGetDto postGetDto = postReactionService.likePost(requestDto);
-        if(postGetDto == null){
-            logger.warn("No response DTO generated for like post request");
-            return ResponseEntity.noContent().build();
-        }
+        int likes = postReactionService.likePost(requestDto);
         logger.info("Returning response for like post with User {} on Post {}", requestDto.getUserId(), requestDto.getPostId());
-        return new ResponseEntity<>(postGetDto,HttpStatus.OK);
+        return new ResponseEntity<>(new PostReactionResponseDto(true, likes, "The post reaction was successful."),HttpStatus.OK);
     }
 
     @PostMapping("/{post_id}/tags")
