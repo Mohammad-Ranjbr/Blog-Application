@@ -105,7 +105,7 @@ public class CommentServiceImpl implements CommentService {
     public CommentGetDto getCommentById(Long commentId) {
         logger.info("Fetching comment with ID : {}",commentId);
         CommentGetDto commentGetDto = commentMapper.toCommentGetDto(this.fetchCommentById(commentId));
-        this.updateCommentReactionStatus(commentGetDto, commentId, userService.loggedInUserEmail());
+        this.updateCommentReactionStatus(commentGetDto, userService.loggedInUserEmail());
         return commentGetDto;
     }
 
@@ -161,9 +161,9 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void updateCommentReactionStatus(CommentGetDto commentGetDto, Long commentId, String userEmail) {
-        boolean isLiked = commentReactionService.checkIfLikedByCurrentUser(commentId, userEmail);
-        boolean isDisliked = commentReactionService.checkIfDislikedByCurrentUser(commentId, userEmail);
+    public void updateCommentReactionStatus(CommentGetDto commentGetDto, String userEmail) {
+        boolean isLiked = commentReactionService.checkIfLikedByCurrentUser(commentGetDto.getId(), userEmail);
+        boolean isDisliked = commentReactionService.checkIfDislikedByCurrentUser(commentGetDto.getId(), userEmail);
         commentGetDto.setLikedByCurrentUser(isLiked);
         commentGetDto.setDislikeByCurrentUser(isDisliked);
     }
