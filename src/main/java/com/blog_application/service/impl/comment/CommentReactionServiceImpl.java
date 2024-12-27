@@ -1,8 +1,8 @@
 package com.blog_application.service.impl.comment;
 
-import com.blog_application.config.mapper.comment.CommentMapper;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.reaction.CommentReactionRequestDto;
+import com.blog_application.dto.comment.reaction.ReactionCountsDto;
 import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.comment.Comment;
 import com.blog_application.model.comment.CommentReaction;
@@ -25,7 +25,6 @@ import java.util.Optional;
 public class CommentReactionServiceImpl implements CommentReactionService {
 
     private final UserService userService;
-    private final CommentMapper commentMapper;
     private final CommentRepository commentRepository;
     private final CommentReactionRepository commentReactionRepository;
 
@@ -33,16 +32,15 @@ public class CommentReactionServiceImpl implements CommentReactionService {
 
     @Autowired
     public CommentReactionServiceImpl(UserService userService, CommentReactionRepository commentReactionRepository
-                                     , CommentRepository commentRepository, CommentMapper commentMapper){
+                                     , CommentRepository commentRepository){
         this.userService  =userService;
-        this.commentMapper = commentMapper;
         this.commentRepository = commentRepository;
         this.commentReactionRepository = commentReactionRepository;
     }
 
     @Override
     @Transactional
-    public CommentGetDto likeDislikeComment(CommentReactionRequestDto requestDTO) throws AccessDeniedException {
+    public ReactionCountsDto likeDislikeComment(CommentReactionRequestDto requestDTO) throws AccessDeniedException {
         logger.info("Starting like/Dislike Comment...");
         User user = userService.fetchUserById(requestDTO.getUserId());
         Comment comment = commentRepository.findById(requestDTO.getCommentId()).orElseThrow(() -> {
@@ -87,7 +85,7 @@ public class CommentReactionServiceImpl implements CommentReactionService {
             commentRepository.save(comment);
 
             logger.info("likeDislikeComment finished.");
-            return commentMapper.toCommentGetDto(comment);
+            return new ReactionCountsDto(comment.getLikes(), comment.getDislikes());
         } catch (Exception exception){
             logger.error("Error while adding a reaction to the comment. Error: {}", exception.getMessage(), exception);
             throw exception;

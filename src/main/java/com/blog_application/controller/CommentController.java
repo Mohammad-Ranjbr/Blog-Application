@@ -4,6 +4,8 @@ import com.blog_application.dto.comment.CommentCreateDto;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.CommentUpdateDto;
 import com.blog_application.dto.comment.reaction.CommentReactionRequestDto;
+import com.blog_application.dto.comment.reaction.CommentReactionResponseDto;
+import com.blog_application.dto.comment.reaction.ReactionCountsDto;
 import com.blog_application.service.comment.CommentReactionService;
 import com.blog_application.service.comment.CommentService;
 import com.blog_application.util.responses.ApiResponse;
@@ -96,15 +98,12 @@ public class CommentController {
 
     @PostMapping("/like-dislike")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<CommentGetDto> likeDislikeComment(@RequestBody CommentReactionRequestDto requestDto) throws AccessDeniedException {
+    public ResponseEntity<CommentReactionResponseDto> likeDislikeComment(@RequestBody CommentReactionRequestDto requestDto) throws AccessDeniedException {
         logger.info("Received like/dislike request for User {} on Comment {}", requestDto.getUserId(), requestDto.getCommentId());
-        CommentGetDto commentGetDto = commentReactionService.likeDislikeComment(requestDto);
-        if (commentGetDto == null) {
-            logger.warn("No response DTO generated for like/dislike comment request");
-            return ResponseEntity.noContent().build();
-        }
+        ReactionCountsDto reactionCountsDto = commentReactionService.likeDislikeComment(requestDto);
         logger.info("Returning response for like/dislike comment with User {} on Comment {}", requestDto.getUserId(), requestDto.getCommentId());
-        return new ResponseEntity<>(commentGetDto,HttpStatus.OK);
+        return new ResponseEntity<>(new CommentReactionResponseDto(true, reactionCountsDto.likes(), reactionCountsDto.dislikes(),
+                "The comment reaction was successful."),HttpStatus.OK);
     }
 
 
