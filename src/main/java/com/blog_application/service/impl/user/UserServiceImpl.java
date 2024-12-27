@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     @Value("${user.default-image}")
-    private String userDefaultPage;
+    private String userDefaultImage;
     @Value("${minio.user-bucket-name}")
     private String userImagesBucket;
     private final UserMapper userMapper;
@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
             user.setPassword(hashPassword);
             user.setRoles(Set.of(userRole));
             user.setSoftDelete(false);
-            user.setImageName(userDefaultPage);
+            user.setImageName(userDefaultImage);
             User savedUser = userRepository.save(user);
             if(savedUser.getId() != null){
                 System.out.println(savedUser);
@@ -541,7 +541,9 @@ public class UserServiceImpl implements UserService {
         try{
             if(imageData.base64Content() != null && !imageData.base64Content().isEmpty()){
                 imageUrl = imageService.uploadImage(imageData, userImagesBucket);
-                imageService.deleteImage(user.getImageName(), userImagesBucket);
+                if (!user.getImageName().equals(userDefaultImage)){
+                    imageService.deleteImage(user.getImageName(), userImagesBucket);
+                }
                 user.setImageName(imageUrl);
                 userRepository.save(user);
             } else {
