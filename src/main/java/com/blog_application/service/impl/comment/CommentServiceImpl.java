@@ -131,6 +131,7 @@ public class CommentServiceImpl implements CommentService {
         } else {
             List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
             logger.info("{} comments found for post with ID : {}", comments.size(), postId);
+            this.updateCommentsReactionStatus(commentGetDtos, userService.loggedInUserEmail());
             return commentGetDtos;
         }
     }
@@ -149,8 +150,14 @@ public class CommentServiceImpl implements CommentService {
         } else {
             List<CommentGetDto> commentGetDtos = comments.stream().map(commentMapper::toCommentGetDto).toList();
             logger.info("{} child comments found for parent comment with ID: {}", comments.size(), parentId);
+            this.updateCommentsReactionStatus(commentGetDtos, userService.loggedInUserEmail());
             return commentGetDtos;
         }
+    }
+
+    @Override
+    public void updateCommentsReactionStatus(List<CommentGetDto> commentGetDtos, String userEmail) {
+        commentReactionService.updateReactionStatusForComments(commentGetDtos, userEmail);
     }
 
     @Override
