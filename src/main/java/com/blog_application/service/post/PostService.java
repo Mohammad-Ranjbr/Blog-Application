@@ -21,7 +21,7 @@ public interface PostService {
     void deletePost(Long post_id) throws AccessDeniedException;
     boolean checkIfSavedByCurrentUser(Long postId, String userEmail);
     void updateSavedStatusForPosts(List<PostGetDto> postGetDtos, String userEmail);
-    void updatePostInteractionStatus(PostGetDto postGetDto, Long postId, String userEmail);
+    void updatePostInteractionStatus(PostGetDto postGetDto, String userEmail);
     void updatePostsInteractionStatus(List<PostGetDto> postGetDtoList, String userEmail);
     PostGetDto updatePost(PostUpdateDto postDto, Long postId) throws AccessDeniedException;
     void removeTagsFromPost(Long postId,List<Long> tagIdsToRemove ) throws AccessDeniedException;

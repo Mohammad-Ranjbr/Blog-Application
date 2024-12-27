@@ -245,7 +245,7 @@ public class PostServiceImpl implements PostService {
     public PostGetDto getPostByIdWithImage(Long postId) {
         logger.info("Fetching post with ID : {}",postId);
         PostGetDto postGetDto = postMapper.toPostGetDto(getPostById(postId));
-        this.updatePostInteractionStatus(postGetDto, postId, userService.loggedInUserEmail());
+        this.updatePostInteractionStatus(postGetDto, userService.loggedInUserEmail());
         String postImage = imageService.downloadImage(postGetDto.getImageName(), postImagesBucket);
         String userImage = imageService.downloadImage(postGetDto.getUser().getImage(), userImagesBucket);
         postGetDto.setImage(postImage);
@@ -472,10 +472,10 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void updatePostInteractionStatus(PostGetDto postGetDto, Long postId, String userEmail) {
+    public void updatePostInteractionStatus(PostGetDto postGetDto, String userEmail) {
         commentService.updateCommentsReactionStatus(postGetDto.getComments(), userEmail);
-        boolean isLiked = postReactionService.checkIfLikedByCurrentUser(postId, userEmail);
-        postGetDto.setSavedByCurrentUser(this.checkIfSavedByCurrentUser(postId, userEmail));
+        boolean isLiked = postReactionService.checkIfLikedByCurrentUser(postGetDto.getId(), userEmail);
+        postGetDto.setSavedByCurrentUser(this.checkIfSavedByCurrentUser(postGetDto.getId(), userEmail));
         postGetDto.setLikedByCurrentUser(isLiked);
     }
 
