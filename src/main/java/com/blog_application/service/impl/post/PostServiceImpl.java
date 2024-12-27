@@ -486,6 +486,7 @@ public class PostServiceImpl implements PostService {
         this.updateSavedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
     }
 
+    @Override
     public List<PostGetDto> convertPostsToPostDtos(List<Post> posts){
         return  posts.stream()
                 .map(post -> {

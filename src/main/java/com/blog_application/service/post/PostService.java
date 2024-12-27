@@ -18,6 +18,7 @@ public interface PostService {
     List<PostGetDto> getExplorePosts();
     Post getPostById(Long postId);
     PostGetDto getPostByIdWithImage(Long postId);
+    List<PostGetDto> convertPostsToPostDtos(List<Post> posts);
     void deletePost(Long post_id) throws AccessDeniedException;
     boolean checkIfSavedByCurrentUser(Long postId, String userEmail);
     void updateSavedStatusForPosts(List<PostGetDto> postGetDtos, String userEmail);

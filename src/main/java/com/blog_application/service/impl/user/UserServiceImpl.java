@@ -1,6 +1,5 @@
 package com.blog_application.service.impl.user;
 
-import com.blog_application.config.mapper.post.PostMapper;
 import com.blog_application.config.mapper.user.UserMapper;
 import com.blog_application.dto.image.ImageData;
 import com.blog_application.dto.post.PostGetDto;
@@ -46,7 +45,6 @@ public class UserServiceImpl implements UserService {
     @Value("${minio.user-bucket-name}")
     private String userImagesBucket;
     private final UserMapper userMapper;
-    private final PostMapper postMapper;
     private final PostService postService;
     private final RoleService roleService;
     private final ImageService imageService;
@@ -57,10 +55,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, RoleService roleService
-            ,@Lazy PostService postService, PostMapper postMapper,PostRepository postRepository,PasswordEncoder passwordEncoder,
+            ,@Lazy PostService postService,PostRepository postRepository,PasswordEncoder passwordEncoder,
                            ImageService imageService){
         this.userMapper = userMapper;
-        this.postMapper = postMapper;
         this.postService = postService;
         this.roleService = roleService;
         this.imageService = imageService;
@@ -407,9 +404,7 @@ public class UserServiceImpl implements UserService {
         try{
             List<Post> savedPosts = new ArrayList<>(user.getSavedPosts());
             logger.info("Fetched {} saved posts for user with ID: {}", savedPosts.size(), userId);
-            List<PostGetDto> postGetDtoList =  savedPosts.stream()
-                    .map(postMapper::toPostGetDto)
-                    .collect(Collectors.toList());
+            List<PostGetDto> postGetDtoList = postService.convertPostsToPostDtos(savedPosts);
             postService.updatePostsInteractionStatus(postGetDtoList, this.loggedInUserEmail());
             return postGetDtoList;
         } catch (Exception exception){
