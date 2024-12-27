@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
@@ -23,8 +24,9 @@ public class MinioServiceImpl implements MinioService {
         this.s3Client = s3Client;
     }
 
+    @Override
     public String uploadFile(String bucketName, String fileName, InputStream inputStream, Long contentLength, String contentType) {
-        logger.info("Received request to upload image: {}", fileName);
+        logger.info("Received request to upload file: {}", fileName);
 
         PutObjectRequest request = PutObjectRequest.builder()
                 .bucket(bucketName)
@@ -41,6 +43,7 @@ public class MinioServiceImpl implements MinioService {
         }
     }
 
+    @Override
     public InputStream downloadFile(String bucketName, String fileName){
         logger.info("Initiating download for file: {}", fileName);
         try {
@@ -55,6 +58,21 @@ public class MinioServiceImpl implements MinioService {
         } catch (Exception exception){
             logger.error("Error occurred while downloading file: {}, Error: {}", fileName, exception.getMessage(), exception);
             throw new RuntimeException("Error downloading file", exception);
+        }
+    }
+
+    @Override
+    public void deleteFile(String bucketName, String fileName) {
+        logger.info("Received request to delete file: {}", fileName);
+        try {
+            s3Client.deleteObject(DeleteObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(fileName)
+                    .build());
+            logger.info("File deleted successfully: {}", fileName);
+        } catch (Exception exception){
+            logger.error("Error occurred while deleting file: {}, Error: {}", fileName, exception.getMessage(), exception);
+            throw new RuntimeException("Error deleting file", exception);
         }
     }
 

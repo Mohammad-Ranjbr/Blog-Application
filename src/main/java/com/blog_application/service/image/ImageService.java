@@ -8,5 +8,6 @@ public interface ImageService {
 
     String uploadImage(ImageData imageData, String bucketName) throws IOException;
     String downloadImage(String fileName, String bucketName);
+    void deleteImage(String fileName, String bucketName);
 
 }

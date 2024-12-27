@@ -52,4 +52,9 @@ public class ImageServiceImpl implements ImageService {
         }
     }
 
+    @Override
+    public void deleteImage(String fileName, String bucketName){
+        minioService.deleteFile(bucketName, fileName);
+    }
+
 }

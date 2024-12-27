@@ -541,6 +541,7 @@ public class UserServiceImpl implements UserService {
         try{
             if(imageData.base64Content() != null && !imageData.base64Content().isEmpty()){
                 imageUrl = imageService.uploadImage(imageData, userImagesBucket);
+                imageService.deleteImage(user.getImageName(), userImagesBucket);
                 user.setImageName(imageUrl);
                 userRepository.save(user);
             } else {

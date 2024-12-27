@@ -1,6 +1,5 @@
 package com.blog_application.dto.user;
 
-import com.blog_application.dto.image.ImageData;
 import com.blog_application.util.constants.ApplicationConstants;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
