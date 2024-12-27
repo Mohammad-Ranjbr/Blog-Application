@@ -9,6 +9,7 @@ import com.blog_application.model.comment.Comment;
 import com.blog_application.model.post.Post;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.comment.CommentRepository;
+import com.blog_application.service.comment.CommentReactionService;
 import com.blog_application.service.comment.CommentService;
 import com.blog_application.service.post.PostService;
 import com.blog_application.service.user.UserService;
@@ -16,6 +17,7 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
@@ -30,15 +32,17 @@ public class CommentServiceImpl implements CommentService {
     private final PostService postService;
     private final CommentMapper commentMapper;
     private final CommentRepository commentRepository;
+    private final CommentReactionService commentReactionService;
     private final static Logger logger = LoggerFactory.getLogger(CommentServiceImpl.class);
 
     @Autowired
     public CommentServiceImpl(CommentMapper commentMapper, PostService postService,
-                              CommentRepository commentRepository, UserService userService){
+                              CommentRepository commentRepository, UserService userService, @Lazy CommentReactionService commentReactionService){
         this.userService = userService;
         this.postService = postService;
         this.commentMapper = commentMapper;
         this.commentRepository = commentRepository;
+        this.commentReactionService = commentReactionService;
     }
 
     @Override
@@ -100,12 +104,9 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public CommentGetDto getCommentById(Long commentId) {
         logger.info("Fetching comment with ID : {}",commentId);
-        Comment comment = commentRepository.findById(commentId).orElseThrow(() -> {
-            logger.warn("Comment with ID {} not found, Get comment operation not performed",commentId);
-            return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Get Comment operation not performed");
-        });
-        logger.info("Comment found with ID : {}",commentId);
-        return commentMapper.toCommentGetDto(comment);
+        CommentGetDto commentGetDto = commentMapper.toCommentGetDto(this.fetchCommentById(commentId));
+        this.updateCommentReactionStatus(commentGetDto, commentId, userService.loggedInUserEmail());
+        return commentGetDto;
     }
 
     @Override
@@ -150,6 +151,14 @@ public class CommentServiceImpl implements CommentService {
             logger.info("{} child comments found for parent comment with ID: {}", comments.size(), parentId);
             return commentGetDtos;
         }
+    }
+
+    @Override
+    public void updateCommentReactionStatus(CommentGetDto commentGetDto, Long commentId, String userEmail) {
+        boolean isLiked = commentReactionService.checkIfLikedByCurrentUser(commentId, userEmail);
+        boolean isDisliked = commentReactionService.checkIfDislikedByCurrentUser(commentId, userEmail);
+        commentGetDto.setLikedByCurrentUser(isLiked);
+        commentGetDto.setDislikeByCurrentUser(isDisliked);
     }
 
     @Override

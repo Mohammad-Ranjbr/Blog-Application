@@ -3,13 +3,13 @@ package com.blog_application.service.impl.comment;
 import com.blog_application.dto.comment.CommentGetDto;
 import com.blog_application.dto.comment.reaction.CommentReactionRequestDto;
 import com.blog_application.dto.comment.reaction.ReactionCountsDto;
-import com.blog_application.exception.ResourceNotFoundException;
 import com.blog_application.model.comment.Comment;
 import com.blog_application.model.comment.CommentReaction;
 import com.blog_application.model.user.User;
 import com.blog_application.repository.comment.CommentReactionRepository;
 import com.blog_application.repository.comment.CommentRepository;
 import com.blog_application.service.comment.CommentReactionService;
+import com.blog_application.service.comment.CommentService;
 import com.blog_application.service.user.UserService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -25,6 +25,7 @@ import java.util.Optional;
 public class CommentReactionServiceImpl implements CommentReactionService {
 
     private final UserService userService;
+    private final CommentService commentService;
     private final CommentRepository commentRepository;
     private final CommentReactionRepository commentReactionRepository;
 
@@ -32,8 +33,9 @@ public class CommentReactionServiceImpl implements CommentReactionService {
 
     @Autowired
     public CommentReactionServiceImpl(UserService userService, CommentReactionRepository commentReactionRepository
-                                     , CommentRepository commentRepository){
+                                     , CommentRepository commentRepository, CommentService commentService){
         this.userService  =userService;
+        this.commentService = commentService;
         this.commentRepository = commentRepository;
         this.commentReactionRepository = commentReactionRepository;
     }
@@ -43,10 +45,7 @@ public class CommentReactionServiceImpl implements CommentReactionService {
     public ReactionCountsDto likeDislikeComment(CommentReactionRequestDto requestDTO) throws AccessDeniedException {
         logger.info("Starting like/Dislike Comment...");
         User user = userService.fetchUserById(requestDTO.getUserId());
-        Comment comment = commentRepository.findById(requestDTO.getCommentId()).orElseThrow(() -> {
-            logger.warn("Comment with ID {} not found, Get comment operation not performed",requestDTO.getCommentId());
-            return new ResourceNotFoundException("Comment","ID",String.valueOf(requestDTO.getCommentId()),"Get Comment operation not performed");
-        });
+        Comment comment = commentService.fetchCommentById(requestDTO.getCommentId());
         Optional<CommentReaction> existing  = commentReactionRepository.findByUserAndComment(user,comment);
 
         if(userService.isLoggedInUserMatching(requestDTO.getUserId())){

@@ -16,6 +16,7 @@ public interface CommentService {
     CommentGetDto getCommentById(Long commentId);
     List<CommentGetDto> getCommentsByPostId(Long postId);
     List<CommentGetDto> getCommentsByParentId(Long parentId);
+    void updateCommentReactionStatus(CommentGetDto commentGetDto, Long commentId, String userEmail);
     CommentGetDto updateComment(CommentUpdateDto commentUpdateDto, Long commentId) throws AccessDeniedException;
     CommentGetDto createComment(CommentCreateDto commentCreateDto, Long postId, UUID userId) throws AccessDeniedException;
 
