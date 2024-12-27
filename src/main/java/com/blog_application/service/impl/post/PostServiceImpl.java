@@ -16,6 +16,7 @@ import com.blog_application.repository.post.PostRepository;
 import com.blog_application.repository.tag.TagRepository;
 import com.blog_application.repository.user.UserRepository;
 import com.blog_application.service.category.CategoryService;
+import com.blog_application.service.comment.CommentService;
 import com.blog_application.service.image.ImageService;
 import com.blog_application.service.post.PostReactionService;
 import com.blog_application.service.post.PostService;
@@ -60,13 +61,14 @@ public class PostServiceImpl implements PostService {
     private final TagRepository tagRepository;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
+    private final CommentService commentService;
     private final CategoryService categoryService;
     private final PostReactionService postReactionService;
     private final static Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
 
     @Autowired
     public PostServiceImpl(PostMapper postMapper, PostRepository postRepository,UserService userService,
-                           CategoryService categoryService, UserRepository userRepository,
+                           CategoryService categoryService, UserRepository userRepository, @Lazy CommentService commentService,
                            TagRepository tagRepository, ImageService imageService, @Lazy PostReactionService postReactionService){
         this.postMapper =  postMapper;
         this.userService = userService;
@@ -74,6 +76,7 @@ public class PostServiceImpl implements PostService {
         this.tagRepository = tagRepository;
         this.postRepository = postRepository;
         this.userRepository = userRepository;
+        this.commentService = commentService;
         this.categoryService = categoryService;
         this.postReactionService = postReactionService;
     }
@@ -470,6 +473,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void updatePostInteractionStatus(PostGetDto postGetDto, Long postId, String userEmail) {
+        commentService.updateCommentsReactionStatus(postGetDto.getComments(), userEmail);
         boolean isLiked = postReactionService.checkIfLikedByCurrentUser(postId, userEmail);
         postGetDto.setSavedByCurrentUser(this.checkIfSavedByCurrentUser(postId, userEmail));
         postGetDto.setLikedByCurrentUser(isLiked);
@@ -477,6 +481,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void updatePostsInteractionStatus(List<PostGetDto> postGetDtoList, String userEmail) {
+        postGetDtoList.forEach(post -> commentService.updateCommentsReactionStatus(post.getComments(), userEmail));
         postReactionService.updateLikedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
         this.updateSavedStatusForPosts(postGetDtoList, userService.loggedInUserEmail());
     }
