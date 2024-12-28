@@ -47,12 +47,12 @@ public class PostController {
     @SecurityRequirement(name = "Jwt Token Authentication")
     @Operation(summary = "Create Post Rest Api", description = "Create Post Rest Api is used save post into database")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201",description = "Http Status 201 CREATED")
-    public ResponseEntity<PostGetDto> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId,
+    public ResponseEntity<ApiResponse> createPost(@Valid @RequestBody PostCreateDto postCreateDto, @PathVariable("userId") UUID userId,
                                                  @PathVariable("categoryId") Long categoryId) throws IOException {
         logger.info("Received request to create post for user with ID : {} and category with ID : {}", userId, categoryId);
-        PostGetDto createdPost = postService.createPost(postCreateDto, userId, categoryId);
-        logger.info("Returning response for post creation with title: {}", createdPost.getTitle());
-        return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
+        postService.createPost(postCreateDto, userId, categoryId);
+        logger.info("Returning response for post creation with title: {}", postCreateDto.getTitle());
+        return new ResponseEntity<>(new ApiResponse("Post created successfully.", true), HttpStatus.CREATED);
     }
 
     //GET Mapping-Get All Posts By User
