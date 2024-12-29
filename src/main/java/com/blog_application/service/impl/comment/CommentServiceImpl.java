@@ -170,7 +170,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    public CommentGetDto updateComment(CommentUpdateDto commentUpdateDto, Long commentId) throws AccessDeniedException {
+    public void updateComment(CommentUpdateDto commentUpdateDto, Long commentId) throws AccessDeniedException {
         logger.info("Updating comment with ID : {}",commentId);
         Comment commentInDb = this.fetchCommentById(commentId);
 
@@ -180,7 +180,7 @@ public class CommentServiceImpl implements CommentService {
         }
 
         try {
-            Comment updatedComment = commentRepository.findById(commentId).map(comment -> {
+            commentRepository.findById(commentId).map(comment -> {
                 comment.setContent(commentUpdateDto.getContent());
                 Comment savedComment = commentRepository.save(comment);
                 logger.info("Comment with ID {} updated successfully",commentId);
@@ -189,7 +189,6 @@ public class CommentServiceImpl implements CommentService {
                 logger.warn("Comment with ID {} not found, Delete comment operation not performed",commentId);
                 return new ResourceNotFoundException("Comment","ID",String.valueOf(commentId),"Delete Comment operation not performed");
             });
-            return commentMapper.toCommentGetDto(updatedComment);
         } catch (Exception exception){
             logger.error("Error occurred while updating comment, Error: {}", exception.getMessage(), exception);
             throw exception;

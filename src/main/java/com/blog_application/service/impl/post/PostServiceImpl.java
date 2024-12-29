@@ -84,7 +84,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostGetDto createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws IOException {
+    public void createPost(PostCreateDto postCreateDto, UUID userId, Long categoryId) throws IOException {
         logger.info("Creating post with title : {}",postCreateDto.getTitle());
 
         User user = userService.fetchUserById(userId);
@@ -113,13 +113,11 @@ public class PostServiceImpl implements PostService {
            if (postCreateDto.getScheduledTime() != null && postCreateDto.getScheduledTime().isAfter(LocalDateTime.now())) { // The time is after now
                schedulePost(post, postCreateDto.getScheduledTime(), user);
                logger.info("Post scheduled successfully with title : {} at {}", postCreateDto.getTitle(), postCreateDto.getScheduledTime());
-               return postMapper.toPostGetDto(post);
            } else {
-               Post savedPost = postRepository.save(post);
+               postRepository.save(post);
                user.setPostsCount(user.getPostsCount() + 1);
                userRepository.save(user);
                logger.info("Post created successfully with title : {}", postCreateDto.getTitle());
-               return postMapper.toPostGetDto(savedPost);
            }
        } catch (Exception exception){
            logger.error("Error occurred while creating post. User ID: {}, Error: {}", userId, exception.getMessage(), exception);
