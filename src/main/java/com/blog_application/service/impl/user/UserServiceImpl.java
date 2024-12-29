@@ -449,7 +449,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserGetDto updateUser(UserUpdateDto userUpdateDto, UUID userId) throws AccessDeniedException {
+    public void updateUser(UserUpdateDto userUpdateDto, UUID userId) throws AccessDeniedException {
         logger.info("Updating user with ID : {}",userId);
 
         if(isLoggedInUserMatching(userId) && !isAdmin()){
@@ -458,7 +458,7 @@ public class UserServiceImpl implements UserService {
         }
 
         try{
-            User updatedUser = userRepository.findById(userId).map(user -> {
+            userRepository.findById(userId).map(user -> {
                 user.setName(userUpdateDto.getName());
                 user.setEmail(userUpdateDto.getEmail());
                 user.setAbout(userUpdateDto.getAbout());
@@ -472,7 +472,6 @@ public class UserServiceImpl implements UserService {
                 logger.warn("User with ID {} not found, Updated user operation not performed", userId);
                 return new ResourceNotFoundException("User","ID",String.valueOf(userId),"Update User operation not performed");
             });
-            return userMapper.toUserGetDto(updatedUser);
         } catch (Exception exception){
             logger.error("Error occurred while updating user, Error: {}", exception.getMessage(), exception);
             throw exception;
