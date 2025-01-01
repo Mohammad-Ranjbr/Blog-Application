@@ -36,7 +36,7 @@ public interface UserService {
     void createUser(UserCreateDto userCreateDto) throws IOException;
     void updateFollowedStatusForUsers(List<UserGetDto> userGetDtoList, String userEmail);
     void updateUserStatus(UUID userId, UserStatusUpdateDTO userStatusUpdateDTO) throws AccessDeniedException;
-    UserGetDto updateUser(UserUpdateDto userUpdateDto,UUID userId) throws AccessDeniedException;
+    void updateUser(UserUpdateDto userUpdateDto,UUID userId) throws AccessDeniedException;
     PaginatedResponse<UserGetDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir);
     PaginatedResponse<UserBasicInfoDto> getAllBasicUserInfo(int pageNumber, int pageSize, String sortBy, String sortDir);
 

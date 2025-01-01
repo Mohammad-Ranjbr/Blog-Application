@@ -127,7 +127,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostGetDto updatePost(PostUpdateDto postUpdateDto, Long postId) throws AccessDeniedException {
+    public void updatePost(PostUpdateDto postUpdateDto, Long postId) throws AccessDeniedException {
         logger.info("Updating post with ID : {}",postId);
 
         Post p = postRepository.findById(postId).orElseThrow(() -> {
@@ -136,7 +136,7 @@ public class PostServiceImpl implements PostService {
         });
 
         Category newCategory;
-        if(postUpdateDto.getCategoryId() != null){
+        if(postUpdateDto.getCategoryId() != null && !postUpdateDto.getCategoryId().equals(p.getCategory().getId())){
             newCategory = categoryService.getCategoryById(postUpdateDto.getCategoryId());
         } else {
             newCategory = p.getCategory();
@@ -148,7 +148,7 @@ public class PostServiceImpl implements PostService {
         }
 
         try {
-            Post updatedPost = postRepository.findById(postId).map(post -> {
+            postRepository.findById(postId).map(post -> {
                 post.setCategory(newCategory);
                 post.setTitle(postUpdateDto.getTitle());
                 post.setContent(postUpdateDto.getContent());
@@ -164,6 +164,8 @@ public class PostServiceImpl implements PostService {
                     }
                     post.setImageName(imageUrl);
                     logger.info("Image uploaded successfully for post: {}", postUpdateDto.getTitle());
+                } else {
+                    post.setImageName(p.getImageName());
                 }
 
                 logger.info("Post with ID {} updated successfully",postId);
@@ -172,7 +174,6 @@ public class PostServiceImpl implements PostService {
                 logger.warn("Post with ID {} not found, Update post operation not performed",postId);
                 return new ResourceNotFoundException("Post","ID",String.valueOf(postId),"Update Post operation not performed");
             });
-            return postMapper.toPostGetDto(updatedPost);
         } catch (Exception exception){
             logger.error("Error occurred while updating post. Post ID: {}, Error: {}", postId, exception.getMessage(), exception);
             throw exception;

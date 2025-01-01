@@ -55,11 +55,11 @@ public class UserController {
     //PUT Mapping-Update User
     @PutMapping("/{id}")
     @SecurityRequirement(name = "Jwt Token Authentication")
-    public ResponseEntity<UserGetDto> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") UUID userId) throws AccessDeniedException {
+    public ResponseEntity<ApiResponse> updateUser(@Valid @RequestBody UserUpdateDto userUpdateDto, @PathVariable("id") UUID userId) throws AccessDeniedException {
         logger.info("Received request to update user with ID : {}",userId);
-        UserGetDto updatedUser = userService.updateUser(userUpdateDto,userId);
+        userService.updateUser(userUpdateDto,userId);
         logger.info("Returning response for updated user with ID : {}",userId);
-        return new ResponseEntity<>(updatedUser,HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse("User updated successfully.", true),HttpStatus.OK);
     }
 
     //DELETE Mapping-Delete User
